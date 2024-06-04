@@ -116,6 +116,15 @@ public class Const {
 	/** 個人マスタメンテ画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_KOJIN = "KOJIN_LIST_MESSAGE";
 
+	
+	/** 成績マスタメンテ画面 DTO */
+	public static final String SESSION_LIST_DTO_SEISEKI = "SEISEKI_LIST_DTO";
+	/** 成績マスタメンテ画面 再検索値 */
+	public static final String SESSION_LIST_RE_SEARCH_SEISEKI = "SEISEKI_LIST_RE_SEARCH";
+	/** 成績マスタメンテ画面 メッセージ */
+	public static final String SESSION_LIST_MESSAGE_SEISEKI = "SEISEKI_LIST_MESSAGE";
+	
+	
 	/** 収支登録画面 戻り先 */
 	public static final String SESSION_REGIST_BACK_SHUSHI = "SHUSHI_REGIST_BACK";
 
