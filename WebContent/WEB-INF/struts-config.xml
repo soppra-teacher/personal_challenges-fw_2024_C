@@ -61,6 +61,22 @@
 			<form-property name="revision"        type="java.lang.String" />
 		</form-bean>
 
+<!--追加した部分-->
+
+<!-- ユーザーマスタ登録画面 -->
+  			<form-bean name="yuzaRegistForm"    type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="yuzaId"        type="java.lang.String" />
+			<form-property name="pass"           type="java.lang.String" />
+			<form-property name="setaiNmKey"     type="java.lang.String" />
+			<form-property name="kojinNm"        type="java.lang.String" />
+			<form-property name="kojinNmkana"    type="java.lang.String" />
+			<form-property name="seibetsuKbn"    type="java.lang.String" />
+			<form-property name="zokugaraKey"    type="java.lang.String" />
+			<form-property name="setaiNusiFlg"   type="java.lang.String" />
+			<form-property name="revision"        type="java.lang.String" />
+		</form-bean>
+<!--================================================================================================================-->
+
 		<!-- 個人マスタメンテ画面 -->
 		<form-bean name="kojinListForm"          type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="kojinId"        type="java.lang.String"  />
@@ -125,7 +141,7 @@
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="loginForm"
 			validate="true"
-			input="/jsp/common/login.jsp"
+			input="/jsp/common/LoginSample.jsp"
 			scope="request">
 			<forward name="success" path="/MenuInit.do?getKey=aaa"/>
 		</action>
@@ -133,7 +149,7 @@
 			path="/Logout"
 			type="cashbook.action.common.LogoutAction"
 			scope="request">
-			<forward name="success" path="/jsp/common/login.jsp"/>
+			<forward name="success" path="/jsp/common/LoginSample.jsp"/>
 		</action>
 
 		<!--
@@ -145,7 +161,49 @@
 			path="/MenuInit"
 			type="cashbook.action.common.MenuInitAction"
 			scope="request">
-			<forward name="success" path="/jsp/common/menu.jsp"/>
+			<forward name="success" path="/jsp/common/Samplemenu.jsp"/>
+            <!--<forward name="success" path="/jsp/common/menu.jsp"/>-->
+		</action>
+
+
+
+
+		<!--
+		****************************
+		* 新規ユーザー登録画面     *
+		****************************
+		-->
+		<!-- 初期表示 -->
+		<action
+			path="/YuzaRegistInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="yuzaRegistForm"
+			validate="false"
+			scope="request">
+			<forward name="success" path="/jsp/kojin/yuzaRegist.jsp"/>
+		</action>
+		<!-- ディスパッチ -->
+		<action
+			path="/YuzaRegistDisp"
+			type="cashbook.action.yuza.YuzaRegistDispAction"
+			name="yuzaRegistForm"
+			validate="false"
+			parameter="operation"
+			scope="request">
+			<forward name="insert" path="/YuzaRegistInsUpd.do"/>
+			<forward name="backMenu" path="/MenuInit.do"/>
+			<forward name="backList" path="/YuzaListSearch.do"/>
+		</action>
+		<!-- 登録・更新 -->
+		<action
+			path="/YuzaRegistInsUpd"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="yuzaRegistForm"
+			validate="true"
+			input="/jsp/yuza/yuzaRegist.jsp"
+			scope="request">
+			<forward name="success" path="/YuzaRegistInit.do" redirect="true" />
+			<forward name="error" path="/jsp/yuza/yuzaRegist.jsp" />
 		</action>
 
 		<!--
@@ -311,6 +369,8 @@
 			scope="request">
 			<forward name="success" path="/SetaiListSearch.do" redirect="true" />
 		</action>
+
+
 
 		<!--
 		****************************

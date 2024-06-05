@@ -1,6 +1,6 @@
 /*画面全体のスタイル*/
 html,body {
-	background-color: $ffffff;
+	background-color: #ffffff;
 }
 
 hr {
@@ -16,7 +16,7 @@ hr {
 /* ログイン画面アイコン画像 */
 .top-img {
 	height: 600px;
-	width: 600px;
+	width:  600px;
 	vertical-align: bottom;
 }
 
@@ -50,7 +50,7 @@ tr.table-header {
 
 /* ログイン画面背景色 */
 .bg-yellow {
-	background-color: rgb(255,220,0);
+	background-color: #ffffff;
 	padding: 10px 0px;
 }
 

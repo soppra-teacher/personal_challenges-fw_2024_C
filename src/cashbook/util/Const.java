@@ -101,6 +101,26 @@ public class Const {
 	/** 世帯マスタ登録画面 メッセージ  */
 	public static final String SESSION_REGIST_MESSAGE_SETAI = "SETAI_REGIST_MESSAGE";
 
+	//ユーザーマスタの定義・変更箇所//
+	/** ユーザーマスタ登録画面 DTO */
+	public static final String SESSION_REGIST_DTO_YUZA = "YUZA_REGIST_DTO";
+
+	/** ユーザーマスタ登録画面 戻り先 */
+	public static final String SESSION_REGIST_BACK_YUZA = "YUZA_REGIST_BACK";
+	/** ユーザーマスタ登録画面 再検索値 */
+	public static final String SESSION_REGIST_RE_SEARCH_YUZA = "YUZA_REGIST_RE_SEARCH";
+	/** ユーザーマスタ登録画面 メッセージ */
+	public static final String SESSION_REGIST_MESSAGE_YUZA = "YUZA_REGIST_MESSAGE";
+	/** ユーザー用エラーメッセージ1 */
+	public static final String MSG_YUZA_CONSIS_1 = "errors.yuza.seigosei1";
+	/** ユーザー用エラーメッセージ2 */
+	public static final String MSG_YUZA_CONSIS_2 = "errors.yuza.seigosei2";
+	/** ユーザーマスタ登録画面 DTO */
+	public static final String SESSION_REGIST_DTO_YUUZA = "YUZA_REGIST_DTO";
+	//======================================================================================//
+	
+	
+	//
 	/** 個人マスタ登録画面 DTO */
 	public static final String SESSION_REGIST_DTO_KOJIN = "KOJIN_REGIST_DTO";
 	/** 個人マスタ登録画面 戻り先 */
@@ -129,7 +149,6 @@ public class Const {
 	public static final String SESSION_REGIST_RE_SEARCH_SHUSHI_KOBETSU = "SHUSHI_LIST_KOBETSU_RE_SEARCH";
 	/** 収支一覧(個別)画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_SHUSHI_SETAI = "SHUSHI_LIST_SETAI_MESSAGE";
-
 
 	/************* 画面ID *************/
     /** SM001:個人マスタメンテ */
