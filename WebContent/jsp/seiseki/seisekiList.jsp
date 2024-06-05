@@ -15,6 +15,7 @@
 		ソプブーーーーーー　個人マスタメンテ
 	</title>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/sport.css" />
 	<script type="text/javascript" charset="shift_jis" src="js/common.js" ></script>
 </head>
 
@@ -51,11 +52,17 @@
 					<tr>
 						<td colspan="2" class="w-50 text-left">
 							<span class="label-title">
-								個人名
+								新規選手登録
 							</span>
-							<html:text name="inputBean" property="seisekiNm" styleClass="input-text-s" />
+							<html:text name="inputBean" property="seisekiNm" styleClass="input-text-m" />
+ 						</td>
+						<td class="w-90 text-left">
+							<html:button property="search" onclick="callAction(this.form, 'search');"
+								styleClass="button-t">
+								登録
+							</html:button>
 						</td>
-						<td colspan="2" class="w-50 text-left">
+<%-- 						<td colspan="2" class="w-50 text-left">
 							<span class="label-title">
 								個人名ｶﾅ
 							</span>
@@ -84,11 +91,11 @@
 								世帯主
 							</span>
 							<html:checkbox name='inputBean' property="setaiNusiFlg" styleClass="input-check"/>
-						</td>
+						</td> --%>
 					</tr>
 				</table>
 
-				<table class="layout-table block-center w-100">
+<%-- 				<table class="layout-table block-center w-100">
 					<tr>
 						<td class="w-25">
 							<html:button property="delete" onclick="callAction(this.form, 'delete');"
@@ -106,18 +113,18 @@
 							</html:button>
 						</td>
 					</tr>
-				</table>
+				</table> --%>
 
 				<table class="l-seiseki table mb-0" >
 					<tr class="table-header">
-						<td class="text-center l-seiseki-del">削除</td>
-						<td class="text-center l-seiseki-seiseki-id">個人ID</td>
-						<td class="text-center l-seiseki-setai-id">世帯ID</td>
-						<td class="text-center">個人名</td>
-						<td class="text-center">個人名ｶﾅ</td>
-						<td class="text-center l-seiseki-sex">性別</td>
-						<td class="text-center l-seiseki-zokugara">続柄</td>
-						<td class="text-center l-seiseki-setainushi">世帯主</td>
+<!-- 						<td class="text-center l-seiseki-del">削除</td> -->
+						<td class="text-center l-seiseki-senshu-id">選手ID</td>
+						<td class="text-center">選手名</td>
+						<td class="text-center l-seiseki-sou-inning">総イニング</td>
+						<td class="text-center l-seiseki-sou-shitten">総失点</td>
+						<td class="text-center l-seiseki-sou-jisekiten">総自責点</td>
+ 						<td class="text-center l-seiseki-bougyoritsu">防御率</td>
+<!-- 					<td class="text-center l-seiseki-setainushi">世帯主</td> -->
 					</tr>
 				</table>
 
@@ -126,36 +133,36 @@
 						<logic:notEmpty name="viewBean" property="list">
 							<logic:iterate id="list" name="viewBean" property="list">
 								<tr>
-									<td class="text-center l-seiseki-del">
+									<%-- <td class="text-center l-seiseki-del">
 										<input type="checkbox" name="checkDel" value="<bean:write name="list" property="seisekiId" />" />
-									</td>
-									<td class="l-seiseki-seiseki-id">
+									</td> --%>
+									<td class="l-seiseki-senshu-id">
 										<html:link action="/SeisekiRegistInit" paramId="seisekiId" paramName="list" paramProperty="seisekiId">
 											<bean:write name="list" property="seisekiId" />
 										</html:link>
 									</td>
-									<td class="l-seiseki-setai-id">
+									<td class="text-left">
 										<bean:write name="list" property="setaiId" />
 									</td>
-									<td class="text-left">
+									<td class="l-seiseki-sou-inning">
 										<span class="p-10">
 											<bean:write name="list" property="seisekiNm" />
 										</span>
 									</td>
-									<td class="text-left">
+									<td class="l-seiseki-sou-shitten">
 										<span class="p-10">
 											<bean:write name="list" property="seisekiNmkana" />
 										</span>
 									</td>
-									<td class="l-seiseki-sex">
+									<td class="l-seiseki-sou-jisekiten">
 										<bean:write name="list" property="seibetsuNm" />
 									</td>
-									<td class="l-seiseki-zokugara">
+ 									<td class="l-seiseki-bougyoritsu">
 										<bean:write name="list" property="zokugaraNm" />
 									</td>
-									<td class="l-seiseki-setainushi">
+<%--									<td class="l-seiseki-setainushi">
 										<bean:write name="list" property="setaiNusiNm" />
-									</td>
+									</td> --%>
 								</tr>
 							</logic:iterate>
 						</logic:notEmpty>

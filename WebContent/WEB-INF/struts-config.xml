@@ -83,6 +83,14 @@
 			<form-property name="zokugaraKey"    type="java.lang.String"  />
 			<form-property name="setaiNusiFlg"   type="java.lang.String"  />
 			<form-property name="checkDel"       type="java.lang.String[]"/>
+			
+			<form-property name="newSenshuNm"        type="java.lang.String"  />
+			<form-property name="senshuId"        type="java.lang.int"  />
+			<form-property name="senshuNm"        type="java.lang.String"  />
+			<form-property name="souInning"    type="java.lang.String"  />
+			<form-property name="souShitten" type="java.lang.String"  />
+			<form-property name="souJisekiten"    type="java.lang.String"  />
+			<form-property name="bougyoRitsu"   type="java.lang.String"  />
 		</form-bean>
 
 		<!-- 収支登録画面 -->

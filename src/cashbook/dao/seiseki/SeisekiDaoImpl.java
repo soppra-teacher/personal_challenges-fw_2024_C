@@ -153,7 +153,7 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 
 		super.update(sql.toString());
 	}
-
+	
 	/**
 	 * 成績マスタを更新する
 	 */
@@ -174,6 +174,31 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 		sql.append(" WHERE M1.SEISEKI_ID = '").append(formMap.get(SeisekiConst.KEY_SEISEKI_ID)).append("' ");
 
 		super.update(sql.toString());
+	}
+	
+	
+	
+	/**
+	 * 総成績一覧の初期表示
+	 * @return 成績マスタ
+	 */
+	public Map<String, String> firstSeiseki(Map<String, Object> formMap) {
+
+		StringBuffer sql = new StringBuffer();
+		sql.append("SELECT P.PLAYER_ID ");	// 選手ID
+		sql.append("     ,P.PLAYER_NAME ");	// 選手名
+		sql.append("     ,SUM(S.INNING) ");	// 総イニング
+		sql.append("     ,SUM(S.SITTEN) ");	// 総失点
+		sql.append("     ,SUM(S.JISEKITEN) ");	// 総自責点
+		sql.append("     ,TRUNC(SUM(S.JISEKITEN) * 9 / SUM(S.INNING),2) ");	// 防御率
+		sql.append("FROM SENSEKI_TBL S ");
+		sql.append("LEFT JOIN MST_PLAYER P ");
+		sql.append("ON S.PLAYER_ID = P.PLAYER_ID ");
+		sql.append("GROUP BY P.PLAYER_NAME,P.PLAYER_ID ");
+		//sql.append("WHERE M1.DEL_FLG  = '0' "); 登録者とユーザーIDの合致確認
+		sql.append("ORDER BY P.PLAYER_ID");
+
+		return super.find(sql.toString());
 	}
 
 	/**

@@ -29,4 +29,25 @@ public class SeisekiConst {
 	public static final String KEY_SEIBETSU_KBN = "seibetsuKbn";
 	/** キー値：パス */
 	public static final String KEY_PASS = "pass";
+	
+	
+	
+	/*----------新キー値---------*/
+	/** キー値：新規選手登録 */
+	public static final String KEY_NEW_SENSHU_NM = "newSenshuNm";
+	/** キー値：選手ID */
+	public static final String KEY_SENSHU_ID = "senshuId";
+	/** キー値：性別区分 */
+	public static final String KEY_SENSHU_NM = "senshuNm";
+	/** キー値：性別区分 */
+	public static final String KEY_SOU_INNING = "souInning";
+	/** キー値：性別区分 */
+	public static final String KEY_SOU_SHITTEN= "souShitten";
+	/** キー値：性別区分 */
+	public static final String KEY_SOU_JISEKITEN = "souJisekiten";
+	/** キー値：性別区分 */
+	public static final String KEY_BOUGYO_RITSU = "bougyoRitsu";
+	
+	
+	
 }

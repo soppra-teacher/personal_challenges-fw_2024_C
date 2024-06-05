@@ -1,6 +1,6 @@
 /*画面全体のスタイル*/
 html,body {
-	background-color: $ffffff;
+	background-color: ffffff;
 }
 
 hr {
@@ -248,11 +248,26 @@ div.header {
 	width: 90%;
 	height: 40px;
 	margin: 10px auto; /* 上下10px 左右auto */
+	background-color: red;
+}
+
+.btn-2 {
+	display: block;
+	width: 90%;
+	height: 40px;
+	margin: 10px auto; /* 上下10px 左右auto */
 }
 
 /* ボタン */
 .btn-l {
 	width: 200px;
+}
+
+/* 登録ボタン */
+.button-t {
+	width: 240px;
+	height: 80px;
+	margin: 50px;
 }
 
 
@@ -375,6 +390,8 @@ td {
 .l-kojin-setainushi {
 	width: 70px;
 }
+
+
 /* 世帯一覧用 */
 .l-setai {
 	width: 743px;

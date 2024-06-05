@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import cashbook.dto.common.BaseDto;
-import cashbook.dto.seiseki.SeisekiRegistDto;
 
 public class SeisekiListDto extends BaseDto {
 
@@ -34,6 +33,42 @@ public class SeisekiListDto extends BaseDto {
 
 	/** 成績マスタ一覧 */
 	private List<SeisekiRegistDto> list;
+	
+	
+	
+	
+	
+	/** 新規選手登録 */
+	private String newSenshuNm;
+	
+	
+	/** 選手ID */
+	private int senshuId;
+	
+	/** 選手名 */
+	private String senshuNm;
+	
+	/** 総イニング */
+	private String souIning;
+	
+	/** 総失点 */
+	private String souShitten;
+	
+	/** 総自責点 */
+	private String souJisekiten;
+	
+	/** 防御率 */
+	private String bougyoRitsu;
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
 
 	public String getSeisekiId() {
 		return seisekiId;
@@ -104,6 +139,67 @@ public class SeisekiListDto extends BaseDto {
 	}
 	public void setList(List<SeisekiRegistDto> list) {
 		this.list = list;
+	}
+	
+	
+	
+	
+	
+	
+	public int getnewSenshuNmId() {
+		return senshuId;
+	}
+
+	public void setnewSenshuNmId(int senshuId) {
+		this.senshuId = senshuId;
+	}
+	
+	public String getnewSenshuNm() {
+		return newSenshuNm;
+	}
+
+	public void setnewSenshuNm(String newSenshuNm) {
+		this.newSenshuNm = newSenshuNm;
+	}
+	
+	public String getsenshuNm() {
+		return senshuNm;
+	}
+
+	public void setsenshuNm(String senshuNm) {
+		this.senshuNm = senshuNm;
+	}
+	
+	public String getsouIning() {
+		return souIning;
+	}
+
+	public void setsouIning(String souIning) {
+		this.souIning = souIning;
+	}
+	
+	public String getsouShitten() {
+		return souShitten;
+	}
+
+	public void setsouShitten(String souShitten) {
+		this.souShitten = souShitten;
+	}
+	
+	public String getsouJisekiten() {
+		return souJisekiten;
+	}
+
+	public void setsouJisekiten(String souJisekiten) {
+		this.souJisekiten = souJisekiten;
+	}
+	
+	public String getbougyoRitsu() {
+		return bougyoRitsu;
+	}
+
+	public void setbougyoRitsu(String bougyoRitsu) {
+		this.bougyoRitsu = bougyoRitsu;
 	}
 
 
