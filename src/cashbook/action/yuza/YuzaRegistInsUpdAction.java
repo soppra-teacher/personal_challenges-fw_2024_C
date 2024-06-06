@@ -14,31 +14,31 @@ import org.apache.struts.action.DynaActionForm;
 
 import cashbook.action.common.BaseAction;
 import cashbook.dto.common.LoginDto;
-import cashbook.service.kojin.KojinService;
+import cashbook.service.yuza.YuzaService;
 import cashbook.util.CommonUtil;
-import cashbook.util.KojinConst;
 import cashbook.util.SetaiConst;
+import cashbook.util.YuzaConst;
 
 /**
- * 個人マスタ登録画面 登録・更新アクションクラス
+ * ユーザーマスタ登録画面 登録・更新アクションクラス
  * @author soppra
  */
-public class KojinRegistInsUpdAction extends BaseAction {
+public class YuzaRegistInsUpdAction extends BaseAction {
 
-	/** 個人マスタサービス */
-	private KojinService kojinService;
+	/** ユーザーマスタサービス */
+	private YuzaService yuzaService;
 
 	/**
-	 * 個人マスタサービスを設定します。
-	 * @param kojinService 個人マスタサービス
+	 * ユーザーマスタサービスを設定します。
+	 * @param yuzaService ユーザーマスタサービス
 	 */
-	public void setKojinService(KojinService kojinService) {
-		this.kojinService = kojinService;
+	public void setYuzaService(YuzaService yuzaService) {
+		this.yuzaService = yuzaService;
 	}
 
 	/**
 	 * <p>
-	 * 個人マスタ登録画面
+	 * ユーザーマスタ登録画面
 	 * <br>登録・更新処理
 	 * </p>
 	 *
@@ -57,34 +57,34 @@ public class KojinRegistInsUpdAction extends BaseAction {
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 
 		// 世帯主フラグ有無チェック
-		if (SETAINUSHI_FLG_ON.equals(formMap.get(KojinConst.KEY_SETAINUSI_FLG))) {
+		if (SETAINUSHI_FLG_ON.equals(formMap.get(YuzaConst.KEY_SETAINUSI_FLG))) {
 			// チェック済みの場合、パラメータを"1"に設定する。
-			formMap.put(KojinConst.KEY_SETAINUSI_FLG_VALUE, SETAINUSHI_ON);
+			formMap.put(YuzaConst.KEY_SETAINUSI_FLG_VALUE, SETAINUSHI_ON);
 
 		} else {
 			// 未チェック済の場合、パラメータを"0"に設定する。
-			formMap.put(KojinConst.KEY_SETAINUSI_FLG_VALUE, SETAINUSHI_OFF);
+			formMap.put(YuzaConst.KEY_SETAINUSI_FLG_VALUE, SETAINUSHI_OFF);
 
 		}
 
 		// 世帯ＩＤを設定する
 		formMap.put(SetaiConst.KEY_SETAI_ID, formMap.get(SetaiConst.KEY_SETAI_NM_KEY));
 		// 登録・更新
-		kojinService.registInsUpd(formMap, loginDto);
+		yuzaService.registInsUpd(formMap, loginDto);
 
 		// フォーム．リビジョンが未設定の場合
 		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(ITEM_REVISION)))) {
 			// 登録成功メッセージをセッションに設定
-			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_KOJIN, MSG_SUCCESS_INSERT);
+			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_YUZA, MSG_SUCCESS_INSERT);
 
 		} else {
 			// 更新成功メッセージをセッションに設定
-			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_KOJIN, MSG_SUCCESS_UPDATE);
+			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_YUZA, MSG_SUCCESS_UPDATE);
 
 		}
 
 		// 検索条件をセッションに保持（再検索用）
-		request.getSession().setAttribute(SESSION_REGIST_RE_SEARCH_KOJIN, formMap);
+		request.getSession().setAttribute(SESSION_REGIST_RE_SEARCH_YUZA, formMap);
 
 		return map.findForward(ACTION_FOWARD_SUCCESS);
 	}

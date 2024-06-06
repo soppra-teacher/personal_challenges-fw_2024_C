@@ -103,6 +103,27 @@ public class YuzaServiceImpl implements YuzaService {
 	/**
 	 * 登録画面初期表示メソッド
 	 */
+	
+	
+	
+	
+	
+	
+	public YuzaRegistDto registInit() {
+		YuzaRegistDto result = new YuzaRegistDto();
+		
+			// 続柄区分コンボボックスの設定
+		result.setZokugara(commonDao.getCode(CD_BUNRUI_003));
+		// 世帯名コンボボックスの設定
+		result.setSetaiNm(setaiDao.searchSelectboxSetai());
+		
+		return result;
+	}
+	
+	
+	
+	
+	
 	public YuzaRegistDto registInit(Map<String, Object> formMap) {
 
 		YuzaRegistDto result = new YuzaRegistDto();

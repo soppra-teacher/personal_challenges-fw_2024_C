@@ -57,6 +57,13 @@
       <ref local="dataSource" />
     </property>
   </bean>
+  
+    <!-- ユーザーマスタ -->
+   <bean id="YuzaDaoId" class="cashbook.dao.yuza.YuzaDaoImpl">
+    <property name="dataSource">
+      <ref local="dataSource" />
+    </property>
+  </bean>
 
   <!-- 世帯マスタ -->
    <bean id="SetaiDaoId" class="cashbook.dao.setai.SetaiDaoImpl">
@@ -97,6 +104,19 @@
     </property>
     <property name="kojinDao">
       <ref local="KojinDaoId" />
+    </property>
+  </bean>
+  
+      <!-- ユーザーマスタ -->
+  <bean id="YuzaServiceId" class="cashbook.service.yuza.YuzaServiceImpl">
+    <property name="commonDao">
+      <ref local="CommonDaoId" />
+    </property>
+    <property name="setaiDao">
+      <ref local="SetaiDaoId" />
+    </property>
+    <property name="yuzaDao">
+      <ref local="YuzaDaoId" />
     </property>
   </bean>
 
@@ -163,6 +183,17 @@
       <ref local="KojinServiceId" />
     </property>
   </bean>
+  
+<!--  新規作成  -->
+<!--    ユーザー登録 -->
+  <bean name="/YuzaRegistInit" class="cashbook.action.yuza.YuzaRegistInitAction">
+    <property name="yuzaService">
+      <ref local="YuzaServiceId" />
+    </property>
+  </bean>
+  
+
+  
 
   <!-- 世帯マスタメンテ -->
   <bean name="/SetaiListInit" class="cashbook.action.setai.SetaiListInitAction">

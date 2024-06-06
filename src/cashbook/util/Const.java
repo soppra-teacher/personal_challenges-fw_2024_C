@@ -101,22 +101,20 @@ public class Const {
 	/** 世帯マスタ登録画面 メッセージ  */
 	public static final String SESSION_REGIST_MESSAGE_SETAI = "SETAI_REGIST_MESSAGE";
 
-	//ユーザーマスタの定義・変更箇所//
-	/** ユーザーマスタ登録画面 DTO */
+	//新規ユーザー登録の定義・変更箇所//
+	/** 新規ユーザー登録画面 DTO */
 	public static final String SESSION_REGIST_DTO_YUZA = "YUZA_REGIST_DTO";
-
-	/** ユーザーマスタ登録画面 戻り先 */
+	/** 新規ユーザー登録画面 戻り先 */
 	public static final String SESSION_REGIST_BACK_YUZA = "YUZA_REGIST_BACK";
-	/** ユーザーマスタ登録画面 再検索値 */
+	/** 新規ユーザー登録画面 再検索値 */
 	public static final String SESSION_REGIST_RE_SEARCH_YUZA = "YUZA_REGIST_RE_SEARCH";
-	/** ユーザーマスタ登録画面 メッセージ */
+	/** 新規ユーザー登録画面 メッセージ */
 	public static final String SESSION_REGIST_MESSAGE_YUZA = "YUZA_REGIST_MESSAGE";
-	/** ユーザー用エラーメッセージ1 */
+	/** 新規ユーザー用エラーメッセージ1 */
 	public static final String MSG_YUZA_CONSIS_1 = "errors.yuza.seigosei1";
-	/** ユーザー用エラーメッセージ2 */
+	/** 新規ユーザー用エラーメッセージ2 */
 	public static final String MSG_YUZA_CONSIS_2 = "errors.yuza.seigosei2";
-	/** ユーザーマスタ登録画面 DTO */
-	public static final String SESSION_REGIST_DTO_YUUZA = "YUZA_REGIST_DTO";
+	
 	//======================================================================================//
 	
 	

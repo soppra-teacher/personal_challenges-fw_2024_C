@@ -17,7 +17,8 @@ public class YuzaConst {
 	public static final String KEY_YUZA_NM = "yuzaNm";
 	/** キー値：ユーザー名カナ */
 	public static final String KEY_YUZA_NM_KANA = "yuzaNmkana";
-	/** キー値：世帯主フラグ */
+	
+	/** キー値：世帯主フラグ */ 
 	public static final String KEY_SETAINUSI_FLG = "setaiNusiFlg";
 	/** キー値：世帯主フラグ値 */
 	public static final String KEY_SETAINUSI_FLG_VALUE = "setaiNusiFlgValue";

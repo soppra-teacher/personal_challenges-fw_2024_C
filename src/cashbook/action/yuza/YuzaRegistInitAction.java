@@ -22,7 +22,7 @@ import cashbook.util.CommonUtil;
 import cashbook.util.YuzaConst;
 
 /**
- * ユーザー登録画面 初期表示アクションクラス
+ * ユーザーマスタ登録画面 初期表示アクションクラス
  * @author soppra
  */
 public class YuzaRegistInitAction extends BaseAction {

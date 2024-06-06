@@ -39,7 +39,16 @@ public interface YuzaService {
 	 * @return
 	 */
 	public YuzaRegistDto registInit(Map<String, Object> formMap);
+	
+	
+	
+	
+	public YuzaRegistDto registInit();
 
+	
+	
+	
+	
 	/**
 	 *
 	 * @param formMap

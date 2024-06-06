@@ -12,7 +12,7 @@
   <meta content="ja" http-equiv="Content-Language" />
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <title>
-    スポーツDATA　新規ユーザー登録
+    ソプブーのマネーノート　個人マスタ登録
   </title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
 <script language="JavaScript" type="text/javascript" charset="shift_jis" src="js/common.js" ></script>
@@ -21,12 +21,12 @@
 <!-- フォーカスセット -->
 <script type="text/javascript">
   window.onload = function(){
-    var eleRevision = document.kojinRegistForm.revision;
-    var eleKojinId  = document.kojinRegistForm.kojinId;
-    var elePassword = document.kojinRegistForm.pass;
+    var eleRevision = document.yuzaRegistForm.revision;
+    var eleYuzaId  = document.yuzaRegistForm.yuzaId;
+    var elePassword = document.yuzaRegistForm.pass;
 
     if (eleRevision.defaultValue == ""){
-      eleKojinId.focus();
+      eleYuzaId.focus();
     } else {
       elePassword.focus();
     }
@@ -36,13 +36,13 @@
 
 <body>
 
-  <bean:define id="inputBean" name="kojinRegistForm" />
-  <bean:define id="viewBean" name="KOJIN_REGIST_DTO" />
-  <bean:define id="backAction" name="KOJIN_REGIST_BACK" type="java.lang.String" />
+  <bean:define id="inputBean" name="yuzaRegistForm" />
+  <bean:define id="viewBean" name="YUZA_REGIST_DTO" />
+  <bean:define id="backAction" name="YUZA_REGIST_BACK" type="java.lang.String" />
 
   <div class="base-width text-center">
 
-    <html:form action="/KojinRegistDisp" focus="kojinId">
+    <html:form action="/YuzaRegistDisp" focus="yuzaId">
 
       <jsp:include page="/jsp/common/header.jsp">
         <jsp:param name="screenTitle" value="個人マスタ登録"/>
@@ -75,10 +75,10 @@
               </td>
               <td class="w-75 text-left">
                 <logic:empty name="viewBean" property="revision">
-                  <html:text name="inputBean" property="kojinId" styleClass="input-text-s" />
+                  <html:text name="inputBean" property="yuzaId" styleClass="input-text-s" />
                 </logic:empty>
                 <logic:notEmpty name="viewBean" property="revision">
-                  <html:text name="inputBean" property="kojinId" styleClass="input-text-s" readonly="true" />
+                  <html:text name="inputBean" property="yuzaId" styleClass="input-text-s" readonly="true" />
                 </logic:notEmpty>
               </td>
             </tr>
@@ -93,18 +93,19 @@
                 <html:password name="inputBean" property="pass" styleClass="input-text-m" />
               </td>
             </tr>
-            <tr>
+           <tr>
               <td class="w-25 text-right">
                 <span class="label-title">
                   パスワード再入力
                 </span>
               </td>
               <td class="w-75 text-left">
-                <html:select name="inputBean" property="pass" styleClass="input-text-m" >
-                  <html:optionsCollection name="viewBean" property="setaiNm" value="key" label="value" />
-                </html:select>
+                <html:password name="inputBean" property="pass" styleClass="input-text-m" />
               </td>
             </tr>
+
+          </table>
+        </div>
 
         <div class="block-center">
           <logic:empty name="viewBean" property="revision">
@@ -113,6 +114,10 @@
             </html:button>
           </logic:empty>
           <logic:notEmpty name="viewBean" property="revision">
+            <html:button property="insert" styleClass="btn btn-l" onclick="callAction(this.form, 'update');">
+              更新
+            </html:button>
+          </logic:notEmpty>
         </div>
 
         <div class="block-center">

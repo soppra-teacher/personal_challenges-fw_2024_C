@@ -54,14 +54,17 @@
 				</table>
 
 				<html:submit value="ログイン" styleClass="btn" tabindex="3" />
-				
+				</html:form>
 				<p>
-					<html:link action="/YuzaRegistInit" >新規ユーザー登録はこちらから</html:link>
-				</p>
+				<html:form action="/KojinRegistDisp" focus="kojinId">
 				
+					<html:link action="/KojinRegistInit" >個人登録はこちらから</html:link>
+					</html:form>
+				</p>
 			</div>
-
-		</html:form>
+		         <p>
+					<html:link action="/YuzaRegistInit">選手登録画面</html:link>
+				</p>
 	</div>
 </body>
 </html:html>

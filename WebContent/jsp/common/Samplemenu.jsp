@@ -63,6 +63,14 @@
 						</p>
 					</td>
 				</tr>
+				
+				<tr>
+					<td>
+						<p>
+							<html:link action="/KojinRegistInit">個人マスタ登録画面</html:link>
+						</p>
+					</td>
+				</tr>
 			</table>
 			<jsp:include page="/jsp/common/footer.jsp" />
 		</div>
