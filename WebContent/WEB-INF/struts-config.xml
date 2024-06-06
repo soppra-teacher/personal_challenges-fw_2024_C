@@ -60,6 +60,31 @@
 			<form-property name="setaiNusiFlg"   type="java.lang.String" />
 			<form-property name="revision"        type="java.lang.String" />
 		</form-bean>
+		
+		
+		
+		
+		
+		
+
+		  <!-- 個人戦績-->
+		<form-bean name="sensekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="sensekiId"        type="java.lang.String"  />
+			<form-property name="setaiId"        type="java.lang.String"  />
+			<form-property name="sensekiNm"        type="java.lang.String"  />
+			<form-property name="sensekiNmkana"    type="java.lang.String"  />
+			<form-property name="seibetsuKbnKey" type="java.lang.String"  />
+			<form-property name="zokugaraKey"    type="java.lang.String"  />
+			<form-property name="setaiNusiFlg"   type="java.lang.String"  />
+			<form-property name="checkDel"       type="java.lang.String[]"/>
+		</form-bean>
+
+		
+		
+		
+		
+		
+		
 
 		<!-- 個人マスタメンテ画面 -->
 		<form-bean name="kojinListForm"          type="org.apache.struts.validator.DynaValidatorForm">
@@ -350,6 +375,65 @@
 			<forward name="success" path="/KojinRegistInit.do" redirect="true" />
 			<forward name="error" path="/jsp/kojin/kojinRegist.jsp" />
 		</action>
+		
+		
+		
+		
+		
+		
+		
+		
+		<!--
+		****************************
+		* 個人戦績画面     *
+		****************************
+		-->
+		<!-- 初期表示 -->
+		<action
+			path="/SensekiListInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			scope="request">
+			<forward name="success" path="/jsp/senseki/sensekiList.jsp"/>
+		</action>
+		<!--  ディスパッチ -->
+		<action
+			path="/SensekiListDisp"
+			type="cashbook.action.senseki.SensekiListDispAction"
+			name="sensekiListForm"
+			validate="false"
+			parameter="operation"
+			scope="request">
+			<forward name="search" path="/SensekiListSearch.do"/>
+			<forward name="delete" path="/SensekiListDelete.do"/>
+		</action>
+		 <!-- 検索 -->
+		<action
+			path="/SensekiListSearch"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="sensekiListForm"
+			validate="true"
+			input="/jsp/senseki/sensekiList.jsp"
+			scope="request">
+			<forward name="success" path="/jsp/senseki/sensekiList.jsp"/>
+		</action>
+		 <!-- 削除 -->
+		<action
+			path="/SensekiListDelete"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="sensekiListForm"
+			validate="false"
+			input="/jsp/senseki/sensekiList.jsp"
+			scope="request">
+			<forward name="success" path="/SensekiListSearch.do" redirect="true" />
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		
 
 		<!--
 		****************************

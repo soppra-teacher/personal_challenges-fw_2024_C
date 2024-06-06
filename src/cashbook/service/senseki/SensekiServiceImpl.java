@@ -1,4 +1,4 @@
-package cashbook.service.kojin;
+package cashbook.service.senseki;
 
 import static cashbook.util.Const.*;
 
@@ -8,82 +8,66 @@ import java.util.List;
 import java.util.Map;
 
 import cashbook.dao.common.CommonDao;
-import cashbook.dao.kojin.KojinDao;
+import cashbook.dao.senseki.SensekiDao;
 import cashbook.dao.setai.SetaiDao;
 import cashbook.dto.common.LoginDto;
-import cashbook.dto.kojin.KojinListDto;
-import cashbook.dto.kojin.KojinRegistDto;
+import cashbook.dto.senseki.SensekiListDto;
+import cashbook.dto.senseki.SensekiRegistDto;
 import cashbook.exception.CommonValidateException;
 import cashbook.util.CommonUtil;
 import cashbook.util.Const;
-import cashbook.util.KojinConst;
+import cashbook.util.SensekiConst;
 
 /**
  * 個人マスタサービス
  * @author soppra
  */
-public class KojinServiceImpl implements KojinService {
+public class SensekiServiceImpl implements SensekiService {
 
 	/** 世帯マスタDao */
 	private SetaiDao setaiDao;
 
 	/** 個人マスタDao */
-	private KojinDao kojinDao;
+	private SensekiDao sensekiDao;
 
 	/** 共通Dao */
 	private CommonDao commonDao;
+	
+	/** 個人マスタDao */
+	//private KojinDao kojinDao;
 
 	/**
 	 * 一覧画面初期表示メソッド
 	 */
-	public KojinListDto listInit() {
-		KojinListDto result = new KojinListDto();
+	public SensekiListDto listInit(Map<String, Object> formMap) {
+		SensekiListDto result = new SensekiListDto();
 		// 性別コンボボックスの設定
 		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定
 		result.setzokugara(commonDao.getCode(CD_BUNRUI_003));
 		
-		result.setKojinNm(KojinConst.KEY_KOJIN_NM);
+		//result.setSensekiNm(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM)));
 		
+
 		
-		
-		
-		
-		
-		
-	
-		
-		
-		
-		
-		
-		
-		
-		
-				
 		return result;
 	}
 
 	/**
 	 * 一覧画面検索メソッド
 	 */
-	public KojinListDto listSearch(Map<String, Object> formMap) {
+	public SensekiListDto listSearch(Map<String, Object> formMap) {
+		System.out.println("-----------------一覧画面検索メソッド-------------------------");
 		//------------------------------------------
 		// ヘッダ
 		//------------------------------------------
-		KojinListDto result = new KojinListDto();
+		SensekiListDto result = new SensekiListDto();
 		// 入力項目を保持
-//		result.setKojinNm(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_NM)));
-//		result.setKojinNmkana(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_NM_KANA)));
-//		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get(KojinConst.KEY_SEIBETSU_KBN_KEY)));
-//		result.setZokugaraKey(CommonUtil.getStr(formMap.get(KojinConst.KEY_ZOKUGARA)));
-//		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get(KojinConst.KEY_SETAINUSI_FLG)));
-		
-		result.setKojinNm(CommonUtil.getStr(formMap.get("")));
-		result.setKojinNmkana(CommonUtil.getStr(formMap.get("")));
-		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get("")));
-		result.setZokugaraKey(CommonUtil.getStr(formMap.get("")));
-		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get("0")));
+		result.setSensekiNm(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM)));
+		result.setSensekiNmkana(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)));
+		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SEIBETSU_KBN_KEY)));
+		result.setZokugaraKey(CommonUtil.getStr(formMap.get(SensekiConst.KEY_ZOKUGARA)));
+		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SETAINUSI_FLG)));
 		// 性別区分コンボボックスの設定
 		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定
@@ -92,26 +76,26 @@ public class KojinServiceImpl implements KojinService {
 		//------------------------------------------
 		// 一覧
 		//------------------------------------------
-		List<KojinRegistDto> KojinList = new ArrayList<KojinRegistDto>();
+		List<SensekiRegistDto> SensekiList = new ArrayList<SensekiRegistDto>();
 		// 検索処理
-		List<Map<String, String>> list = kojinDao.searchKojin(formMap);
+		List<Map<String, String>> list = sensekiDao.searchSenseki(formMap);
 		Iterator<Map<String, String>> it = list.iterator();
 		while (it.hasNext()) {
 			Map<String, String> map = it.next();
-			KojinRegistDto dto = new KojinRegistDto();
-			dto.setKojinId(map.get("KOJIN_ID"));
+			SensekiRegistDto dto = new SensekiRegistDto();
+			dto.setSensekiId(map.get("SENSEKI_ID"));
 			dto.setSetaiId(map.get("SETAI_ID"));
-			dto.setKojinNm(map.get("KOJIN_NM"));
-			dto.setKojinNmkana(map.get("KOJIN_NM_KANA"));
+			dto.setSensekiNm(map.get("SENSEKI_NM"));
+			dto.setSensekiNmkana(map.get("SENSEKI_NM_KANA"));
 			dto.setSeibetsuNm(commonDao.getCode(CD_BUNRUI_002).get(map.get("SEIBETSU_KBN")));
 			dto.setZokugaraNm(commonDao.getCode(CD_BUNRUI_003).get(map.get("ZOKUGARA")));
 			dto.setSetaiNusiFlg(map.get("SETAINUSHI_FLG"));
 			if (SETAINUSHI_ON.equals(map.get("SETAINUSHI_FLG"))) {
 				dto.setSetaiNusiNm(commonDao.getCodeName(CD_BUNRUI_004, CD_004_1));
 			}
-			KojinList.add(dto);
+			SensekiList.add(dto);
 		}
-		result.setList(KojinList);
+		result.setList(SensekiList);
 		return result;
 	}
 
@@ -119,18 +103,18 @@ public class KojinServiceImpl implements KojinService {
 	 * 一覧画面削除メソッド
 	 */
 	public void listDelete(Map<String, Object> formMap, LoginDto loginDto) {
-		List<String> list = CommonUtil.convFormMapToList(formMap);
-		for (String checkDel : list) {
-			kojinDao.deleteKojin(checkDel, loginDto);
-		}
+//		List<String> list = CommonUtil.convFormMapToList(formMap);
+//		for (String checkDel : list) {
+//			kojinDao.deleteKojin(checkDel, loginDto);
+//		}
 	}
 
 	/**
 	 * 登録画面初期表示メソッド
 	 */
-	public KojinRegistDto registInit(Map<String, Object> formMap) {
+	public SensekiRegistDto registInit(Map<String, Object> formMap) {
 
-		KojinRegistDto result = new KojinRegistDto();
+		SensekiRegistDto result = new SensekiRegistDto();
 
 		// 続柄区分コンボボックスの設定
 		result.setZokugara(commonDao.getCode(CD_BUNRUI_003));
@@ -138,14 +122,14 @@ public class KojinServiceImpl implements KojinService {
 		result.setSetaiNm(setaiDao.searchSelectboxSetai());
 
 		// 更新モードの場合は、対象の個人マスタを取得する
-		if (formMap != null && !CommonUtil.isNull(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_ID)))) {
-			Map<String, String> map = kojinDao.findKojin(formMap);
+		if (formMap != null && !CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_ID)))) {
+			Map<String, String> map = sensekiDao.findSenseki(formMap);
 			if (map != null) {
-				result.setKojinId(map.get("KOJIN_ID"));
+				result.setSensekiId(map.get("SENSEKI_ID"));
 				result.setSetaiNmKey(map.get("SETAI_ID"));
 				result.setPass(map.get("PASS"));
-				result.setKojinNm(map.get("KOJIN_NM"));
-				result.setKojinNmkana(map.get("KOJIN_NM_KANA"));
+				result.setSensekiNm(map.get("SENSEKI_NM"));
+				result.setSensekiNmkana(map.get("SENSEKI_NM_KANA"));
 				result.setSeibetsuKbn(map.get("SEIBETSU_KBN"));
 				result.setZokugaraKey(map.get("ZOKUGARA"));
 				if (SETAINUSHI_ON.equals(map.get("SETAINUSHI_FLG"))) {
@@ -166,9 +150,9 @@ public class KojinServiceImpl implements KojinService {
 	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception {
 
 		// 世帯主フラグ="1" 且つ 世帯主チェック
-		if (SETAINUSHI_ON.equals(formMap.get(KojinConst.KEY_SETAINUSI_FLG_VALUE))
-				&& formMap.get(KojinConst.KEY_SETAINUSI_FLG_VALUE) != null &&
-				kojinDao.checkSetainushiFlg(formMap)) {
+		if (SETAINUSHI_ON.equals(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE))
+				&& formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE) != null &&
+				sensekiDao.checkSetainushiFlg(formMap)) {
 			throw new CommonValidateException(MSG_KOJIN_CONSIS_1);
 		}
 
@@ -180,19 +164,19 @@ public class KojinServiceImpl implements KojinService {
 		// 登録の場合
 		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(Const.ITEM_REVISION)))) {
 			// 存在チェック
-			if (!kojinDao.checkOverlapKojin(formMap)) {
+			if (!sensekiDao.checkOverlapSenseki(formMap)) {
 				throw new CommonValidateException(MSG_ERRORS_PRIMARY_KEY);
 			}
 			// 登録処理
-			kojinDao.registKojin(formMap, loginDto);
+			sensekiDao.registSenseki(formMap, loginDto);
 			// 更新の場合
 		} else {
 			// 排他処理
-			if (!kojinDao.lockKojin(formMap)) {
+			if (!sensekiDao.lockSenseki(formMap)) {
 				throw new CommonValidateException(MSG_ERRORS_DATA_LOCK);
 			}
 			// 更新処理
-			kojinDao.updateKojin(formMap, loginDto);
+			sensekiDao.updateSenseki(formMap, loginDto);
 		}
 	}
 
@@ -203,8 +187,8 @@ public class KojinServiceImpl implements KojinService {
 	 */
 	private boolean check2(Map<String, Object> formMap) {
 		boolean bRet = false;
-		String seibetsuKbn = CommonUtil.getStr(formMap.get(KojinConst.KEY_SEIBETSU_KBN));
-		String zokugaraKbn = CommonUtil.getStr(formMap.get(KojinConst.KEY_ZOKUGARA));
+		String seibetsuKbn = CommonUtil.getStr(formMap.get(SensekiConst.KEY_SEIBETSU_KBN));
+		String zokugaraKbn = CommonUtil.getStr(formMap.get(SensekiConst.KEY_ZOKUGARA));
 
 		// 性別・続柄の相関チェック
 		// 続柄がブランクの場合は、チェックを行わない
@@ -231,10 +215,10 @@ public class KojinServiceImpl implements KojinService {
 
 	/**
 	 * DAOのsetter
-	 * @param kojinDao
+	 * @param sensekiDao
 	 */
-	public void setKojinDao(KojinDao kojinDao) {
-		this.kojinDao = kojinDao;
+	public void setSensekiDao(SensekiDao sensekiDao) {
+		this.sensekiDao = sensekiDao;
 	}
 
 	/**
@@ -251,6 +235,23 @@ public class KojinServiceImpl implements KojinService {
 	 */
 	public void setCommonDao(CommonDao commonDao) {
 		this.commonDao = commonDao;
+	}
+
+	@Override
+	public SensekiListDto listInit() {
+		// TODO 自動生成されたメソッド・スタブ
+		
+		SensekiListDto result = new SensekiListDto();
+		// 性別コンボボックスの設定
+		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
+		// 続柄区分コンボボックスの設定
+		result.setzokugara(commonDao.getCode(CD_BUNRUI_003));
+		
+		//result.setSensekiNm(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM)));
+		
+
+		
+		return  result;
 	}
 
 }

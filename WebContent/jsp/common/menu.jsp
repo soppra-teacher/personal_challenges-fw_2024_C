@@ -115,7 +115,13 @@
 							&nbsp;
 						</p>
 					</td>
-				</tr>
+					
+					<td class="plr-20">
+							<p>
+								<html:link action="/SensekiListInit">å¬êlêÌê—</html:link>
+							</p>
+						</td>					
+					</tr>
 
 				<tr>
 					<td>
