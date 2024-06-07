@@ -47,4 +47,11 @@ public interface SeisekiService {
 	 * @throws Exception
 	 */
 	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception;
+	
+	/**
+	 * @param formMap
+	 * @param loginDto
+	 * @throws Exception
+	 */
+	public void registNewSenshu(Map<String, Object> formMap, LoginDto loginDto) throws Exception;
 }

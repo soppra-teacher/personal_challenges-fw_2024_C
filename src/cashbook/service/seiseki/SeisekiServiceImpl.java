@@ -170,6 +170,19 @@ public class SeisekiServiceImpl implements SeisekiService {
 			seisekiDao.updateSeiseki(formMap, loginDto);
 		}
 	}
+	
+	/**
+	 * 新規選手登録メソッド
+	 * @throws CommonValidateException
+	 */
+	public void registNewSenshu(Map<String, Object> formMap, LoginDto loginDto) throws Exception {
+
+		// 登録処理
+		seisekiDao.registSenshu(formMap, loginDto);
+	}
+	
+	
+	
 
 	/**
 	 * 登録画面登録・更新メソッド

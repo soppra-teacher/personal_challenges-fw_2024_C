@@ -19,8 +19,8 @@
 	<script type="text/javascript" charset="shift_jis" src="js/common.js" ></script>
 </head>
 
-<body onload="setDeleteButton();">
-
+<body>
+<!--  onload="setDeleteButton();" -->
 	<bean:define id="inputBean" name="seisekiListForm" />
 	<bean:define id="viewBean" name="SEISEKI_LIST_DTO" />
 
@@ -54,12 +54,18 @@
 							<span class="label-title">
 								êVãKëIéËìoò^
 							</span>
-							<html:text name="inputBean" property="seisekiNm" styleClass="input-text-m" />
+							<html:text name="inputBean" property="newSenshuNm" styleClass="input-text-m" />
  						</td>
 						<td class="w-90 text-left">
-							<html:button property="search" onclick="callAction(this.form, 'search');"
+							<html:button property="delete" onclick="callAction(this.form, 'delete');"
 								styleClass="button-t">
 								ìoò^
+							</html:button>
+						</td>
+						<td class="w-25">
+							<html:button property="search" onclick="callAction(this.form, 'search');"
+								styleClass="btn btn-l">
+								åüçı
 							</html:button>
 						</td>
 <%-- 						<td colspan="2" class="w-50 text-left">

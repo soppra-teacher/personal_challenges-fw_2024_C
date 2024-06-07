@@ -154,6 +154,38 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 		super.update(sql.toString());
 	}
 	
+	
+	/**
+	 * 選手マスタを登録する
+	 * @throws Exception
+	 */
+	public void registSenshu(Map<String, Object> formMap, LoginDto loginDto) {
+		
+		System.out.println("選手登録実行開始");
+		System.out.println(formMap);
+		
+		StringBuffer sql = new StringBuffer();
+		sql.append(" INSERT INTO MST_PLAYER M1 ( ");
+		sql.append("     M1.PLAYER_ID ");
+		sql.append("   ,M1.PLAYER_NAME ");
+		sql.append("   ,M1.INS_USER ");
+		sql.append("   ,M1.INS_DATE ");
+		sql.append(" ) VALUES ( ");
+		sql.append("     (SELECT SUBSTR('0000000' || (MAX(PLAYER_ID) + 1), LENGTH('0000000' || (MAX(PLAYER_ID) + 1)) - 7, 8)FROM MST_PLAYER)");
+		sql.append("   , '").append(formMap.get(SeisekiConst.KEY_NEW_SENSHU_NM)).append("' ");
+		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
+		sql.append("   , SYSDATE ");
+		sql.append(" ) ");
+
+		super.update(sql.toString());
+	}
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 成績マスタを更新する
 	 */
@@ -182,24 +214,46 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 	 * 総成績一覧の初期表示
 	 * @return 成績マスタ
 	 */
-	public Map<String, String> firstSeiseki(Map<String, Object> formMap) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT P.PLAYER_ID ");	// 選手ID
-		sql.append("     ,P.PLAYER_NAME ");	// 選手名
-		sql.append("     ,SUM(S.INNING) ");	// 総イニング
-		sql.append("     ,SUM(S.SITTEN) ");	// 総失点
-		sql.append("     ,SUM(S.JISEKITEN) ");	// 総自責点
-		sql.append("     ,TRUNC(SUM(S.JISEKITEN) * 9 / SUM(S.INNING),2) ");	// 防御率
-		sql.append("FROM SENSEKI_TBL S ");
-		sql.append("LEFT JOIN MST_PLAYER P ");
-		sql.append("ON S.PLAYER_ID = P.PLAYER_ID ");
-		sql.append("GROUP BY P.PLAYER_NAME,P.PLAYER_ID ");
-		//sql.append("WHERE M1.DEL_FLG  = '0' "); 登録者とユーザーIDの合致確認
-		sql.append("ORDER BY P.PLAYER_ID");
-
-		return super.find(sql.toString());
-	}
+//	public Map<String, String> firstSeiseki(Map<String, Object> formMap) {
+//
+//		StringBuffer sql = new StringBuffer();
+//		sql.append("SELECT P.PLAYER_ID ");	// 選手ID
+//		sql.append("     ,P.PLAYER_NAME ");	// 選手名
+//		sql.append("     ,SUM(S.INNING) ");	// 総イニング
+//		sql.append("     ,SUM(S.SITTEN) ");	// 総失点
+//		sql.append("     ,SUM(S.JISEKITEN) ");	// 総自責点
+//		sql.append("     ,TRUNC(SUM(S.JISEKITEN) * 9 / SUM(S.INNING),2) ");	// 防御率
+//		sql.append("FROM SENSEKI_TBL S ");
+//		sql.append("LEFT JOIN MST_PLAYER P ");
+//		sql.append("ON S.PLAYER_ID = P.PLAYER_ID ");
+//		sql.append("GROUP BY P.PLAYER_NAME,P.PLAYER_ID ");
+//		//sql.append("WHERE M1.DEL_FLG  = '0' "); 登録者とユーザーIDの合致確認
+//		sql.append("ORDER BY P.PLAYER_ID");
+//
+//		return super.find(sql.toString());
+////	}
+//	
+//	public SeisekiListDto listSetting(Map<String, Object> formMap) {
+//		SeisekiListDto result = new SeisekiListDto();
+//		List<SeisekiRegistDto> SeisekiList = new ArrayList<SeisekiRegistDto>();
+//		// 検索処理
+//		List<Map<String, String>> list = seisekiDao.firstSeiseki(formMap);
+//		Iterator<Map<String, String>> it = list.iterator();
+//		while (it.hasNext()) {
+//			Map<String, String> map = it.next();
+//			SeisekiRegistDto dto = new SeisekiRegistDto();
+//			dto.setSenshuId(map.get("選手ID"));
+//			dto.setsenshuNm(map.get("選手名"));
+//			dto.setsouIning(map.get("総イニング"));
+//			dto.setsouShitten(map.get("総失点"));
+//			dto.setsouJisekiten(map.get("総自責点 "));
+//			dto.setbougyoRitsu(map.get("防御率"));
+//			SeisekiList.add(dto);
+//			
+//		}
+//		result.setList(SeisekiList);
+//		return result;
+//	}
 
 	/**
 	 * 重複チェック

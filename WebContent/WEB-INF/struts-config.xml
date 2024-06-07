@@ -75,17 +75,17 @@
 		
 		<!-- 成績マスタメンテ画面 -->
 		<form-bean name="seisekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="seisekiId"        type="java.lang.String"  />
-			<form-property name="setaiId"        type="java.lang.String"  />
-			<form-property name="seisekiNm"        type="java.lang.String"  />
-			<form-property name="seisekiNmkana"    type="java.lang.String"  />
-			<form-property name="seibetsuKbnKey" type="java.lang.String"  />
-			<form-property name="zokugaraKey"    type="java.lang.String"  />
-			<form-property name="setaiNusiFlg"   type="java.lang.String"  />
-			<form-property name="checkDel"       type="java.lang.String[]"/>
+<!--			<form-property name="seisekiId"        type="java.lang.String"  />-->
+<!--			<form-property name="setaiId"        type="java.lang.String"  />-->
+<!--			<form-property name="seisekiNm"        type="java.lang.String"  />-->
+<!--			<form-property name="seisekiNmkana"    type="java.lang.String"  />-->
+<!--			<form-property name="seibetsuKbnKey" type="java.lang.String"  />-->
+<!--			<form-property name="zokugaraKey"    type="java.lang.String"  />-->
+<!--			<form-property name="setaiNusiFlg"   type="java.lang.String"  />-->
+<!--			<form-property name="checkDel"       type="java.lang.String[]"/>-->
 			
 			<form-property name="newSenshuNm"        type="java.lang.String"  />
-			<form-property name="senshuId"        type="java.lang.int"  />
+			<form-property name="senshuId"        type="java.lang.Integer"  />
 			<form-property name="senshuNm"        type="java.lang.String"  />
 			<form-property name="souInning"    type="java.lang.String"  />
 			<form-property name="souShitten" type="java.lang.String"  />
@@ -456,7 +456,8 @@
 			validate="false"
 			input="/jsp/seiseki/seisekiList.jsp"
 			scope="request">
-			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
+<!--			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />-->
+			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>
 		</action>
 
 		<!--

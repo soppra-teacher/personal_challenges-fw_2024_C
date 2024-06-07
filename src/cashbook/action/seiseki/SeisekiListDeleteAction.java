@@ -55,16 +55,22 @@ public class SeisekiListDeleteAction extends BaseAction {
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 
 		// 削除対象チェック
-		if (checkDeleteTarget((String[]) formMap.get(ITEM_CHECKBOX_DELETE), request)) {
-			return map.getInputForward();
-		}
+//		if (checkDeleteTarget((String[]) formMap.get(ITEM_CHECKBOX_DELETE), request)) {
+//			return map.getInputForward();
+//		}
 
-		// 削除処理
-		seisekiService.listDelete(formMap, loginDto);
+//		// 削除処理
+//		seisekiService.listDelete(formMap, loginDto);
 
+
+		// 選手登録処理
+		seisekiService.registNewSenshu(formMap, loginDto);
+		System.out.println("選手登録できた");
+		
 		// 削除完了メッセージをセッションに保持
 		request.getSession().setAttribute(SESSION_LIST_MESSAGE_SEISEKI, MSG_SUCCESS_DELETE);
-
+		System.out.println("削除完了メッセージをセッションに保持");
+		
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(ACTION_FOWARD_SUCCESS);
 	}
