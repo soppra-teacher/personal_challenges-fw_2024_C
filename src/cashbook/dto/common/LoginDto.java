@@ -17,7 +17,8 @@ public class LoginDto {
 
 	/** ユーザーID 取得 */
 	private String userId;
-	
+	/** ユーザーID 取得 */
+	private String pass;
 	
 	/**
 	 * ユーザーＩＤを取得します。
@@ -34,6 +35,23 @@ public class LoginDto {
 	public void setUserId(String userId) {
 	    this.userId = userId;
 	}
+	
+	/**
+	 * パスワードを取得します。
+	 * @return 個人ＩＤ
+	 */
+	public String Pass() {
+	    return pass;
+	}
+	
+	/**
+	 * パスワードを設定します。
+	 * @param kojinNm 個人名
+	 */
+	public void setPass(String pass) {
+	    this.pass = pass;
+	}
+	
 	/**
 	 * 個人ＩＤを取得します。
 	 * @return 個人ＩＤ

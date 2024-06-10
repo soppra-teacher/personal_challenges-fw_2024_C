@@ -103,12 +103,7 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * 登録画面初期表示メソッド
 	 */
-	
-	
-	
-	
-	
-	
+
 	public UserRegistDto registInit() {
 		UserRegistDto result = new UserRegistDto();
 		

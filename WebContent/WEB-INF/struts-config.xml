@@ -7,7 +7,7 @@
 	<form-beans>
 		<!-- ログイン画面 -->
 		<form-bean name="loginForm"       type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="kojinId" type="java.lang.String" />
+			<form-property name="userId" type="java.lang.String" />
 			<form-property name="pass"    type="java.lang.String"/>
 			<form-property name="getKey"    type="java.lang.String"/>
 		</form-bean>
@@ -145,7 +145,7 @@
 			path="/Login"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="loginForm"
-			validate="true"
+			validate="false"
 			input="/jsp/common/LoginSample.jsp"
 			scope="request">
 			<forward name="success" path="/MenuInit.do?getKey=aaa"/>

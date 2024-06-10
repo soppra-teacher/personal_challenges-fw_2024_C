@@ -6,8 +6,8 @@
 	<formset>
 		<!-- ログイン画面 -->
 		<form name="loginForm">
-			<field property="kojinId" depends="required">
-				<arg0 key="loginForm.param.kojinId" resource="true" />
+			<field property="userId" depends="required">
+				<arg0 key="loginForm.param.userId" resource="true" />
 			</field>
 			<field property="pass" depends="required">
 				<arg0 key="loginForm.param.pass" resource="true" />

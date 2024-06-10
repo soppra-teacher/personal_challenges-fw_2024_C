@@ -39,7 +39,7 @@
 							ÉçÉOÉCÉìID:
 						</th>
 						<td class="login_field">
-							<html:text property="kojinId" styleClass="input-text-m" tabindex="1" />
+							<html:text property="userId" styleClass="input-text-m" tabindex="1" />
 						</td>
 					</tr>
 					<tr>

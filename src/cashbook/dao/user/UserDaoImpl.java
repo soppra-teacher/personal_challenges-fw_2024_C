@@ -49,7 +49,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		sql.append("     '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");
 		sql.append("   , '").append(formMap.get(UserConst.KEY_PASS)).append("' ");
 		sql.append(" ) ");
-
+		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		super.update(sql.toString());
 	}
 	
@@ -105,7 +105,6 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		sql.append("SELECT USER_ID ");
 		sql.append("  FROM MST_USER  ");
 		sql.append(" WHERE USER_ID != '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");	
-
 		return super.find(sql.toString()).size() != 0;
 	}
 	
