@@ -443,21 +443,22 @@
 			path="/SeisekiListSearch"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="seisekiListForm"
-			validate="true"
+			validate="false"
 			input="/jsp/seiseki/seisekiList.jsp"
 			scope="request">
 			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>
 		</action>
-		<!-- 削除 -->
+		<!-- 削除(登録) -->
 		<action
 			path="/SeisekiListDelete"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="seisekiListForm"
-			validate="false"
+			validate="true"
 			input="/jsp/seiseki/seisekiList.jsp"
 			scope="request">
-<!--			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />-->
-			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>
+			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
+<!--			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>-->
+<!--			<forward name="success" path="/SeisekiListInit.do" redirect="true" />-->
 		</action>
 
 		<!--

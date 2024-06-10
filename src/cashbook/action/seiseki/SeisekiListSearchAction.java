@@ -55,13 +55,13 @@ public class SeisekiListSearchAction extends BaseAction {
 	 */
 	protected ActionForward doProcess(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
-
+		
 		// フォームの値を取得
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 
 		// リクエストから「operation」の値が"search"だったのかを判定する。
 		if (!ACTION_FOWARD_SEARCH.equals(request.getParameter(ACTION_FOWARD_OPERATION))) {
-
+			
 			// "search"でない場合、再検索用の値をセッションから取得する。
 			Map<String, Object> sessionMap = CommonUtil.getSessionMap(request, SESSION_LIST_RE_SEARCH_SEISEKI);
 

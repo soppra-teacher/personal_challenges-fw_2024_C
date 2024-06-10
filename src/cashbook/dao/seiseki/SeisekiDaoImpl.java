@@ -9,7 +9,6 @@ import org.springframework.dao.CannotAcquireLockException;
 
 import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
-import cashbook.util.CommonUtil;
 import cashbook.util.SeisekiConst;
 import cashbook.util.SetaiConst;
 
@@ -27,47 +26,14 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 
 		List<Map<String, String>> result;
 		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT  M1.seiseki_id ");
-		sql.append("       ,M1.setai_id ");
-		sql.append("       ,M1.pass ");
-		sql.append("       ,M1.seiseki_nm ");
-		sql.append("       ,M1.seiseki_nm_kana ");
-		sql.append("       ,M1.seibetsu_kbn ");
-		sql.append("       ,M1.zokugara ");
-		sql.append("       ,M1.setainushi_flg ");
-		sql.append("       ,M1.del_flg ");
-		sql.append("       ,M1.ins_user ");
-		sql.append("       ,M1.ins_date ");
-		sql.append("       ,M1.upd_user ");
-		sql.append("       ,M1.upd_date ");
-		sql.append("       ,M1.revision ");
-		sql.append("       ,M1.seiseki_nicknm ");
-		sql.append("  FROM MST_SEISEKI M1 ");
-		sql.append(" WHERE M1.DEL_FLG = '0' ");
-		// 成績名
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SeisekiConst.KEY_SEISEKI_NM)))) {
-			sql.append(" AND M1.SEISEKI_NM LIKE '%").append(formMap.get(SeisekiConst.KEY_SEISEKI_NM)).append("%' ");
-		}
-		// 成績名ｶﾅ
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SeisekiConst.KEY_SEISEKI_NM_KANA)))) {
-			sql.append(" AND M1.SEISEKI_NM_KANA LIKE '%").append(formMap.get(SeisekiConst.KEY_SEISEKI_NM_KANA)).append("%' ");
-		}
-		// 性別
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SeisekiConst.KEY_SEIBETSU_KBN_KEY)))) {
-			sql.append(" AND M1.SEIBETSU_KBN = '").append(formMap.get(SeisekiConst.KEY_SEIBETSU_KBN_KEY)).append("' ");
-		}
-		// 続柄
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SeisekiConst.KEY_ZOKUGARA)))) {
-			sql.append(" AND M1.ZOKUGARA = '").append(formMap.get(SeisekiConst.KEY_ZOKUGARA)).append("' ");
-		}
-		// 世帯主フラグ
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SeisekiConst.KEY_SETAINUSI_FLG_VALUE)))) {
-			if (SETAINUSHI_ON.equals(formMap.get(SeisekiConst.KEY_SETAINUSI_FLG_VALUE))) {
-				sql.append(" AND M1.SETAINUSHI_FLG = '").append(formMap.get(SeisekiConst.KEY_SETAINUSI_FLG_VALUE))
-						.append("' ");
-			}
-		}
-		sql.append(" ORDER BY M1.SEISEKI_ID ");
+		sql.append("SELECT  M1.PLAYER_ID ");
+		sql.append("       ,M1.INNING_3 ");
+		sql.append("       ,M1.SITTEN ");
+		sql.append("       ,M1.JISEKITEN ");
+		sql.append("       ,M1.JISEKITEN ");
+		sql.append("  FROM SENSEKI_TBL M1 ");
+
+		sql.append(" ORDER BY M1.PLAYER_ID ");
 		result = super.search(sql.toString());
 
 		return result;

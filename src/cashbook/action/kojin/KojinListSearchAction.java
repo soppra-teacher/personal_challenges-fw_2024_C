@@ -56,6 +56,7 @@ public class KojinListSearchAction extends BaseAction {
 	protected ActionForward doProcess(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
 
+		
 		// フォームの値を取得
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 
