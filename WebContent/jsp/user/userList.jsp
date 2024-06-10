@@ -12,7 +12,7 @@
 	<meta content="ja" http-equiv="Content-Language" />
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>
-		ソプブーのマネーノート　個人マスタメンテ
+		スポーツDATA　ユーザーマスタメンテ
 	</title>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
 	<script type="text/javascript" charset="shift_jis" src="js/common.js" ></script>
@@ -20,15 +20,15 @@
 
 <body onload="setDeleteButton();">
 
-	<bean:define id="inputBean" name="kojinListForm" />
-	<bean:define id="viewBean" name="KOJIN_LIST_DTO" />
+	<bean:define id="inputBean" name="userListForm" />
+	<bean:define id="viewBean" name="USER_LIST_DTO" />
 
 	<div class="base-width text-center">
 
-		<html:form action="/KojinListDisp" focus="kojinNm">
+		<html:form action="/UserListDisp" focus="userNm">
 
 			<jsp:include page="/jsp/common/header.jsp">
-				<jsp:param name="screenTitle" value="個人マスタメンテ"/>
+				<jsp:param name="screenTitle" value="ユーザーマスタメンテ"/>
 			</jsp:include>
 
 			<html:hidden property="operation" value="" />
@@ -51,15 +51,15 @@
 					<tr>
 						<td colspan="2" class="w-50 text-left">
 							<span class="label-title">
-								個人名
+								ユーザー名
 							</span>
-							<html:text name="inputBean" property="kojinNm" styleClass="input-text-s" />
+							<html:text name="inputBean" property="userNm" styleClass="input-text-s" />
 						</td>
 						<td colspan="2" class="w-50 text-left">
 							<span class="label-title">
-								個人名ｶﾅ
+								ユーザー名ｶﾅ
 							</span>
-							<html:text name="inputBean" property="kojinNmkana" styleClass="input-text-m" />
+							<html:text name="inputBean" property="userNmkana" styleClass="input-text-m" />
 						</td>
 					</tr>
 					<tr>
@@ -108,16 +108,16 @@
 					</tr>
 				</table>
 
-				<table class="l-kojin table mb-0" >
+				<table class="l-user table mb-0" >
 					<tr class="table-header">
-						<td class="text-center l-kojin-del">削除</td>
-						<td class="text-center l-kojin-kojin-id">個人ID</td>
-						<td class="text-center l-kojin-setai-id">世帯ID</td>
-						<td class="text-center">個人名</td>
-						<td class="text-center">個人名ｶﾅ</td>
-						<td class="text-center l-kojin-sex">性別</td>
-						<td class="text-center l-kojin-zokugara">続柄</td>
-						<td class="text-center l-kojin-setainushi">世帯主</td>
+						<td class="text-center l-user-del">削除</td>
+						<td class="text-center l-user-user-id">ユーザーID</td>
+						<td class="text-center l-user-setai-id">世帯ID</td>
+						<td class="text-center">ユーザー名</td>
+						<td class="text-center">ユーザー名ｶﾅ</td>
+						<td class="text-center l-user-sex">性別</td>
+						<td class="text-center l-user-zokugara">続柄</td>
+						<td class="text-center l-user-setainushi">世帯主</td>
 					</tr>
 				</table>
 
@@ -126,34 +126,34 @@
 						<logic:notEmpty name="viewBean" property="list">
 							<logic:iterate id="list" name="viewBean" property="list">
 								<tr>
-									<td class="text-center l-kojin-del">
-										<input type="checkbox" name="checkDel" value="<bean:write name="list" property="kojinId" />" />
+									<td class="text-center l-user-del">
+										<input type="checkbox" name="checkDel" value="<bean:write name="list" property="userId" />" />
 									</td>
-									<td class="l-kojin-kojin-id">
-										<html:link action="/KojinRegistInit" paramId="kojinId" paramName="list" paramProperty="kojinId">
-											<bean:write name="list" property="kojinId" />
+									<td class="l-user-user-id">
+										<html:link action="/UserRegistInit" paramId="userId" paramName="list" paramProperty="userId">
+											<bean:write name="list" property="userId" />
 										</html:link>
 									</td>
-									<td class="l-kojin-setai-id">
+									<td class="l-user-setai-id">
 										<bean:write name="list" property="setaiId" />
 									</td>
 									<td class="text-left">
 										<span class="p-10">
-											<bean:write name="list" property="kojinNm" />
+											<bean:write name="list" property="userNm" />
 										</span>
 									</td>
 									<td class="text-left">
 										<span class="p-10">
-											<bean:write name="list" property="kojinNmkana" />
+											<bean:write name="list" property="userNmkana" />
 										</span>
 									</td>
-									<td class="l-kojin-sex">
+									<td class="l-user-sex">
 										<bean:write name="list" property="seibetsuNm" />
 									</td>
-									<td class="l-kojin-zokugara">
+									<td class="l-user-zokugara">
 										<bean:write name="list" property="zokugaraNm" />
 									</td>
-									<td class="l-kojin-setainushi">
+									<td class="l-user-setainushi">
 										<bean:write name="list" property="setaiNusiNm" />
 									</td>
 								</tr>

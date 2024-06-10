@@ -1,4 +1,4 @@
-package cashbook.service.yuza;
+package cashbook.service.user;
 
 import static cashbook.util.Const.*;
 
@@ -9,26 +9,26 @@ import java.util.Map;
 
 import cashbook.dao.common.CommonDao;
 import cashbook.dao.setai.SetaiDao;
-import cashbook.dao.yuza.YuzaDao;
+import cashbook.dao.user.UserDao;
 import cashbook.dto.common.LoginDto;
-import cashbook.dto.yuza.YuzaListDto;
-import cashbook.dto.yuza.YuzaRegistDto;
+import cashbook.dto.user.UserListDto;
+import cashbook.dto.user.UserRegistDto;
 import cashbook.exception.CommonValidateException;
 import cashbook.util.CommonUtil;
 import cashbook.util.Const;
-import cashbook.util.YuzaConst;
+import cashbook.util.UserConst;
 
 /**
  * ユーザーマスタサービス
  * @author soppra
  */
-public class YuzaServiceImpl implements YuzaService {
+public class UserServiceImpl implements UserService {
 
 	/** 世帯マスタDao */
 	private SetaiDao setaiDao;
 
 	/** ユーザーマスタDao */
-	private YuzaDao yuzaDao;
+	private UserDao userDao;
 
 	/** 共通Dao */
 	private CommonDao commonDao;
@@ -36,8 +36,8 @@ public class YuzaServiceImpl implements YuzaService {
 	/**
 	 * 一覧画面初期表示メソッド
 	 */
-	public YuzaListDto listInit() {
-		YuzaListDto result = new YuzaListDto();
+	public UserListDto listInit() {
+		UserListDto result = new UserListDto();
 		// 性別コンボボックスの設定
 		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定
@@ -48,17 +48,17 @@ public class YuzaServiceImpl implements YuzaService {
 	/**
 	 * 一覧画面検索メソッド
 	 */
-	public YuzaListDto listSearch(Map<String, Object> formMap) {
+	public UserListDto listSearch(Map<String, Object> formMap) {
 		//------------------------------------------
 		// ヘッダ
 		//------------------------------------------
-		YuzaListDto result = new YuzaListDto();
+		UserListDto result = new UserListDto();
 		// 入力項目を保持
-		result.setYuzaNm(CommonUtil.getStr(formMap.get(YuzaConst.KEY_YUZA_NM)));
-		result.setYuzaNmkana(CommonUtil.getStr(formMap.get(YuzaConst.KEY_YUZA_NM_KANA)));
-		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get(YuzaConst.KEY_SEIBETSU_KBN_KEY)));
-		result.setZokugaraKey(CommonUtil.getStr(formMap.get(YuzaConst.KEY_ZOKUGARA)));
-		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get(YuzaConst.KEY_SETAINUSI_FLG)));
+		result.setUserNm(CommonUtil.getStr(formMap.get(UserConst.KEY_USER_NM)));
+		result.setUserNmkana(CommonUtil.getStr(formMap.get(UserConst.KEY_USER_NM_KANA)));
+		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get(UserConst.KEY_SEIBETSU_KBN_KEY)));
+		result.setZokugaraKey(CommonUtil.getStr(formMap.get(UserConst.KEY_ZOKUGARA)));
+		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get(UserConst.KEY_SETAINUSI_FLG)));
 		// 性別区分コンボボックスの設定
 		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定
@@ -67,26 +67,26 @@ public class YuzaServiceImpl implements YuzaService {
 		//------------------------------------------
 		// 一覧
 		//------------------------------------------
-		List<YuzaRegistDto> YuzaList = new ArrayList<YuzaRegistDto>();
+		List<UserRegistDto> UserList = new ArrayList<UserRegistDto>();
 		// 検索処理
-		List<Map<String, String>> list = yuzaDao.searchYuza(formMap);
+		List<Map<String, String>> list = userDao.searchUser(formMap);
 		Iterator<Map<String, String>> it = list.iterator();
 		while (it.hasNext()) {
 			Map<String, String> map = it.next();
-			YuzaRegistDto dto = new YuzaRegistDto();
-			dto.setYuzaId(map.get("YUZA_ID"));
+			UserRegistDto dto = new UserRegistDto();
+			dto.setUserId(map.get("USER_ID"));
 			dto.setSetaiId(map.get("SETAI_ID"));
-			dto.setYuzaNm(map.get("YUZA_NM"));
-			dto.setYuzaNmkana(map.get("YUZA_NM_KANA"));
+			dto.setUserNm(map.get("USER_NM"));
+			dto.setUserNmkana(map.get("USER_NM_KANA"));
 			dto.setSeibetsuNm(commonDao.getCode(CD_BUNRUI_002).get(map.get("SEIBETSU_KBN")));
 			dto.setZokugaraNm(commonDao.getCode(CD_BUNRUI_003).get(map.get("ZOKUGARA")));
 			dto.setSetaiNusiFlg(map.get("SETAINUSHI_FLG"));
 			if (SETAINUSHI_ON.equals(map.get("SETAINUSHI_FLG"))) {
 				dto.setSetaiNusiNm(commonDao.getCodeName(CD_BUNRUI_004, CD_004_1));
 			}
-			YuzaList.add(dto);
+			UserList.add(dto);
 		}
-		result.setList(YuzaList);
+		result.setList(UserList);
 		return result;
 	}
 
@@ -96,7 +96,7 @@ public class YuzaServiceImpl implements YuzaService {
 	public void listDelete(Map<String, Object> formMap, LoginDto loginDto) {
 		List<String> list = CommonUtil.convFormMapToList(formMap);
 		for (String checkDel : list) {
-			yuzaDao.deleteYuza(checkDel, loginDto);
+			userDao.deleteUser(checkDel, loginDto);
 		}
 	}
 
@@ -109,8 +109,8 @@ public class YuzaServiceImpl implements YuzaService {
 	
 	
 	
-	public YuzaRegistDto registInit() {
-		YuzaRegistDto result = new YuzaRegistDto();
+	public UserRegistDto registInit() {
+		UserRegistDto result = new UserRegistDto();
 		
 			// 続柄区分コンボボックスの設定
 		result.setZokugara(commonDao.getCode(CD_BUNRUI_003));
@@ -124,9 +124,9 @@ public class YuzaServiceImpl implements YuzaService {
 	
 	
 	
-	public YuzaRegistDto registInit(Map<String, Object> formMap) {
+	public UserRegistDto registInit(Map<String, Object> formMap) {
 
-		YuzaRegistDto result = new YuzaRegistDto();
+		UserRegistDto result = new UserRegistDto();
 
 		// 続柄区分コンボボックスの設定
 		result.setZokugara(commonDao.getCode(CD_BUNRUI_003));
@@ -134,14 +134,14 @@ public class YuzaServiceImpl implements YuzaService {
 		result.setSetaiNm(setaiDao.searchSelectboxSetai());
 
 		// 更新モードの場合は、対象のユーザーマスタを取得する
-		if (formMap != null && !CommonUtil.isNull(CommonUtil.getStr(formMap.get(YuzaConst.KEY_YUZA_ID)))) {
-			Map<String, String> map = yuzaDao.findYuza(formMap);
+		if (formMap != null && !CommonUtil.isNull(CommonUtil.getStr(formMap.get(UserConst.KEY_USER_ID)))) {
+			Map<String, String> map = userDao.findUser(formMap);
 			if (map != null) {
-				result.setYuzaId(map.get("YUZA_ID"));
+				result.setUserId(map.get("USER_ID"));
 				result.setSetaiNmKey(map.get("SETAI_ID"));
 				result.setPass(map.get("PASS"));
-				result.setYuzaNm(map.get("YUZA_NM"));
-				result.setYuzaNmkana(map.get("YUZA_NM_KANA"));
+				result.setUserNm(map.get("USER_NM"));
+				result.setUserNmkana(map.get("USER_NM_KANA"));
 				result.setSeibetsuKbn(map.get("SEIBETSU_KBN"));
 				result.setZokugaraKey(map.get("ZOKUGARA"));
 				if (SETAINUSHI_ON.equals(map.get("SETAINUSHI_FLG"))) {
@@ -162,33 +162,33 @@ public class YuzaServiceImpl implements YuzaService {
 	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception {
 
 		// 世帯主フラグ="1" 且つ 世帯主チェック
-		if (SETAINUSHI_ON.equals(formMap.get(YuzaConst.KEY_SETAINUSI_FLG_VALUE))
-				&& formMap.get(YuzaConst.KEY_SETAINUSI_FLG_VALUE) != null &&
-				yuzaDao.checkSetainushiFlg(formMap)) {
-			throw new CommonValidateException(MSG_YUZA_CONSIS_1);
+		if (SETAINUSHI_ON.equals(formMap.get(UserConst.KEY_SETAINUSI_FLG_VALUE))
+				&& formMap.get(UserConst.KEY_SETAINUSI_FLG_VALUE) != null &&
+				userDao.checkSetainushiFlg(formMap)) {
+			throw new CommonValidateException(MSG_USER_CONSIS_1);
 		}
 
 		// 性別、続柄の整合性チェック
 		if (check2(formMap)) {
-			throw new CommonValidateException(MSG_YUZA_CONSIS_2);
+			throw new CommonValidateException(MSG_USER_CONSIS_2);
 		}
 
 		// 登録の場合
 		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(Const.ITEM_REVISION)))) {
 			// 存在チェック
-			if (!yuzaDao.checkOverlapYuza(formMap)) {
+			if (!userDao.checkOverlapUser(formMap)) {
 				throw new CommonValidateException(MSG_ERRORS_PRIMARY_KEY);
 			}
 			// 登録処理
-			yuzaDao.registYuza(formMap, loginDto);
+			userDao.registUser(formMap, loginDto);
 			// 更新の場合
 		} else {
 			// 排他処理
-			if (!yuzaDao.lockYuza(formMap)) {
+			if (!userDao.lockUser(formMap)) {
 				throw new CommonValidateException(MSG_ERRORS_DATA_LOCK);
 			}
 			// 更新処理
-			yuzaDao.updateYuza(formMap, loginDto);
+			userDao.updateUser(formMap, loginDto);
 		}
 	}
 
@@ -199,8 +199,8 @@ public class YuzaServiceImpl implements YuzaService {
 	 */
 	private boolean check2(Map<String, Object> formMap) {
 		boolean bRet = false;
-		String seibetsuKbn = CommonUtil.getStr(formMap.get(YuzaConst.KEY_SEIBETSU_KBN));
-		String zokugaraKbn = CommonUtil.getStr(formMap.get(YuzaConst.KEY_ZOKUGARA));
+		String seibetsuKbn = CommonUtil.getStr(formMap.get(UserConst.KEY_SEIBETSU_KBN));
+		String zokugaraKbn = CommonUtil.getStr(formMap.get(UserConst.KEY_ZOKUGARA));
 
 		// 性別・続柄の相関チェック
 		// 続柄がブランクの場合は、チェックを行わない
@@ -227,10 +227,10 @@ public class YuzaServiceImpl implements YuzaService {
 
 	/**
 	 * DAOのsetter
-	 * @param yuzaDao
+	 * @param userDao
 	 */
-	public void setYuzaDao(YuzaDao yuzaDao) {
-		this.yuzaDao = yuzaDao;
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
 	}
 
 	/**

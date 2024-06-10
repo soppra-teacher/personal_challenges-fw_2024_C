@@ -1,13 +1,13 @@
-package cashbook.dto.yuza;
+package cashbook.dto.user;
 
 import java.util.Map;
 
 import cashbook.dto.common.BaseDto;
 
-public class YuzaRegistDto extends BaseDto {
+public class UserRegistDto extends BaseDto {
 
 	/** ユーザーID */
-	private String yuzaId;
+	private String userId;
 
 	/** パスワード */
 	private String pass;
@@ -25,10 +25,10 @@ public class YuzaRegistDto extends BaseDto {
 	private Map<String, String> setaiNm;
 
 	/** ユーザー名 */
-	private String yuzaNm;
+	private String userNm;
 
 	/** ユーザー名カナ */
-	private String yuzaNmkana;
+	private String userNmkana;
 
 	/** 性別区分 */
 	private String seibetsuKbn;
@@ -51,12 +51,12 @@ public class YuzaRegistDto extends BaseDto {
 	/** 世帯主名 */
 	private String setaiNusiNm;
 
-	public String getYuzaId() {
-		return yuzaId;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setYuzaId(String yuzaId) {
-		this.yuzaId = yuzaId;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPass() {
@@ -99,20 +99,20 @@ public class YuzaRegistDto extends BaseDto {
 	    this.setaiNm = setaiNm;
 	}
 
-	public String getYuzaNm() {
-		return yuzaNm;
+	public String getUserNm() {
+		return userNm;
 	}
 
-	public void setYuzaNm(String yuzaNm) {
-		this.yuzaNm = yuzaNm;
+	public void setUserNm(String userNm) {
+		this.userNm = userNm;
 	}
 
-	public String getYuzaNmkana() {
-		return yuzaNmkana;
+	public String getUserNmkana() {
+		return userNmkana;
 	}
 
-	public void setYuzaNmkana(String yuzaNmkana) {
-		this.yuzaNmkana = yuzaNmkana;
+	public void setUserNmkana(String userNmkana) {
+		this.userNmkana = userNmkana;
 	}
 
 	public String getSeibetsuKbn() {

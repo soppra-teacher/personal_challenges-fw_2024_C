@@ -1,4 +1,4 @@
-package cashbook.action.yuza;
+package cashbook.action.user;
 
 import static cashbook.util.Const.*;
 
@@ -14,7 +14,7 @@ import org.apache.struts.actions.DispatchAction;
  * ユーザーマスタ登録画面 ディスパッチアクションクラス
  * @author soppra
  */
-public class YuzaRegistDispAction extends DispatchAction {
+public class UserRegistDispAction extends DispatchAction {
 
 	/** 登録 */
 	public ActionForward insert(

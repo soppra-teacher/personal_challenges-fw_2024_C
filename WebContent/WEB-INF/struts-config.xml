@@ -64,8 +64,8 @@
 <!--追加した部分-->
 
 <!-- ユーザーマスタ登録画面 -->
-  			<form-bean name="yuzaRegistForm"    type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="yuzaId"        type="java.lang.String" />
+  			<form-bean name="userRegistForm"    type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="userId"        type="java.lang.String" />
 			<form-property name="kojinId"        type="java.lang.String" />
 			<form-property name="pass"           type="java.lang.String" />
 			<form-property name="setaiNmKey"     type="java.lang.String" />
@@ -182,45 +182,45 @@
 		
 		
 		<action
-			path="/YuzaRegistInit"
+			path="/UserRegistInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="yuzaRegistForm"
+			name="userRegistForm"
 			validate="false"
 			scope="request">
-			<forward name="success" path="/jsp/yuza/yuzaRegist.jsp"/>
+			<forward name="success" path="/jsp/user/userRegist.jsp"/>
 		</action>
 		
 		
 		<!-- 新規作成 -->
 			<action
-			path="//YuzaRegistInit"
-			type="cashbook.action.common.YuzaNewAction"
+			path="//UserRegistInit"
+			type="cashbook.action.common.UserNewAction"
 			scope="request">
-			<forward name="success" path="/jsp/yuza/yuzaRegist.jsp"/>
+			<forward name="success" path="/jsp/user/userRegist.jsp"/>
             <!--<forward name="success" path="/jsp/common/menu.jsp"/>-->
 		</action>
 <!--		 ディスパッチ -->
 		<action														
-			path="/YuzaRegistDisp"									
-			type="cashbook.action.yuza.YuzaRegistDispAction"		
-			name="yuzaRegistForm"									
+			path="/UserRegistDisp"									
+			type="cashbook.action.user.UserRegistDispAction"		
+			name="userRegistForm"									
 			validate="false"										
 			parameter="operation"									
 			scope="request">										
-			<forward name="insert" path="/YuzaRegistInsUpd.do"/>	
+			<forward name="insert" path="/UserRegistInsUpd.do"/>	
 			<forward name="backMenu" path="/MenuInit.do"/>			
-			<forward name="backList" path="/YuzaListSearch.do"/>	
+			<forward name="backList" path="/UserListSearch.do"/>	
 		</action>
 <!--		 登録・更新 -->
 		<action
-			path="/YuzaRegistInsUpd"
+			path="/UserRegistInsUpd"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="yuzaRegistForm"
+			name="userRegistForm"
 			validate="true"
-			input="/jsp/yuza/yuzaRegist.jsp"
+			input="/jsp/user/userRegist.jsp"
 			scope="request">
-			<forward name="success" path="/YuzaRegistInit.do" redirect="true" />
-			<forward name="error" path="/jsp/yuza/yuzaRegist.jsp" />
+			<forward name="success" path="/UserRegistInit.do" redirect="true" />
+			<forward name="error" path="/jsp/user/userRegist.jsp" />
 		</action>
 
 		<!--

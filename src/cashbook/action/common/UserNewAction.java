@@ -14,7 +14,7 @@ import cashbook.util.Const;
  * メニュー画面アクションクラス
  * @author soppra
  */
-public class YuzaNewAction extends BaseAction {
+public class UserNewAction extends BaseAction {
 
 	/**
 	 * <p><b>

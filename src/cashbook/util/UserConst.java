@@ -4,19 +4,19 @@ package cashbook.util;
  * 共通定数クラス(ユーザー用)
  * @author soppra
  */
-public class YuzaConst {
+public class UserConst {
 
 	/** フォーム名(マスタメンテ) */
-	public static final String FORM_YUZA_LIST = "yuzaListForm";
+	public static final String FORM_USER_LIST = "userListForm";
 	/** フォーム名(マスタ登録) */
-	public static final String FORM_YUZA_REGIST = "yuzaRegistForm";
+	public static final String FORM_USER_REGIST = "userRegistForm";
 
 	/** キー値：ユーザーID */
-	public static final String KEY_YUZA_ID = "yuzaId";
+	public static final String KEY_USER_ID = "userId";
 	/** キー値：ユーザー名 */
-	public static final String KEY_YUZA_NM = "yuzaNm";
+	public static final String KEY_USER_NM = "userNm";
 	/** キー値：ユーザー名カナ */
-	public static final String KEY_YUZA_NM_KANA = "yuzaNmkana";
+	public static final String KEY_USER_NM_KANA = "userNmkana";
 	
 	/** キー値：世帯主フラグ */ 
 	public static final String KEY_SETAINUSI_FLG = "setaiNusiFlg";

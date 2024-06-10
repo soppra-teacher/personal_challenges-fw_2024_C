@@ -1,30 +1,30 @@
-package cashbook.service.yuza;
+package cashbook.service.user;
 
 import java.util.Map;
 
 import cashbook.dto.common.LoginDto;
-import cashbook.dto.yuza.YuzaListDto;
-import cashbook.dto.yuza.YuzaRegistDto;
+import cashbook.dto.user.UserListDto;
+import cashbook.dto.user.UserRegistDto;
 
 /**
  * ユーザーサービスインターフェース
  * @author soppra
  *
  */
-public interface YuzaService {
+public interface UserService {
 
 	/**
 	 *
 	 * @return
 	 */
-	public YuzaListDto listInit();
+	public UserListDto listInit();
 
 	/**
 	 *
 	 * @param formMap
 	 * @return
 	 */
-	public YuzaListDto listSearch(Map<String, Object> formMap);
+	public UserListDto listSearch(Map<String, Object> formMap);
 
 	/**
 	 *
@@ -38,12 +38,12 @@ public interface YuzaService {
 	 * @param formMap
 	 * @return
 	 */
-	public YuzaRegistDto registInit(Map<String, Object> formMap);
+	public UserRegistDto registInit(Map<String, Object> formMap);
 	
 	
 	
 	
-	public YuzaRegistDto registInit();
+	public UserRegistDto registInit();
 
 	
 	

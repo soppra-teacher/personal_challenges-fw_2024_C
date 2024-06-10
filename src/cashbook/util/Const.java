@@ -103,17 +103,17 @@ public class Const {
 
 	//新規ユーザー登録の定義・変更箇所//
 	/** 新規ユーザー登録画面 DTO */
-	public static final String SESSION_REGIST_DTO_YUZA = "YUZA_REGIST_DTO";
+	public static final String SESSION_REGIST_DTO_USER = "USER_REGIST_DTO";
 	/** 新規ユーザー登録画面 戻り先 */
-	public static final String SESSION_REGIST_BACK_YUZA = "YUZA_REGIST_BACK";
+	public static final String SESSION_REGIST_BACK_USER = "USER_REGIST_BACK";
 	/** 新規ユーザー登録画面 再検索値 */
-	public static final String SESSION_REGIST_RE_SEARCH_YUZA = "YUZA_REGIST_RE_SEARCH";
+	public static final String SESSION_REGIST_RE_SEARCH_USER = "USER_REGIST_RE_SEARCH";
 	/** 新規ユーザー登録画面 メッセージ */
-	public static final String SESSION_REGIST_MESSAGE_YUZA = "YUZA_REGIST_MESSAGE";
+	public static final String SESSION_REGIST_MESSAGE_USER = "USER_REGIST_MESSAGE";
 	/** 新規ユーザー用エラーメッセージ1 */
-	public static final String MSG_YUZA_CONSIS_1 = "errors.yuza.seigosei1";
+	public static final String MSG_USER_CONSIS_1 = "errors.user.seigosei1";
 	/** 新規ユーザー用エラーメッセージ2 */
-	public static final String MSG_YUZA_CONSIS_2 = "errors.yuza.seigosei2";
+	public static final String MSG_USER_CONSIS_2 = "errors.user.seigosei2";
 	
 	//======================================================================================//
 	

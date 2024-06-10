@@ -43,7 +43,7 @@
 				<tr>
 					<td class="plr-20">
 						<p>
-							<html:link action="/YuzaRegistInit">‘IŽè“o˜^‰æ–Ê</html:link>
+							<html:link action="/UserRegistInit">‘IŽè“o˜^‰æ–Ê</html:link>
 						</p>
 					</td>
 				</tr>

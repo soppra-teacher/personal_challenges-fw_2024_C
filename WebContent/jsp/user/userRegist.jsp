@@ -21,12 +21,12 @@
 <!-- フォーカスセット -->
 <script type="text/javascript">
   window.onload = function(){
-    var eleRevision = document.yuzaRegistForm.revision;
-    var eleYuzaId  = document.yuzaRegistForm.yuzaId;
-    var elePassword = document.yuzaRegistForm.pass;
+    var eleRevision = document.userRegistForm.revision;
+    var eleUserId  = document.userRegistForm.userId;
+    var elePassword = document.userRegistForm.pass;
 
     if (eleRevision.defaultValue == ""){
-      eleYuzaId.focus();
+      eleUserId.focus();
     } else {
       elePassword.focus();
     }
@@ -36,16 +36,16 @@
 
 <body>
 
-  <bean:define id="inputBean" name="yuzaRegistForm" />
-  <bean:define id="viewBean" name="YUZA_REGIST_DTO" />
-  <bean:define id="backAction" name="YUZA_REGIST_BACK" type="java.lang.String" />
+  <bean:define id="inputBean" name="userRegistForm" />
+  <bean:define id="viewBean" name="USER_REGIST_DTO" />
+  <bean:define id="backAction" name="USER_REGIST_BACK" type="java.lang.String" />
 
   <div class="base-width text-center">
 
-    <html:form action="/YuzaRegistDisp" focus="yuzaId">
+    <html:form action="/UserRegistDisp" focus="userId">
 
       <jsp:include page="/jsp/common/header.jsp">
-        <jsp:param name="screenTitle" value="個人マスタ登録"/>
+        <jsp:param name="screenTitle" value="新規ユーザー登録"/>
       </jsp:include>
 
       <html:hidden property="operation" value="" />
@@ -75,10 +75,10 @@
               </td>
               <td class="w-75 text-left">
                 <logic:empty name="viewBean" property="revision">
-                  <html:text name="inputBean" property="yuzaId" styleClass="input-text-s" />
+                  <html:text name="inputBean" property="userId" styleClass="input-text-s" />
                 </logic:empty>
                 <logic:notEmpty name="viewBean" property="revision">
-                  <html:text name="inputBean" property="yuzaId" styleClass="input-text-s" readonly="true" />
+                  <html:text name="inputBean" property="userId" styleClass="input-text-s" readonly="true" />
                 </logic:notEmpty>
               </td>
             </tr>

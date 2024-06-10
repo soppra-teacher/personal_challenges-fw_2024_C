@@ -56,7 +56,7 @@ public class KojinRegistInsUpdAction extends BaseAction {
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 
-		// 世帯主フラグ有無チェック
+		// 世帯主フラグ有無チェック　・いらない
 		if (SETAINUSHI_FLG_ON.equals(formMap.get(KojinConst.KEY_SETAINUSI_FLG))) {
 			// チェック済みの場合、パラメータを"1"に設定する。
 			formMap.put(KojinConst.KEY_SETAINUSI_FLG_VALUE, SETAINUSHI_ON);

@@ -15,6 +15,25 @@ public class LoginDto {
 	/** 世帯主フラグ */
 	private String setainushiFlg;
 
+	/** ユーザーID 取得 */
+	private String userId;
+	
+	
+	/**
+	 * ユーザーＩＤを取得します。
+	 * @return 個人ＩＤ
+	 */
+	public String getUserId() {
+	    return userId;
+	}
+	
+	/**
+	 * 個人名を設定します。
+	 * @param kojinNm 個人名
+	 */
+	public void setUserId(String userId) {
+	    this.userId = userId;
+	}
 	/**
 	 * 個人ＩＤを取得します。
 	 * @return 個人ＩＤ
@@ -78,4 +97,6 @@ public class LoginDto {
 	public void setSetainushiFlg(String setainushiFlg) {
 	    this.setainushiFlg = setainushiFlg;
 	}
+	
+	
 }
