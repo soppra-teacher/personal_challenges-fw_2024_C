@@ -62,12 +62,12 @@
 								ìoò^
 							</html:button>
 						</td>
-						<td class="w-25">
+<%-- 						<td class="w-25">
 							<html:button property="search" onclick="callAction(this.form, 'search');"
 								styleClass="btn btn-l">
 								åüçı
 							</html:button>
-						</td>
+						</td> --%>
 <%-- 						<td colspan="2" class="w-50 text-left">
 							<span class="label-title">
 								å¬êlñº∂≈
@@ -143,12 +143,13 @@
 										<input type="checkbox" name="checkDel" value="<bean:write name="list" property="seisekiId" />" />
 									</td> --%>
 									<td class="l-seiseki-senshu-id">
-										<html:link action="/SeisekiRegistInit" paramId="senshuId" paramName="list" paramProperty="seisekiId">
-											<bean:write name="list" property="senshuId" />
-										</html:link>
+										<bean:write name="list" property="senshuId" />
+										
 									</td>
 									<td class="text-center">
-										<bean:write name="list" property="senshuNm" />
+										<html:link action="/SeisekiListInit" paramId="senshuId" paramName="list" paramProperty="senshuId">
+											<bean:write name="list" property="senshuNm" />
+										</html:link>
 									</td>
 									<td class="l-seiseki-sou-inning">
 										<span class="p-10">

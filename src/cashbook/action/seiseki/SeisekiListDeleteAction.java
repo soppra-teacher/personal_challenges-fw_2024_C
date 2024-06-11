@@ -70,8 +70,6 @@ public class SeisekiListDeleteAction extends BaseAction {
 		//request.getSession().setAttribute(SESSION_LIST_MESSAGE_SEISEKI, MSG_SUCCESS_DELETE);
 		request.getSession().setAttribute(SESSION_LIST_MESSAGE_SEISEKI, MSG_SUCCESS_INSERT);
 		
-		System.out.println("削除完了メッセージをセッションに保持");
-		
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(ACTION_FOWARD_SUCCESS);
 	}
