@@ -195,7 +195,7 @@
       <ref local="SeisekiServiceId" />
     </property>
   </bean>
-  <bean name="/SeisekiListDelete" class="cashbook.action.seiseki.SeisekiListDeleteAction">
+  <bean name="/SeisekiListSenshuRegist" class="cashbook.action.seiseki.SeisekiListSenshuRegistAction">
     <property name="seisekiService">
       <ref local="SeisekiServiceId" />
     </property>
