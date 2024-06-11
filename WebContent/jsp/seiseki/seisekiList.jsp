@@ -143,28 +143,28 @@
 										<input type="checkbox" name="checkDel" value="<bean:write name="list" property="seisekiId" />" />
 									</td> --%>
 									<td class="l-seiseki-senshu-id">
-										<html:link action="/SeisekiRegistInit" paramId="seisekiId" paramName="list" paramProperty="seisekiId">
-											<bean:write name="list" property="seisekiId" />
+										<html:link action="/SeisekiRegistInit" paramId="senshuId" paramName="list" paramProperty="seisekiId">
+											<bean:write name="list" property="senshuId" />
 										</html:link>
 									</td>
-									<td class="text-left">
-										<bean:write name="list" property="setaiId" />
+									<td class="text-center">
+										<bean:write name="list" property="senshuNm" />
 									</td>
 									<td class="l-seiseki-sou-inning">
 										<span class="p-10">
-											<bean:write name="list" property="seisekiNm" />
+											<bean:write name="list" property="souInning" />
 										</span>
 									</td>
 									<td class="l-seiseki-sou-shitten">
 										<span class="p-10">
-											<bean:write name="list" property="seisekiNmkana" />
+											<bean:write name="list" property="souShitten" />
 										</span>
 									</td>
 									<td class="l-seiseki-sou-jisekiten">
-										<bean:write name="list" property="seibetsuNm" />
+										<bean:write name="list" property="souJisekiten" />
 									</td>
  									<td class="l-seiseki-bougyoritsu">
-										<bean:write name="list" property="zokugaraNm" />
+										<bean:write name="list" property="bougyoRitsu" />
 									</td>
 <%--									<td class="l-seiseki-setainushi">
 										<bean:write name="list" property="setaiNusiNm" />

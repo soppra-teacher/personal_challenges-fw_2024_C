@@ -32,7 +32,7 @@ public class SeisekiListDto extends BaseDto {
 	private String setaiNusiFlg;
 
 	/** 成績マスタ一覧 */
-	private List<SeisekiRegistDto> list;
+	private List<SeisekiListDto> list;
 	
 	
 	
@@ -43,13 +43,13 @@ public class SeisekiListDto extends BaseDto {
 	
 	
 	/** 選手ID */
-	private int senshuId;
+	private String senshuId;
 	
 	/** 選手名 */
 	private String senshuNm;
 	
 	/** 総イニング */
-	private String souIning;
+	private String souInning;
 	
 	/** 総失点 */
 	private String souShitten;
@@ -134,10 +134,10 @@ public class SeisekiListDto extends BaseDto {
 		this.setaiNusiFlg = setaiNusiFlg;
 	}
 
-	public List<SeisekiRegistDto> getList() {
+	public List<SeisekiListDto> getList() {
 		return list;
 	}
-	public void setList(List<SeisekiRegistDto> list) {
+	public void setList(List<SeisekiListDto> list) {
 		this.list = list;
 	}
 	
@@ -146,11 +146,11 @@ public class SeisekiListDto extends BaseDto {
 	
 	
 	
-	public int getnewSenshuNmId() {
+	public String getSenshuId() {
 		return senshuId;
 	}
 
-	public void setnewSenshuNmId(int senshuId) {
+	public void setSenshuId(String senshuId) {
 		this.senshuId = senshuId;
 	}
 	
@@ -162,43 +162,43 @@ public class SeisekiListDto extends BaseDto {
 		this.newSenshuNm = newSenshuNm;
 	}
 	
-	public String getsenshuNm() {
+	public String getSenshuNm() {
 		return senshuNm;
 	}
 
-	public void setsenshuNm(String senshuNm) {
+	public void setSenshuNm(String senshuNm) {
 		this.senshuNm = senshuNm;
 	}
 	
-	public String getsouIning() {
-		return souIning;
+	public String getSouInning() {
+		return souInning;
 	}
 
-	public void setsouIning(String souIning) {
-		this.souIning = souIning;
+	public void setSouInning(String souInning) {
+		this.souInning = souInning;
 	}
 	
-	public String getsouShitten() {
+	public String getSouShitten() {
 		return souShitten;
 	}
 
-	public void setsouShitten(String souShitten) {
+	public void setSouShitten(String souShitten) {
 		this.souShitten = souShitten;
 	}
 	
-	public String getsouJisekiten() {
+	public String getSouJisekiten() {
 		return souJisekiten;
 	}
 
-	public void setsouJisekiten(String souJisekiten) {
+	public void setSouJisekiten(String souJisekiten) {
 		this.souJisekiten = souJisekiten;
 	}
 	
-	public String getbougyoRitsu() {
+	public String getBougyoRitsu() {
 		return bougyoRitsu;
 	}
 
-	public void setbougyoRitsu(String bougyoRitsu) {
+	public void setBougyoRitsu(String bougyoRitsu) {
 		this.bougyoRitsu = bougyoRitsu;
 	}
 

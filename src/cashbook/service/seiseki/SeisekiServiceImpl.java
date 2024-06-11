@@ -67,23 +67,20 @@ public class SeisekiServiceImpl implements SeisekiService {
 		//------------------------------------------
 		// 一覧
 		//------------------------------------------
-		List<SeisekiRegistDto> SeisekiList = new ArrayList<SeisekiRegistDto>();
+		List<SeisekiListDto> SeisekiList = new ArrayList<SeisekiListDto>();
 		// 検索処理
 		List<Map<String, String>> list = seisekiDao.searchSeiseki(formMap);
 		Iterator<Map<String, String>> it = list.iterator();
 		while (it.hasNext()) {
 			Map<String, String> map = it.next();
-			SeisekiRegistDto dto = new SeisekiRegistDto();
-			dto.setSeisekiId(map.get("SEISEKI_ID"));
-			dto.setSetaiId(map.get("SETAI_ID"));
-			dto.setSeisekiNm(map.get("SEISEKI_NM"));
-			dto.setSeisekiNmkana(map.get("SEISEKI_NM_KANA"));
-			dto.setSeibetsuNm(commonDao.getCode(CD_BUNRUI_002).get(map.get("SEIBETSU_KBN")));
-			dto.setZokugaraNm(commonDao.getCode(CD_BUNRUI_003).get(map.get("ZOKUGARA")));
-			dto.setSetaiNusiFlg(map.get("SETAINUSHI_FLG"));
-			if (SETAINUSHI_ON.equals(map.get("SETAINUSHI_FLG"))) {
-				dto.setSetaiNusiNm(commonDao.getCodeName(CD_BUNRUI_004, CD_004_1));
-			}
+			SeisekiListDto dto = new SeisekiListDto();
+			dto.setSenshuId(map.get("PLAYER_ID"));
+			dto.setSenshuNm(map.get("PLAYER_NAME"));
+			dto.setSouInning(map.get("総イニング"));
+			dto.setSouShitten(map.get("総失点"));
+			dto.setSouJisekiten(map.get("総自責点"));
+			dto.setBougyoRitsu(map.get("防御率"));
+
 			SeisekiList.add(dto);
 		}
 		result.setList(SeisekiList);

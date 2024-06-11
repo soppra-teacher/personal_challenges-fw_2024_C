@@ -26,14 +26,17 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 
 		List<Map<String, String>> result;
 		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT  M1.PLAYER_ID ");
-		sql.append("       ,M1.INNING_3 ");
-		sql.append("       ,M1.SITTEN ");
-		sql.append("       ,M1.JISEKITEN ");
-		sql.append("       ,M1.JISEKITEN ");
-		sql.append("  FROM SENSEKI_TBL M1 ");
-
-		sql.append(" ORDER BY M1.PLAYER_ID ");
+		sql.append("SELECT  S1.PLAYER_ID ");
+		sql.append("       ,M1.PLAYER_NAME ");
+		sql.append("       ,TRUNC((SUM(S1.INNING)/3),0)||'.'||MOD(SUM(S1.INNING),3)  AS 総イニング");
+		sql.append("       ,SUM(S1.SITTEN) AS 総失点 ");
+		sql.append("       ,SUM(S1.JISEKITEN) AS 総自責点 ");
+		sql.append("       ,TO_CHAR((SUM(S1.JISEKITEN))*9/(SUM(S1.INNING)/3),'0.00') AS 防御率 ");
+		sql.append("  FROM SENSEKI_TBL S1 ");
+		sql.append("  LEFT JOIN MST_PLAYER M1 ");
+		sql.append("  ON S1.PLAYER_ID=M1.PLAYER_ID ");
+		sql.append("  GROUP BY M1.PLAYER_NAME,S1.PLAYER_ID ");
+		sql.append(" ORDER BY S1.PLAYER_ID ");
 		result = super.search(sql.toString());
 
 		return result;
@@ -122,7 +125,7 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 	
 	
 	/**
-	 * 選手マスタを登録する
+	 * 選手マスタに登録する
 	 * @throws Exception
 	 */
 	public void registSenshu(Map<String, Object> formMap, LoginDto loginDto) {
@@ -137,7 +140,7 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 		sql.append("   ,M1.INS_USER ");
 		sql.append("   ,M1.INS_DATE ");
 		sql.append(" ) VALUES ( ");
-		sql.append("     (SELECT SUBSTR('0000000' || (MAX(PLAYER_ID) + 1), LENGTH('0000000' || (MAX(PLAYER_ID) + 1)) - 7, 8)FROM MST_PLAYER)");
+		sql.append("     (SELECT MAX(PLAYER_ID)+1 FROM MST_PLAYER)");
 		sql.append("   , '").append(formMap.get(SeisekiConst.KEY_NEW_SENSHU_NM)).append("' ");
 		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		sql.append("   , SYSDATE ");

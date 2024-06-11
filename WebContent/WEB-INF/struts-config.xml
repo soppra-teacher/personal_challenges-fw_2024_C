@@ -425,6 +425,7 @@
 			path="/SeisekiListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			scope="request">
+<!--			<forward name="success" path="/SeisekiListSearch.do"/>-->
 			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>
 		</action>
 		<!-- ディスパッチ -->
