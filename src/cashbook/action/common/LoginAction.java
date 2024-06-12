@@ -5,7 +5,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -23,7 +22,7 @@ import cashbook.util.Const;
  * ログインアクションクラス
  * @author soppra
  */
-public class LoginAction extends Action {
+public class LoginAction extends BaseAction {
 
 	/** ログインサービス */
 	private LoginService loginService;
@@ -82,5 +81,12 @@ public class LoginAction extends Action {
 			return map.getInputForward();
 
 		}
+	}
+
+	@Override
+	protected ActionForward doProcess(ActionMapping map, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response, LoginDto loginDto) throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 }

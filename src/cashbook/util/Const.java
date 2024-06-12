@@ -31,6 +31,9 @@ public class Const {
 	public static final String ACTION_FOWARD_BACK_LIST_SETAI = "backListSetai";
 	/** 遷移先 戻る(個別一覧) */
 	public static final String ACTION_FOWARD_BACK_LIST_KOBETSU = "backListKobetsu";
+	/** 遷移先 新規ユーザー登録画面(新規) */
+	public static final String ACTION_FOWARD_BACK_LIST_USER = "backListUser";
+	
 
 	/** ログイン失敗メッセージ */
 	public static final String MSG_ERRORS_LOGIN_ERROR = "loginForm.error.login";

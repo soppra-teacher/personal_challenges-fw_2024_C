@@ -55,4 +55,17 @@ public class UserRegistDispAction extends DispatchAction {
 
 		return mapping.findForward(ACTION_FOWARD_BACK_LIST);
 	}
+	/**
+	 * 戻る（一覧(ユーザー)）
+	 * 自分で追加した
+	 */
+	public ActionForward backListUser(
+			ActionMapping mapping,
+			ActionForm form,
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		return mapping.findForward(ACTION_FOWARD_BACK_LIST_USER);
+	}
+	
 }

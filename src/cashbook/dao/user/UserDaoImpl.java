@@ -48,9 +48,11 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		sql.append(" ) VALUES ( ");
 		sql.append("     '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");
 		sql.append("   , '").append(formMap.get(UserConst.KEY_PASS)).append("' ");
+//		sql.append("   , '").append(loginDto.getUserId()).append("' ");
 		sql.append(" ) ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		super.update(sql.toString());
+		
+		System.out.println(sql);  
 	}
 	
 

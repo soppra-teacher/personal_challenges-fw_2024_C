@@ -12,7 +12,7 @@
   <meta content="ja" http-equiv="Content-Language" />
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <title>
-    ソプブーのマネーノート　個人マスタ登録
+    ソプブーのマネーノート　新規ユーザー登録画面
   </title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
 <script language="JavaScript" type="text/javascript" charset="shift_jis" src="js/common.js" ></script>
@@ -37,8 +37,7 @@
 <body>
 
   <bean:define id="inputBean" name="userRegistForm" />
-  <bean:define id="viewBean" name="USER_REGIST_DTO" />
-  <bean:define id="backAction" name="USER_REGIST_BACK" type="java.lang.String" />
+ <!--   <bean:define id="viewBean" name="USER_REGIST_DTO"/> -->
 
   <div class="base-width text-center">
 
@@ -49,8 +48,7 @@
       </jsp:include>
 
       <html:hidden property="operation" value="" />
-      <html:hidden name="viewBean" property="revision" />
-
+    
       <div id="contents">
         <html:messages id="msg" message="true">
           <p class="msg-info">
@@ -74,13 +72,9 @@
                 </span>
               </td>
               <td class="w-75 text-left">
-                <logic:empty name="viewBean" property="revision">
+               
                   <html:text name="inputBean" property="userId" styleClass="input-text-s" />
-                </logic:empty>
-                <logic:notEmpty name="viewBean" property="revision">
-                  <html:text name="inputBean" property="userId" styleClass="input-text-s" readonly="true" />
-                </logic:notEmpty>
-              </td>
+               </td>
             </tr>
 
             <tr>
@@ -108,22 +102,18 @@
         </div>
 
         <div class="block-center">
-          <logic:empty name="viewBean" property="revision">
+         <!--  <logic:empty name="viewBean" property="revision">  -->
             <html:button property="insert" styleClass="btn btn-l" onclick="callAction(this.form, 'insert');">
               登録
             </html:button>
-          </logic:empty>
-          <logic:notEmpty name="viewBean" property="revision">
+        <!--   </logic:empty>  -->
+          
+      <!--     <logic:notEmpty name="viewBean" property="revision">  
             <html:button property="insert" styleClass="btn btn-l" onclick="callAction(this.form, 'update');">
               更新
             </html:button>
-          </logic:notEmpty>
-        </div>
-
-        <div class="block-center">
-          <html:button property="back" styleClass="btn btn-l" onclick='<%= "callAction(this.form, \'" + backAction + "\');"%>'>
-            戻る
-          </html:button>
+          </logic:notEmpty> -->
+          
         </div>
 
         <jsp:include page="/jsp/common/footer.jsp" />

@@ -88,7 +88,7 @@ public class KojinDaoImpl extends BaseDaoImpl implements KojinDao {
 
 		super.update(sql.toString());
 	}
-
+	
 	/**
 	 * 個人マスタを検索する
 	 * @return 個人マスタ

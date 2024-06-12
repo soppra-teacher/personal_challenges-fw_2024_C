@@ -6,612 +6,521 @@
 
 	<form-beans>
 		<!-- ログイン画面 -->
-		<form-bean name="loginForm"       type="org.apache.struts.validator.DynaValidatorForm">
+		<form-bean name="loginForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="userId" type="java.lang.String" />
-			<form-property name="pass"    type="java.lang.String"/>
-			<form-property name="getKey"    type="java.lang.String"/>
+			<form-property name="pass" type="java.lang.String" />
+			<form-property name="getKey" type="java.lang.String" />
+			<form-property name="" type="java.lang.String" />
 		</form-bean>
 
 		<!-- 費目マスタ登録画面 -->
-		<form-bean name="himokuRegistForm"     type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="himokuCd"     type="java.lang.String" />
-			<form-property name="himokuNm"     type="java.lang.String" />
-			<form-property name="himokuKbnKey" type="java.lang.String" />
-			<form-property name="revision"      type="java.lang.String" />
+		<form-bean name="himokuRegistForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="himokuCd" type="java.lang.String" />
+			<form-property name="himokuNm" type="java.lang.String" />
+			<form-property name="himokuKbnKey"
+				type="java.lang.String" />
+			<form-property name="revision" type="java.lang.String" />
 		</form-bean>
 
 		<!-- 費目マスタメンテ画面 -->
-		<form-bean name="himokuListForm"       type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="checkDel"     type="java.lang.String[]" />
-			<form-property name="himokuNm"     type="java.lang.String"   />
-			<form-property name="himokuKbnKey" type="java.lang.String"   />
+		<form-bean name="himokuListForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="checkDel"
+				type="java.lang.String[]" />
+			<form-property name="himokuNm" type="java.lang.String" />
+			<form-property name="himokuKbnKey"
+				type="java.lang.String" />
 		</form-bean>
 
 		<!-- 世帯マスタ登録画面 -->
-		<form-bean name="setaiRegistForm" type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="setaiId"     type="java.lang.String" />
-			<form-property name="setaiNm"     type="java.lang.String" />
-			<form-property name="setaiNmKana" type="java.lang.String" />
-			<form-property name="postNo"      type="java.lang.String" />
-			<form-property name="address"     type="java.lang.String" />
-			<form-property name="telNo"       type="java.lang.String" />
-			<form-property name="revision"     type="java.lang.String" />
+		<form-bean name="setaiRegistForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="setaiId" type="java.lang.String" />
+			<form-property name="setaiNm" type="java.lang.String" />
+			<form-property name="setaiNmKana"
+				type="java.lang.String" />
+			<form-property name="postNo" type="java.lang.String" />
+			<form-property name="address" type="java.lang.String" />
+			<form-property name="telNo" type="java.lang.String" />
+			<form-property name="revision" type="java.lang.String" />
 		</form-bean>
 
 		<!-- 世帯マスタメンテ画面 -->
-		<form-bean name="setaiListForm"       type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="setaiNm"     type="java.lang.String"  />
-			<form-property name="setaiNmKana" type="java.lang.String"  />
-			<form-property name="postNo"      type="java.lang.String"  />
-			<form-property name="address"     type="java.lang.String"  />
-			<form-property name="telNo"       type="java.lang.String"  />
-			<form-property name="checkDel"    type="java.lang.String[]"/>
+		<form-bean name="setaiListForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="setaiNm" type="java.lang.String" />
+			<form-property name="setaiNmKana"
+				type="java.lang.String" />
+			<form-property name="postNo" type="java.lang.String" />
+			<form-property name="address" type="java.lang.String" />
+			<form-property name="telNo" type="java.lang.String" />
+			<form-property name="checkDel"
+				type="java.lang.String[]" />
 		</form-bean>
 
 		<!-- 個人マスタ登録画面 -->
-  			<form-bean name="kojinRegistForm"    type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="kojinId"        type="java.lang.String" />
-			<form-property name="pass"           type="java.lang.String" />
-			<form-property name="setaiNmKey"     type="java.lang.String" />
-			<form-property name="kojinNm"        type="java.lang.String" />
-			<form-property name="kojinNmkana"    type="java.lang.String" />
-			<form-property name="seibetsuKbn"    type="java.lang.String" />
-			<form-property name="zokugaraKey"    type="java.lang.String" />
-			<form-property name="setaiNusiFlg"   type="java.lang.String" />
-			<form-property name="revision"        type="java.lang.String" />
+		<form-bean name="kojinRegistForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="kojinId" type="java.lang.String" />
+			<form-property name="pass" type="java.lang.String" />
+			<form-property name="setaiNmKey"
+				type="java.lang.String" />
+			<form-property name="kojinNm" type="java.lang.String" />
+			<form-property name="kojinNmkana"
+				type="java.lang.String" />
+			<form-property name="seibetsuKbn"
+				type="java.lang.String" />
+			<form-property name="zokugaraKey"
+				type="java.lang.String" />
+			<form-property name="setaiNusiFlg"
+				type="java.lang.String" />
+			<form-property name="revision" type="java.lang.String" />
 		</form-bean>
 
-<!--追加した部分-->
+		<!--追加した部分 -->
 
-<!-- ユーザーマスタ登録画面 -->
-  			<form-bean name="userRegistForm"    type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="userId"        type="java.lang.String" />
-			<form-property name="kojinId"        type="java.lang.String" />
-			<form-property name="pass"           type="java.lang.String" />
-			<form-property name="setaiNmKey"     type="java.lang.String" />
-			<form-property name="kojinNm"        type="java.lang.String" />
-			<form-property name="kojinNmkana"    type="java.lang.String" />
-			<form-property name="seibetsuKbn"    type="java.lang.String" />
-			<form-property name="zokugaraKey"    type="java.lang.String" />
-			<form-property name="setaiNusiFlg"   type="java.lang.String" />
-			<form-property name="revision"        type="java.lang.String" />
-			
-			
-			
-			
+		<!-- ユーザーマスタ登録画面 -->
+		<form-bean name="userRegistForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="userId" type="java.lang.String" />
+			<form-property name="kojinId" type="java.lang.String" />
+			<form-property name="pass" type="java.lang.String" />
+			<form-property name="setaiNmKey"
+				type="java.lang.String" />
+			<form-property name="kojinNm" type="java.lang.String" />
+			<form-property name="kojinNmkana"
+				type="java.lang.String" />
+			<form-property name="seibetsuKbn"
+				type="java.lang.String" />
+			<form-property name="zokugaraKey"
+				type="java.lang.String" />
+			<form-property name="setaiNusiFlg"
+				type="java.lang.String" />
+			<form-property name="revision" type="java.lang.String" />
+
+
+
+
 		</form-bean>
-<!--================================================================================================================-->
+		<!--================================================================================================================ -->
 
 		<!-- 個人マスタメンテ画面 -->
-		<form-bean name="kojinListForm"          type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="kojinId"        type="java.lang.String"  />
-			<form-property name="setaiId"        type="java.lang.String"  />
-			<form-property name="kojinNm"        type="java.lang.String"  />
-			<form-property name="kojinNmkana"    type="java.lang.String"  />
-			<form-property name="seibetsuKbnKey" type="java.lang.String"  />
-			<form-property name="zokugaraKey"    type="java.lang.String"  />
-			<form-property name="setaiNusiFlg"   type="java.lang.String"  />
-			<form-property name="checkDel"       type="java.lang.String[]"/>
+		<form-bean name="kojinListForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="kojinId" type="java.lang.String" />
+			<form-property name="setaiId" type="java.lang.String" />
+			<form-property name="kojinNm" type="java.lang.String" />
+			<form-property name="kojinNmkana"
+				type="java.lang.String" />
+			<form-property name="seibetsuKbnKey"
+				type="java.lang.String" />
+			<form-property name="zokugaraKey"
+				type="java.lang.String" />
+			<form-property name="setaiNusiFlg"
+				type="java.lang.String" />
+			<form-property name="checkDel"
+				type="java.lang.String[]" />
 		</form-bean>
 
 		<!-- 収支登録画面 -->
-		<form-bean name="shushiRegistForm"     type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="shushiKey"    type="java.lang.String" />
-			<form-property name="shushiId"     type="java.lang.String" />
-			<form-property name="shushiDtlId"  type="java.lang.String" />
-			<form-property name="kojinId"      type="java.lang.String" />
-			<form-property name="ymd"          type="java.lang.String" />
-			<form-property name="himokuCd"     type="java.lang.String" />
-			<form-property name="himokuNm"     type="java.lang.String" />
-			<form-property name="himokuNmKey"  type="java.lang.String" />
-			<form-property name="himokuKbn"    type="java.lang.String" />
-			<form-property name="himokuKbnKey" type="java.lang.String" />
-			<form-property name="kingaku"      type="java.lang.String" />
-			<form-property name="revision"      type="java.lang.String" />
+		<form-bean name="shushiRegistForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="shushiKey" type="java.lang.String" />
+			<form-property name="shushiId" type="java.lang.String" />
+			<form-property name="shushiDtlId"
+				type="java.lang.String" />
+			<form-property name="kojinId" type="java.lang.String" />
+			<form-property name="ymd" type="java.lang.String" />
+			<form-property name="himokuCd" type="java.lang.String" />
+			<form-property name="himokuNm" type="java.lang.String" />
+			<form-property name="himokuNmKey"
+				type="java.lang.String" />
+			<form-property name="himokuKbn" type="java.lang.String" />
+			<form-property name="himokuKbnKey"
+				type="java.lang.String" />
+			<form-property name="kingaku" type="java.lang.String" />
+			<form-property name="revision" type="java.lang.String" />
 		</form-bean>
 
 		<!-- 収支一覧（個別） -->
-		<form-bean name="shushiListKobetsuForm" type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="checkDel"      type="java.lang.String[]"/>
-			<form-property name="yearKey"       type="java.lang.String"  />
-			<form-property name="monthKey"      type="java.lang.String"  />
-			<form-property name="himokuNmKey"   type="java.lang.String"  />
-			<form-property name="himokuCd"      type="java.lang.String"  />
+		<form-bean name="shushiListKobetsuForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="checkDel"
+				type="java.lang.String[]" />
+			<form-property name="yearKey" type="java.lang.String" />
+			<form-property name="monthKey" type="java.lang.String" />
+			<form-property name="himokuNmKey"
+				type="java.lang.String" />
+			<form-property name="himokuCd" type="java.lang.String" />
 		</form-bean>
 
 		<!-- 収支一覧（世帯） -->
-		<form-bean name="shushiListSetaiForm"  type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="checkDel"     type="java.lang.String[]"/>
-			<form-property name="yearKey"      type="java.lang.String"  />
-			<form-property name="monthKey"     type="java.lang.String"  />
-			<form-property name="kojinNmKey"   type="java.lang.String"  />
-			<form-property name="himokuNmKey"  type="java.lang.String"  />
-			<form-property name="himokuCd"     type="java.lang.String"  />
+		<form-bean name="shushiListSetaiForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="checkDel"
+				type="java.lang.String[]" />
+			<form-property name="yearKey" type="java.lang.String" />
+			<form-property name="monthKey" type="java.lang.String" />
+			<form-property name="kojinNmKey"
+				type="java.lang.String" />
+			<form-property name="himokuNmKey"
+				type="java.lang.String" />
+			<form-property name="himokuCd" type="java.lang.String" />
 		</form-bean>
 
 	</form-beans>
 
 	<global-forwards>
-		<forward name="sessionError" path="/jsp/common/sessionError.jsp" />
+		<forward name="sessionError"
+			path="/jsp/common/sessionError.jsp" />
 	</global-forwards>
 
 	<action-mappings>
-		<!--
-		****************************
-		* ログイン画面             *
-		****************************
-		-->
-		<action
-			path="/Login"
+		<!-- **************************** * ログイン画面 * **************************** -->
+		<action path="/Login"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="loginForm"
-			validate="false"
-			input="/jsp/common/LoginSample.jsp"
+			name="loginForm" validate="false" input="/jsp/common/LoginSample.jsp"
 			scope="request">
-			<forward name="success" path="/MenuInit.do?getKey=aaa"/>
+			<forward name="success" path="/MenuInit.do?getKey=aaa" />
 		</action>
-		<action
-			path="/Logout"
-			type="cashbook.action.common.LogoutAction"
-			scope="request">
-			<forward name="success" path="/jsp/common/LoginSample.jsp"/>
+		<action path="/Logout"
+			type="cashbook.action.common.LogoutAction" scope="request">
+			<forward name="success" path="/jsp/common/LoginSample.jsp" />
 		</action>
 
-		<!--
-		****************************
-		* メニュー画面             *
-		****************************
-		-->
-		<action
-			path="/MenuInit"
-			type="cashbook.action.common.MenuInitAction"
-			scope="request">
-			<forward name="success" path="/jsp/common/Samplemenu.jsp"/>
-            <!--<forward name="success" path="/jsp/common/menu.jsp"/>-->
+		<!-- **************************** * メニュー画面 * **************************** -->
+		<action path="/MenuInit"
+			type="cashbook.action.common.MenuInitAction" scope="request">
+			<forward name="success" path="/jsp/common/Samplemenu.jsp" />
+			<!--<forward name="success" path="/jsp/common/menu.jsp"/> -->
 		</action>
 
 
 
 
-		<!--
-		****************************
-		* 新規ユーザー登録画面     *
-		****************************
-		-->
+		<!-- **************************** * 新規ユーザー登録画面 * **************************** -->
 		<!-- 初期表示 -->
-		
-		
-		<action
-			path="/UserRegistInit"
-			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="userRegistForm"
-			validate="false"
-			scope="request">
-			<forward name="success" path="/jsp/user/userRegist.jsp"/>
-		</action>
-		
-		
+
+
+<!--		 <action -->
+<!--		 path="/UserRegistInit" -->
+<!--		 type="org.springframework.web.struts.DelegatingActionProxy" -->
+<!--		 name="userRegistForm" -->
+<!--		 validate="false" -->
+<!--		 scope="request"> -->
+<!--		 <forward name="success" path="/jsp/user/userRegist.jsp"/> -->
+<!--		 </action> -->
+
+
 		<!-- 新規作成 -->
-			<action
-			path="//UserRegistInit"
-			type="cashbook.action.common.UserNewAction"
-			scope="request">
-			<forward name="success" path="/jsp/user/userRegist.jsp"/>
-            <!--<forward name="success" path="/jsp/common/menu.jsp"/>-->
-		</action>
-<!--		 ディスパッチ -->
-		<action														
-			path="/UserRegistDisp"									
-			type="cashbook.action.user.UserRegistDispAction"		
-			name="userRegistForm"									
-			validate="false"										
-			parameter="operation"									
-			scope="request">										
-			<forward name="insert" path="/UserRegistInsUpd.do"/>	
-			<forward name="backMenu" path="/MenuInit.do"/>			
-			<forward name="backList" path="/UserListSearch.do"/>	
-		</action>
-<!--		 登録・更新 -->
-		<action
-			path="/UserRegistInsUpd"
-			type="org.springframework.web.struts.DelegatingActionProxy"
+		<action path="/UserRegistInit"
+			type="cashbook.action.user.UserRegistInitAction" 
 			name="userRegistForm"
-			validate="true"
-			input="/jsp/user/userRegist.jsp"
 			scope="request">
-			<forward name="success" path="/UserRegistInit.do" redirect="true" />
+			<forward name="success" path="/jsp/user/userRegist.jsp" />
+			
+		</action>
+		<!-- ディスパッチ -->
+		<action path="/UserRegistDisp"
+			type="cashbook.action.user.UserRegistDispAction"
+			name="userRegistForm" validate="false" parameter="operation"
+			scope="request">
+			<forward name="insert" path="/UserRegistInsUpd.do" />
+			<forward name="backMenu" path="/MenuInit.do" />
+			<forward name="backList" path="/UserListSearch.do" />
+		</action>
+		<!-- 登録・更新 -->
+		<action path="/UserRegistInsUpd"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="userRegistForm" validate="true"
+			input="/jsp/user/userRegist.jsp" scope="request">
+			<forward name="success" path="/UserRegistInit.do"
+				redirect="true" />
 			<forward name="error" path="/jsp/user/userRegist.jsp" />
 		</action>
 
-		<!--
-		****************************
-		* 費目マスタ登録画面       *
-		****************************
-		-->
+		<!-- **************************** * 費目マスタ登録画面 * **************************** -->
 		<!-- 初期表示 -->
-		<action
-			path="/HimokuRegistInit"
+		<action path="/HimokuRegistInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="himokuRegistForm"
-			validate="false"
-			scope="request">
-			<forward name="success" path="/jsp/himoku/himokuRegist.jsp"/>
+			name="himokuRegistForm" validate="false" scope="request">
+			<forward name="success" path="/jsp/himoku/himokuRegist.jsp" />
 		</action>
 		<!-- ディスパッチ -->
-		<action
-			path="/HimokuRegistDisp"
+		<action path="/HimokuRegistDisp"
 			type="cashbook.action.himoku.HimokuRegistDispAction"
-			name="himokuRegistForm"
-			validate="false"
-			parameter="operation"
+			name="himokuRegistForm" validate="false" parameter="operation"
 			scope="request">
-			<forward name="insert" path="/HimokuRegistInsUpd.do"/>
-			<forward name="update" path="/HimokuRegistInsUpd.do"/>
-			<forward name="backMenu" path="/MenuInit.do"/>
-			<forward name="backList" path="/HimokuListSearch.do"/>
+			<forward name="insert" path="/HimokuRegistInsUpd.do" />
+			<forward name="update" path="/HimokuRegistInsUpd.do" />
+			<forward name="backMenu" path="/MenuInit.do" />
+			<forward name="backList" path="/HimokuListSearch.do" />
 		</action>
 		<!-- 登録・更新 -->
-		<action
-			path="/HimokuRegistInsUpd"
+		<action path="/HimokuRegistInsUpd"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="himokuRegistForm"
-			validate="true"
-			input="/jsp/himoku/himokuRegist.jsp"
-			scope="request">
-			<forward name="success" path="/HimokuRegistInit.do" redirect="true" />
+			name="himokuRegistForm" validate="true"
+			input="/jsp/himoku/himokuRegist.jsp" scope="request">
+			<forward name="success" path="/HimokuRegistInit.do"
+				redirect="true" />
 		</action>
 
-		<!--
-		****************************
-		* 費目マスタメンテ画面     *
-		****************************
-		-->
+		<!-- **************************** * 費目マスタメンテ画面 * **************************** -->
 		<!-- 初期表示 -->
-		<action
-			path="/HimokuListInit"
+		<action path="/HimokuListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			scope="request">
-			<forward name="success" path="/jsp/himoku/himokuList.jsp"/>
+			<forward name="success" path="/jsp/himoku/himokuList.jsp" />
 		</action>
 		<!-- ディスパッチ -->
-		<action
-			path="/HimokuListDisp"
+		<action path="/HimokuListDisp"
 			type="cashbook.action.himoku.HimokuListDispAction"
-			name="himokuListForm"
-			validate="false"
-			parameter="operation"
+			name="himokuListForm" validate="false" parameter="operation"
 			scope="request">
-			<forward name="search" path="/HimokuListSearch.do"/>
-			<forward name="delete" path="/HimokuListDelete.do"/>
+			<forward name="search" path="/HimokuListSearch.do" />
+			<forward name="delete" path="/HimokuListDelete.do" />
 		</action>
 		<!-- 検索 -->
-		<action
-			path="/HimokuListSearch"
+		<action path="/HimokuListSearch"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="himokuListForm"
-			validate="true"
-			input="/jsp/himoku/himokuList.jsp"
-			scope="request">
-			<forward name="success" path="/jsp/himoku/himokuList.jsp"/>
+			name="himokuListForm" validate="true"
+			input="/jsp/himoku/himokuList.jsp" scope="request">
+			<forward name="success" path="/jsp/himoku/himokuList.jsp" />
 		</action>
 		<!-- 削除 -->
-		<action
-			path="/HimokuListDelete"
+		<action path="/HimokuListDelete"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="himokuListForm"
-			validate="false"
-			input="/jsp/himoku/himokuList.jsp"
-			scope="request">
-			<forward name="success" path="/HimokuListSearch.do" redirect="true" />
+			name="himokuListForm" validate="false"
+			input="/jsp/himoku/himokuList.jsp" scope="request">
+			<forward name="success" path="/HimokuListSearch.do"
+				redirect="true" />
 		</action>
 
-		<!--
-		****************************
-		*  世帯マスタ登録画面      *
-		****************************
-		-->
+		<!-- **************************** * 世帯マスタ登録画面 * **************************** -->
 		<!-- 初期表示 -->
-		<action
-			path="/SetaiRegistInit"
+		<action path="/SetaiRegistInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="setaiRegistForm"
-			validate="false"
-			scope="request">
-			<forward name="success" path="/jsp/setai/setaiRegist.jsp"/>
+			name="setaiRegistForm" validate="false" scope="request">
+			<forward name="success" path="/jsp/setai/setaiRegist.jsp" />
 		</action>
 		<!-- ディスパッチ -->
-		<action
-			path="/SetaiRegistDisp"
+		<action path="/SetaiRegistDisp"
 			type="cashbook.action.setai.SetaiRegistDispAction"
-			name="setaiRegistForm"
-			validate="false"
-			parameter="operation"
+			name="setaiRegistForm" validate="false" parameter="operation"
 			scope="request">
-			<forward name="insert" path="/SetaiRegistInsUpd.do"/>
-			<forward name="update" path="/SetaiRegistInsUpd.do"/>
-			<forward name="backMenu" path="/MenuInit.do"/>
-			<forward name="backList" path="/SetaiListSearch.do"/>
+			<forward name="insert" path="/SetaiRegistInsUpd.do" />
+			<forward name="update" path="/SetaiRegistInsUpd.do" />
+			<forward name="backMenu" path="/MenuInit.do" />
+			<forward name="backList" path="/SetaiListSearch.do" />
 		</action>
 		<!-- 登録・更新 -->
-		<action
-			path="/SetaiRegistInsUpd"
+		<action path="/SetaiRegistInsUpd"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="setaiRegistForm"
-			validate="true"
-			input="/jsp/setai/setaiRegist.jsp"
-			scope="request">
-			<forward name="success" path="/SetaiRegistInit.do" redirect="true" />
+			name="setaiRegistForm" validate="true"
+			input="/jsp/setai/setaiRegist.jsp" scope="request">
+			<forward name="success" path="/SetaiRegistInit.do"
+				redirect="true" />
 		</action>
 
-		<!--
-		****************************
-		* 世帯マスタメンテ画面     *
-		****************************
-		 -->
+		<!-- **************************** * 世帯マスタメンテ画面 * **************************** -->
 		<!-- 初期表示 -->
-		<action
-			path="/SetaiListInit"
+		<action path="/SetaiListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			scope="request">
-			<forward name="success" path="/jsp/setai/setaiList.jsp"/>
+			<forward name="success" path="/jsp/setai/setaiList.jsp" />
 		</action>
 		<!-- ディスパッチ -->
-		<action
-			path="/SetaiListDisp"
-			type="cashbook.action.setai.SetaiListDispAction"
-			name="setaiListForm"
-			validate="false"
-			parameter="operation"
-			scope="request">
-			<forward name="search" path="/SetaiListSearch.do"/>
-			<forward name="delete" path="/SetaiListDelete.do"/>
+		<action path="/SetaiListDisp"
+			type="cashbook.action.setai.SetaiListDispAction" name="setaiListForm"
+			validate="false" parameter="operation" scope="request">
+			<forward name="search" path="/SetaiListSearch.do" />
+			<forward name="delete" path="/SetaiListDelete.do" />
 		</action>
 		<!-- 検索 -->
-		<action
-			path="/SetaiListSearch"
+		<action path="/SetaiListSearch"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="setaiListForm"
-			validate="true"
-			input="/jsp/setai/setaiList.jsp"
+			name="setaiListForm" validate="true" input="/jsp/setai/setaiList.jsp"
 			scope="request">
-			<forward name="success" path="/jsp/setai/setaiList.jsp"/>
+			<forward name="success" path="/jsp/setai/setaiList.jsp" />
 		</action>
 		<!-- 削除 -->
-		<action
-			path="/SetaiListDelete"
+		<action path="/SetaiListDelete"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="setaiListForm"
-			validate="false"
-			input="/jsp/setai/setaiList.jsp"
-			scope="request">
-			<forward name="success" path="/SetaiListSearch.do" redirect="true" />
+			name="setaiListForm" validate="false"
+			input="/jsp/setai/setaiList.jsp" scope="request">
+			<forward name="success" path="/SetaiListSearch.do"
+				redirect="true" />
 		</action>
 
 
 
-		<!--
-		****************************
-		* 個人マスタ登録画面       *
-		****************************
-		-->
+		<!-- **************************** * 個人マスタ登録画面 * **************************** -->
 		<!-- 初期表示 -->
-		<action
-			path="/KojinRegistInit"
+		<action path="/KojinRegistInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="kojinRegistForm"
-			validate="false"
-			scope="request">
-			<forward name="success" path="/jsp/kojin/kojinRegist.jsp"/>
+			name="kojinRegistForm" validate="false" scope="request">
+			<forward name="success" path="/jsp/kojin/kojinRegist.jsp" />
 		</action>
 		<!-- ディスパッチ -->
-		<action
-			path="/KojinRegistDisp"
+		<action path="/KojinRegistDisp"
 			type="cashbook.action.kojin.KojinRegistDispAction"
-			name="kojinRegistForm"
-			validate="false"
-			parameter="operation"
+			name="kojinRegistForm" validate="false" parameter="operation"
 			scope="request">
-			<forward name="insert" path="/KojinRegistInsUpd.do"/>
-			<forward name="update" path="/KojinRegistInsUpd.do"/>
-			<forward name="backMenu" path="/MenuInit.do"/>
-			<forward name="backList" path="/KojinListSearch.do"/>
+			<forward name="insert" path="/KojinRegistInsUpd.do" />
+			<forward name="update" path="/KojinRegistInsUpd.do" />
+			<forward name="backMenu" path="/MenuInit.do" />
+			<forward name="backList" path="/KojinListSearch.do" />
 		</action>
 		<!-- 登録・更新 -->
-		<action
-			path="/KojinRegistInsUpd"
+		<action path="/KojinRegistInsUpd"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="kojinRegistForm"
-			validate="true"
-			input="/jsp/kojin/kojinRegist.jsp"
-			scope="request">
-			<forward name="success" path="/KojinRegistInit.do" redirect="true" />
+			name="kojinRegistForm" validate="true"
+			input="/jsp/kojin/kojinRegist.jsp" scope="request">
+			<forward name="success" path="/KojinRegistInit.do"
+				redirect="true" />
 			<forward name="error" path="/jsp/kojin/kojinRegist.jsp" />
 		</action>
 
-		<!--
-		****************************
-		* 個人マスタメンテ画面     *
-		****************************
-		-->
+		<!-- **************************** * 個人マスタメンテ画面 * **************************** -->
 		<!-- 初期表示 -->
-		<action
-			path="/KojinListInit"
+		<action path="/KojinListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			scope="request">
-			<forward name="success" path="/jsp/kojin/kojinList.jsp"/>
+			<forward name="success" path="/jsp/kojin/kojinList.jsp" />
 		</action>
 		<!-- ディスパッチ -->
-		<action
-			path="/KojinListDisp"
-			type="cashbook.action.kojin.KojinListDispAction"
-			name="kojinListForm"
-			validate="false"
-			parameter="operation"
-			scope="request">
-			<forward name="search" path="/KojinListSearch.do"/>
-			<forward name="delete" path="/KojinListDelete.do"/>
+		<action path="/KojinListDisp"
+			type="cashbook.action.kojin.KojinListDispAction" name="kojinListForm"
+			validate="false" parameter="operation" scope="request">
+			<forward name="search" path="/KojinListSearch.do" />
+			<forward name="delete" path="/KojinListDelete.do" />
 		</action>
 		<!-- 検索 -->
-		<action
-			path="/KojinListSearch"
+		<action path="/KojinListSearch"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="kojinListForm"
-			validate="true"
-			input="/jsp/kojin/kojinList.jsp"
+			name="kojinListForm" validate="true" input="/jsp/kojin/kojinList.jsp"
 			scope="request">
-			<forward name="success" path="/jsp/kojin/kojinList.jsp"/>
+			<forward name="success" path="/jsp/kojin/kojinList.jsp" />
 		</action>
 		<!-- 削除 -->
-		<action
-			path="/KojinListDelete"
+		<action path="/KojinListDelete"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="kojinListForm"
-			validate="false"
-			input="/jsp/kojin/kojinList.jsp"
-			scope="request">
-			<forward name="success" path="/KojinListSearch.do" redirect="true" />
+			name="kojinListForm" validate="false"
+			input="/jsp/kojin/kojinList.jsp" scope="request">
+			<forward name="success" path="/KojinListSearch.do"
+				redirect="true" />
 		</action>
 
-		<!--
-		****************************
-		* 収支登録画面             *
-		****************************
-		-->
+		<!-- **************************** * 収支登録画面 * **************************** -->
 		<!-- 初期表示 -->
-		<action
-			path="/ShushiRegistInit"
+		<action path="/ShushiRegistInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="shushiRegistForm"
-			validate="false"
-			scope="request">
-			<forward name="success" path="/jsp/shushi/shushiRegist.jsp"/>
+			name="shushiRegistForm" validate="false" scope="request">
+			<forward name="success" path="/jsp/shushi/shushiRegist.jsp" />
 		</action>
 		<!-- ディスパッチ -->
-		<action
-			path="/ShushiRegistDisp"
+		<action path="/ShushiRegistDisp"
 			type="cashbook.action.shushi.ShushiRegistDispAction"
-			name="shushiRegistForm"
-			validate="false"
-			parameter="operation"
+			name="shushiRegistForm" validate="false" parameter="operation"
 			scope="request">
-			<forward name="insert" path="/ShushiRegistInsUpd.do"/>
-			<forward name="update" path="/ShushiRegistInsUpd.do"/>
-			<forward name="backMenu" path="/MenuInit.do"/>
-			<forward name="backListKobetsu" path="/ShushiListKobetsuSearch.do"/>
-			<forward name="backListSetai"   path="/ShushiListSetaiSearch.do"/>
+			<forward name="insert" path="/ShushiRegistInsUpd.do" />
+			<forward name="update" path="/ShushiRegistInsUpd.do" />
+			<forward name="backMenu" path="/MenuInit.do" />
+			<forward name="backListKobetsu"
+				path="/ShushiListKobetsuSearch.do" />
+			<forward name="backListSetai"
+				path="/ShushiListSetaiSearch.do" />
 		</action>
 		<!-- 登録・更新 -->
-		<action
-			path="/ShushiRegistInsUpd"
+		<action path="/ShushiRegistInsUpd"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="shushiRegistForm"
-			validate="true"
-			input="/jsp/shushi/shushiRegist.jsp"
-			scope="request">
-			<forward name="success" path="/ShushiRegistInit.do" redirect="true" />
+			name="shushiRegistForm" validate="true"
+			input="/jsp/shushi/shushiRegist.jsp" scope="request">
+			<forward name="success" path="/ShushiRegistInit.do"
+				redirect="true" />
 		</action>
 
-		<!--
-		****************************
-		* 収支一覧（個別）         *
-		****************************
-		-->
+		<!-- **************************** * 収支一覧（個別） * **************************** -->
 		<!-- 初期表示 -->
-		<action
-			path="/ShushiListKobetsuInit"
+		<action path="/ShushiListKobetsuInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			validate="false"
-			scope="request">
-			<forward name="success" path="/jsp/shushi/shushiListKobetsu.jsp"/>
+			validate="false" scope="request">
+			<forward name="success"
+				path="/jsp/shushi/shushiListKobetsu.jsp" />
 		</action>
 		<!-- ディスパッチ -->
-		<action
-			path="/ShushiListKobetsuDisp"
+		<action path="/ShushiListKobetsuDisp"
 			type="cashbook.action.shushi.ShushiListKobetsuDispAction"
-			name="shushiListKobetsuForm"
-			parameter="operation"
-			validate="false"
+			name="shushiListKobetsuForm" parameter="operation" validate="false"
 			scope="request">
-			<forward name="search" path="/ShushiListKobetsuSearch.do"/>
-			<forward name="delete" path="/ShushiListKobetsuDelete.do"/>
+			<forward name="search" path="/ShushiListKobetsuSearch.do" />
+			<forward name="delete" path="/ShushiListKobetsuDelete.do" />
 		</action>
 		<!-- 検索 -->
-		<action
-			path="/ShushiListKobetsuSearch"
+		<action path="/ShushiListKobetsuSearch"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="shushiListKobetsuForm"
-			validate="true"
-			input="/jsp/shushi/shushiListKobetsu.jsp"
-			scope="request">
-			<forward name="success" path="/jsp/shushi/shushiListKobetsu.jsp"/>
+			name="shushiListKobetsuForm" validate="true"
+			input="/jsp/shushi/shushiListKobetsu.jsp" scope="request">
+			<forward name="success"
+				path="/jsp/shushi/shushiListKobetsu.jsp" />
 		</action>
 		<!-- 削除 -->
-		<action
-			path="/ShushiListKobetsuDelete"
+		<action path="/ShushiListKobetsuDelete"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="shushiListKobetsuForm"
-			validate="true"
-			input="/jsp/shushi/shushiListKobetsu.jsp"
-			scope="request">
-			<forward name="success" path="/ShushiListKobetsuSearch.do" redirect="true" />
+			name="shushiListKobetsuForm" validate="true"
+			input="/jsp/shushi/shushiListKobetsu.jsp" scope="request">
+			<forward name="success" path="/ShushiListKobetsuSearch.do"
+				redirect="true" />
 		</action>
 
-		<!--
-		****************************
-		* 収支一覧（世帯）         *
-		****************************
-		-->
+		<!-- **************************** * 収支一覧（世帯） * **************************** -->
 		<!-- 初期表示 -->
-		<action
-			path="/ShushiListSetaiInit"
+		<action path="/ShushiListSetaiInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			validate="false"
-			scope="request">
-			<forward name="success" path="/jsp/shushi/shushiListSetai.jsp"/>
+			validate="false" scope="request">
+			<forward name="success"
+				path="/jsp/shushi/shushiListSetai.jsp" />
 		</action>
 		<!-- ディスパッチ -->
-		<action
-			path="/ShushiListSetaiDisp"
+		<action path="/ShushiListSetaiDisp"
 			type="cashbook.action.shushi.ShushiListSetaiDispAction"
-			name="shushiListSetaiForm"
-			validate="false"
-			parameter="operation"
+			name="shushiListSetaiForm" validate="false" parameter="operation"
 			scope="request">
-			<forward name="search" path="/ShushiListSetaiSearch.do"/>
-			<forward name="delete" path="/ShushiListSetaiDelete.do"/>
+			<forward name="search" path="/ShushiListSetaiSearch.do" />
+			<forward name="delete" path="/ShushiListSetaiDelete.do" />
 		</action>
 		<!-- 検索 -->
-		<action
-			path="/ShushiListSetaiSearch"
+		<action path="/ShushiListSetaiSearch"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="shushiListSetaiForm"
-			validate="true"
-			input="/jsp/shushi/shushiListSetai.jsp"
-			scope="request">
-			<forward name="success" path="/jsp/shushi/shushiListSetai.jsp"/>
+			name="shushiListSetaiForm" validate="true"
+			input="/jsp/shushi/shushiListSetai.jsp" scope="request">
+			<forward name="success"
+				path="/jsp/shushi/shushiListSetai.jsp" />
 		</action>
 		<!-- 削除 -->
-		<action
-			path="/ShushiListSetaiDelete"
+		<action path="/ShushiListSetaiDelete"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="shushiListSetaiForm"
-			validate="true"
-			input="/jsp/shushi/shushiListSetai.jsp"
-			scope="request">
-			<forward name="success" path="/ShushiListSetaiSearch.do" redirect="true" />
+			name="shushiListSetaiForm" validate="true"
+			input="/jsp/shushi/shushiListSetai.jsp" scope="request">
+			<forward name="success" path="/ShushiListSetaiSearch.do"
+				redirect="true" />
 		</action>
 
 	</action-mappings>
 
 	<message-resources parameter="application" />
 
-	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-		<set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+	<plug-in
+		className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
 	</plug-in>
 
-	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
-		<set-property
-			property="contextConfigLocation"
-			value="/WEB-INF/applicationContext.xml"/>
+	<plug-in
+		className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="/WEB-INF/applicationContext.xml" />
 	</plug-in>
 </struts-config>

@@ -49,9 +49,7 @@
 
 				<html:submit value="ƒƒOƒCƒ“" styleClass="btn" tabindex="3" />
 		</html:form>
-		<p>
-			
-		</p>
+		<p></p>
 	</div>
 	<p>
 		<html:link action="/UserRegistInit">‘IŽè“o˜^‰æ–Ê</html:link>
