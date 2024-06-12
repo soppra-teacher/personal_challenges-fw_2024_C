@@ -22,7 +22,7 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 	 * 成績マスタ一覧を検索する
 	 * @return 成績マスタ一覧
 	 */
-	public List<Map<String, String>> searchSeiseki(Map<String, Object> formMap) {
+	public List<Map<String, String>> searchSeiseki(Map<String, Object> formMap, LoginDto loginDto) {
 
 		List<Map<String, String>> result;
 		StringBuffer sql = new StringBuffer();
@@ -35,8 +35,9 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 		sql.append("  FROM SENSEKI_TBL S1 ");
 		sql.append("  LEFT JOIN MST_PLAYER M1 ");
 		sql.append("  ON S1.PLAYER_ID=M1.PLAYER_ID ");
+		sql.append("  WHERE S1.INS_USER= '").append(loginDto.getKojinId()).append("' "); // 登録ユーザーとログインユーザーの合致で絞り込み
 		sql.append("  GROUP BY M1.PLAYER_NAME,S1.PLAYER_ID ");
-		sql.append(" ORDER BY S1.PLAYER_ID ");
+		sql.append("  ORDER BY S1.PLAYER_ID ");
 		result = super.search(sql.toString());
 
 		return result;
@@ -125,7 +126,7 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 	
 	
 	/**
-	 * 選手マスタに登録する
+	 * 選手マスタに新規選手登録する
 	 * @throws Exception
 	 */
 	public void registSenshu(Map<String, Object> formMap, LoginDto loginDto) {

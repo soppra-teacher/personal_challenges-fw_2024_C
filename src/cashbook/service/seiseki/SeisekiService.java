@@ -24,7 +24,7 @@ public interface SeisekiService {
 	 * @param formMap
 	 * @return
 	 */
-	public SeisekiListDto listSearch(Map<String, Object> formMap);
+	public SeisekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto);
 
 	/**
 	 *

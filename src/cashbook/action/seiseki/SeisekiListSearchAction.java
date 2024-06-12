@@ -103,7 +103,7 @@ public class SeisekiListSearchAction extends BaseAction {
 		}
 
 		// 成績マスタメンテ画面 検索処理
-		SeisekiListDto dto = seisekiService.listSearch(formMap);
+		SeisekiListDto dto = seisekiService.listSearch(formMap,loginDto);
 
 		// 取得した情報をリクエストに登録
 		request.setAttribute(SeisekiConst.FORM_SEISEKI_LIST, dto);

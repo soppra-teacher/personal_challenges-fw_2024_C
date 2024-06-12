@@ -48,7 +48,7 @@ public class SeisekiServiceImpl implements SeisekiService {
 	/**
 	 * 一覧画面検索メソッド
 	 */
-	public SeisekiListDto listSearch(Map<String, Object> formMap) {
+	public SeisekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto) {
 		//------------------------------------------
 		// ヘッダ
 		//------------------------------------------
@@ -69,7 +69,7 @@ public class SeisekiServiceImpl implements SeisekiService {
 		//------------------------------------------
 		List<SeisekiListDto> SeisekiList = new ArrayList<SeisekiListDto>();
 		// 検索処理
-		List<Map<String, String>> list = seisekiDao.searchSeiseki(formMap);
+		List<Map<String, String>> list = seisekiDao.searchSeiseki(formMap,loginDto);
 		Iterator<Map<String, String>> it = list.iterator();
 		while (it.hasNext()) {
 			Map<String, String> map = it.next();
