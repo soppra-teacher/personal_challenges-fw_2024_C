@@ -4,7 +4,6 @@ import java.util.Map;
 
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.seiseki.SeisekiListDto;
-import cashbook.dto.seiseki.SeisekiRegistDto;
 
 /**
  * 成績サービスインターフェース
@@ -25,20 +24,6 @@ public interface SeisekiService {
 	 * @return
 	 */
 	public SeisekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto);
-
-	/**
-	 *
-	 * @param formMap
-	 * @param loginDto
-	 */
-	public void listDelete(Map<String, Object> formMap, LoginDto loginDto);
-
-	/**
-	 *
-	 * @param formMap
-	 * @return
-	 */
-	public SeisekiRegistDto registInit(Map<String, Object> formMap);
 
 	/**
 	 *

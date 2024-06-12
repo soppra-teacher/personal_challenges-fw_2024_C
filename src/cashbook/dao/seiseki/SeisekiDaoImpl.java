@@ -1,11 +1,7 @@
 package cashbook.dao.seiseki;
 
-import static cashbook.util.Const.*;
-
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.dao.CannotAcquireLockException;
 
 import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
@@ -41,87 +37,6 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 		result = super.search(sql.toString());
 
 		return result;
-	}
-
-	/**
-	 * 成績マスタを削除する
-	 */
-	public void deleteSeiseki(String seisekiId, LoginDto loginDto) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("UPDATE MST_SEISEKI M1 ");
-		sql.append("   SET M1.DEL_FLG = '1' ");
-		sql.append("     , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
-		sql.append("     , M1.UPD_DATE = SYSDATE ");
-		sql.append("     , M1.REVISION = M1.REVISION + 1 ");
-		sql.append(" WHERE M1.SEISEKI_ID = '").append(seisekiId).append("' ");
-
-		super.update(sql.toString());
-	}
-
-	/**
-	 * 成績マスタを検索する
-	 * @return 成績マスタ
-	 */
-	public Map<String, String> findSeiseki(Map<String, Object> formMap) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT M1.SEISEKI_ID ");
-		sql.append("     , M1.SETAI_ID ");
-		sql.append("     , M1.PASS ");
-		sql.append("     , M1.SEISEKI_NM ");
-		sql.append("     , M1.SEISEKI_NM_KANA ");
-		sql.append("     , M1.SEIBETSU_KBN ");
-		sql.append("     , M1.ZOKUGARA ");
-		sql.append("     , M1.SETAINUSHI_FLG ");
-		sql.append("     , M1.REVISION ");
-		sql.append("  FROM MST_SEISEKI M1 ");
-		sql.append(" WHERE M1.DEL_FLG  = '0' ");
-		sql.append("   AND M1.SEISEKI_ID = '").append(formMap.get(SeisekiConst.KEY_SEISEKI_ID)).append("' ");
-
-		return super.find(sql.toString());
-	}
-
-	/**
-	 * 成績マスタを登録する
-	 * @throws Exception
-	 */
-	public void registSeiseki(Map<String, Object> formMap, LoginDto loginDto) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append(" INSERT INTO MST_SEISEKI M1 ( ");
-		sql.append("     M1.SEISEKI_ID ");
-		sql.append("   , M1.SETAI_ID ");
-		sql.append("   , M1.PASS ");
-		sql.append("   , M1.SEISEKI_NM ");
-		sql.append("   , M1.SEISEKI_NM_KANA ");
-		sql.append("   , M1.SEIBETSU_KBN ");
-		sql.append("   , M1.ZOKUGARA ");
-		sql.append("   , M1.SETAINUSHI_FLG ");
-		sql.append("   , M1.DEL_FLG ");
-		sql.append("   , M1.INS_USER ");
-		sql.append("   , M1.INS_DATE ");
-		sql.append("   , M1.UPD_USER ");
-		sql.append("   , M1.UPD_DATE ");
-		sql.append("   , M1.REVISION ");
-		sql.append(" ) VALUES ( ");
-		sql.append("     '").append(formMap.get(SeisekiConst.KEY_SEISEKI_ID)).append("' ");
-		sql.append("   , '").append(formMap.get(SetaiConst.KEY_SETAI_ID)).append("' ");
-		sql.append("   , '").append(formMap.get(SeisekiConst.KEY_PASS)).append("' ");
-		sql.append("   , '").append(formMap.get(SeisekiConst.KEY_SEISEKI_NM)).append("' ");
-		sql.append("   , '").append(formMap.get(SeisekiConst.KEY_SEISEKI_NM_KANA)).append("' ");
-		sql.append("   , '").append(formMap.get(SeisekiConst.KEY_SEIBETSU_KBN)).append("' ");
-		sql.append("   , '").append(formMap.get(SeisekiConst.KEY_ZOKUGARA)).append("' ");
-		sql.append("   , '").append(formMap.get(SeisekiConst.KEY_SETAINUSI_FLG_VALUE)).append("' ");
-		sql.append("   , '0' ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
-		sql.append("   , SYSDATE ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
-		sql.append("   , SYSDATE ");
-		sql.append("   , 0 ");
-		sql.append(" ) ");
-
-		super.update(sql.toString());
 	}
 	
 	
@@ -225,56 +140,6 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 //		return result;
 //	}
 
-	/**
-	 * 重複チェック
-	 * @return true：正常、false：重複エラー
-	 */
-	public boolean checkOverlapSeiseki(Map<String, Object> formMap) {
 
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT M1.SEISEKI_ID ");
-		sql.append("  FROM MST_SEISEKI M1 ");
-		sql.append(" WHERE M1.SEISEKI_ID = '").append(formMap.get(SeisekiConst.KEY_SEISEKI_ID)).append("' ");
-		sql.append("   AND ROWNUM = 1 ");
 
-		return super.find(sql.toString()).size() == 0;
-	}
-
-	/**
-	 * 行ロック及び、排他チェック
-	 * @return true：正常、false：排他エラー
-	 */
-	public boolean lockSeiseki(Map<String, Object> formMap) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT M1.SEISEKI_ID ");
-		sql.append("  FROM MST_SEISEKI M1 ");
-		sql.append(" WHERE M1.SEISEKI_ID = '").append(formMap.get(SeisekiConst.KEY_SEISEKI_ID)).append("' ");
-		sql.append("   AND M1.REVISION = '").append(formMap.get(ITEM_REVISION)).append("' ");
-		sql.append("   FOR UPDATE NOWAIT ");
-		try {
-
-			return super.find(sql.toString()).size() != 0;
-
-		} catch (CannotAcquireLockException e) {
-			// 対象データがロックされている場合はエラー
-			return false;
-		}
-	}
-
-	/**
-	 * 世帯主フラグ確認
-	 * @return false：正常、true：整合性エラー
-	 */
-	public boolean checkSetainushiFlg(Map<String, Object> formMap) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT A.SEISEKI_ID ");
-		sql.append("  FROM MST_SEISEKI A ");
-		sql.append(" WHERE A.SETAI_ID = '").append(formMap.get(SetaiConst.KEY_SETAI_ID)).append("' ");
-		sql.append("   AND A.SETAINUSHI_FLG = '1' ");
-		sql.append("   AND A.SEISEKI_ID != '").append(formMap.get(SeisekiConst.KEY_SEISEKI_ID)).append("' ");
-
-		return super.find(sql.toString()).size() != 0;
-	}
 }

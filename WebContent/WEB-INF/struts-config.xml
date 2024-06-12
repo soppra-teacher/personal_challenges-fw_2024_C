@@ -59,6 +59,9 @@
 			<form-property name="zokugaraKey"    type="java.lang.String" />
 			<form-property name="setaiNusiFlg"   type="java.lang.String" />
 			<form-property name="revision"        type="java.lang.String" />
+			
+			
+			<form-property name="senshuId"        type="java.lang.Integer"  />
 		</form-bean>
 
 		<!-- 個人マスタメンテ画面 -->
@@ -75,15 +78,7 @@
 		
 		<!-- 成績マスタメンテ画面 -->
 		<form-bean name="seisekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
-<!--			<form-property name="seisekiId"        type="java.lang.String"  />-->
-<!--			<form-property name="setaiId"        type="java.lang.String"  />-->
-<!--			<form-property name="seisekiNm"        type="java.lang.String"  />-->
-<!--			<form-property name="seisekiNmkana"    type="java.lang.String"  />-->
-<!--			<form-property name="seibetsuKbnKey" type="java.lang.String"  />-->
-<!--			<form-property name="zokugaraKey"    type="java.lang.String"  />-->
-<!--			<form-property name="setaiNusiFlg"   type="java.lang.String"  />-->
-<!--			<form-property name="checkDel"       type="java.lang.String[]"/>-->
-			
+
 			<form-property name="newSenshuNm"        type="java.lang.String"  />
 			<form-property name="senshuId"        type="java.lang.Integer"  />
 			<form-property name="senshuNm"        type="java.lang.String"  />
@@ -426,7 +421,6 @@
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			scope="request">
 			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
-<!--			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>-->
 		</action>
 		<!-- ディスパッチ -->
 		<action
@@ -437,7 +431,7 @@
 			parameter="operation"
 			scope="request">
 			<forward name="search" path="/SeisekiListSearch.do"/>
-			<forward name="delete" path="/SeisekiListSenshuRegist.do"/>
+			<forward name="insert" path="/SeisekiListSenshuRegist.do"/>
 		</action>
 		<!-- 検索 -->
 		<action

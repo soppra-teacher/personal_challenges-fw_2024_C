@@ -26,13 +26,13 @@ public class SeisekiListDispAction extends DispatchAction {
 		return mapping.findForward(ACTION_FOWARD_SEARCH);
 	}
 
-	/** 削除 */
-	public ActionForward delete(
+	/** 登録 */
+	public ActionForward insert(
 			ActionMapping mapping,
 			ActionForm form,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		return mapping.findForward(ACTION_FOWARD_DELETE);
+		return mapping.findForward(ACTION_FOWARD_INSERT);
 	}
 }
