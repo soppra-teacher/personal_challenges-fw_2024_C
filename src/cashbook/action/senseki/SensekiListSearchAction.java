@@ -101,7 +101,7 @@ public class SensekiListSearchAction extends BaseAction {
 			request.getSession().removeAttribute(SESSION_LIST_MESSAGE_SENSEKI);
 
 		}
-
+        System.out.println("-------------------個人マスタメンテ画面 検索処理----------------------");
 		// 個人マスタメンテ画面 検索処理
 		SensekiListDto dto = sensekiService.listSearch(formMap);
 		

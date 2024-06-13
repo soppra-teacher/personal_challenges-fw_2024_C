@@ -27,47 +27,47 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 		List<Map<String, String>> result;
 		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT  M1.senseki_id ");
-		sql.append("       ,M1.setai_id ");
-		sql.append("       ,M1.pass ");
-		sql.append("       ,M1.senseki_nm ");
-		sql.append("       ,M1.senseki_nm_kana ");
-		sql.append("       ,M1.seibetsu_kbn ");
-		sql.append("       ,M1.zokugara ");
-		sql.append("       ,M1.setainushi_flg ");
-		sql.append("       ,M1.del_flg ");
-		sql.append("       ,M1.ins_user ");
-		sql.append("       ,M1.ins_date ");
-		sql.append("       ,M1.upd_user ");
-		sql.append("       ,M1.upd_date ");
-		sql.append("       ,M1.revision ");
-		sql.append("       ,M1.senseki_nicknm ");
-		sql.append("  FROM MST_SENSEKI M1 ");
-		sql.append(" WHERE M1.DEL_FLG = '0' ");
+
+
+		sql.append("SELECT  M1.MATCH_ID");
+		sql.append("       ,M1.PLAYER_ID");
+		sql.append("       ,TRUNC((M1.INNING/3),0)||'.'||MOD((M1.INNING),3) AS INNING");
+		sql.append("       ,M1.TAMAKAZU");
+		sql.append("       ,M1.HIANDA");
+		sql.append("       ,M1.YOSHIKYU");
+		sql.append("       ,M1.DATSUSANSHIN");
+		sql.append("       ,M1.SITTEN");
+		sql.append("       ,M1.JISEKITEN");
+		sql.append("       ,M1.E_TEAM");
+		sql.append("       ,TO_CHAR(M1.MATCH_DATE,'yyyy/mm/dd') AS MATCH_DATE  ");
+		sql.append("       ,M1.INS_USER");
+		//sql.append("       ,M1.INS_DATE");
+		sql.append("  FROM SENSEKI_TBL M1");
+		//sql.append(" WHERE M1.DEL_FLG = '0' ");
 		// 個人名
 		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM)))) {
-			sql.append(" AND M1.SENSEKI_NM LIKE '%").append(formMap.get(SensekiConst.KEY_SENSEKI_NM)).append("%' ");
+			sql.append(" WHERE M1.MATCH_ID LIKE '%").append(formMap.get(SensekiConst.KEY_SENSEKI_NM)).append("%' ");
 		}
-		// 個人名ｶﾅ
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)))) {
-			sql.append(" AND M1.SENSEKI_NM_KANA LIKE '%").append(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)).append("%' ");
-		}
-		// 性別
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SEIBETSU_KBN_KEY)))) {
-			sql.append(" AND M1.SEIBETSU_KBN = '").append(formMap.get(SensekiConst.KEY_SEIBETSU_KBN_KEY)).append("' ");
-		}
-		// 続柄
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_ZOKUGARA)))) {
-			sql.append(" AND M1.ZOKUGARA = '").append(formMap.get(SensekiConst.KEY_ZOKUGARA)).append("' ");
-		}
-		// 世帯主フラグ
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE)))) {
-			if (SETAINUSHI_ON.equals(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE))) {
-				sql.append(" AND M1.SETAINUSHI_FLG = '").append(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE))
-						.append("' ");
-			}
-		}
-		sql.append(" ORDER BY M1.SENSEKI_ID ");
+//		// 個人名ｶﾅ
+//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)))) {
+//			sql.append(" AND M1.SITTEN '%").append(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)).append("%' ");
+//		}
+//		// 性別
+//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SEIBETSU_KBN_KEY)))) {
+//			sql.append(" AND M1.E_TEAM = '").append(formMap.get(SensekiConst.KEY_SEIBETSU_KBN_KEY)).append("' ");
+//		}
+//		// 続柄
+//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_ZOKUGARA)))) {
+//			sql.append(" AND M1.E_TEAM = '").append(formMap.get(SensekiConst.KEY_ZOKUGARA)).append("' ");
+//		}
+//		// 世帯主フラグ
+//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE)))) {
+//			if (SETAINUSHI_ON.equals(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE))) {
+//				sql.append(" AND M1.MATCH_ID = '").append(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE))
+//						.append("' ");
+//			}
+//		}
+//		//sql.append(" ORDER BY M1.MATCH_ID");
 		result = super.search(sql.toString());
 
 		return result;
@@ -76,17 +76,32 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	/**
 	 * 個人マスタを削除する
 	 */
-	public void deleteSenseki(String sensekiId, LoginDto loginDto) {
-
+//	public void deleteSenseki(String sensekiId, LoginDto loginDto) {
+//
+//		StringBuffer sql = new StringBuffer();
+//		sql.append("UPDATE MST_SENSEKI M1 ");
+//		sql.append("   SET M1.DEL_FLG = '1' ");
+//		sql.append("     , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
+//		sql.append("     , M1.UPD_DATE = SYSDATE ");
+//		sql.append("     , M1.REVISION = M1.REVISION + 1 ");
+//		sql.append(" WHERE M1.SENSEKI_ID = '").append(sensekiId).append("' ");
+//
+//		super.update(sql.toString());
+//	}
+	
+	/**
+	 * 個人戦績を削除する
+	 */
+	public void deleteSenseki(String matchId, LoginDto loginDto) {
+		System.out.println("------SensekiDaoImplのdeleteSenseki 削除04------");
+		System.out.println("削除04 matchId:"+matchId);
+		System.out.println("削除04 LoginDto:"+loginDto);
 		StringBuffer sql = new StringBuffer();
-		sql.append("UPDATE MST_SENSEKI M1 ");
-		sql.append("   SET M1.DEL_FLG = '1' ");
-		sql.append("     , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
-		sql.append("     , M1.UPD_DATE = SYSDATE ");
-		sql.append("     , M1.REVISION = M1.REVISION + 1 ");
-		sql.append(" WHERE M1.SENSEKI_ID = '").append(sensekiId).append("' ");
+		sql.append("DELETE FROM SENSEKI_TBL M1 ");
+		sql.append(" WHERE M1.MATCH_ID = '").append(matchId).append("' ");
 
 		super.update(sql.toString());
+
 	}
 
 	/**

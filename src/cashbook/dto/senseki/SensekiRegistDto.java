@@ -50,7 +50,26 @@ public class SensekiRegistDto extends BaseDto {
 
 	/** 世帯主名 */
 	private String setaiNusiNm;
-
+	
+	
+	private String playerId;
+	/** 失点*/
+	private String sittenNm;
+	/** 自責点*/
+	private String jisekitenNm;
+	/** 相手*/
+	private String eTeam;
+	/** 試合日*/
+	private String matchDate;
+	
+	private String hianda;
+	private String yoshikyu;
+	private String inning;
+	private String tamakazu;
+	private String matchId;
+	
+	
+	
 	public String getSensekiId() {
 		return sensekiId;
 	}
@@ -170,5 +189,91 @@ public class SensekiRegistDto extends BaseDto {
 	public void setSetaiNusiNm(String setaiNusiNm) {
 		this.setaiNusiNm = setaiNusiNm;
 	}
+
+	public String getSittenNm() {
+		return sittenNm;
+	}
+
+	public void setSittenNm(String sittenNm) {
+		this.sittenNm = sittenNm;
+	}
+
+	public String getJisekitenNm() {
+		return jisekitenNm;
+	}
+
+	public void setJisekitenNm(String jisekitenNm) {
+		this.jisekitenNm = jisekitenNm;
+	}
+
+	public String geteTeam() {
+		return eTeam;
+	}
+
+	public void seteTeam(String eTeam) {
+		this.eTeam = eTeam;
+	}
+
+	public String getMatchDate() {
+		return matchDate;
+	}
+
+	public void setMatchDate(String matchDate) {
+		this.matchDate = matchDate;
+	}
+
+	public String getPlayerId() {
+		return playerId;
+	}
+
+	public void setPlayerId(String playerId) {
+		this.playerId = playerId;
+	}
+
+	public String getHianda() {
+		return hianda;
+	}
+
+	public void setHianda(String hianda) {
+		this.hianda = hianda;
+	}
+
+	public String getYoshikyu() {
+		return yoshikyu;
+	}
+
+	public void setYoshikyu(String yoshikyu) {
+		this.yoshikyu = yoshikyu;
+	}
+
+	public String getInning() {
+		return inning;
+	}
+
+	public void setInning(String inning) {
+		this.inning = inning;
+	}
+
+	public String getTamakazu() {
+		return tamakazu;
+	}
+
+	public void setTamakazu(String tamakazu) {
+		this.tamakazu = tamakazu;
+	}
+
+	public String getMatchId() {
+		return matchId;
+	}
+
+	public void setMatchId(String matchId) {
+		this.matchId = matchId;
+	}
+
+
+
+
+
+
 
 }

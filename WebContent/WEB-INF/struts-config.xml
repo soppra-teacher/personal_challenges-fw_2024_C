@@ -77,6 +77,22 @@
 			<form-property name="zokugaraKey"    type="java.lang.String"  />
 			<form-property name="setaiNusiFlg"   type="java.lang.String"  />
 			<form-property name="checkDel"       type="java.lang.String[]"/>
+			
+			<form-property name="matchId"   type="java.lang.String"  />
+			<form-property name="playerId"   type="java.lang.String"  />
+			<form-property name="sittenNm"   type="java.lang.String"  />
+			<form-property name="jisekitenNm"   type="java.lang.String"  />
+			<form-property name="eTeam"   type="java.lang.String"  />
+			<form-property name="matchDate"   type="java.lang.String"  />
+			<form-property name="hianda"   type="java.lang.String"  />
+			<form-property name="yoshikyu"   type="java.lang.String"  />
+			<form-property name="inning"   type="java.lang.String"  />
+			<form-property name="tamakazu"   type="java.lang.String"  />
+			
+			<form-property name="datsusanshin"   type="java.lang.String"  />
+			
+
+						
 		</form-bean>
 
 		
@@ -393,7 +409,8 @@
 			path="/SensekiListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			scope="request">
-			<forward name="success" path="/jsp/senseki/sensekiList.jsp"/>
+<!--			<forward name="success" path="/jsp/senseki/sensekiList.jsp"/>-->
+			<forward name="success" path="/SensekiListSearch.do" redirect="true"  />
 		</action>
 		<!--  ディスパッチ -->
 		<action

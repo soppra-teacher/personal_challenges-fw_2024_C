@@ -1,6 +1,6 @@
 /*画面全体のスタイル*/
 html,body {
-	background-color: $ffffff;
+	background-color: #ffffff;
 }
 
 hr {
@@ -44,6 +44,12 @@ tr.table-header {
 /* ベース横幅 */
 .base-width {
 	width: 800px;
+	padding: 20px auto;
+	margin: 0px auto;
+}
+
+.base-width01 {
+	width: 100px;
 	padding: 20px auto;
 	margin: 0px auto;
 }
@@ -274,7 +280,11 @@ table.table td {
 
 div.table-overflow {
 	overflow-y: scroll;
-	height: 251px;
+	height: 400px;
+}
+div.table-overflow-01 {
+	overflow-y: scroll;
+	height: 300px;
 }
 
 /* レイアウトテーブル */
@@ -351,6 +361,15 @@ td {
 }
 .l-himoku-kb {
 	width: 70px;
+}
+/* 個人戦績用 */
+
+
+.l-senseki-match-date{
+	width: 110px;
+}
+.l-senseki-e-team{
+	width: 10%;
 }
 
 /* 個人一覧用 */

@@ -34,6 +34,9 @@ public class KojinListDto extends BaseDto {
 	/** 個人マスタ一覧 */
 	private List<KojinRegistDto> list;
 
+	
+	
+
 	public String getKojinId() {
 		return kojinId;
 	}

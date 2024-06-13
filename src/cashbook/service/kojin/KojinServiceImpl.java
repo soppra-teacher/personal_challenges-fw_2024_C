@@ -45,20 +45,7 @@ public class KojinServiceImpl implements KojinService {
 		
 		result.setKojinNm(KojinConst.KEY_KOJIN_NM);
 		
-		
-		
-		
-		
-		
-		
-	
-		
-		
-		
-		
-		
-		
-		
+
 		
 				
 		return result;
@@ -73,17 +60,17 @@ public class KojinServiceImpl implements KojinService {
 		//------------------------------------------
 		KojinListDto result = new KojinListDto();
 		// 入力項目を保持
-//		result.setKojinNm(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_NM)));
-//		result.setKojinNmkana(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_NM_KANA)));
-//		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get(KojinConst.KEY_SEIBETSU_KBN_KEY)));
-//		result.setZokugaraKey(CommonUtil.getStr(formMap.get(KojinConst.KEY_ZOKUGARA)));
-//		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get(KojinConst.KEY_SETAINUSI_FLG)));
+		result.setKojinNm(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_NM)));
+		result.setKojinNmkana(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_NM_KANA)));
+		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get(KojinConst.KEY_SEIBETSU_KBN_KEY)));
+		result.setZokugaraKey(CommonUtil.getStr(formMap.get(KojinConst.KEY_ZOKUGARA)));
+		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get(KojinConst.KEY_SETAINUSI_FLG)));
 		
-		result.setKojinNm(CommonUtil.getStr(formMap.get("")));
-		result.setKojinNmkana(CommonUtil.getStr(formMap.get("")));
-		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get("")));
-		result.setZokugaraKey(CommonUtil.getStr(formMap.get("")));
-		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get("0")));
+//		result.setKojinNm(CommonUtil.getStr(formMap.get("")));
+//		result.setKojinNmkana(CommonUtil.getStr(formMap.get("")));
+//		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get("")));
+//		result.setZokugaraKey(CommonUtil.getStr(formMap.get("")));
+//		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get("0")));
 		// 性別区分コンボボックスの設定
 		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定

@@ -57,18 +57,18 @@ public class SensekiServiceImpl implements SensekiService {
 	 * 一覧画面検索メソッド
 	 */
 	public SensekiListDto listSearch(Map<String, Object> formMap) {
-		System.out.println("-----------------一覧画面検索メソッド-------------------------");
+		System.out.println("------一覧画面検索メソッド");
 		//------------------------------------------
 		// ヘッダ
 		//------------------------------------------
 		SensekiListDto result = new SensekiListDto();
 		// 入力項目を保持
-		result.setSensekiNm(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM)));
-		result.setSensekiNmkana(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)));
-		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SEIBETSU_KBN_KEY)));
-		result.setZokugaraKey(CommonUtil.getStr(formMap.get(SensekiConst.KEY_ZOKUGARA)));
-		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SETAINUSI_FLG)));
-		// 性別区分コンボボックスの設定
+//		result.setSensekiNm(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM)));
+//		result.setSensekiNmkana(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)));
+//		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SEIBETSU_KBN_KEY)));
+//		result.setZokugaraKey(CommonUtil.getStr(formMap.get(SensekiConst.KEY_ZOKUGARA)));
+//		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SETAINUSI_FLG)));
+//		// 性別区分コンボボックスの設定
 		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定
 		result.setzokugara(commonDao.getCode(CD_BUNRUI_003));
@@ -76,23 +76,37 @@ public class SensekiServiceImpl implements SensekiService {
 		//------------------------------------------
 		// 一覧
 		//------------------------------------------
-		List<SensekiRegistDto> SensekiList = new ArrayList<SensekiRegistDto>();
+		List<SensekiListDto> SensekiList = new ArrayList<SensekiListDto>();
 		// 検索処理
 		List<Map<String, String>> list = sensekiDao.searchSenseki(formMap);
 		Iterator<Map<String, String>> it = list.iterator();
 		while (it.hasNext()) {
 			Map<String, String> map = it.next();
-			SensekiRegistDto dto = new SensekiRegistDto();
-			dto.setSensekiId(map.get("SENSEKI_ID"));
-			dto.setSetaiId(map.get("SETAI_ID"));
-			dto.setSensekiNm(map.get("SENSEKI_NM"));
-			dto.setSensekiNmkana(map.get("SENSEKI_NM_KANA"));
-			dto.setSeibetsuNm(commonDao.getCode(CD_BUNRUI_002).get(map.get("SEIBETSU_KBN")));
-			dto.setZokugaraNm(commonDao.getCode(CD_BUNRUI_003).get(map.get("ZOKUGARA")));
-			dto.setSetaiNusiFlg(map.get("SETAINUSHI_FLG"));
-			if (SETAINUSHI_ON.equals(map.get("SETAINUSHI_FLG"))) {
-				dto.setSetaiNusiNm(commonDao.getCodeName(CD_BUNRUI_004, CD_004_1));
-			}
+			//SensekiRegistDto dto = new SensekiRegistDto();
+			SensekiListDto dto = new SensekiListDto();
+//			dto.setSensekiId(map.get("SENSEKI_ID"));
+//			dto.setSetaiId(map.get("SETAI_ID"));
+//			dto.setSensekiNm(map.get("SENSEKI_NM"));
+//			dto.setSensekiNmkana(map.get("SENSEKI_NM_KANA"));
+//			dto.setSeibetsuNm(commonDao.getCode(CD_BUNRUI_002).get(map.get("SEIBETSU_KBN")));
+//			dto.setZokugaraNm(commonDao.getCode(CD_BUNRUI_003).get(map.get("ZOKUGARA")));
+//			dto.setSetaiNusiFlg(map.get("SETAINUSHI_FLG"));
+//			if (SETAINUSHI_ON.equals(map.get("SETAINUSHI_FLG"))) {
+//				dto.setSetaiNusiNm(commonDao.getCodeName(CD_BUNRUI_004, CD_004_1));
+//			}
+			
+			dto.setMatchId(map.get("MATCH_ID"));
+			dto.setPlayerId(map.get("PLAYER_ID"));
+			dto.setInning(map.get("INNING"));
+			dto.setTamakazu(map.get("TAMAKAZU"));
+			dto.setHianda((map.get("HIANDA")));
+			dto.setYoshikyu((map.get("YOSHIKYU")));
+			dto.setDatsusanshin(map.get("DATSUSANSHIN"));
+			dto.setSittenNm(map.get("SITTEN"));
+			dto.setJisekitenNm(map.get("JISEKITEN"));
+			dto.seteTeam(map.get("E_TEAM"));
+			dto.setMatchDate(map.get("MATCH_DATE"));
+			
 			SensekiList.add(dto);
 		}
 		result.setList(SensekiList);
@@ -103,10 +117,11 @@ public class SensekiServiceImpl implements SensekiService {
 	 * 一覧画面削除メソッド
 	 */
 	public void listDelete(Map<String, Object> formMap, LoginDto loginDto) {
-//		List<String> list = CommonUtil.convFormMapToList(formMap);
-//		for (String checkDel : list) {
-//			kojinDao.deleteKojin(checkDel, loginDto);
-//		}
+		System.out.println("------SensekiServiceImplのlistDeleteメソッド 削除03 ");
+		List<String> list = CommonUtil.convFormMapToList(formMap);
+		for (String checkDel : list) {
+			sensekiDao.deleteSenseki(checkDel, loginDto);
+		}
 	}
 
 	/**

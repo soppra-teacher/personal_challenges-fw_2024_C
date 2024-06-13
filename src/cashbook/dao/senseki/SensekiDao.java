@@ -23,6 +23,7 @@ public interface SensekiDao {
 	 * @param sensekiId
 	 * @param loginDto
 	 */
+	public void deleteSenseki(String checkDel, LoginDto loginDto);
 
 	/**
 	 * 個人マスタを検索する
@@ -65,5 +66,8 @@ public interface SensekiDao {
 	 * @return
 	 */
 	public boolean lockSenseki(Map<String, Object> formMap);
+
+	//public void deleteSenseki(String checkDel, LoginDto loginDto);
+
 
 }

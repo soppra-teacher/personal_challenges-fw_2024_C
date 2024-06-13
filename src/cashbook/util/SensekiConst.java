@@ -31,4 +31,11 @@ public class SensekiConst {
 	public static final String KEY_SEIBETSU_KBN = "seibetsuKbn";
 	/** キー値：パス */
 	public static final String KEY_PASS = "pass";
+	
+	public static final String KEY_SITTEN = "sittenNm";
+	public static final String KEY_JISEKITEN = "jisekitenNm";
+	public static final String KEY_E_TEAM = "eTeam";
+	public static final String KEY_MATCH_DATE = "matchDate";
+	
+	
 }
