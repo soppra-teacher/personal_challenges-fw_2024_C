@@ -151,6 +151,74 @@
 				</var>
 			</field>
 		</form>
+		
+		<!-- 投手戦績登録画面 -->
+		<form name="toushuRegistForm">
+			<field property="toushuId" depends="required,mask,maxlength">
+				<msg name="mask" key="errors.numHalfChar" />
+				<arg0 key="toushuRegistForm.param.toushuId" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z ]+$</var-value>
+				</var>
+			</field>
+			<field property="toushuNm" depends="required,zenCharOnly,maxlength">
+				<msg name="mask" key="errors.zenkakuOnly" />
+				<arg0 key="toushuRegistForm.param.toushuNm" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+			</field>
+			<field property="toushuNmKana" depends="halfKanaOnly,maxlength">
+				<arg0 key="toushuRegistForm.param.toushuNmKana" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field property="postNo" depends="maxlength, postNoFormat">
+				<arg0 key="toushuRegistForm.param.postNo" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+			</field>
+			<field property="address" depends="mask,maxlength">
+				<msg name="mask" key="errors.zenkakuOnly" />
+				<arg0 key="toushuRegistForm.param.address" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[^ -~｡-ﾟ]*$</var-value>
+				</var>
+			</field>
+			<field property="telNo" depends="mask,maxlength">
+				<msg name="mask" key="errors.numHalfChar" />
+				<arg0 key="toushuRegistForm.param.telNo" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>13</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9-]+$</var-value>
+				</var>
+			</field>
+		</form>
 
 		<!-- 世帯マスタメンテ画面 -->
 		<form name="setaiListForm">

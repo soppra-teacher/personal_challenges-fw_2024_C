@@ -83,7 +83,7 @@ public class CommonDaoImpl extends BaseDaoImpl implements CommonDao {
 
 		StringBuffer sql = new StringBuffer();
 		sql.append(" SELECT  mc.cd ");
-		sql.append("        ,mc.cd || ':' || mc.cd_nm AS cd_nm ");
+		sql.append("        ,mc.cd_nm AS cd_nm ");
 		sql.append(" FROM    mst_code mc ");
 		sql.append(" WHERE   mc.class_code = '").append(classCd).append("' ");
 		sql.append(" ORDER BY  mc.cd ASC ");

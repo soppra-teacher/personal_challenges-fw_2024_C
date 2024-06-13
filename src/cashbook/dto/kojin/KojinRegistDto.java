@@ -50,6 +50,9 @@ public class KojinRegistDto extends BaseDto {
 
 	/** 世帯主名 */
 	private String setaiNusiNm;
+	
+	
+	
 
 	public String getKojinId() {
 		return kojinId;

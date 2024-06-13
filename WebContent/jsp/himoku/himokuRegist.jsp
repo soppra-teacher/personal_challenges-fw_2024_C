@@ -12,7 +12,7 @@
 	<meta content="ja" http-equiv="Content-Language" />
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>
-		ソプブーのマネーノート　費目マスタ登録
+		ソプブーのマネーノート 費目マスタ登録
 	</title>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
 	<script type="text/javascript" charset="shift_jis" src="js/common.js"></script>

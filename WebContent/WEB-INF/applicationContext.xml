@@ -22,10 +22,10 @@
       <value>jdbc:oracle:thin:@//localhost:1521/XEPDB1</value>
     </property>
     <property name="username">
-      <value>MATSUI</value>
+      <value>YAMAUCHI</value>
     </property>
     <property name="password">
-      <value>MATSUI</value>
+      <value>YAMAUCHI</value>
     </property>
   </bean>
 
@@ -79,6 +79,26 @@
     </property>
   </bean>
 
+ <!-- old戦績マスタ -->
+   <bean id="ToushuDaoId" class="cashbook.dao.toushu.ToushuDaoImpl">
+    <property name="dataSource">
+      <ref local="dataSource" />
+    </property>
+  </bean>
+  
+  <!-- 戦績マスタ -->
+   <bean id="SensekiDaoId" class="cashbook.dao.senseki.SensekiDaoImpl">
+    <property name="dataSource">
+      <ref local="dataSource" />
+    </property>
+  </bean>
+
+
+
+
+
+
+
   <!-- Service -->
   <!-- ログイン画面 -->
   <bean id="LoginServiceId" class="cashbook.service.common.LoginServiceImpl">
@@ -106,6 +126,7 @@
       <ref local="SetaiDaoId" />
     </property>
   </bean>
+  
 
   <!-- 費目マスタ -->
    <bean id="HimokuServiceId" class="cashbook.service.himoku.HimokuServiceImpl">
@@ -126,6 +147,27 @@
       <ref local="ShushiDaoId" />
     </property>
   </bean>
+
+  <!-- 戦績マスタ -->
+  <bean id="ToushuServiceId" class="cashbook.service.toushu.ToushuServiceImpl">
+    <property name="toushuDao">
+      <ref local="ToushuDaoId" />
+    </property>
+  </bean>
+  
+ <!-- 戦績マスタ -->
+   <bean id="SensekiServiceId" class="cashbook.service.senseki.SensekiServiceImpl">
+    <property name="commonDao">
+      <ref local="CommonDaoId" />
+    </property>
+    <property name="sensekiDao">
+      <ref local="SensekiDaoId" />
+    </property>
+  </bean>
+
+
+
+
 
   <!-- Action -->
   <!-- ログイン画面 -->
@@ -264,5 +306,28 @@
       <ref local="ShushiServiceId" />
     </property>
   </bean>
-
+  
+  <!-- 戦績登録 -->
+  <bean name="/ToushuRegistInit" class="cashbook.action.toushu.ToushuRegistInitAction">
+    <property name="toushuService">
+      <ref local="ToushuServiceId" />
+    </property>
+  </bean>
+  <bean name="/ToushuRegistInsUpd" class="cashbook.action.toushu.ToushuRegistInsUpdAction">
+    <property name="toushuService">
+      <ref local="ToushuServiceId" />
+    </property>
+  </bean>
+  
+   <!-- 戦績マスタ登録 -->
+  <bean name="/SensekiRegistInit" class="cashbook.action.senseki.SensekiRegistInitAction">
+    <property name="sensekiService">
+      <ref local="SensekiServiceId" />
+    </property>
+  </bean>
+  <bean name="/SensekiRegistInsUpd" class="cashbook.action.senseki.SensekiRegistInsUpdAction">
+    <property name="sensekiService">
+      <ref local="SensekiServiceId" />
+    </property>
+  </bean>
 </beans>

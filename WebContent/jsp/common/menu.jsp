@@ -12,7 +12,7 @@
 	<meta content="ja" http-equiv="Content-Language" />
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>
-		ソプブーのマネーノート　メニュー
+		ソプブーのマネーノート メニュー
 	</title>
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
@@ -74,6 +74,11 @@
 					<td class="plr-20">
 						<p>
 							<html:link action="/KojinListInit">個人マスタメンテ</html:link>
+						</p>
+					</td>
+					<td>
+						<p>
+							<html:link action="/SensekiRegistInit">投手戦績登録</html:link>
 						</p>
 					</td>
 				</tr>

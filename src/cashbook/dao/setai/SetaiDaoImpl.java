@@ -22,7 +22,7 @@ public class SetaiDaoImpl extends BaseDaoImpl implements SetaiDao {
 
 	/**
 	 * 世帯マスタ一覧を検索する
-	 * @return 費目マスタ一覧
+	 * @return 世帯マスタ一覧
 	 */
 	public List<Map<String, String>> searchSetai(Map<String, Object> formMap) {
 

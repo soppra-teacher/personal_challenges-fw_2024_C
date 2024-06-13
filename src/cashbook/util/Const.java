@@ -84,6 +84,16 @@ public class Const {
 	public static final String SESSION_LIST_RE_SEARCH_HIMOKU = "HIMOKU_LIST_RE_SEARCH";
 	/** 費目マスタメンテ画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_HIMOKU = "HIMOKU_LIST_MESSAGE";
+	
+	
+	/** 戦績マスタ登録画面 DTO */
+	public static final String SESSION_REGIST_DTO_SENSEKI = "SENSEKI_REGIST_DTO";
+	/** 戦績マスタ登録画面 戻り先 */
+	public static final String SESSION_REGIST_BACK_SENSEKI = "SENSEKI_REGIST_BACK";
+	/** 戦績マスタ登録画面 再検索値 */
+	public static final String SESSION_REGIST_RE_SEARCH_SENSEKI = "SENSEKI_REGIST_RE_SEARCH";
+	/** 戦績マスタ登録画面 メッセージ  */
+	public static final String SESSION_REGIST_MESSAGE_SENSEKI = "SENSEKI_REGIST_MESSAGE";
 
 	/** 世帯マスタ登録画面 戻り先 */
 	public static final String SESSION_REGIST_BACK_SETAI = "SETAI_REGIST_BACK";
@@ -100,7 +110,7 @@ public class Const {
 	public static final String SESSION_REGIST_RE_SEARCH_SETAI = "SETAI_REGIST_RE_SEARCH";
 	/** 世帯マスタ登録画面 メッセージ  */
 	public static final String SESSION_REGIST_MESSAGE_SETAI = "SETAI_REGIST_MESSAGE";
-
+	
 	/** 個人マスタ登録画面 DTO */
 	public static final String SESSION_REGIST_DTO_KOJIN = "KOJIN_REGIST_DTO";
 	/** 個人マスタ登録画面 戻り先 */
@@ -130,6 +140,21 @@ public class Const {
 	/** 収支一覧(個別)画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_SHUSHI_SETAI = "SHUSHI_LIST_SETAI_MESSAGE";
 
+	/** 投手戦績登録画面 戻り先 */
+	public static final String SESSION_REGIST_BACK_TOUSHU = "TOUSHU_REGIST_BACK";
+	/** 投手戦績メンテ画面 DTO */
+	public static final String SESSION_LIST_DTO_TOUSHU = "TOUSHU_LIST_DTO";
+	/** 投手戦績メンテ画面 再検索値 */
+	public static final String SESSION_LIST_RE_SEARCH_TOUSHU = "TOUSHU_LIST_RE_SEARCH";
+	/** 投手戦績メンテ画面 メッセージ */
+	public static final String SESSION_LIST_MESSAGE_TOUSHU = "TOUSHU_LIST_MESSAGE";
+
+	/** 投手戦績登録画面 DTO */
+	public static final String SESSION_REGIST_DTO_TOUSHU = "TOUSHU_REGIST_DTO";
+	/** 投手戦績登録画面 再検索値 */
+	public static final String SESSION_REGIST_RE_SEARCH_TOUSHU = "TOUSHU_REGIST_RE_SEARCH";
+	/** 投手戦績登録画面 メッセージ  */
+	public static final String SESSION_REGIST_MESSAGE_TOUSHU = "TOUSHU_REGIST_MESSAGE";
 
 	/************* 画面ID *************/
     /** SM001:個人マスタメンテ */
@@ -194,4 +219,6 @@ public class Const {
 	public static final String CD_BUNRUI_004 = "004";
 	/** 世帯主：コード値 1 */
 	public static final String CD_004_1 = "1";
+	/** イニング詳細 */
+	public static final String CD_BUNRUI_006 = "006";
 }
