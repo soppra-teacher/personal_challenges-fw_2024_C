@@ -182,18 +182,8 @@
 							ìoò^
 						</html:button>
 					</logic:empty>
-					<logic:notEmpty name="viewBean" property="revision">
-						<html:button property="insert" styleClass="btn btn-l" onclick="callAction(this.form, 'update');">
-							çXêV
-						</html:button>
-					</logic:notEmpty>
 				</div>
 
-				<div>
-					<html:button property="back" styleClass="btn btn-l" onclick='<%= "callAction(this.form, \'" + backAction + "\');"%>'>
-						ñﬂÇÈ
-					</html:button>
-				</div>
 
 				<jsp:include page="/jsp/common/footer.jsp" />
 			</div>

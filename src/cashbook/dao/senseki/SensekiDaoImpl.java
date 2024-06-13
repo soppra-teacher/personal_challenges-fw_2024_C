@@ -120,8 +120,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	public void registSenseki(Map<String, Object> formMap, LoginDto loginDto) {
         System.out.println("-------------------registSenseki-------------------------------");
         
-        String s_ining3 = SensekiConst.KEY_ININGU;
-        int i_ining3;
+
         
 		// 登録用のSQLを組み立てる。
 		StringBuffer sql = new StringBuffer();
