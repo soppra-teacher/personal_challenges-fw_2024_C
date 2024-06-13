@@ -20,6 +20,7 @@ import cashbook.dto.kojin.KojinRegistDto;
 import cashbook.service.kojin.KojinService;
 import cashbook.util.CommonUtil;
 import cashbook.util.KojinConst;
+import cashbook.util.SeisekiConst;
 
 /**
  * 個人マスタ登録画面 初期表示アクションクラス
@@ -61,6 +62,15 @@ public class KojinRegistInitAction extends BaseAction {
 		// 戻り先をセッションから取得する。
 		String backAction = CommonUtil.getStr(request.getSession().getAttribute(SESSION_REGIST_BACK_KOJIN));
 
+		System.out.println("**************" + CommonUtil.getFormMap((DynaActionForm) form));
+		System.out.println("formMap:" + formMap);
+		System.out.println("ダイラタンシー");
+		System.out.println("KojinConst" + CommonUtil.getStr(formMap.get(KojinConst.KEY_SENSHU_ID)));
+		System.out.println("formMap" + "こｋそこあｋそｄこあｋｓｄこあｋｓ");
+		System.out.println("SeisekiConst" + CommonUtil.getStr(formMap.get(SeisekiConst.KEY_SENSHU_ID)));
+
+		System.out.println(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_ID)));
+
 		// セッションから取得できない場合
 		if (EMPTY.equals(backAction)) {
 
@@ -78,8 +88,12 @@ public class KojinRegistInitAction extends BaseAction {
 			request.getSession().setAttribute(SESSION_REGIST_BACK_KOJIN, backAction);
 		}
 
+		System.out.println("oooooooooooooooooo" + SESSION_REGIST_BACK_KOJIN);
+
 		// 再検索用の個人IDをセッションから取得する。
 		Map<String, Object> sessionMap = CommonUtil.getSessionMap(request, SESSION_REGIST_RE_SEARCH_KOJIN);
+
+		System.out.println(sessionMap);
 
 		// セッションから取得できた場合
 		if (sessionMap != null) {
@@ -90,6 +104,7 @@ public class KojinRegistInitAction extends BaseAction {
 
 		}
 
+		
 		// メッセージをセッションから取得する。
 		String messageKey = CommonUtil.getStr(request.getSession().getAttribute(SESSION_REGIST_MESSAGE_KOJIN));
 
@@ -109,7 +124,7 @@ public class KojinRegistInitAction extends BaseAction {
 		request.setAttribute(KojinConst.FORM_KOJIN_REGIST, dto);
 		// 取得した情報をセッションに設定
 		request.getSession().setAttribute(SESSION_REGIST_DTO_KOJIN, dto);
-
+		
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(ACTION_FOWARD_SUCCESS);
 	}

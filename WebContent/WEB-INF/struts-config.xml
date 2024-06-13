@@ -74,6 +74,8 @@
 			<form-property name="zokugaraKey"    type="java.lang.String"  />
 			<form-property name="setaiNusiFlg"   type="java.lang.String"  />
 			<form-property name="checkDel"       type="java.lang.String[]"/>
+			
+			<form-property name="senshuId"        type="java.lang.Integer"  />
 		</form-bean>
 		
 		<!-- 成績マスタメンテ画面 -->
@@ -375,6 +377,7 @@
 		<action
 			path="/KojinListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="kojinListForm"
 			scope="request">
 			<forward name="success" path="/jsp/kojin/kojinList.jsp"/>
 		</action>

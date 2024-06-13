@@ -31,5 +31,5 @@ public class KojinConst {
 	public static final String KEY_PASS = "pass";
 	
 	/** キー値：個人ID */
-	public static final String KEY_SUNSHU_ID = "senshuId";
+	public static final String KEY_SENSHU_ID = "senshuId";
 }

@@ -2,17 +2,21 @@ package cashbook.action.kojin;
 
 import static cashbook.util.Const.*;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.DynaActionForm;
 
 import cashbook.action.common.BaseAction;
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.kojin.KojinListDto;
 import cashbook.service.kojin.KojinService;
+import cashbook.util.CommonUtil;
 import cashbook.util.KojinConst;
 
 /**
@@ -49,6 +53,13 @@ public class KojinListInitAction extends BaseAction {
 	protected ActionForward doProcess(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
 
+		
+		System.out.println(form);
+		// フォームの値を取得する。
+		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
+		System.out.println("KojinConst:" + CommonUtil.getStr(formMap.get(KojinConst.KEY_SENSHU_ID)));
+		
+		
 		// 個人マスタ登録画面の戻り先をセッションから削除する。
 		request.getSession().removeAttribute(SESSION_REGIST_BACK_KOJIN);
 
