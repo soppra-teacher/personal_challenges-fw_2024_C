@@ -154,7 +154,7 @@ public class UserServiceImpl implements UserService {
 	 * 登録画面登録・更新メソッド
 	 * @throws CommonValidateException
 	 */
-	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception {
+	public void registInsUpd(Map<String, Object> formMap) throws Exception {
 
 		// 世帯主フラグ="1" 且つ 世帯主チェック
 		if (SETAINUSHI_ON.equals(formMap.get(UserConst.KEY_SETAINUSI_FLG_VALUE))
@@ -164,9 +164,9 @@ public class UserServiceImpl implements UserService {
 		}
 
 		// 性別、続柄の整合性チェック
-		if (check2(formMap)) {
-			throw new CommonValidateException(MSG_USER_CONSIS_2);
-		}
+//		if (check2(formMap)) {
+//			throw new CommonValidateException(MSG_USER_CONSIS_2);
+//		}
 
 		// 登録の場合
 		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(Const.ITEM_REVISION)))) {
@@ -175,15 +175,15 @@ public class UserServiceImpl implements UserService {
 				throw new CommonValidateException(MSG_ERRORS_PRIMARY_KEY);
 			}
 			// 登録処理
-			userDao.registUser(formMap, loginDto);
+			userDao.registUser(formMap);
 			// 更新の場合
 		} else {
 			// 排他処理
 			if (!userDao.lockUser(formMap)) {
 				throw new CommonValidateException(MSG_ERRORS_DATA_LOCK);
 			}
-			// 更新処理
-			userDao.updateUser(formMap, loginDto);
+			
+			
 		}
 	}
 

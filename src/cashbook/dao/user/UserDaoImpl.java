@@ -39,7 +39,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 	 */
 	
 	
-	public void registUser(Map<String, Object> formMap, LoginDto loginDto) {
+	public void registUser(Map<String, Object> formMap) {
 
 		StringBuffer sql = new StringBuffer();
 		sql.append(" INSERT INTO MST_USER ( ");
@@ -48,7 +48,6 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		sql.append(" ) VALUES ( ");
 		sql.append("     '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");
 		sql.append("   , '").append(formMap.get(UserConst.KEY_PASS)).append("' ");
-//		sql.append("   , '").append(loginDto.getUserId()).append("' ");
 		sql.append(" ) ");
 		super.update(sql.toString());
 		

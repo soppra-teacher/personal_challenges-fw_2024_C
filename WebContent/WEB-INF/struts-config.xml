@@ -89,6 +89,7 @@
 			<form-property name="pass" type="java.lang.String" />
 			<form-property name="setaiNmKey"
 				type="java.lang.String" />
+			<form-property name="ja" type="java.lang.String" />
 			<form-property name="kojinNm" type="java.lang.String" />
 			<form-property name="kojinNmkana"
 				type="java.lang.String" />
@@ -214,7 +215,9 @@
 <!--		 </action> -->
 
 
-		<!-- 新規作成 -->
+		<!-- 新規ユーザー登録画面-->
+		<!-- **************************** * 新規ユーザー登録画面 * **************************** -->
+		<!-- 初期表示 -->
 		<action path="/UserRegistInit"
 			type="cashbook.action.user.UserRegistInitAction" 
 			name="userRegistForm"
@@ -230,14 +233,17 @@
 			<forward name="insert" path="/UserRegistInsUpd.do" />
 			<forward name="backMenu" path="/MenuInit.do" />
 			<forward name="backList" path="/UserListSearch.do" />
+			<forward name="backListUser" path="/UserRegistInsUpd.do" />
+<!--			<forward name="success" path="/UserRegistInsUpd.do"-->
+<!--				redirect="true" />-->
 		</action>
 		<!-- 登録・更新 -->
 		<action path="/UserRegistInsUpd"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="userRegistForm" validate="true"
 			input="/jsp/user/userRegist.jsp" scope="request">
-			<forward name="success" path="/UserRegistInit.do"
-				redirect="true" />
+			<forward name="success" path="/jsp/user/userRegist.jsp" />
+<!--			<forward name="success" path="/UserRegistInit.do" redirect="true" />-->
 			<forward name="error" path="/jsp/user/userRegist.jsp" />
 		</action>
 
@@ -246,7 +252,7 @@
 		<action path="/HimokuRegistInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="himokuRegistForm" validate="false" scope="request">
-			<forward name="success" path="/jsp/himoku/himokuRegist.jsp" />
+<!--			<forward name="success" path="/jsp/himoku/himokuRegist.jsp"　 />-->
 		</action>
 		<!-- ディスパッチ -->
 		<action path="/HimokuRegistDisp"

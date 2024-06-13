@@ -42,9 +42,8 @@ public interface UserDao {
 	/**
 	 * ユーザーマスタを登録する
 	 * @param formMap
-	 * @param loginDto
 	 */
-	public void registUser(Map<String, Object> formMap, LoginDto loginDto);
+	public void registUser(Map<String, Object> formMap);
 
 	/**
 	 * ユーザーマスタを更新する いらない

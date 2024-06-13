@@ -22,7 +22,8 @@ public class UserRegistDispAction extends DispatchAction {
 			ActionForm form,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		
+		System.out.println("UserRegistDispActionのinsertメソッド");
 		return mapping.findForward(ACTION_FOWARD_INSERT);
 	}
 
@@ -33,6 +34,7 @@ public class UserRegistDispAction extends DispatchAction {
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
+		
 		return mapping.findForward(ACTION_FOWARD_UPDATE);
 	}
 
@@ -42,7 +44,7 @@ public class UserRegistDispAction extends DispatchAction {
 			ActionForm form,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		
 		return mapping.findForward(ACTION_FOWARD_BACK_MENU);
 	}
 
@@ -52,7 +54,7 @@ public class UserRegistDispAction extends DispatchAction {
 			ActionForm form,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		
 		return mapping.findForward(ACTION_FOWARD_BACK_LIST);
 	}
 	/**
@@ -64,7 +66,7 @@ public class UserRegistDispAction extends DispatchAction {
 			ActionForm form,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		
 		return mapping.findForward(ACTION_FOWARD_BACK_LIST_USER);
 	}
 	

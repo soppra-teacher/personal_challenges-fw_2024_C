@@ -116,7 +116,7 @@
           
         </div>
 
-        <jsp:include page="/jsp/common/footer.jsp" />
+        <jsp:include page="/jsp/common/newUser_footer.jsp" />
        </div>
     </html:form>
   </div>

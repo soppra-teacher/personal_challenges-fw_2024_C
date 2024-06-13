@@ -39,39 +39,14 @@ public class UserRegistInitAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("userRegistForm", new UserRegistDto());
 		
+		// ログイン成功
+		request.setAttribute("userRegistForm", new UserRegistDto());
+		//// ログイン情報取得
 		request.getSession().setAttribute("USER_REGIST_DTO", new UserRegistDto());
 
 		
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(Const.ACTION_FOWARD_SUCCESS);
 	}
-	
-
-//	/** ユーザーマスタサービス */
-//	private UserService userService;
-//
-//	/**
-//	 * ユーザーマスタサービスを設定します。
-//	 * @param userService ユーザーマスタサービス
-//	 */
-//	public void setUserService(UserService userService) {
-//		this.userService = userService;
-//	}
-//// =======================================自分で追加した機能==================================================
-//	
-//	protected ActionForward doProcess(ActionMapping map, ActionForm form,
-//		HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
-//		
-//		
-//		request.setAttribute("userRegistForm", new UserRegistDto());
-//		
-//		request.getSession().setAttribute("USER_REGIST_DTO", new UserRegistDto());
-		
-//		// 処理成功時の遷移先を指定する。
-//		return map.findForward(Const.ACTION_FOWARD_SUCCESS);
-//		
-//		
-//	}
 }	

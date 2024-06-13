@@ -52,8 +52,7 @@ public interface UserService {
 	/**
 	 *
 	 * @param formMap
-	 * @param loginDto
 	 * @throws Exception
 	 */
-	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception;
+	public void registInsUpd(Map<String, Object> formMap) throws Exception;
 }

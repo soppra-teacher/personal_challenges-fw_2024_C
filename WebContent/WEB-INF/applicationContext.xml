@@ -107,7 +107,7 @@
     </property>
   </bean>
   
-      <!-- ユーザー登録 -->
+      <!-- 新規ユーザー登録 -->
   <bean id="UserServiceId" class="cashbook.service.user.UserServiceImpl">
     <property name="commonDao">
       <ref local="CommonDaoId" />

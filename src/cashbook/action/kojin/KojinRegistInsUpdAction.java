@@ -75,7 +75,7 @@ public class KojinRegistInsUpdAction extends BaseAction {
 		// フォーム．リビジョンが未設定の場合
 		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(ITEM_REVISION)))) {
 			// 登録成功メッセージをセッションに設定
-			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_KOJIN, MSG_SUCCESS_INSERT);
+			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_USER, MSG_SUCCESS_INSERT);
 
 		} else {
 			// 更新成功メッセージをセッションに設定

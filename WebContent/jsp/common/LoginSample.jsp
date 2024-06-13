@@ -28,7 +28,6 @@
 			<div class="contents block-center">
 				<html:messages id="msg" message="false">
 					<p class="msg-err">
-						ÅE
 						<bean:write name="msg" ignore="true" filter="false" />
 					</p>
 				</html:messages>

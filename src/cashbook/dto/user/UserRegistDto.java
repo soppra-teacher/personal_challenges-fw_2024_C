@@ -50,6 +50,9 @@ public class UserRegistDto extends BaseDto {
 
 	/** 世帯主名 */
 	private String setaiNusiNm;
+	
+	/** 世帯主名 */
+	private String ja;
 
 	public String getUserId() {
 		return userId;
@@ -169,6 +172,14 @@ public class UserRegistDto extends BaseDto {
 
 	public void setSetaiNusiNm(String setaiNusiNm) {
 		this.setaiNusiNm = setaiNusiNm;
+	}
+
+	public String getJa() {
+		return ja;
+	}
+
+	public void setJa(String ja) {
+		this.ja = ja;
 	}
 
 }
