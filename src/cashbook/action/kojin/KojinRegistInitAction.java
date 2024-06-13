@@ -64,9 +64,7 @@ public class KojinRegistInitAction extends BaseAction {
 
 		System.out.println("**************" + CommonUtil.getFormMap((DynaActionForm) form));
 		System.out.println("formMap:" + formMap);
-		System.out.println("ダイラタンシー");
 		System.out.println("KojinConst" + CommonUtil.getStr(formMap.get(KojinConst.KEY_SENSHU_ID)));
-		System.out.println("formMap" + "こｋそこあｋそｄこあｋｓｄこあｋｓ");
 		System.out.println("SeisekiConst" + CommonUtil.getStr(formMap.get(SeisekiConst.KEY_SENSHU_ID)));
 
 		System.out.println(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_ID)));
@@ -117,6 +115,8 @@ public class KojinRegistInitAction extends BaseAction {
 
 		}
 
+		System.out.println("チェックフォーム１"+formMap);
+		
 		// 初期表示取得
 		KojinRegistDto dto = kojinService.registInit(formMap);
 

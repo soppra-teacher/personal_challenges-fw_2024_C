@@ -35,7 +35,7 @@ public class SeisekiServiceImpl implements SeisekiService {
 		// ヘッダ
 		//------------------------------------------
 		SeisekiListDto result = new SeisekiListDto();
-
+		
 		//------------------------------------------
 		// 一覧
 		//------------------------------------------

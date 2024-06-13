@@ -26,9 +26,6 @@ public class KojinDaoImpl extends BaseDaoImpl implements KojinDao {
 	 */
 	public List<Map<String, String>> searchKojin(Map<String, Object> formMap) {
 
-		System.out.println("**選手IDらしきもの**"+formMap.get(SeisekiConst.KEY_SENSHU_ID));
-		System.out.println("**選手IDらしきもの2**"+CommonUtil.getStr(formMap.get(KojinConst.KEY_SENSHU_ID)));
-		
 		List<Map<String, String>> result;
 		StringBuffer sql = new StringBuffer();
 		sql.append("SELECT  M1.kojin_id ");

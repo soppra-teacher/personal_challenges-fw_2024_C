@@ -54,11 +54,10 @@ public class KojinListInitAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
 
 		
-		System.out.println(form);
+		System.out.println("form:"+form);
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
-		System.out.println("KojinConst:" + CommonUtil.getStr(formMap.get(KojinConst.KEY_SENSHU_ID)));
-		
+		System.out.println("KojinConst:KEY_SENSHU_ID:" + CommonUtil.getStr(formMap.get(KojinConst.KEY_SENSHU_ID)));
 		
 		// 個人マスタ登録画面の戻り先をセッションから削除する。
 		request.getSession().removeAttribute(SESSION_REGIST_BACK_KOJIN);
@@ -70,6 +69,9 @@ public class KojinListInitAction extends BaseAction {
 		request.setAttribute(KojinConst.FORM_KOJIN_LIST, dto);
 		// 取得した情報をセッションに設定
 		request.getSession().setAttribute(SESSION_LIST_DTO_KOJIN, dto);
+		
+		
+		request.getSession().setAttribute("seki", form);
 
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(ACTION_FOWARD_SUCCESS);
