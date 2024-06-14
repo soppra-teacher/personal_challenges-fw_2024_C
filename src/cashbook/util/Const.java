@@ -115,6 +115,11 @@ public class Const {
 	public static final String SESSION_LIST_RE_SEARCH_KOJIN = "KOJIN_LIST_RE_SEARCH";
 	/** 個人マスタメンテ画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_KOJIN = "KOJIN_LIST_MESSAGE";
+	
+	
+	/** 個人マスタメンテ画面 メッセージ */
+	public static final String SESSION_LIST_CHANGE_TO_KOJIN = "CHANGE_TO_KOJIN";
+	
 
 	
 	/** 成績マスタメンテ画面 DTO */

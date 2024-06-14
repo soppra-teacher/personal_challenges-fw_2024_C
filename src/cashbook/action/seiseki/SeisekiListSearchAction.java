@@ -63,18 +63,18 @@ public class SeisekiListSearchAction extends BaseAction {
 		if (!ACTION_FOWARD_SEARCH.equals(request.getParameter(ACTION_FOWARD_OPERATION))) {
 			
 			// "search"でない場合、再検索用の値をセッションから取得する。
-			Map<String, Object> sessionMap = CommonUtil.getSessionMap(request, SESSION_LIST_RE_SEARCH_SEISEKI);
+			//Map<String, Object> sessionMap = CommonUtil.getSessionMap(request, SESSION_LIST_RE_SEARCH_SEISEKI);
 
 			// 取得できた場合
-			if (sessionMap != null) {
-				formMap.put(SeisekiConst.KEY_SEISEKI_ID, sessionMap.get(SeisekiConst.KEY_SEISEKI_ID));
-				formMap.put(SeisekiConst.KEY_SEISEKI_NM, sessionMap.get(SeisekiConst.KEY_SEISEKI_NM));
-				formMap.put(SeisekiConst.KEY_SEISEKI_NM_KANA, sessionMap.get(SeisekiConst.KEY_SEISEKI_NM_KANA));
-				formMap.put(SeisekiConst.KEY_SEIBETSU_KBN_KEY, sessionMap.get(SeisekiConst.KEY_SEIBETSU_KBN_KEY));
-				formMap.put(SeisekiConst.KEY_ZOKUGARA, sessionMap.get(SeisekiConst.KEY_ZOKUGARA));
-				formMap.put(SeisekiConst.KEY_SETAINUSI_FLG, sessionMap.get(SeisekiConst.KEY_SETAINUSI_FLG));
-				formMap.put(ITEM_CHECKBOX_DELETE, null);
-			}
+//			if (sessionMap != null) {
+//				formMap.put(SeisekiConst.KEY_SEISEKI_ID, sessionMap.get(SeisekiConst.KEY_SEISEKI_ID));
+//				formMap.put(SeisekiConst.KEY_SEISEKI_NM, sessionMap.get(SeisekiConst.KEY_SEISEKI_NM));
+//				formMap.put(SeisekiConst.KEY_SEISEKI_NM_KANA, sessionMap.get(SeisekiConst.KEY_SEISEKI_NM_KANA));
+//				formMap.put(SeisekiConst.KEY_SEIBETSU_KBN_KEY, sessionMap.get(SeisekiConst.KEY_SEIBETSU_KBN_KEY));
+//				formMap.put(SeisekiConst.KEY_ZOKUGARA, sessionMap.get(SeisekiConst.KEY_ZOKUGARA));
+//				formMap.put(SeisekiConst.KEY_SETAINUSI_FLG, sessionMap.get(SeisekiConst.KEY_SETAINUSI_FLG));
+//				formMap.put(ITEM_CHECKBOX_DELETE, null);
+//			}
 		}
 
 		// 世帯主フラグ有無チェック
