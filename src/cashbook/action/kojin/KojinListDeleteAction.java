@@ -54,6 +54,7 @@ public class KojinListDeleteAction extends BaseAction {
 		// フォームの値を取得
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 
+		System.out.println("request:" + request);
 		// 削除対象チェック
 		if (checkDeleteTarget((String[]) formMap.get(ITEM_CHECKBOX_DELETE), request)) {
 			return map.getInputForward();

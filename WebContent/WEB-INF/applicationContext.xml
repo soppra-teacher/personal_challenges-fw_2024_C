@@ -22,10 +22,10 @@
       <value>jdbc:oracle:thin:@//localhost:1521/XEPDB1</value>
     </property>
     <property name="username">
-      <value>YAMADA</value>
+      <value>MATSUNAKA</value>
     </property>
     <property name="password">
-      <value>YAMADA</value>
+      <value>MATSUNAKA</value>
     </property>
   </bean>
 
@@ -60,6 +60,8 @@
   
     <!-- ユーザーマスタ -->
    <bean id="UserDaoId" class="cashbook.dao.user.UserDaoImpl">
+    <!-- 成績マスタ -->
+   <bean id="SeisekiDaoId" class="cashbook.dao.seiseki.SeisekiDaoImpl">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
@@ -114,6 +116,11 @@
     </property>
     <property name="userDao">
       <ref local="UserDaoId" />
+
+      <!-- 成績マスタ -->
+  <bean id="SeisekiServiceId" class="cashbook.service.seiseki.SeisekiServiceImpl">
+    <property name="seisekiDao">
+      <ref local="SeisekiDaoId" />
     </property>
   </bean>
 
@@ -195,6 +202,22 @@
   </bean>
 
   
+    <!-- 成績マスタメンテ -->
+  <bean name="/SeisekiListInit" class="cashbook.action.seiseki.SeisekiListInitAction">
+    <property name="seisekiService">
+      <ref local="SeisekiServiceId" />
+    </property>
+  </bean>
+  <bean name="/SeisekiListSearch" class="cashbook.action.seiseki.SeisekiListSearchAction">
+    <property name="seisekiService">
+      <ref local="SeisekiServiceId" />
+    </property>
+  </bean>
+  <bean name="/SeisekiListSenshuRegist" class="cashbook.action.seiseki.SeisekiListSenshuRegistAction">
+    <property name="seisekiService">
+      <ref local="SeisekiServiceId" />
+    </property>
+  </bean>
 
   <!-- 世帯マスタメンテ -->
   <bean name="/SetaiListInit" class="cashbook.action.setai.SetaiListInitAction">
