@@ -2,6 +2,8 @@ package cashbook.service.user;
 
 import java.util.Map;
 
+import org.apache.struts.action.ActionForm;
+
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.user.UserListDto;
 import cashbook.dto.user.UserRegistDto;
@@ -40,10 +42,10 @@ public interface UserService {
 	 */
 	public UserRegistDto registInit(Map<String, Object> formMap);
 	
+	//public UserRegistDto registInit(formMap);
 	
 	
 	
-	public UserRegistDto registInit();
 
 	
 	
@@ -55,4 +57,6 @@ public interface UserService {
 	 * @throws Exception
 	 */
 	public void registInsUpd(Map<String, Object> formMap) throws Exception;
+
+	public void registInsUpd(ActionForm form) throws Exception;
 }

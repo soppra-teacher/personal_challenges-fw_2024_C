@@ -219,7 +219,7 @@
 		<!-- **************************** * 新規ユーザー登録画面 * **************************** -->
 		<!-- 初期表示 -->
 		<action path="/UserRegistInit"
-			type="cashbook.action.user.UserRegistInitAction" 
+			type="org.springframework.web.struts.DelegatingActionProxy" 
 			name="userRegistForm"
 			scope="request">
 			<forward name="success" path="/jsp/user/userRegist.jsp" />
@@ -242,11 +242,11 @@
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="userRegistForm" validate="true"
 			input="/jsp/user/userRegist.jsp" scope="request">
-			<forward name="success" path="/jsp/user/userRegist.jsp" />
-<!--			<forward name="success" path="/UserRegistInit.do" redirect="true" />-->
+			<forward name="success" path="/UserRegistInit.do" redirect="true"/>
 			<forward name="error" path="/jsp/user/userRegist.jsp" />
+		
 		</action>
-
+		
 		<!-- **************************** * 費目マスタ登録画面 * **************************** -->
 		<!-- 初期表示 -->
 		<action path="/HimokuRegistInit"

@@ -8,12 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.DynaActionForm;
 
 import cashbook.dto.user.UserRegistDto;
+import cashbook.exception.CommonValidateException;
 import cashbook.service.user.UserService;
 import cashbook.util.CommonUtil;
 import cashbook.util.Const;
@@ -49,16 +53,29 @@ public class UserRegistInsUpdAction extends Action {
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 		
-		// 登録・更新
-		userService.registInsUpd(formMap);
 		
-		// 登録成功メッセージをセッションに設定
-		request.getSession().setAttribute(SESSION_REGIST_MESSAGE_KOJIN, MSG_SUCCESS_INSERT);
+		
+		//try-catch 書く
+		
+		try {
 
-
+			// 登録・更新
+			userService.registInsUpd(formMap);
+			System.out.println("UserRegistInsUpdActionの登録・更新");
+			// 登録成功メッセージをセッションに設定
+			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_USER, MSG_SUCCESS_INSERT);
+			System.out.println("UserRegistInsUpdActionの登録成功メッセージをセッションに設定後");
+		} catch (CommonValidateException e) {
+		
+			ActionErrors errors = new ActionErrors();
+			errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage(e.getMessageKey()));
+			saveErrors(request, errors);
+			return map.getInputForward();
+		}
+		
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(Const.ACTION_FOWARD_SUCCESS);
-	
+	    
 		
 	}
 	

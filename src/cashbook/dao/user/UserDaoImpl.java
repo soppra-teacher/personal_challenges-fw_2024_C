@@ -70,7 +70,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		sql.append("   AND ROWNUM = 1 ");
 		
 		//　Q：AND ROWNUM = 1 が何をしているのか聞く
-		
+		System.out.println("UserDaoImplのcheckOverlapUser" + sql);
 		return super.find(sql.toString()).size() == 0;
 	}
 

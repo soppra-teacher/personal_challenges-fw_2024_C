@@ -19,7 +19,7 @@ public interface UserDao {
 	public List<Map<String, String>> searchUser(Map<String, Object> formMap);
 
 	/**
-	 * ユーザーマスタを削除する
+	 * ユーザーマスタを削除する いらない
 	 * @param kojinId
 	 * @param loginDto
 	 */

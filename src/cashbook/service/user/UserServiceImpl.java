@@ -7,8 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts.action.ActionForm;
+
 import cashbook.dao.common.CommonDao;
-import cashbook.dao.setai.SetaiDao;
 import cashbook.dao.user.UserDao;
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.user.UserListDto;
@@ -23,9 +24,6 @@ import cashbook.util.UserConst;
  * @author soppra
  */
 public class UserServiceImpl implements UserService {
-
-	/** 世帯マスタDao */
-	private SetaiDao setaiDao;
 
 	/** ユーザーマスタDao */
 	private UserDao userDao;
@@ -106,19 +104,15 @@ public class UserServiceImpl implements UserService {
 
 	public UserRegistDto registInit() {
 		UserRegistDto result = new UserRegistDto();
-		
-			// 続柄区分コンボボックスの設定
+
+		// 続柄区分コンボボックスの設定
 		result.setZokugara(commonDao.getCode(CD_BUNRUI_003));
 		// 世帯名コンボボックスの設定
-		result.setSetaiNm(setaiDao.searchSelectboxSetai());
-		
+		//result.setSetaiNm(setaiDao.searchSelectboxSetai());
+
 		return result;
 	}
-	
-	
-	
-	
-	
+
 	public UserRegistDto registInit(Map<String, Object> formMap) {
 
 		UserRegistDto result = new UserRegistDto();
@@ -126,7 +120,7 @@ public class UserServiceImpl implements UserService {
 		// 続柄区分コンボボックスの設定
 		result.setZokugara(commonDao.getCode(CD_BUNRUI_003));
 		// 世帯名コンボボックスの設定
-		result.setSetaiNm(setaiDao.searchSelectboxSetai());
+		//result.setSetaiNm(setaiDao.searchSelectboxSetai());
 
 		// 更新モードの場合は、対象のユーザーマスタを取得する
 		if (formMap != null && !CommonUtil.isNull(CommonUtil.getStr(formMap.get(UserConst.KEY_USER_ID)))) {
@@ -157,33 +151,54 @@ public class UserServiceImpl implements UserService {
 	public void registInsUpd(Map<String, Object> formMap) throws Exception {
 
 		// 世帯主フラグ="1" 且つ 世帯主チェック
-		if (SETAINUSHI_ON.equals(formMap.get(UserConst.KEY_SETAINUSI_FLG_VALUE))
-				&& formMap.get(UserConst.KEY_SETAINUSI_FLG_VALUE) != null &&
-				userDao.checkSetainushiFlg(formMap)) {
-			throw new CommonValidateException(MSG_USER_CONSIS_1);
-		}
+		//		if (SETAINUSHI_ON.equals(formMap.get(UserConst.KEY_SETAINUSI_FLG_VALUE))
+		//				&& formMap.get(UserConst.KEY_SETAINUSI_FLG_VALUE) != null &&
+		//				userDao.checkSetainushiFlg(formMap)) {
+		//			throw new CommonValidateException(MSG_USER_CONSIS_1);
+		//		}
 
 		// 性別、続柄の整合性チェック
-//		if (check2(formMap)) {
-//			throw new CommonValidateException(MSG_USER_CONSIS_2);
-//		}
-
+		//		if (check2(formMap)) {
+		//			throw new CommonValidateException(MSG_USER_CONSIS_2);
+		//		}
+		System.out.println("UserServiceImplのregistInsUpd" + formMap);
 		// 登録の場合
 		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(Const.ITEM_REVISION)))) {
+			System.out.println("UserServiceImplの登録の場合");
+			System.out.println("UserServiceImpl登録処理");
 			// 存在チェック
 			if (!userDao.checkOverlapUser(formMap)) {
+				System.out.println("UserServiceImpl存在チェック");
 				throw new CommonValidateException(MSG_ERRORS_PRIMARY_KEY);
 			}
-			// 登録処理
+
 			userDao.registUser(formMap);
+
+			// 登録処理
+
+			/*
+			 * Copyright 2024 the original author or authors.
+			 *
+			 * Licensed under the Apache License, Version 2.0 (the "License");
+			 * you may not use this file except in compliance with the License.
+			 * You may obtain a copy of the License at
+			 *
+			 *      https://www.apache.org/licenses/LICENSE-2.0
+			 *
+			 * Unless required by applicable law or agreed to in writing, software
+			 * distributed under the License is distributed on an "AS IS" BASIS,
+			 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+			 * See the License for the specific language governing permissions and
+			 * limitations under the License.
+			 */
+
 			// 更新の場合
 		} else {
 			// 排他処理
-			if (!userDao.lockUser(formMap)) {
-				throw new CommonValidateException(MSG_ERRORS_DATA_LOCK);
-			}
-			
-			
+			//			if (!userDao.lockUser(formMap)) {
+			//				throw new CommonValidateException(MSG_ERRORS_DATA_LOCK);
+			//			}
+
 		}
 	}
 
@@ -230,18 +245,16 @@ public class UserServiceImpl implements UserService {
 
 	/**
 	 * DAOのsetter
-	 * @param setaiDao
-	 */
-	public void setSetaiDao(SetaiDao setaiDao) {
-		this.setaiDao = setaiDao;
-	}
-
-	/**
-	 * DAOのsetter
 	 * @param commonDao
 	 */
 	public void setCommonDao(CommonDao commonDao) {
 		this.commonDao = commonDao;
+	}
+
+	@Override
+	public void registInsUpd(ActionForm form) throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+
 	}
 
 }
