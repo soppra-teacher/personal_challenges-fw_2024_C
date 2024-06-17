@@ -58,7 +58,6 @@ public class SeisekiListSenshuRegistAction extends BaseAction {
 		seisekiService.registNewSenshu(formMap, loginDto);
 		
 		// 登録完了メッセージをセッションに保持
-		//request.getSession().setAttribute(SESSION_LIST_MESSAGE_SEISEKI, MSG_SUCCESS_DELETE);
 		request.getSession().setAttribute(SESSION_LIST_MESSAGE_SEISEKI, MSG_SUCCESS_INSERT);
 		
 		// 処理成功時の遷移先を指定する。

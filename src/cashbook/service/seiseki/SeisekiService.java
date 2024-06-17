@@ -26,14 +26,6 @@ public interface SeisekiService {
 	public SeisekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto);
 
 	/**
-	 *
-	 * @param formMap
-	 * @param loginDto
-	 * @throws Exception
-	 */
-	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception;
-	
-	/**
 	 * @param formMap
 	 * @param loginDto
 	 * @throws Exception

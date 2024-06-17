@@ -24,13 +24,5 @@ public interface SeisekiDao {
 	 * @throws Exception
 	 */
 	public void registSenshu(Map<String, Object> formMap, LoginDto loginDto);
-	
-	
-	/**
-	 * 成績マスタを更新する
-	 * @param formMap
-	 * @param loginDto
-	 */
-	public void updateSeiseki(Map<String, Object> formMap, LoginDto loginDto);
 
 }

@@ -59,19 +59,6 @@ public class SeisekiServiceImpl implements SeisekiService {
 		return result;
 	}
 
-
-
-	/**
-	 * 登録画面登録・更新メソッド
-	 * @throws CommonValidateException
-	 */
-	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception {
-
-		// 更新処理
-		seisekiDao.updateSeiseki(formMap, loginDto);
-		
-	}
-	
 	/**
 	 * 新規選手登録メソッド
 	 * @throws CommonValidateException

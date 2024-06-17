@@ -59,35 +59,6 @@ public class SeisekiListSearchAction extends BaseAction {
 		// フォームの値を取得
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 
-		// リクエストから「operation」の値が"search"だったのかを判定する。
-		if (!ACTION_FOWARD_SEARCH.equals(request.getParameter(ACTION_FOWARD_OPERATION))) {
-			
-			// "search"でない場合、再検索用の値をセッションから取得する。
-			//Map<String, Object> sessionMap = CommonUtil.getSessionMap(request, SESSION_LIST_RE_SEARCH_SEISEKI);
-
-			// 取得できた場合
-//			if (sessionMap != null) {
-//				formMap.put(SeisekiConst.KEY_SEISEKI_ID, sessionMap.get(SeisekiConst.KEY_SEISEKI_ID));
-//				formMap.put(SeisekiConst.KEY_SEISEKI_NM, sessionMap.get(SeisekiConst.KEY_SEISEKI_NM));
-//				formMap.put(SeisekiConst.KEY_SEISEKI_NM_KANA, sessionMap.get(SeisekiConst.KEY_SEISEKI_NM_KANA));
-//				formMap.put(SeisekiConst.KEY_SEIBETSU_KBN_KEY, sessionMap.get(SeisekiConst.KEY_SEIBETSU_KBN_KEY));
-//				formMap.put(SeisekiConst.KEY_ZOKUGARA, sessionMap.get(SeisekiConst.KEY_ZOKUGARA));
-//				formMap.put(SeisekiConst.KEY_SETAINUSI_FLG, sessionMap.get(SeisekiConst.KEY_SETAINUSI_FLG));
-//				formMap.put(ITEM_CHECKBOX_DELETE, null);
-//			}
-		}
-
-		// 世帯主フラグ有無チェック
-		if (SETAINUSHI_FLG_ON.equals(formMap.get(SeisekiConst.KEY_SETAINUSI_FLG))) {
-			// チェック済みの場合、パラメータを"1"に設定する。
-			formMap.put(SeisekiConst.KEY_SETAINUSI_FLG_VALUE, SETAINUSHI_ON);
-
-		} else {
-			// 未チェック済の場合、パラメータを"0"に設定する。
-			formMap.put(SeisekiConst.KEY_SETAINUSI_FLG_VALUE, SETAINUSHI_OFF);
-
-		}
-
 		// セッションからメッセージを取得する。
 		String messageKey = CommonUtil.getStr(request.getSession().getAttribute(SESSION_LIST_MESSAGE_SEISEKI));
 
