@@ -37,5 +37,8 @@ public class SensekiConst {
 	public static final String KEY_E_TEAM = "eTeam";
 	public static final String KEY_MATCH_DATE = "matchDate";
 	
+	//senshuId
+	public static final String KEY_SENSHUID = "senshuId";
+	
 	
 }

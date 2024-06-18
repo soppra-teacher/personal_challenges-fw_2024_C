@@ -48,9 +48,11 @@
 
 
 				<table class="layout-table block-center w-auto">
+					<logic:notEmpty name="viewBean" property="list">
+						<logic:iterate id="list" name="viewBean" property="list">
 					<tr>
 						<td class="w-25">
-							<h4>name</h4>	
+							<bean:write name="list" property="datsusanshin" />
 						</td>
 						
 						<td class="w-50">
@@ -63,8 +65,9 @@
 								çÌèú
 							</html:button>
 						</td>
-	
 					</tr>
+					</logic:iterate>
+				</logic:notEmpty>
 				</table>
 
 				<table class="l-himoku table mb-0" >

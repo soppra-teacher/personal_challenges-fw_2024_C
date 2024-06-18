@@ -90,9 +90,8 @@
 			<form-property name="tamakazu"   type="java.lang.String"  />
 			
 			<form-property name="datsusanshin"   type="java.lang.String"  />
+			<form-property name="senshuId"   type="java.lang.String"  />
 			
-
-						
 		</form-bean>
 
 		
