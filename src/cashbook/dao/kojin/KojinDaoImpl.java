@@ -149,7 +149,7 @@ public class KojinDaoImpl extends BaseDaoImpl implements KojinDao {
 		sql.append("   , '").append(formMap.get(KojinConst.KEY_ZOKUGARA)).append("' ");
 		sql.append("   , '").append(formMap.get(KojinConst.KEY_SETAINUSI_FLG_VALUE)).append("' ");
 		sql.append("   , '0' ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
+		sql.append("   , '").append(loginDto.getUserId()).append("' ");
 		sql.append("   , SYSDATE ");
 		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		sql.append("   , SYSDATE ");

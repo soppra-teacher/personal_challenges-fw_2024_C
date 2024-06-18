@@ -53,7 +53,7 @@ public abstract class BaseAction extends Action {
 
 		// ログイン情報取得
 		LoginDto loginDto = (LoginDto) request.getSession().getAttribute("LOGIN_DTO");
-
+		System.out.println(loginDto + "execute");
 		// ログイン情報が取得できない場合はセッションエラーページへ遷移
 		if (loginDto == null) {
 			return map.findForward("sessionError");
