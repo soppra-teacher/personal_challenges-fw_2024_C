@@ -41,7 +41,6 @@ public class KojinListInitAction extends BaseAction {
 	 * 個人マスタメンテ画面
 	 * <br>初期表示処理
 	 * </b></p>
-	 
 	 *
 	 * @param map      アクションマッピング
 	 * @param form     フォーム
@@ -65,7 +64,6 @@ public class KojinListInitAction extends BaseAction {
 
 		// 個人マスタメンテ初期表示情報を取得
 		KojinListDto dto = kojinService.listInit();
-		
 
 		// 取得した情報をリクエストに設定
 		request.setAttribute(KojinConst.FORM_KOJIN_LIST, dto);

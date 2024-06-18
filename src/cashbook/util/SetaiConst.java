@@ -25,7 +25,4 @@ public class SetaiConst {
 	public static final String KEY_TEL_NO = "telNo";
 	/** キー値：世帯名キー */
 	public static final String KEY_SETAI_NM_KEY = "setaiNmKey";
-	
-	
-	
 }

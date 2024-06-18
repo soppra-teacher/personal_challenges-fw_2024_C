@@ -66,6 +66,7 @@ public class KojinRegistInsUpdAction extends BaseAction {
 			formMap.put(KojinConst.KEY_SETAINUSI_FLG_VALUE, SETAINUSHI_OFF);
 
 		}
+
 		// 世帯ＩＤを設定する
 		formMap.put(SetaiConst.KEY_SETAI_ID, formMap.get(SetaiConst.KEY_SETAI_NM_KEY));
 		// 登録・更新
