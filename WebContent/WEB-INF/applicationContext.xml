@@ -22,10 +22,10 @@
       <value>jdbc:oracle:thin:@//localhost:1521/XEPDB1</value>
     </property>
     <property name="username">
-      <value>MATSUNAKA</value>
+      <value>YAMADA</value>
     </property>
     <property name="password">
-      <value>MATSUNAKA</value>
+      <value>YAMADA</value>
     </property>
   </bean>
 
@@ -60,6 +60,10 @@
   
     <!-- ユーザーマスタ -->
    <bean id="UserDaoId" class="cashbook.dao.user.UserDaoImpl">
+    <property name="dataSource">
+      <ref local="dataSource" />
+    </property>
+  </bean>
     <!-- 成績マスタ -->
    <bean id="SeisekiDaoId" class="cashbook.dao.seiseki.SeisekiDaoImpl">
     <property name="dataSource">
@@ -116,7 +120,8 @@
     </property>
     <property name="userDao">
       <ref local="UserDaoId" />
-
+      </property>
+ </bean>
       <!-- 成績マスタ -->
   <bean id="SeisekiServiceId" class="cashbook.service.seiseki.SeisekiServiceImpl">
     <property name="seisekiDao">

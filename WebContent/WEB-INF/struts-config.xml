@@ -127,7 +127,7 @@
 				type="java.lang.String" />
 			<form-property name="checkDel"
 				type="java.lang.String[]" />
-
+</form-bean>
 		
 		<!-- 成績マスタメンテ画面 -->
 		<form-bean name="seisekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
