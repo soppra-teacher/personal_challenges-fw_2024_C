@@ -55,6 +55,12 @@
 							<bean:write name="list" property="datsusanshin" />
 						</td>
 						
+						<td class="text-right l-shushi-shunyu">
+							<span class="p-10">
+								<bean:write name="viewBean" property="playerNm" />
+							</span>
+						</td>						
+						
 						<td class="w-50">
 							&nbsp;
 						</td>

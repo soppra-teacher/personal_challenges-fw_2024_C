@@ -72,6 +72,11 @@ public class SensekiServiceImpl implements SensekiService {
 		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定
 		result.setzokugara(commonDao.getCode(CD_BUNRUI_003));
+		
+//		String b="bbbbb";
+//		result.setPlayerNm(b);
+//		ここで名前を取得しようとしている
+		result.setPlayerNm("SITTEN");
 
 		//------------------------------------------
 		// 一覧
@@ -80,6 +85,7 @@ public class SensekiServiceImpl implements SensekiService {
 		// 検索処理
 		List<Map<String, String>> list = sensekiDao.searchSenseki(formMap);
 		Iterator<Map<String, String>> it = list.iterator();
+		
 		while (it.hasNext()) {
 			Map<String, String> map = it.next();
 			//SensekiRegistDto dto = new SensekiRegistDto();
@@ -109,6 +115,11 @@ public class SensekiServiceImpl implements SensekiService {
 			
 			SensekiList.add(dto);
 		}
+		//result.setShunyuTotal(CommonUtil.getStr(shunyuTotal));
+		
+
+		
+
 		result.setList(SensekiList);
 		return result;
 	}

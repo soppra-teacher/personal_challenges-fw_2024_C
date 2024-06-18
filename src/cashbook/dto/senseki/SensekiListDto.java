@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import cashbook.dto.common.BaseDto;
+import cashbook.util.CommonUtil;
 
 public class SensekiListDto extends BaseDto {
 
@@ -36,7 +37,7 @@ public class SensekiListDto extends BaseDto {
 	
 	private List<SensekiListDto> list;
 
-
+	
 	private String playerId;
 	/** 失点*/
 	private String sittenNm;
@@ -52,6 +53,9 @@ public class SensekiListDto extends BaseDto {
 	private String inning;
 	private String tamakazu;
 	private String matchId;
+	
+	private String playerNm;
+	
 	
 
 	public String getSensekiId() {
@@ -221,6 +225,21 @@ public class SensekiListDto extends BaseDto {
 
 	public void setDatsusanshin(String datsusanshin) {
 		this.datsusanshin = datsusanshin;
+	}
+
+	
+	
+	
+	public String getPlayerNm() {
+		return playerNm;
+	}
+
+	public void setPlayerNm(String playerNm) {
+		this.playerNm = playerNm;
+	}
+	
+	public String getPlayerNmFormat() {
+	    return CommonUtil.formatComma(playerNm);
 	}
 
 

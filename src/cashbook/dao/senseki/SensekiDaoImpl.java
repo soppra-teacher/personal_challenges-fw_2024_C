@@ -2,6 +2,8 @@ package cashbook.dao.senseki;
 
 import static cashbook.util.Const.*;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -72,6 +74,37 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 		return result;
 	}
+	
+	public Map<String, String> getP_Nm(String p_Nm) {
+
+		List<Map<String, String>> mapList = new ArrayList<Map<String, String>>();
+		Map<String, String> result = new LinkedHashMap<String, String>();
+		StringBuffer sql = new StringBuffer();
+
+
+		sql.append("SELECT  M1.MATCH_ID");
+		sql.append("       ,M1.PLAYER_ID");
+		sql.append("       ,TRUNC((M1.INNING/3),0)||'.'||MOD((M1.INNING),3) AS INNING");
+		sql.append("       ,M1.TAMAKAZU");
+		sql.append("       ,M1.HIANDA");
+		sql.append("       ,M1.YOSHIKYU");
+		sql.append("       ,M1.DATSUSANSHIN");
+		sql.append("       ,M1.SITTEN");
+		sql.append("       ,M1.JISEKITEN");
+		sql.append("       ,M1.E_TEAM");
+		sql.append("       ,TO_CHAR(M1.MATCH_DATE,'yyyy/mm/dd') AS MATCH_DATE  ");
+		sql.append("       ,M1.INS_USER");
+		
+		sql.append("  FROM SENSEKI_TBL M1");
+		
+
+		//result = super.search(sql.toString());
+
+		return result;
+		
+		
+	}
+	
 
 	/**
 	 * 個人マスタを削除する
