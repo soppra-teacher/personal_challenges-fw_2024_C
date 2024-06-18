@@ -34,8 +34,9 @@ public class KojinListDto extends BaseDto {
 	/** 個人マスタ一覧 */
 	private List<KojinRegistDto> list;
 
-	
-	
+
+	/** 続柄（キー） */
+	private String senshuId;
 
 	public String getKojinId() {
 		return kojinId;
@@ -106,6 +107,14 @@ public class KojinListDto extends BaseDto {
 	}
 	public void setList(List<KojinRegistDto> list) {
 		this.list = list;
+	}
+
+	public String getSenshuId() {
+		return senshuId;
+	}
+
+	public void setSenshuId(String senshuId) {
+		this.senshuId = senshuId;
 	}
 
 

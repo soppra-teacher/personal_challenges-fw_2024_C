@@ -112,7 +112,7 @@
 					</td>
 					<td>
 						<p>
-							&nbsp;
+							<html:link action="/SeisekiListInit">ê¨ê—ÉäÉXÉg</html:link>
 						</p>
 					</td>
 					

@@ -11,6 +11,7 @@ import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
 import cashbook.util.CommonUtil;
 import cashbook.util.KojinConst;
+import cashbook.util.SeisekiConst;
 import cashbook.util.SetaiConst;
 
 /**
@@ -44,6 +45,10 @@ public class KojinDaoImpl extends BaseDaoImpl implements KojinDao {
 		sql.append("       ,M1.kojin_nicknm ");
 		sql.append("  FROM MST_KOJIN M1 ");
 		sql.append(" WHERE M1.DEL_FLG = '0' ");
+		// 選手ID実験--------------------------------------------
+		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SeisekiConst.KEY_SENSHU_ID)))) {
+			sql.append(" AND M1.KOJIN_ID LIKE '%").append(formMap.get(SeisekiConst.KEY_SENSHU_ID)).append("%' ");
+		}
 		// 個人名
 		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(KojinConst.KEY_KOJIN_NM)))) {
 			sql.append(" AND M1.KOJIN_NM LIKE '%").append(formMap.get(KojinConst.KEY_KOJIN_NM)).append("%' ");

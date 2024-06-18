@@ -33,6 +33,7 @@ public class KojinServiceImpl implements KojinService {
 	/** 共通Dao */
 	private CommonDao commonDao;
 
+
 	/**
 	 * 一覧画面初期表示メソッド
 	 */
@@ -55,6 +56,10 @@ public class KojinServiceImpl implements KojinService {
 	 * 一覧画面検索メソッド
 	 */
 	public KojinListDto listSearch(Map<String, Object> formMap) {
+		
+		
+		System.out.println("listSearch"+formMap);
+		
 		//------------------------------------------
 		// ヘッダ
 		//------------------------------------------
@@ -240,4 +245,5 @@ public class KojinServiceImpl implements KojinService {
 		this.commonDao = commonDao;
 	}
 
+	
 }
