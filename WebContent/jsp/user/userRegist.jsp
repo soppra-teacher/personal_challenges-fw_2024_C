@@ -94,7 +94,7 @@
                 </span>
               </td>
               <td class="w-75 text-left">
-                <html:password name="inputBean" property="pass" styleClass="input-text-m" />
+                <html:password name="inputBean" property="pass2" styleClass="input-text-m" />
               </td>
             </tr>
 

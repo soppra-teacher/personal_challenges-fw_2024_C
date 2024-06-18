@@ -11,6 +11,9 @@ public class UserRegistDto extends BaseDto {
 
 	/** パスワード */
 	private String pass;
+	
+	/** パスワード */
+	private String pass2;
 
 	/** 世帯ID（キー） */
 	private String setaiIdKey;
@@ -68,6 +71,14 @@ public class UserRegistDto extends BaseDto {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+	
+	public String getPass2() {
+		return pass2;
+	}
+
+	public void setPass2(String pass2) {
+		this.pass2 = pass2;
 	}
 
 	public String getSetaiIdKey() {

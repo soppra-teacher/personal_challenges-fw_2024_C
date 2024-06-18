@@ -52,6 +52,7 @@
 	</div>
 	<p>
 		<html:link action="/UserRegistInit">‘IŽè“o˜^‰æ–Ê</html:link>
+		
 	</p>
 	</div>
 </body>

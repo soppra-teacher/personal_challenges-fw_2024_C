@@ -10,6 +10,7 @@
 			type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="userId" type="java.lang.String" />
 			<form-property name="pass" type="java.lang.String" />
+			<form-property name="pass2" type="java.lang.String" />
 			<form-property name="getKey" type="java.lang.String" />
 			<form-property name="" type="java.lang.String" />
 		</form-bean>
@@ -87,6 +88,7 @@
 			<form-property name="userId" type="java.lang.String" />
 			<form-property name="kojinId" type="java.lang.String" />
 			<form-property name="pass" type="java.lang.String" />
+			<form-property name="pass2" type="java.lang.String" />
 			<form-property name="setaiNmKey"
 				type="java.lang.String" />
 			<form-property name="ja" type="java.lang.String" />
@@ -221,6 +223,7 @@
 		<action path="/UserRegistInit"
 			type="org.springframework.web.struts.DelegatingActionProxy" 
 			name="userRegistForm"
+			validate="false"
 			scope="request">
 			<forward name="success" path="/jsp/user/userRegist.jsp" />
 			

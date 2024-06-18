@@ -64,6 +64,8 @@ public class UserRegistInsUpdAction extends Action {
 			System.out.println("UserRegistInsUpdActionの登録・更新");
 			// 登録成功メッセージをセッションに設定
 			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_USER, MSG_SUCCESS_INSERT);
+			//追加
+			//request.getSession().setAttribute(SESSION_REGIST_MESSAGE_USER, MSG_SUCCESS_LOGOUT);
 			System.out.println("UserRegistInsUpdActionの登録成功メッセージをセッションに設定後");
 		} catch (CommonValidateException e) {
 		

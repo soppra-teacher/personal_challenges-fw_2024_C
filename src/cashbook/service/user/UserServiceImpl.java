@@ -146,8 +146,9 @@ public class UserServiceImpl implements UserService {
 
 	/**
 	 * 登録画面登録・更新メソッド
+	 * @return 
 	 * @throws CommonValidateException
-	 */
+	 */  //ここの戻り値を変更 VOID => booleanへ
 	public void registInsUpd(Map<String, Object> formMap) throws Exception {
 
 		// 世帯主フラグ="1" 且つ 世帯主チェック
@@ -161,17 +162,32 @@ public class UserServiceImpl implements UserService {
 		//		if (check2(formMap)) {
 		//			throw new CommonValidateException(MSG_USER_CONSIS_2);
 		//		}
+		String user_pass = CommonUtil.getStr(formMap.get(UserConst.KEY_PASS));
+		String user_pass2 = CommonUtil.getStr(formMap.get(UserConst.KEY_PASS2));
+		
+		
 		System.out.println("UserServiceImplのregistInsUpd" + formMap);
 		// 登録の場合
 		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(Const.ITEM_REVISION)))) {
 			System.out.println("UserServiceImplの登録の場合");
 			System.out.println("UserServiceImpl登録処理");
+			System.out.println("registInsUpdの" + "user_passを" + user_pass + "表示してるよん");
+			System.out.println("registInsUpdの" + "user_pass2を" + user_pass2 + "表示してるよん");
 			// 存在チェック
 			if (!userDao.checkOverlapUser(formMap)) {
 				System.out.println("UserServiceImpl存在チェック");
 				throw new CommonValidateException(MSG_ERRORS_PRIMARY_KEY);
 			}
+			
+			//パスワードのチェックをおこなう
+			
+			//=============変更箇所================================================================
+//			if (!CommonUtil.isNull(userID)) {
+			if (!user_pass.equals(user_pass2)) {
+				throw new CommonValidateException(MSG_ERRORS_LOGIN_ERROR);
+			}
 
+			//=====================================================================================
 			userDao.registUser(formMap);
 
 			// 登録処理

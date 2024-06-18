@@ -28,7 +28,11 @@ public class UserConst {
 	public static final String KEY_SEIBETSU_KBN_KEY = "seibetsuKbnKey";
 	/** キー値：性別区分 */
 	public static final String KEY_SEIBETSU_KBN = "seibetsuKbn";
+	
 	/** キー値：パス */
 	public static final String KEY_PASS = "pass";
+	
+	/** キー値：パス */
+	public static final String KEY_PASS2 = "pass2";
 	
 }

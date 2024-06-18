@@ -48,6 +48,7 @@ public class Const {
 
 	/** 登録完了メッセージ */
 	public static final String MSG_SUCCESS_INSERT = "messages.success.insert";
+		
 	/** 更新完了メッセージ */
 	public static final String MSG_SUCCESS_UPDATE = "messages.success.update";
 	/** 削除完了メッセージ */
