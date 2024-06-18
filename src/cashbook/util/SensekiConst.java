@@ -31,7 +31,7 @@ public class SensekiConst {
 	public static final String KEY_SHITTEN= "sitten";
 	/** キー値：自責点 */
 	public static final String KEY_JISEKITEN= "jisekiten";
-	/** キー値：自責点 */
+	/** キー値：対戦相手名 */
 	public static final String KEY_TAISENNM= "taisenNm";
 	/** キー値：自責点 */
 	public static final String KEY_SHIAIBI= "shiaibi";

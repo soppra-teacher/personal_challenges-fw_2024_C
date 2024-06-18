@@ -285,7 +285,11 @@
 		<!-- 投手戦績登録画面 sensekiRegistForm　　halfKanaOnly,maxlength　-->
 		<form name="sensekiRegistForm">
 		
-			<field property="ining" depends="mask">
+		    <field property="sensekiKbnKey" depends="required">
+				<arg0 key="sensekiRegistForm.param.sensekiKbnKey" resource="true" />
+			</field>
+		
+			<field property="ining" depends="required,mask">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.ining" resource="true" />
 				<var>
@@ -294,7 +298,7 @@
 				</var>
 			</field>
 
-			<field property="tamakazu" depends="mask">
+			<field property="tamakazu" depends="required,mask">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.tamakazu" resource="true" />
 				<var>
@@ -303,7 +307,7 @@
 				</var>
 			</field>
 			
-			<field property="hianda" depends="mask">
+			<field property="hianda" depends="required,mask">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.hianda" resource="true" />
 				<var>
@@ -312,7 +316,7 @@
 				</var>
 			</field>
 			
-			<field property="yoshishikyu" depends="mask">
+			<field property="yoshishikyu" depends="required,mask">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.yoshishikyu" resource="true" />
 				<var>
@@ -321,7 +325,7 @@
 				</var>
 			</field>
 			
-			<field property="datsusanshin" depends="mask">
+			<field property="datsusanshin" depends="required,mask">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.datsusanshin" resource="true" />
 				<var>
@@ -330,7 +334,7 @@
 				</var>
 			</field>
 			
-			<field property="sitten" depends="mask">
+			<field property="sitten" depends="required,mask">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.sitten" resource="true" />
 				<var>
@@ -339,12 +343,25 @@
 				</var>
 			</field>
 			
-			<field property="jisekiten" depends="mask">
+			<field property="jisekiten" depends="required,mask">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.jisekiten" resource="true" />
 				<var>
 					<var-name>mask</var-name>
 					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			 <field property="taisenNm" depends="required">
+				<arg0 key="sensekiRegistForm.param.taisenNm" resource="true" />
+			</field>
+			
+				<field property="shiaibi" depends="required,date">
+				<arg0 key="sensekiRegistForm.param.shiaibi" resource="true" />
+				<arg1 key="errors.dateFormat.yyyymmdd" resource="true" />
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>yyyy/mm/dd</var-value>
 				</var>
 			</field>
 			
