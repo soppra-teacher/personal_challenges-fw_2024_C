@@ -43,12 +43,6 @@ public class KojinServiceImpl implements KojinService {
 		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定
 		result.setzokugara(commonDao.getCode(CD_BUNRUI_003));
-		
-		result.setKojinNm(KojinConst.KEY_KOJIN_NM);
-		
-
-		
-				
 		return result;
 	}
 
@@ -70,12 +64,6 @@ public class KojinServiceImpl implements KojinService {
 		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get(KojinConst.KEY_SEIBETSU_KBN_KEY)));
 		result.setZokugaraKey(CommonUtil.getStr(formMap.get(KojinConst.KEY_ZOKUGARA)));
 		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get(KojinConst.KEY_SETAINUSI_FLG)));
-		
-//		result.setKojinNm(CommonUtil.getStr(formMap.get("")));
-//		result.setKojinNmkana(CommonUtil.getStr(formMap.get("")));
-//		result.setSeibetsuKbnKey(CommonUtil.getStr(formMap.get("")));
-//		result.setZokugaraKey(CommonUtil.getStr(formMap.get("")));
-//		result.setSetaiNusiFlg(CommonUtil.getStr(formMap.get("0")));
 		// 性別区分コンボボックスの設定
 		result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定
