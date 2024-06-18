@@ -80,9 +80,7 @@ public class SeisekiListSearchAction extends BaseAction {
 		request.setAttribute(SeisekiConst.FORM_SEISEKI_LIST, dto);
 		// 取得した情報をセッションに登録
 		request.getSession().setAttribute(SESSION_LIST_DTO_SEISEKI, dto);
-		// 検索条件をセッションに登録（再検索用）
-		request.getSession().setAttribute(SESSION_LIST_RE_SEARCH_SEISEKI, formMap);
-
+		
 		// 検索結果が存在しない場合
 		if (dto.getList().size() == 0) {
 			throw new CommonValidateException(MSG_ERRORS_NO_DATA);
