@@ -78,6 +78,7 @@
 			<form-property name="setaiNusiFlg"
 				type="java.lang.String" />
 			<form-property name="revision" type="java.lang.String" />
+
 		</form-bean>
 
 		<!--追加した部分 -->
@@ -110,6 +111,7 @@
 		<!--================================================================================================================ -->
 
 		<!-- 個人マスタメンテ画面 -->
+
 		<form-bean name="kojinListForm"
 			type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="kojinId" type="java.lang.String" />
@@ -125,6 +127,18 @@
 				type="java.lang.String" />
 			<form-property name="checkDel"
 				type="java.lang.String[]" />
+
+		
+		<!-- 成績マスタメンテ画面 -->
+		<form-bean name="seisekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
+
+			<form-property name="newSenshuNm"        type="java.lang.String"  />
+			<form-property name="senshuId"        type="java.lang.Integer"  />
+			<form-property name="senshuNm"        type="java.lang.String"  />
+			<form-property name="souInning"    type="java.lang.String"  />
+			<form-property name="souShitten" type="java.lang.String"  />
+			<form-property name="souJisekiten"    type="java.lang.String"  />
+			<form-property name="bougyoRitsu"   type="java.lang.String"  />
 		</form-bean>
 
 		<!-- 収支登録画面 -->
@@ -396,6 +410,7 @@
 		<!-- 初期表示 -->
 		<action path="/KojinListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="kojinListForm"
 			scope="request">
 			<forward name="success" path="/jsp/kojin/kojinList.jsp" />
 		</action>
@@ -420,6 +435,52 @@
 			input="/jsp/kojin/kojinList.jsp" scope="request">
 			<forward name="success" path="/KojinListSearch.do"
 				redirect="true" />
+		</action>
+		
+		<!--
+		****************************
+		* 成績マスタメンテ画面     *
+		****************************
+		-->
+		<!-- 初期表示 -->
+		<action
+			path="/SeisekiListInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			scope="request">
+			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
+		</action>
+		<!-- ディスパッチ -->
+		<action
+			path="/SeisekiListDisp"
+			type="cashbook.action.seiseki.SeisekiListDispAction"
+			name="seisekiListForm"
+			validate="false"
+			parameter="operation"
+			scope="request">
+			<forward name="search" path="/SeisekiListSearch.do"/>
+			<forward name="insert" path="/SeisekiListSenshuRegist.do"/>
+		</action>
+		<!-- 検索 -->
+		<action
+			path="/SeisekiListSearch"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="seisekiListForm"
+			validate="false"
+			input="/jsp/seiseki/seisekiList.jsp"
+			scope="request">
+			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>
+		</action>
+		<!-- 選手登録 -->
+		<action
+			path="/SeisekiListSenshuRegist"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="seisekiListForm"
+			validate="true"
+			input="/jsp/seiseki/seisekiList.jsp"
+			scope="request">
+			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
+<!--			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>-->
+<!--			<forward name="success" path="/SeisekiListInit.do" redirect="true" />-->
 		</action>
 
 		<!-- **************************** * 収支登録画面 * **************************** -->

@@ -29,4 +29,7 @@ public class KojinConst {
 	public static final String KEY_SEIBETSU_KBN = "seibetsuKbn";
 	/** キー値：パス */
 	public static final String KEY_PASS = "pass";
+	
+	/** キー値：個人ID */
+	public static final String KEY_SENSHU_ID = "senshuId";
 }

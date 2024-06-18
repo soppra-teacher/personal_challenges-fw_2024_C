@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+
+/*---------------------------
+//総成績一覧画面用
+----------------------------*/
+/* 登録ボタン */
+.button-t {
+	width: 60px;
+	height: 40px;
+	margin: 10px;
+}
+
+/* 成績一覧用 */
+.l-seiseki {
+	width: 743px;
+}
+.l-seiseki-senshu-id {
+	width: 70px;
+}
+.l-seiseki-sou-inning {
+	width: 90px;
+}
+.l-seiseki-sou-shitten {
+	width: 90px;
+}
+.l-seiseki-sou-jisekiten {
+	width: 90px;
+}
+.l-seiseki-bougyoritsu {
+	width: 90px;
+}
