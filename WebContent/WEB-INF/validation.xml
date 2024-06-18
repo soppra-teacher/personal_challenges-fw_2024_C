@@ -16,7 +16,7 @@
 
 		<!-- 個人マスタ登録画面 -->
 		<form name="kojinRegistForm">
-			<field property="kojinId" depends="required,mask,maxlength">
+			<field property="kojinId" depends="halfKanaOnly,maxlength">
 				<msg name="mask" key="errors.strHalfChar" />
 				<arg0 key="kojinRegistForm.param.kojinId" resource="true" />
 				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
@@ -29,7 +29,7 @@
 					<var-value>^[0-9a-zA-Z ]+$</var-value>
 				</var>
 			</field>
-			<field property="pass" depends="required,mask,maxlength">
+			<field property="pass" depends="halfKanaOnly,maxlength">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="kojinRegistForm.param.pass" resource="true" />
 				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
@@ -152,74 +152,7 @@
 			</field>
 		</form>
 		
-		<!-- 投手戦績登録画面 -->
-		<form name="toushuRegistForm">
-			<field property="toushuId" depends="required,mask,maxlength">
-				<msg name="mask" key="errors.numHalfChar" />
-				<arg0 key="toushuRegistForm.param.toushuId" resource="true" />
-				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-				<var>
-					<var-name>maxlength</var-name>
-					<var-value>8</var-value>
-				</var>
-				<var>
-					<var-name>mask</var-name>
-					<var-value>^[0-9a-zA-Z ]+$</var-value>
-				</var>
-			</field>
-			<field property="toushuNm" depends="required,zenCharOnly,maxlength">
-				<msg name="mask" key="errors.zenkakuOnly" />
-				<arg0 key="toushuRegistForm.param.toushuNm" resource="true" />
-				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-				<var>
-					<var-name>maxlength</var-name>
-					<var-value>32</var-value>
-				</var>
-			</field>
-			<field property="toushuNmKana" depends="halfKanaOnly,maxlength">
-				<arg0 key="toushuRegistForm.param.toushuNmKana" resource="true" />
-				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-				<var>
-					<var-name>maxlength</var-name>
-					<var-value>100</var-value>
-				</var>
-			</field>
-			<field property="postNo" depends="maxlength, postNoFormat">
-				<arg0 key="toushuRegistForm.param.postNo" resource="true" />
-				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-				<var>
-					<var-name>maxlength</var-name>
-					<var-value>8</var-value>
-				</var>
-			</field>
-			<field property="address" depends="mask,maxlength">
-				<msg name="mask" key="errors.zenkakuOnly" />
-				<arg0 key="toushuRegistForm.param.address" resource="true" />
-				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-				<var>
-					<var-name>maxlength</var-name>
-					<var-value>100</var-value>
-				</var>
-				<var>
-					<var-name>mask</var-name>
-					<var-value>^[^ -~｡-ﾟ]*$</var-value>
-				</var>
-			</field>
-			<field property="telNo" depends="mask,maxlength">
-				<msg name="mask" key="errors.numHalfChar" />
-				<arg0 key="toushuRegistForm.param.telNo" resource="true" />
-				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-				<var>
-					<var-name>maxlength</var-name>
-					<var-value>13</var-value>
-				</var>
-				<var>
-					<var-name>mask</var-name>
-					<var-value>^[0-9-]+$</var-value>
-				</var>
-			</field>
-		</form>
-
+		
 		<!-- 世帯マスタメンテ画面 -->
 		<form name="setaiListForm">
 			<field property="setaiNm" depends="mask,maxlength">
@@ -349,6 +282,73 @@
 				</var>
 			</field>
 		</form>
+		<!-- 投手戦績登録画面 sensekiRegistForm　　halfKanaOnly,maxlength　-->
+		<form name="sensekiRegistForm">
+		
+			<field property="ining" depends="mask">
+				<msg name="mask" key="errors.numHalfChar" />
+				<arg0 key="sensekiRegistForm.param.ining" resource="true" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
 
+			<field property="tamakazu" depends="mask">
+				<msg name="mask" key="errors.numHalfChar" />
+				<arg0 key="sensekiRegistForm.param.tamakazu" resource="true" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="hianda" depends="mask">
+				<msg name="mask" key="errors.numHalfChar" />
+				<arg0 key="sensekiRegistForm.param.hianda" resource="true" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="yoshishikyu" depends="mask">
+				<msg name="mask" key="errors.numHalfChar" />
+				<arg0 key="sensekiRegistForm.param.yoshishikyu" resource="true" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="datsusanshin" depends="mask">
+				<msg name="mask" key="errors.numHalfChar" />
+				<arg0 key="sensekiRegistForm.param.datsusanshin" resource="true" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="sitten" depends="mask">
+				<msg name="mask" key="errors.numHalfChar" />
+				<arg0 key="sensekiRegistForm.param.sitten" resource="true" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="jisekiten" depends="mask">
+				<msg name="mask" key="errors.numHalfChar" />
+				<arg0 key="sensekiRegistForm.param.jisekiten" resource="true" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+		</form>	
 	</formset>
+		
 </form-validation>

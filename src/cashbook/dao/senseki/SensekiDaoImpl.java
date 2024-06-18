@@ -141,7 +141,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append(")VALUES(");
 		sql.append("(SELECT MAX(MATCH_ID)+1 FROM SENSEKI_TBL)");//MATCH_ID
 		sql.append(",'").append(formMap.get(SensekiConst.KEY_SENSEKI_KBN_KEY)).append("'");//PLAYER_ID 
-		sql.append(",TO_CHAR('").append(formMap.get(SensekiConst.KEY_ININGU)).append("')*3");
+		sql.append(",TO_CHAR('").append(formMap.get(SensekiConst.KEY_ININGU)).append("')*3");//INING
 		sql.append(",'").append(formMap.get(SensekiConst.KEY_TAMAKAZU)).append("'");//TAMAKAZU
 		sql.append(",'").append(formMap.get(SensekiConst.KEY_HIANDA)).append("'");//HIANDA
 		sql.append(",'").append(formMap.get(SensekiConst.KEY_YOSHISHIKYU)).append("'");//YOSHIKYU
@@ -279,10 +279,3 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	
 
 }
-
-
-
-
-
-
-

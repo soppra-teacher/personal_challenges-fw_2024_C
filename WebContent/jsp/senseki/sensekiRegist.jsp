@@ -87,9 +87,10 @@
 									<html:text name = "inputBean" property = "ining"  styleClass = "input-text-s" />
 									
 									
-									<html:select name="inputBean" property="zokugaraKey" styleClass="input-select-xl ">
+<html:select name="inputBean" property="zokugaraKey" styleClass="input-select-xl ">
 									<html:optionsCollection name="viewBean" property="zokugara" value="key" label="value" />
 								</html:select>
+									
 							</td>
 						</tr>
 						<tr>

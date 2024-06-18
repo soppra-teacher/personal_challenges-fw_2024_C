@@ -16,6 +16,8 @@ public class SensekiRegistDto extends BaseDto {
 	private String senshuNm;
 	/** イニング */
 	private String ining;
+	/** イニング詳細 */
+	private String iningMin;
 	/** 球数 */
 	private String tamakazu;
 	/** 被安打 */
@@ -305,6 +307,12 @@ public class SensekiRegistDto extends BaseDto {
 	}
 	public void setZokugaraNm(String zokugaraNm) {
 		this.zokugaraNm = zokugaraNm;
+	}
+	public String getIningMin() {
+		return iningMin;
+	}
+	public void setIningMin(String iningMin) {
+		this.iningMin = iningMin;
 	}
 	
 }

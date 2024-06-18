@@ -26,16 +26,19 @@ setaiRegistForm.param.postNo=郵便番号
 setaiRegistForm.param.address=住所
 setaiRegistForm.param.telNo=電話番号
 
-#投手戦績登録画面
-toushuRegistForm.param.toushuId=世帯ID
-toushuRegistForm.param.toushuNm=世帯名
-toushuRegistForm.param.toushuNmKana=世帯名ｶﾅ
-toushuRegistForm.param.postNo=郵便番号
-toushuRegistForm.param.address=住所
-toushuRegistForm.param.telNo=電話番号
 
 #費目マスタ登録画面
 himokuRegistForm.param.himokuCd=費目CD
 himokuRegistForm.param.himokuNm=費目名
 himokuRegistForm.param.himokuKbnKey=費目区分
+
+
+#戦績登録画面
+sensekiRegistForm.param.ining=イニング
+sensekiRegistForm.param.tamakazu=球数
+sensekiRegistForm.param.hianda=被安打
+sensekiRegistForm.param.yoshishikyu=与四死球
+sensekiRegistForm.param.datsusanshin=奪三振
+sensekiRegistForm.param.shitten=失点
+sensekiRegistForm.param.jisekiten=自責点
 

@@ -26,11 +26,12 @@
 		
 		
 		
-		<!-- 戦績マスタ登録画面 -->
+		<!-- 戦績マスタ登録画面kokokokoko -->
 		<form-bean name="sensekiRegistForm"     type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="matchId"     type="java.lang.String" />
 			<form-property name="senshuNm"     type="java.lang.String" />
 			<form-property name="ining"     type="java.lang.String" />
+			<form-property name="iningMin" type="java.lang.String" />
 			<form-property name="tamakazu"     type="java.lang.String" />
 			<form-property name="hianda"     type="java.lang.String" />
 			<form-property name="yoshishikyu"     type="java.lang.String" />
@@ -41,6 +42,8 @@
 			<form-property name="shiaibi"     type="java.lang.String" />
 			<form-property name="sensekiKbnKey" type="java.lang.String" />
 			<form-property name="revision"      type="java.lang.String" />
+			
+			<form-property name="zokugaraKey"      type="java.lang.String" />
 			
 		</form-bean>
 
@@ -71,7 +74,7 @@
 			<!-- 投手戦績登録画面 -->
 		<form-bean name="toushuRegistForm"     type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="senshuNm"     type="java.lang.String" />
-			<form-property name="ininng"       type="java.lang.String" />
+			<form-property name="ining"       type="java.lang.String" />
 			<form-property name="tamakazu"     type="java.lang.String" />
 			<form-property name="hiannda"      type="java.lang.String" />
 			<form-property name="yoshishikyu"  type="java.lang.String" />
