@@ -34,10 +34,10 @@ public class KojinListDto extends BaseDto {
 	/** 個人マスタ一覧 */
 	private List<KojinRegistDto> list;
 
+
 	/** 続柄（キー） */
 	private String senshuId;
 
-	
 	public String getKojinId() {
 		return kojinId;
 	}

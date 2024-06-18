@@ -82,6 +82,7 @@ public class KojinDaoImpl extends BaseDaoImpl implements KojinDao {
 	 * 個人マスタを削除する
 	 */
 	public void deleteKojin(String kojinId, LoginDto loginDto) {
+		System.out.println("kojinId:"+kojinId);
 
 		StringBuffer sql = new StringBuffer();
 		sql.append("UPDATE MST_KOJIN M1 ");
