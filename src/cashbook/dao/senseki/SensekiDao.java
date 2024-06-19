@@ -65,7 +65,7 @@ public interface SensekiDao {
 	/*
 	 * playername
 	 * */
-	public String getPlayerName(String classCd);
+	public String getPlayerName(Map<String, Object> formMap);
 
 	//public void deleteSenseki(String checkDel, LoginDto loginDto);
 

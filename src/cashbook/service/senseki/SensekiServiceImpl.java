@@ -57,7 +57,7 @@ public class SensekiServiceImpl implements SensekiService {
 		//result.setSeibetsuKbn(commonDao.getCode(CD_BUNRUI_002));
 		// 続柄区分コンボボックスの設定
 		//result.setzokugara(commonDao.getCode(CD_BUNRUI_003));
-		result.setPlayerNm(sensekiDao.getPlayerName("1"));
+		result.setPlayerNm(sensekiDao.getPlayerName(formMap));
 
 		//------------------------------------------
 		// 一覧

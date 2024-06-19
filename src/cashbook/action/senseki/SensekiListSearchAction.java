@@ -58,6 +58,9 @@ public class SensekiListSearchAction extends BaseAction {
 
 		// フォームの値を取得
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
+		
+		Map<String, Object> formMap2 = CommonUtil.getFormMap((DynaActionForm) request.getSession().getAttribute(SESSION_LIST_DTO_SEISEKI));
+		
 
 		// リクエストから「operation」の値が"search"だったのかを判定する。
 		if (!ACTION_FOWARD_SEARCH.equals(request.getParameter(ACTION_FOWARD_OPERATION))) {
@@ -103,7 +106,7 @@ public class SensekiListSearchAction extends BaseAction {
 		}
       
 		// 個人戦績画面 検索処理
-		SensekiListDto dto = sensekiService.listSearch(formMap);
+		SensekiListDto dto = sensekiService.listSearch(formMap2);
 		
 
 		// 取得した情報をリクエストに登録

@@ -59,6 +59,8 @@ public class SensekiListInitAction extends BaseAction {
 		//request.setAttribute(SensekiConst.FORM_SENSEKI_LIST, dto);
 		// 取得した情報をセッションに設定
 		//request.getSession().setAttribute(SESSION_LIST_DTO_SENSEKI, dto);
+		
+		request.getSession().setAttribute(SESSION_LIST_DTO_SEISEKI, form);
 
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(ACTION_FOWARD_SUCCESS);

@@ -12,7 +12,6 @@
     http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
-
   <!-- SessionFactory -->
    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">
     <property name="driverClassName">
@@ -22,20 +21,18 @@
       <value>jdbc:oracle:thin:@//localhost:1521/XEPDB1</value>
     </property>
     <property name="username">
-      <value>IMAMURA</value>
+      <value>MATSUNAKA</value>
     </property>
     <property name="password">
-      <value>IMAMURA</value>
+      <value>MATSUNAKA</value>
     </property>
   </bean>
-
   <!-- TransactionManager -->
    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
   </bean>
-
   <!-- DAO -->
   <!-- 共通 -->
   <bean id="CommonDaoId" class="cashbook.dao.common.CommonDaoImpl">
@@ -43,27 +40,26 @@
       <ref local="dataSource" />
     </property>
   </bean>
-
   <!-- ログイン画面 -->
   <bean id="LoginDaoId" class="cashbook.dao.common.LoginDaoImpl">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
   </bean>
-  
-  
-  
-  
+
+
+
+
     <!-- 個人戦績-->
    <bean id="SensekiDaoId" class="cashbook.dao.senseki.SensekiDaoImpl">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
   </bean>
-  
-  
-  
-  
+
+
+
+
 
   <!-- 個人マスタ -->
    <bean id="KojinDaoId" class="cashbook.dao.kojin.KojinDaoImpl">
@@ -71,28 +67,31 @@
       <ref local="dataSource" />
     </property>
   </bean>
-
+  
+    <!-- 成績マスタ -->
+   <bean id="SeisekiDaoId" class="cashbook.dao.seiseki.SeisekiDaoImpl">
+    <property name="dataSource">
+      <ref local="dataSource" />
+    </property>
+  </bean>
   <!-- 世帯マスタ -->
    <bean id="SetaiDaoId" class="cashbook.dao.setai.SetaiDaoImpl">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
   </bean>
-
   <!-- 費目マスタ -->
    <bean id="HimokuDaoId" class="cashbook.dao.himoku.HimokuDaoImpl">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
   </bean>
-
   <!-- 収支 -->
    <bean id="ShushiDaoId" class="cashbook.dao.shushi.ShushiDaoImpl">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
   </bean>
-
   <!-- Service -->
   <!-- ログイン画面 -->
   <bean id="LoginServiceId" class="cashbook.service.common.LoginServiceImpl">
@@ -132,14 +131,19 @@
       <ref local="KojinDaoId" />
     </property>
   </bean>
-
+  
+      <!-- 成績マスタ -->
+  <bean id="SeisekiServiceId" class="cashbook.service.seiseki.SeisekiServiceImpl">
+    <property name="seisekiDao">
+      <ref local="SeisekiDaoId" />
+    </property>
+  </bean>
     <!-- 世帯マスタ -->
   <bean id="SetaiServiceId" class="cashbook.service.setai.SetaiServiceImpl">
     <property name="setaiDao">
       <ref local="SetaiDaoId" />
     </property>
   </bean>
-
   <!-- 費目マスタ -->
    <bean id="HimokuServiceId" class="cashbook.service.himoku.HimokuServiceImpl">
     <property name="commonDao">
@@ -149,7 +153,6 @@
       <ref local="HimokuDaoId" />
     </property>
   </bean>
-
   <!-- 収支 -->
    <bean id="ShushiServiceId" class="cashbook.service.shushi.ShushiServiceImpl">
     <property name="commonDao">
@@ -191,8 +194,8 @@
       <ref local="SensekiServiceId" />
     </property>
   </bean>
-  
-  
+
+
 
 
 
@@ -213,7 +216,6 @@
       <ref local="KojinServiceId" />
     </property>
   </bean>
-
   <!-- 個人マスタ登録 -->
   <bean name="/KojinRegistInit" class="cashbook.action.kojin.KojinRegistInitAction">
     <property name="kojinService">
@@ -225,7 +227,23 @@
       <ref local="KojinServiceId" />
     </property>
   </bean>
-
+  
+    <!-- 成績マスタメンテ -->
+  <bean name="/SeisekiListInit" class="cashbook.action.seiseki.SeisekiListInitAction">
+    <property name="seisekiService">
+      <ref local="SeisekiServiceId" />
+    </property>
+  </bean>
+  <bean name="/SeisekiListSearch" class="cashbook.action.seiseki.SeisekiListSearchAction">
+    <property name="seisekiService">
+      <ref local="SeisekiServiceId" />
+    </property>
+  </bean>
+  <bean name="/SeisekiListSenshuRegist" class="cashbook.action.seiseki.SeisekiListSenshuRegistAction">
+    <property name="seisekiService">
+      <ref local="SeisekiServiceId" />
+    </property>
+  </bean>
   <!-- 世帯マスタメンテ -->
   <bean name="/SetaiListInit" class="cashbook.action.setai.SetaiListInitAction">
     <property name="setaiService">
@@ -280,7 +298,6 @@
       <ref local="HimokuServiceId" />
     </property>
   </bean>
-
   <!-- 収支登録 -->
   <bean name="/ShushiRegistInit" class="cashbook.action.shushi.ShushiRegistInitAction">
     <property name="shushiService">
@@ -292,7 +309,6 @@
       <ref local="ShushiServiceId" />
     </property>
   </bean>
-
   <!-- 収支一覧（個別） -->
   <bean name="/ShushiListKobetsuInit" class="cashbook.action.shushi.ShushiListKobetsuInitAction">
     <property name="shushiService">
@@ -309,7 +325,6 @@
       <ref local="ShushiServiceId" />
     </property>
   </bean>
-
   <!-- 収支一覧（世帯） -->
   <bean name="/ShushiListSetaiInit" class="cashbook.action.shushi.ShushiListSetaiInitAction">
     <property name="shushiService">
@@ -326,5 +341,4 @@
       <ref local="ShushiServiceId" />
     </property>
   </bean>
-
 </beans>

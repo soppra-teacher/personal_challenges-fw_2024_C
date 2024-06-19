@@ -112,16 +112,10 @@
 					</td>
 					<td>
 						<p>
-							&nbsp;
+							<html:link action="/SeisekiListInit">ê¨ê—ÉäÉXÉg</html:link>
 						</p>
 					</td>
-					
-					<td class="plr-20">
-							<p>
-								<html:link action="/SensekiListInit">å¬êlêÌê—</html:link>
-							</p>
-						</td>					
-					</tr>
+				</tr>
 
 				<tr>
 					<td>
