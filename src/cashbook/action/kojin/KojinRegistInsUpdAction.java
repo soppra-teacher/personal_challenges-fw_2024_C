@@ -72,6 +72,8 @@ public class KojinRegistInsUpdAction extends BaseAction {
 		// 登録・更新
 		kojinService.registInsUpd(formMap, loginDto);
 		
+		System.out.println("loginDto:"+loginDto.getKojinId());
+		
 		System.out.println("登録処理後");
 
 		// フォーム．リビジョンが未設定の場合
