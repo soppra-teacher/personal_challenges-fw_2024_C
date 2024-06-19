@@ -118,6 +118,10 @@ public class Const {
 	
 	
 	
+	
+	
+	
+	
 	/** 個人戦績登録画面 DTO */
 	public static final String SESSION_REGIST_DTO_SENSEKI = "SENSEKI_REGIST_DTO";
 	/** 個人戦績登録画面 戻り先 */
@@ -134,9 +138,6 @@ public class Const {
 	public static final String SESSION_LIST_MESSAGE_SENSEKI = "SENSEKI_LIST_MESSAGE";
 	
 	
-	/** 個人マスタメンテ画面 メッセージ */
-	public static final String SESSION_LIST_CHANGE_TO_KOJIN = "CHANGE_TO_KOJIN";
-
 	
 	/** 成績マスタメンテ画面 DTO */
 	public static final String SESSION_LIST_DTO_SEISEKI = "SEISEKI_LIST_DTO";
@@ -146,6 +147,7 @@ public class Const {
 	public static final String SESSION_LIST_MESSAGE_SEISEKI = "SEISEKI_LIST_MESSAGE";
 	
 	
+
 	/** 収支登録画面 戻り先 */
 	public static final String SESSION_REGIST_BACK_SHUSHI = "SHUSHI_REGIST_BACK";
 

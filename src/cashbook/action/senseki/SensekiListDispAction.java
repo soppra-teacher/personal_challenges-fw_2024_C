@@ -22,7 +22,6 @@ public class SensekiListDispAction extends DispatchAction {
 			ActionForm form,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-				System.out.println("------SensekiListSearchActionの箇所 検索 ");
 		return mapping.findForward(ACTION_FOWARD_SEARCH);
 	}
 
@@ -32,7 +31,6 @@ public class SensekiListDispAction extends DispatchAction {
 			ActionForm form,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		System.out.println("------SensekiListSearchActionの箇所  削除01");
 		return mapping.findForward(ACTION_FOWARD_DELETE);
 	}
 }

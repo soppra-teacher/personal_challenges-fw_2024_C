@@ -2,8 +2,6 @@ package cashbook.dao.senseki;
 
 import static cashbook.util.Const.*;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,8 +9,6 @@ import org.springframework.dao.CannotAcquireLockException;
 
 import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
-import cashbook.util.CommonUtil;
-import cashbook.util.SeisekiConst;
 import cashbook.util.SensekiConst;
 import cashbook.util.SetaiConst;
 
@@ -44,84 +40,16 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append("       ,M1.E_TEAM");
 		sql.append("       ,TO_CHAR(M1.MATCH_DATE,'yyyy/mm/dd') AS MATCH_DATE  ");
 		sql.append("       ,M1.INS_USER");
-		//sql.append("       ,M1.INS_DATE");
 		sql.append("  FROM SENSEKI_TBL M1");
-		//sql.append(" WHERE M1.DEL_FLG = '0' ");
-		// 個人名
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SeisekiConst.KEY_SENSHU_ID)))) {
-			sql.append(" WHERE M1.PLAYER_ID = '").append(formMap.get(SeisekiConst.KEY_SENSHU_ID)).append("' ");
-		}
-//		// 個人名ｶﾅ
-//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)))) {
-//			sql.append(" AND M1.SITTEN '%").append(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)).append("%' ");
-//		}
-//		// 性別
-//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SEIBETSU_KBN_KEY)))) {
-//			sql.append(" AND M1.E_TEAM = '").append(formMap.get(SensekiConst.KEY_SEIBETSU_KBN_KEY)).append("' ");
-//		}
-//		// 続柄
-//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_ZOKUGARA)))) {
-//			sql.append(" AND M1.E_TEAM = '").append(formMap.get(SensekiConst.KEY_ZOKUGARA)).append("' ");
-//		}
-//		// 世帯主フラグ
-//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE)))) {
-//			if (SETAINUSHI_ON.equals(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE))) {
-//				sql.append(" AND M1.MATCH_ID = '").append(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE))
-//						.append("' ");
-//			}
-//		}
-//		//sql.append(" ORDER BY M1.MATCH_ID");
+		sql.append(" WHERE M1.MATCH_ID LIKE '%").append("1").append("%' ");
+		
+
 		result = super.search(sql.toString());
 
 		return result;
 	}
 	
-	public Map<String, String> getP_Nm(String p_Nm) {
 
-		List<Map<String, String>> mapList = new ArrayList<Map<String, String>>();
-		Map<String, String> result = new LinkedHashMap<String, String>();
-		StringBuffer sql = new StringBuffer();
-
-
-		sql.append("SELECT  M1.MATCH_ID");
-		sql.append("       ,M1.PLAYER_ID");
-		sql.append("       ,TRUNC((M1.INNING/3),0)||'.'||MOD((M1.INNING),3) AS INNING");
-		sql.append("       ,M1.TAMAKAZU");
-		sql.append("       ,M1.HIANDA");
-		sql.append("       ,M1.YOSHIKYU");
-		sql.append("       ,M1.DATSUSANSHIN");
-		sql.append("       ,M1.SITTEN");
-		sql.append("       ,M1.JISEKITEN");
-		sql.append("       ,M1.E_TEAM");
-		sql.append("       ,TO_CHAR(M1.MATCH_DATE,'yyyy/mm/dd') AS MATCH_DATE  ");
-		sql.append("       ,M1.INS_USER");
-		
-		sql.append("  FROM SENSEKI_TBL M1");
-		
-
-		//result = super.search(sql.toString());
-
-		return result;
-		
-		
-	}
-	
-
-	/**
-	 * 個人マスタを削除する
-	 */
-//	public void deleteSenseki(String sensekiId, LoginDto loginDto) {
-//
-//		StringBuffer sql = new StringBuffer();
-//		sql.append("UPDATE MST_SENSEKI M1 ");
-//		sql.append("   SET M1.DEL_FLG = '1' ");
-//		sql.append("     , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
-//		sql.append("     , M1.UPD_DATE = SYSDATE ");
-//		sql.append("     , M1.REVISION = M1.REVISION + 1 ");
-//		sql.append(" WHERE M1.SENSEKI_ID = '").append(sensekiId).append("' ");
-//
-//		super.update(sql.toString());
-//	}
 	
 	/**
 	 * 個人戦績を削除する
@@ -161,47 +89,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		return super.find(sql.toString());
 	}
 
-	/**
-	 * 個人マスタを登録する
-	 * @throws Exception
-	 */
-	public void registSenseki(Map<String, Object> formMap, LoginDto loginDto) {
 
-		StringBuffer sql = new StringBuffer();
-		sql.append(" INSERT INTO MST_SENSEKI M1 ( ");
-		sql.append("     M1.SENSEKI_ID ");
-		sql.append("   , M1.SETAI_ID ");
-		sql.append("   , M1.PASS ");
-		sql.append("   , M1.SENSEKI_NM ");
-		sql.append("   , M1.SENSEKI_NM_KANA ");
-		sql.append("   , M1.SEIBETSU_KBN ");
-		sql.append("   , M1.ZOKUGARA ");
-		sql.append("   , M1.SETAINUSHI_FLG ");
-		sql.append("   , M1.DEL_FLG ");
-		sql.append("   , M1.INS_USER ");
-		sql.append("   , M1.INS_DATE ");
-		sql.append("   , M1.UPD_USER ");
-		sql.append("   , M1.UPD_DATE ");
-		sql.append("   , M1.REVISION ");
-		sql.append(" ) VALUES ( ");
-		sql.append("     '").append(formMap.get(SensekiConst.KEY_SENSEKI_ID)).append("' ");
-		sql.append("   , '").append(formMap.get(SetaiConst.KEY_SETAI_ID)).append("' ");
-		sql.append("   , '").append(formMap.get(SensekiConst.KEY_PASS)).append("' ");
-		sql.append("   , '").append(formMap.get(SensekiConst.KEY_SENSEKI_NM)).append("' ");
-		sql.append("   , '").append(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)).append("' ");
-		sql.append("   , '").append(formMap.get(SensekiConst.KEY_SEIBETSU_KBN)).append("' ");
-		sql.append("   , '").append(formMap.get(SensekiConst.KEY_ZOKUGARA)).append("' ");
-		sql.append("   , '").append(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE)).append("' ");
-		sql.append("   , '0' ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
-		sql.append("   , SYSDATE ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
-		sql.append("   , SYSDATE ");
-		sql.append("   , 0 ");
-		sql.append(" ) ");
-
-		super.update(sql.toString());
-	}
 
 	/**
 	 * 個人マスタを更新する
@@ -277,4 +165,20 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 		return super.find(sql.toString()).size() != 0;
 	}
+
+	@Override
+	public String getPlayerName(String pId) {
+		// TODO 自動生成されたメソッド・スタブ
+		Map<String, String> result;
+		StringBuffer sql = new StringBuffer();
+		
+		sql.append (" SELECT P1.PLAYER_NAME AS PNAME");
+		sql.append (" FROM MST_PLAYER P1 ");
+		sql.append (" WHERE P1.PLAYER_ID ='").append(pId).append("'");
+		
+		result = super.find(sql.toString());
+		return result.get("PNAME");
+	}
+
+
 }

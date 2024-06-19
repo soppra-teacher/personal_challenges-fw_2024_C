@@ -78,6 +78,7 @@ public class CommonDaoImpl extends BaseDaoImpl implements CommonDao {
 	 */
 	public Map<String, String> getCode(String classCd) {
 
+		
 		List<Map<String, String>> mapList = new ArrayList<Map<String, String>>();
 		Map<String, String> result = new LinkedHashMap<String, String>();
 

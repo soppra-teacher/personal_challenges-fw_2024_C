@@ -106,7 +106,7 @@ public class CommonUtil {
 	 */
 	public static String formatComma(String value) {
 		if (isNull(value)) {
-			return "aaa";
+			return "11111";
 		}
 		return formatComma(Integer.parseInt(value));
 	}

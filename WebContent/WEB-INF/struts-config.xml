@@ -59,10 +59,44 @@
 			<form-property name="zokugaraKey"    type="java.lang.String" />
 			<form-property name="setaiNusiFlg"   type="java.lang.String" />
 			<form-property name="revision"        type="java.lang.String" />
-			
-			
-			<form-property name="senshuId"        type="java.lang.Integer"  />
 		</form-bean>
+		
+
+		  <!-- 個人戦績-->
+		<form-bean name="sensekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
+<!--			<form-property name="sensekiId"        type="java.lang.String"  />-->
+<!--			<form-property name="setaiId"        type="java.lang.String"  />-->
+<!--			<form-property name="sensekiNm"        type="java.lang.String"  />-->
+<!--			<form-property name="sensekiNmkana"    type="java.lang.String"  />-->
+<!--			<form-property name="seibetsuKbnKey" type="java.lang.String"  />-->
+<!--			<form-property name="zokugaraKey"    type="java.lang.String"  />-->
+<!--			<form-property name="setaiNusiFlg"   type="java.lang.String"  />-->
+			
+			<form-property name="checkDel"       type="java.lang.String[]"/>
+			
+			<form-property name="matchId"   type="java.lang.String"  />
+			<form-property name="playerId"   type="java.lang.String"  />
+			<form-property name="sittenNm"   type="java.lang.String"  />
+			<form-property name="jisekitenNm"   type="java.lang.String"  />
+			<form-property name="eTeam"   type="java.lang.String"  />
+			<form-property name="matchDate"   type="java.lang.String"  />
+			<form-property name="hianda"   type="java.lang.String"  />
+			<form-property name="yoshikyu"   type="java.lang.String"  />
+			<form-property name="inning"   type="java.lang.String"  />
+			<form-property name="tamakazu"   type="java.lang.String"  />
+			<form-property name="playerNm"   type="java.lang.String"  />
+			
+			<form-property name="datsusanshin"   type="java.lang.String"  />
+			<form-property name="senshuId"   type="java.lang.String"  />
+			
+		</form-bean>
+
+		
+		
+		
+		
+		
+		
 
 		<!-- 個人マスタメンテ画面 -->
 		<form-bean name="kojinListForm"          type="org.apache.struts.validator.DynaValidatorForm">
@@ -74,20 +108,6 @@
 			<form-property name="zokugaraKey"    type="java.lang.String"  />
 			<form-property name="setaiNusiFlg"   type="java.lang.String"  />
 			<form-property name="checkDel"       type="java.lang.String[]"/>
-			
-			<form-property name="senshuId"        type="java.lang.Integer"  />
-		</form-bean>
-		
-		<!-- 成績マスタメンテ画面 -->
-		<form-bean name="seisekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
-
-			<form-property name="newSenshuNm"        type="java.lang.String"  />
-			<form-property name="senshuId"        type="java.lang.Integer"  />
-			<form-property name="senshuNm"        type="java.lang.String"  />
-			<form-property name="souInning"    type="java.lang.String"  />
-			<form-property name="souShitten" type="java.lang.String"  />
-			<form-property name="souJisekiten"    type="java.lang.String"  />
-			<form-property name="bougyoRitsu"   type="java.lang.String"  />
 		</form-bean>
 
 		<!-- 収支登録画面 -->
@@ -367,6 +387,52 @@
 			<forward name="success" path="/KojinRegistInit.do" redirect="true" />
 			<forward name="error" path="/jsp/kojin/kojinRegist.jsp" />
 		</action>
+		
+
+		<!--
+		****************************
+		* 個人戦績画面     *
+		****************************
+		-->
+		<!-- 初期表示 -->
+		<action
+			path="/SensekiListInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			scope="request">
+<!--			<forward name="success" path="/jsp/senseki/sensekiList.jsp"/>-->
+			<forward name="success" path="/SensekiListSearch.do" redirect="true"  />
+		</action>
+		<!--  ディスパッチ -->
+		<action
+			path="/SensekiListDisp"
+			type="cashbook.action.senseki.SensekiListDispAction"
+			name="sensekiListForm"
+			validate="false"
+			parameter="operation"
+			scope="request">
+			<forward name="search" path="/SensekiListSearch.do"/>
+			<forward name="delete" path="/SensekiListDelete.do"/>
+		</action>
+		 <!-- 検索 -->
+		<action
+			path="/SensekiListSearch"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="sensekiListForm"
+			validate="true"
+			input="/jsp/senseki/sensekiList.jsp"
+			scope="request">
+			<forward name="success" path="/jsp/senseki/sensekiList.jsp"/>
+		</action>
+		 <!-- 削除 -->
+		<action
+			path="/SensekiListDelete"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="sensekiListForm"
+			validate="false"
+			input="/jsp/senseki/sensekiList.jsp"
+			scope="request">
+			<forward name="success" path="/SensekiListSearch.do" redirect="true" />
+		</action>
 
 		<!--
 		****************************
@@ -377,7 +443,6 @@
 		<action
 			path="/KojinListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="kojinListForm"
 			scope="request">
 			<forward name="success" path="/jsp/kojin/kojinList.jsp"/>
 		</action>
@@ -411,52 +476,6 @@
 			input="/jsp/kojin/kojinList.jsp"
 			scope="request">
 			<forward name="success" path="/KojinListSearch.do" redirect="true" />
-		</action>
-		
-		<!--
-		****************************
-		* 成績マスタメンテ画面     *
-		****************************
-		-->
-		<!-- 初期表示 -->
-		<action
-			path="/SeisekiListInit"
-			type="org.springframework.web.struts.DelegatingActionProxy"
-			scope="request">
-			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
-		</action>
-		<!-- ディスパッチ -->
-		<action
-			path="/SeisekiListDisp"
-			type="cashbook.action.seiseki.SeisekiListDispAction"
-			name="seisekiListForm"
-			validate="false"
-			parameter="operation"
-			scope="request">
-			<forward name="search" path="/SeisekiListSearch.do"/>
-			<forward name="insert" path="/SeisekiListSenshuRegist.do"/>
-		</action>
-		<!-- 検索 -->
-		<action
-			path="/SeisekiListSearch"
-			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="seisekiListForm"
-			validate="false"
-			input="/jsp/seiseki/seisekiList.jsp"
-			scope="request">
-			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>
-		</action>
-		<!-- 選手登録 -->
-		<action
-			path="/SeisekiListSenshuRegist"
-			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="seisekiListForm"
-			validate="true"
-			input="/jsp/seiseki/seisekiList.jsp"
-			scope="request">
-			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
-<!--			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>-->
-<!--			<forward name="success" path="/SeisekiListInit.do" redirect="true" />-->
 		</action>
 
 		<!--

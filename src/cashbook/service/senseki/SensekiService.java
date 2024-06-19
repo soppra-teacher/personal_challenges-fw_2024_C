@@ -18,7 +18,7 @@ public interface SensekiService {
 	 * @return
 	 */
 	public SensekiListDto listInit(Map<String, Object> formMap);
-	public SensekiListDto listInit();
+
 	/**
 	 *
 	 * @param formMap
@@ -46,5 +46,5 @@ public interface SensekiService {
 	 * @param loginDto
 	 * @throws Exception
 	 */
-	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception;
+	//public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception;
 }
