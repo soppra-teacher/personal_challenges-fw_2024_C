@@ -86,7 +86,7 @@
 										<bean:write name="list" property="senshuId" />	
 									</td>
 									<td class="text-center">
-										<html:link action="/KojinListInit" paramId="senshuId" paramName="list" paramProperty="senshuId">
+										<html:link action="/SensekiListInit" paramId="senshuId" paramName="list" paramProperty="senshuId">
 											<bean:write name="list" property="senshuNm" />
 										</html:link>
 									</td>

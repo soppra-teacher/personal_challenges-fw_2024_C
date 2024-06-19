@@ -9,6 +9,7 @@ import org.springframework.dao.CannotAcquireLockException;
 
 import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
+import cashbook.util.SeisekiConst;
 import cashbook.util.SensekiConst;
 import cashbook.util.SetaiConst;
 
@@ -27,7 +28,6 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		List<Map<String, String>> result;
 		StringBuffer sql = new StringBuffer();
 
-
 		sql.append("SELECT  M1.MATCH_ID");
 		sql.append("       ,M1.PLAYER_ID");
 		sql.append("       ,TRUNC((M1.INNING/3),0)||'.'||MOD((M1.INNING),3) AS INNING");
@@ -41,23 +41,20 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append("       ,TO_CHAR(M1.MATCH_DATE,'yyyy/mm/dd') AS MATCH_DATE  ");
 		sql.append("       ,M1.INS_USER");
 		sql.append("  FROM SENSEKI_TBL M1");
-		sql.append(" WHERE M1.MATCH_ID LIKE '%").append("1").append("%' ");
-		
+		sql.append(" WHERE M1.PLAYER_ID = '").append(formMap.get(SeisekiConst.KEY_SENSHU_ID)).append("' ");
 
 		result = super.search(sql.toString());
 
 		return result;
 	}
-	
 
-	
 	/**
 	 * 個人戦績を削除する
 	 */
 	public void deleteSenseki(String matchId, LoginDto loginDto) {
 		System.out.println("------SensekiDaoImplのdeleteSenseki 削除04------");
-		System.out.println("削除04 matchId:"+matchId);
-		System.out.println("削除04 LoginDto:"+loginDto);
+		System.out.println("削除04 matchId:" + matchId);
+		System.out.println("削除04 LoginDto:" + loginDto);
 		StringBuffer sql = new StringBuffer();
 		sql.append("DELETE FROM SENSEKI_TBL M1 ");
 		sql.append(" WHERE M1.MATCH_ID = '").append(matchId).append("' ");
@@ -89,8 +86,6 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		return super.find(sql.toString());
 	}
 
-
-
 	/**
 	 * 個人マスタを更新する
 	 */
@@ -104,7 +99,8 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append("     , M1.SENSEKI_NM_KANA = '").append(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)).append("' ");
 		sql.append("     , M1.SEIBETSU_KBN = '").append(formMap.get(SensekiConst.KEY_SEIBETSU_KBN)).append("' ");
 		sql.append("     , M1.ZOKUGARA = '").append(formMap.get(SensekiConst.KEY_ZOKUGARA)).append("' ");
-		sql.append("     , M1.SETAINUSHI_FLG = '").append(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE)).append("' ");
+		sql.append("     , M1.SETAINUSHI_FLG = '").append(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE))
+				.append("' ");
 		sql.append("     , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
 		sql.append("     , M1.UPD_DATE = SYSDATE ");
 		sql.append("     , M1.REVISION = M1.REVISION + 1 ");
@@ -167,18 +163,17 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	}
 
 	@Override
-	public String getPlayerName(String pId) {
+	public String getPlayerName(Map<String, Object> formMap) {
 		// TODO 自動生成されたメソッド・スタブ
 		Map<String, String> result;
 		StringBuffer sql = new StringBuffer();
-		
-		sql.append (" SELECT P1.PLAYER_NAME AS PNAME");
-		sql.append (" FROM MST_PLAYER P1 ");
-		sql.append (" WHERE P1.PLAYER_ID ='").append(pId).append("'");
-		
+
+		sql.append(" SELECT P1.PLAYER_NAME AS PNAME");
+		sql.append(" FROM MST_PLAYER P1 ");
+		sql.append(" WHERE P1.PLAYER_ID ='").append(formMap.get(SeisekiConst.KEY_SENSHU_ID)).append("'");
+
 		result = super.find(sql.toString());
 		return result.get("PNAME");
 	}
-
 
 }
