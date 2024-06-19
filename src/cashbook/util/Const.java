@@ -115,7 +115,37 @@ public class Const {
 	public static final String SESSION_LIST_RE_SEARCH_KOJIN = "KOJIN_LIST_RE_SEARCH";
 	/** 個人マスタメンテ画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_KOJIN = "KOJIN_LIST_MESSAGE";
+	
+	
+	
+	/** 個人戦績登録画面 DTO */
+	public static final String SESSION_REGIST_DTO_SENSEKI = "SENSEKI_REGIST_DTO";
+	/** 個人戦績登録画面 戻り先 */
+	public static final String SESSION_REGIST_BACK_SENSEKI = "SENSEKI_REGIST_BACK";
+	/** 個人戦績登録画面 再検索値 */
+	public static final String SESSION_REGIST_RE_SEARCH_SENSEKI = "SENSEKI_REGIST_RE_SEARCH";
+	/** 個人戦績登録画面 メッセージ */
+	public static final String SESSION_REGIST_MESSAGE_SENSEKI = "SENSEKI_REGIST_MESSAGE";
+	/** 個人戦績メンテ画面 DTO */
+	public static final String SESSION_LIST_DTO_SENSEKI = "SENSEKI_LIST_DTO";
+	/** 個人戦績メンテ画面 再検索値 */
+	public static final String SESSION_LIST_RE_SEARCH_SENSEKI = "SENSEKI_LIST_RE_SEARCH";
+	/** 個人戦績メンテ画面 メッセージ */
+	public static final String SESSION_LIST_MESSAGE_SENSEKI = "SENSEKI_LIST_MESSAGE";
+	
+	
+	/** 個人マスタメンテ画面 メッセージ */
+	public static final String SESSION_LIST_CHANGE_TO_KOJIN = "CHANGE_TO_KOJIN";
 
+	
+	/** 成績マスタメンテ画面 DTO */
+	public static final String SESSION_LIST_DTO_SEISEKI = "SEISEKI_LIST_DTO";
+	/** 成績マスタメンテ画面 再検索値 */
+	public static final String SESSION_LIST_RE_SEARCH_SEISEKI = "SEISEKI_LIST_RE_SEARCH";
+	/** 成績マスタメンテ画面 メッセージ */
+	public static final String SESSION_LIST_MESSAGE_SEISEKI = "SEISEKI_LIST_MESSAGE";
+	
+	
 	/** 収支登録画面 戻り先 */
 	public static final String SESSION_REGIST_BACK_SHUSHI = "SHUSHI_REGIST_BACK";
 

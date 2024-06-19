@@ -66,11 +66,12 @@ public class KojinRegistInsUpdAction extends BaseAction {
 			formMap.put(KojinConst.KEY_SETAINUSI_FLG_VALUE, SETAINUSHI_OFF);
 
 		}
-
 		// 世帯ＩＤを設定する
 		formMap.put(SetaiConst.KEY_SETAI_ID, formMap.get(SetaiConst.KEY_SETAI_NM_KEY));
 		// 登録・更新
 		kojinService.registInsUpd(formMap, loginDto);
+		
+		System.out.println("登録処理後");
 
 		// フォーム．リビジョンが未設定の場合
 		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(ITEM_REVISION)))) {
