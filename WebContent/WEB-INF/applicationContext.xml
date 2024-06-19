@@ -22,10 +22,10 @@
       <value>jdbc:oracle:thin:@//localhost:1521/XEPDB1</value>
     </property>
     <property name="username">
-      <value>IMAMURA</value>
+      <value>MATSUNAKA</value>
     </property>
     <property name="password">
-      <value>IMAMURA</value>
+      <value>MATSUNAKA</value>
     </property>
   </bean>
 
@@ -50,23 +50,16 @@
       <ref local="dataSource" />
     </property>
   </bean>
-  
-  
-  
-  
-    <!-- 個人戦績-->
-   <bean id="SensekiDaoId" class="cashbook.dao.senseki.SensekiDaoImpl">
+
+  <!-- 個人マスタ -->
+   <bean id="KojinDaoId" class="cashbook.dao.kojin.KojinDaoImpl">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
   </bean>
   
-  
-  
-  
-
-  <!-- 個人マスタ -->
-   <bean id="KojinDaoId" class="cashbook.dao.kojin.KojinDaoImpl">
+    <!-- 成績マスタ -->
+   <bean id="SeisekiDaoId" class="cashbook.dao.seiseki.SeisekiDaoImpl">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
@@ -101,25 +94,6 @@
     </property>
   </bean>
 
-
-
-  <!-- 個人戦績-->
-  <bean id="SensekiServiceId" class="cashbook.service.senseki.SensekiServiceImpl">
-    <property name="commonDao">
-      <ref local="CommonDaoId" />
-    </property>
-    <property name="setaiDao">
-      <ref local="SetaiDaoId" />
-    </property>
-    <property name="sensekiDao">
-      <ref local="SensekiDaoId" />
-    </property>
-  </bean>
-
-
-
-
-
     <!-- 個人マスタ -->
   <bean id="KojinServiceId" class="cashbook.service.kojin.KojinServiceImpl">
     <property name="commonDao">
@@ -130,6 +104,13 @@
     </property>
     <property name="kojinDao">
       <ref local="KojinDaoId" />
+    </property>
+  </bean>
+  
+      <!-- 成績マスタ -->
+  <bean id="SeisekiServiceId" class="cashbook.service.seiseki.SeisekiServiceImpl">
+    <property name="seisekiDao">
+      <ref local="SeisekiDaoId" />
     </property>
   </bean>
 
@@ -160,9 +141,6 @@
     </property>
   </bean>
 
-
-
-
   <!-- Action -->
   <!-- ログイン画面 -->
   <bean name="/Login" class="cashbook.action.common.LoginAction">
@@ -170,32 +148,6 @@
       <ref local="LoginServiceId" />
     </property>
   </bean>
-
-
-
-
-
-  <!-- 個人戦績 -->
-  <bean name="/SensekiListInit" class="cashbook.action.senseki.SensekiListInitAction">
-    <property name="sensekiService">
-      <ref local="SensekiServiceId" />
-    </property>
-  </bean>
-  <bean name="/SensekiListSearch" class="cashbook.action.senseki.SensekiListSearchAction">
-    <property name="sensekiService">
-      <ref local="SensekiServiceId" />
-    </property>
-  </bean>
-  <bean name="/SensekiListDelete" class="cashbook.action.senseki.SensekiListDeleteAction">
-    <property name="sensekiService">
-      <ref local="SensekiServiceId" />
-    </property>
-  </bean>
-  
-  
-
-
-
 
   <!-- 個人マスタメンテ -->
   <bean name="/KojinListInit" class="cashbook.action.kojin.KojinListInitAction">
@@ -223,6 +175,23 @@
   <bean name="/KojinRegistInsUpd" class="cashbook.action.kojin.KojinRegistInsUpdAction">
     <property name="kojinService">
       <ref local="KojinServiceId" />
+    </property>
+  </bean>
+  
+    <!-- 成績マスタメンテ -->
+  <bean name="/SeisekiListInit" class="cashbook.action.seiseki.SeisekiListInitAction">
+    <property name="seisekiService">
+      <ref local="SeisekiServiceId" />
+    </property>
+  </bean>
+  <bean name="/SeisekiListSearch" class="cashbook.action.seiseki.SeisekiListSearchAction">
+    <property name="seisekiService">
+      <ref local="SeisekiServiceId" />
+    </property>
+  </bean>
+  <bean name="/SeisekiListSenshuRegist" class="cashbook.action.seiseki.SeisekiListSenshuRegistAction">
+    <property name="seisekiService">
+      <ref local="SeisekiServiceId" />
     </property>
   </bean>
 

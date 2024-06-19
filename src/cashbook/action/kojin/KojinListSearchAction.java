@@ -56,8 +56,19 @@ public class KojinListSearchAction extends BaseAction {
 	protected ActionForward doProcess(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
 
+		var form2 = request.getSession().getAttribute("seki");
+		System.out.println("-------------------------------" + form2);
+
+		//Object form3 = request.getSession().getAttribute("seki");
+
+		Map<String, Object> formMap2 = CommonUtil.getFormMap((DynaActionForm) request.getSession().getAttribute("seki"));
+
+		System.out.println("???????????????" + formMap2);
+
 		// フォームの値を取得
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
+
+		System.out.println("formMap" + formMap);
 
 		// リクエストから「operation」の値が"search"だったのかを判定する。
 		if (!ACTION_FOWARD_SEARCH.equals(request.getParameter(ACTION_FOWARD_OPERATION))) {
@@ -103,7 +114,7 @@ public class KojinListSearchAction extends BaseAction {
 		}
 
 		// 個人マスタメンテ画面 検索処理
-		KojinListDto dto = kojinService.listSearch(formMap);
+		KojinListDto dto = kojinService.listSearch(formMap2);
 
 		// 取得した情報をリクエストに登録
 		request.setAttribute(KojinConst.FORM_KOJIN_LIST, dto);

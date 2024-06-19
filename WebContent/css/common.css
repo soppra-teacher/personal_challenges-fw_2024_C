@@ -1,6 +1,6 @@
 /*画面全体のスタイル*/
 html,body {
-	background-color: #ffffff;
+	background-color: ffffff;
 }
 
 hr {
@@ -40,16 +40,15 @@ tr.table-header {
 	text-align: center;
 }
 
+tr.table-header2 {
+	background:#7fffd4;
+	text-align: center;
+}
+
 
 /* ベース横幅 */
 .base-width {
 	width: 800px;
-	padding: 20px auto;
-	margin: 0px auto;
-}
-
-.base-width01 {
-	width: 100px;
 	padding: 20px auto;
 	margin: 0px auto;
 }
@@ -256,9 +255,23 @@ div.header {
 	margin: 10px auto; /* 上下10px 左右auto */
 }
 
+.btn-2 {
+	display: block;
+	width: 90%;
+	height: 40px;
+	margin: 10px auto; /* 上下10px 左右auto */
+}
+
 /* ボタン */
 .btn-l {
 	width: 200px;
+}
+
+/* 登録ボタン */
+.button-t {
+	width: 240px;
+	height: 80px;
+	margin: 50px;
 }
 
 
@@ -280,11 +293,7 @@ table.table td {
 
 div.table-overflow {
 	overflow-y: scroll;
-	height: 400px;
-}
-div.table-overflow-01 {
-	overflow-y: scroll;
-	height: 300px;
+	height: 251px;
 }
 
 /* レイアウトテーブル */
@@ -362,15 +371,6 @@ td {
 .l-himoku-kb {
 	width: 70px;
 }
-/* 個人戦績用 */
-
-
-.l-senseki-match-date{
-	width: 110px;
-}
-.l-senseki-e-team{
-	width: 10%;
-}
 
 /* 個人一覧用 */
 .l-kojin {
@@ -394,6 +394,8 @@ td {
 .l-kojin-setainushi {
 	width: 70px;
 }
+
+
 /* 世帯一覧用 */
 .l-setai {
 	width: 743px;

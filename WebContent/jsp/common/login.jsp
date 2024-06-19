@@ -55,7 +55,7 @@
 				<html:submit value="ƒƒOƒCƒ“" styleClass="btn" tabindex="3" />
 			</div>
 
-		  </html:form> 
+		</html:form>
 	</div>
 </body>
 </html:html>
