@@ -35,7 +35,7 @@
 			<table class="layout-table block-center">
 				<tr>
 					<td colspan="3">
-						<img src="img/sopbu.png" alt="‚»‚Õ‚Ô[" />
+						<img src="img/sports_data.png" alt="‚»‚Õ‚Ô[" />
 					</td>
 				</tr>
 

@@ -12,10 +12,9 @@
 	<meta content="ja" http-equiv="Content-Language" />
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>
-		ソプブーーーーーー　個人マスタメンテ
+		スポーツデータ　総合成績
 	</title>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/sport.css" />
 	<script type="text/javascript" charset="shift_jis" src="js/common.js" ></script>
 </head>
 
