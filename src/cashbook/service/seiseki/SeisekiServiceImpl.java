@@ -46,8 +46,8 @@ public class SeisekiServiceImpl implements SeisekiService {
 		while (it.hasNext()) {
 			Map<String, String> map = it.next();
 			SeisekiListDto dto = new SeisekiListDto();
-			dto.setSenshuId(map.get("PLAYER_ID"));
-			dto.setSenshuNm(map.get("PLAYER_NAME"));
+			dto.setSenshuId(map.get("選手ID"));
+			dto.setSenshuNm(map.get("選手名"));
 			dto.setSouInning(map.get("総イニング"));
 			dto.setSouShitten(map.get("総失点"));
 			dto.setSouJisekiten(map.get("総自責点"));

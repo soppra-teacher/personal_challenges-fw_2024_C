@@ -21,8 +21,8 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 
 		List<Map<String, String>> result;
 		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT  S1.PLAYER_ID ");
-		sql.append("       ,M1.PLAYER_NAME ");
+		sql.append("SELECT  S1.PLAYER_ID AS 選手ID");
+		sql.append("       ,M1.PLAYER_NAME AS 選手名");
 		sql.append("       ,TRUNC((SUM(S1.INNING)/3),0)||'.'||MOD(SUM(S1.INNING),3)  AS 総イニング");
 		sql.append("       ,SUM(S1.SITTEN) AS 総失点 ");
 		sql.append("       ,SUM(S1.JISEKITEN) AS 総自責点 ");
