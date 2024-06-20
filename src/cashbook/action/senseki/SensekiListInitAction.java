@@ -19,8 +19,6 @@ import cashbook.service.senseki.SensekiService;
  */
 public class SensekiListInitAction extends BaseAction {
 
-	/** 個人マスタサービス */
-	//private SensekiService sensekiService;
 
 	/**
 	 * 個人マスタサービスを設定します。

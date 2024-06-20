@@ -59,14 +59,11 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 	}
 
-	
-
 	/**
 	 * 個人戦績一覧を検索する
 	 * @return 選手名
 	 */
 	public String getPlayerName(Map<String, Object> formMap) {
-		// TODO 自動生成されたメソッド・スタブ
 		Map<String, String> result;
 		StringBuffer sql = new StringBuffer();
 
