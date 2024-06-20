@@ -120,15 +120,14 @@
 		</form-bean>
 		
 		<!-- 成績マスタメンテ画面 -->
-		<form-bean name="seisekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
-
-			<form-property name="newSenshuNm"        type="java.lang.String"  />
+		<form-bean name="seisekiListForm"         type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="newSenshuNm"     type="java.lang.String"  />
 			<form-property name="senshuId"        type="java.lang.Integer"  />
 			<form-property name="senshuNm"        type="java.lang.String"  />
-			<form-property name="souInning"    type="java.lang.String"  />
-			<form-property name="souShitten" type="java.lang.String"  />
+			<form-property name="souInning"       type="java.lang.String"  />
+			<form-property name="souShitten"      type="java.lang.String"  />
 			<form-property name="souJisekiten"    type="java.lang.String"  />
-			<form-property name="bougyoRitsu"   type="java.lang.String"  />
+			<form-property name="bougyoRitsu"     type="java.lang.String"  />
 		</form-bean>
 
 		<!-- 収支登録画面 -->
@@ -557,8 +556,6 @@
 			input="/jsp/seiseki/seisekiList.jsp"
 			scope="request">
 			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
-<!--			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>-->
-<!--			<forward name="success" path="/SeisekiListInit.do" redirect="true" />-->
 		</action>
 
 		<!--
