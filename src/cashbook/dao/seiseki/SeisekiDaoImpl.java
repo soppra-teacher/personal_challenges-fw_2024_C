@@ -45,9 +45,6 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 	 */
 	public void registSenshu(Map<String, Object> formMap, LoginDto loginDto) {
 		
-		System.out.println("選手登録実行開始");
-		System.out.println(formMap);
-		
 		StringBuffer sql = new StringBuffer();
 		sql.append(" INSERT INTO MST_PLAYER M1 ( ");
 		sql.append("     M1.PLAYER_ID ");
