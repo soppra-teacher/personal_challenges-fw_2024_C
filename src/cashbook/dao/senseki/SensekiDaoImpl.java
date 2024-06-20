@@ -1,17 +1,11 @@
 package cashbook.dao.senseki;
 
-import static cashbook.util.Const.*;
-
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.dao.CannotAcquireLockException;
 
 import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
 import cashbook.util.SeisekiConst;
-import cashbook.util.SensekiConst;
-import cashbook.util.SetaiConst;
 
 /**
  * 個人DAOクラス
@@ -20,8 +14,8 @@ import cashbook.util.SetaiConst;
 public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 	/**
-	 * 個人マスタ一覧を検索する
-	 * @return 個人マスタ一覧
+	 * 個人戦績一覧を検索する
+	 * @return 個人戦績一覧
 	 */
 	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap) {
 
@@ -42,7 +36,9 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append("       ,M1.INS_USER");
 		sql.append("  FROM SENSEKI_TBL M1");
 		sql.append(" WHERE M1.PLAYER_ID = '").append(formMap.get(SeisekiConst.KEY_SENSHU_ID)).append("' ");
-
+		sql.append("  ORDER BY MATCH_DATE DESC ");
+		
+		
 		result = super.search(sql.toString());
 
 		return result;
@@ -50,11 +46,11 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 	/**
 	 * 個人戦績を削除する
+	 * @param checkDel
+	 * @param loginDto
 	 */
 	public void deleteSenseki(String matchId, LoginDto loginDto) {
-		System.out.println("------SensekiDaoImplのdeleteSenseki 削除04------");
-		System.out.println("削除04 matchId:" + matchId);
-		System.out.println("削除04 LoginDto:" + loginDto);
+
 		StringBuffer sql = new StringBuffer();
 		sql.append("DELETE FROM SENSEKI_TBL M1 ");
 		sql.append(" WHERE M1.MATCH_ID = '").append(matchId).append("' ");
@@ -64,107 +60,10 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	}
 
 	/**
-	 * 個人マスタを検索する
-	 * @return 個人マスタ
+	 * 個人戦績一覧を検索する
+	 * @return 選手名
 	 */
-	public Map<String, String> findSenseki(Map<String, Object> formMap) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT M1.SENSEKI_ID ");
-		sql.append("     , M1.SETAI_ID ");
-		sql.append("     , M1.PASS ");
-		sql.append("     , M1.SENSEKI_NM ");
-		sql.append("     , M1.SENSEKI_NM_KANA ");
-		sql.append("     , M1.SEIBETSU_KBN ");
-		sql.append("     , M1.ZOKUGARA ");
-		sql.append("     , M1.SETAINUSHI_FLG ");
-		sql.append("     , M1.REVISION ");
-		sql.append("  FROM MST_SENSEKI M1 ");
-		sql.append(" WHERE M1.DEL_FLG  = '0' ");
-		sql.append("   AND M1.SENSEKI_ID = '").append(formMap.get(SensekiConst.KEY_SENSEKI_ID)).append("' ");
-
-		return super.find(sql.toString());
-	}
-
-	/**
-	 * 個人マスタを更新する
-	 */
-	public void updateSenseki(Map<String, Object> formMap, LoginDto loginDto) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("UPDATE MST_SENSEKI M1 ");
-		sql.append("   SET M1.SETAI_ID = '").append(formMap.get(SetaiConst.KEY_SETAI_ID)).append("' ");
-		sql.append("     , M1.PASS = '").append(formMap.get(SensekiConst.KEY_PASS)).append("' ");
-		sql.append("     , M1.SENSEKI_NM = '").append(formMap.get(SensekiConst.KEY_SENSEKI_NM)).append("' ");
-		sql.append("     , M1.SENSEKI_NM_KANA = '").append(formMap.get(SensekiConst.KEY_SENSEKI_NM_KANA)).append("' ");
-		sql.append("     , M1.SEIBETSU_KBN = '").append(formMap.get(SensekiConst.KEY_SEIBETSU_KBN)).append("' ");
-		sql.append("     , M1.ZOKUGARA = '").append(formMap.get(SensekiConst.KEY_ZOKUGARA)).append("' ");
-		sql.append("     , M1.SETAINUSHI_FLG = '").append(formMap.get(SensekiConst.KEY_SETAINUSI_FLG_VALUE))
-				.append("' ");
-		sql.append("     , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
-		sql.append("     , M1.UPD_DATE = SYSDATE ");
-		sql.append("     , M1.REVISION = M1.REVISION + 1 ");
-		sql.append(" WHERE M1.SENSEKI_ID = '").append(formMap.get(SensekiConst.KEY_SENSEKI_ID)).append("' ");
-
-		super.update(sql.toString());
-	}
-
-	/**
-	 * 重複チェック
-	 * @return true：正常、false：重複エラー
-	 */
-	public boolean checkOverlapSenseki(Map<String, Object> formMap) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT M1.SENSEKI_ID ");
-		sql.append("  FROM MST_SENSEKI M1 ");
-		sql.append(" WHERE M1.SENSEKI_ID = '").append(formMap.get(SensekiConst.KEY_SENSEKI_ID)).append("' ");
-		sql.append("   AND ROWNUM = 1 ");
-
-		return super.find(sql.toString()).size() == 0;
-	}
-
-	/**
-	 * 行ロック及び、排他チェック
-	 * @return true：正常、false：排他エラー
-	 */
-	public boolean lockSenseki(Map<String, Object> formMap) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT M1.SENSEKI_ID ");
-		sql.append("  FROM MST_SENSEKI M1 ");
-		sql.append(" WHERE M1.SENSEKI_ID = '").append(formMap.get(SensekiConst.KEY_SENSEKI_ID)).append("' ");
-		sql.append("   AND M1.REVISION = '").append(formMap.get(ITEM_REVISION)).append("' ");
-		sql.append("   FOR UPDATE NOWAIT ");
-		try {
-
-			return super.find(sql.toString()).size() != 0;
-
-		} catch (CannotAcquireLockException e) {
-			// 対象データがロックされている場合はエラー
-			return false;
-		}
-	}
-
-	/**
-	 * 世帯主フラグ確認
-	 * @return false：正常、true：整合性エラー
-	 */
-	public boolean checkSetainushiFlg(Map<String, Object> formMap) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT A.SENSEKI_ID ");
-		sql.append("  FROM MST_SENSEKI A ");
-		sql.append(" WHERE A.SETAI_ID = '").append(formMap.get(SetaiConst.KEY_SETAI_ID)).append("' ");
-		sql.append("   AND A.SETAINUSHI_FLG = '1' ");
-		sql.append("   AND A.SENSEKI_ID != '").append(formMap.get(SensekiConst.KEY_SENSEKI_ID)).append("' ");
-
-		return super.find(sql.toString()).size() != 0;
-	}
-
-	@Override
 	public String getPlayerName(Map<String, Object> formMap) {
-		// TODO 自動生成されたメソッド・スタブ
 		Map<String, String> result;
 		StringBuffer sql = new StringBuffer();
 

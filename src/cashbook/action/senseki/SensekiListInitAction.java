@@ -19,8 +19,6 @@ import cashbook.service.senseki.SensekiService;
  */
 public class SensekiListInitAction extends BaseAction {
 
-	/** 個人マスタサービス */
-	//private SensekiService sensekiService;
 
 	/**
 	 * 個人マスタサービスを設定します。
@@ -48,18 +46,7 @@ public class SensekiListInitAction extends BaseAction {
 	protected ActionForward doProcess(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
 
-		// 個人マスタ登録画面の戻り先をセッションから削除する。
-		//request.getSession().removeAttribute(SESSION_REGIST_BACK_SENSEKI);
-
-		// 個人マスタメンテ初期表示情報を取得
-		//SensekiListDto dto = sensekiService.listInit();
-		
-
-		// 取得した情報をリクエストに設定
-		//request.setAttribute(SensekiConst.FORM_SENSEKI_LIST, dto);
-		// 取得した情報をセッションに設定
-		//request.getSession().setAttribute(SESSION_LIST_DTO_SENSEKI, dto);
-		
+		//総成績画面からのformを取得し、セッションに設定
 		request.getSession().setAttribute(SESSION_LIST_DTO_SEISEKI, form);
 
 		// 処理成功時の遷移先を指定する。

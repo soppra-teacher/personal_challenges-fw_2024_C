@@ -8,11 +8,10 @@
 <!DOCTYPE html>
 <html:html lang="ja">
 <head>
-
 	<meta content="ja" http-equiv="Content-Language" />
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>
-		スポーツデータ　総合成績
+		スポーツデータ　総成績一覧
 	</title>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
 	<script type="text/javascript" charset="shift_jis" src="js/common.js" ></script>
