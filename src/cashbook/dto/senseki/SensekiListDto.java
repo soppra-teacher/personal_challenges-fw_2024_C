@@ -5,121 +5,36 @@ import java.util.List;
 import cashbook.dto.common.BaseDto;
 
 public class SensekiListDto extends BaseDto {
-
-
-	/** 個人名 */
-	//private String sensekiNm;
-
-	/** 個人名カナ */
-//	private String sensekiNmkana;
-
-	/** 性別区分（キー） */
-//	private String seibetsuKbnKey;
-//
-//	/** 性別区分（ＭＡＰ） */
-//	private Map<String, String> seibetsuKbn;
-
-//	/** 続柄（キー） */
-//	private String zokugaraKey;
-//
-//	/** 続柄（ＭＡＰ） */
-//	private Map<String, String> zokugara;
-
-	/** 世帯主フラグ */
-	//private String setaiNusiFlg;
-
-	/** 個人マスタ一覧 */
-	private List<SensekiRegistDto> list01;
 	
+	/** 個人戦績マスタ一覧 */
 	private List<SensekiListDto> list;
 
-	
+	/** 選手ID*/
 	private String playerId;
 	/** 失点*/
 	private String sittenNm;
 	/** 自責点*/
 	private String jisekitenNm;
-	/** 相手*/
+	/** 対戦相手*/
 	private String eTeam;
 	/** 試合日*/
 	private String matchDate;
+	/** 奪三振*/
 	private String datsusanshin;
+	/** 被安打*/
 	private String hianda;
+	/** 与四死球*/
 	private String yoshikyu;
+	/** イニング*/
 	private String inning;
+	/** 球数*/
 	private String tamakazu;
+	/** 試合ID*/
 	private String matchId;
-	
+	/** 選手名*/
 	private String playerNm;
 	
-	private String playerNmstr;
 	
-	
-
-
-
-//	public String getSensekiNm() {
-//		return sensekiNm;
-//	}
-//
-//	public void setSensekiNm(String sensekiNm) {
-//		this.sensekiNm = sensekiNm;
-//	}
-
-//	public String getSensekiNmkana() {
-//		return sensekiNmkana;
-//	}
-//
-//	public void setSensekiNmkana(String sensekiNmkana) {
-//		this.sensekiNmkana = sensekiNmkana;
-//	}
-
-//	public String getSeibetsuKbnKey() {
-//		return seibetsuKbnKey;
-//	}
-//
-//	public void setSeibetsuKbnKey(String seibetsuKbnKey) {
-//		this.seibetsuKbnKey = seibetsuKbnKey;
-//	}
-//
-//	public Map<String, String> getSeibetsuKbn() {
-//		return seibetsuKbn;
-//	}
-//
-//	public void setSeibetsuKbn(Map<String, String> seibetsuKbn) {
-//		this.seibetsuKbn = seibetsuKbn;
-//	}
-
-//	public String getZokugaraKey() {
-//		return zokugaraKey;
-//	}
-//
-//	public void setZokugaraKey(String zokugaraKey) {
-//		this.zokugaraKey = zokugaraKey;
-//	}
-//
-//
-//	public Map<String, String> getzokugara() {
-//		return zokugara;
-//	}
-//	public void setzokugara(Map<String, String> zokugara) {
-//		this.zokugara = zokugara;
-//	}
-
-//	public String getSetaiNusiFlg() {
-//		return setaiNusiFlg;
-//	}
-//
-//	public void setSetaiNusiFlg(String setaiNusiFlg) {
-//		this.setaiNusiFlg = setaiNusiFlg;
-//	}
-
-	public List<SensekiRegistDto> getList01() {
-		return list01;
-	}
-	public void setList01(List<SensekiRegistDto> sensekiList01) {
-		this.list01 = sensekiList01;
-	}
 
 	public String getSittenNm() {
 		return sittenNm;
@@ -152,8 +67,6 @@ public class SensekiListDto extends BaseDto {
 	public void setMatchDate(String matchDate) {
 		this.matchDate = matchDate;
 	}
-
-
 
 	public String getHianda() {
 		return hianda;
@@ -218,9 +131,6 @@ public class SensekiListDto extends BaseDto {
 	public void setDatsusanshin(String datsusanshin) {
 		this.datsusanshin = datsusanshin;
 	}
-
-	
-	
 	
 	public String getPlayerNm() {
 		return playerNm;
@@ -233,25 +143,6 @@ public class SensekiListDto extends BaseDto {
 	public String getPlayerNmFormat() {
 	    return null;
 	}
-
-
-	public String getPlayerNmstr() {
-		return playerNmstr;
-	}
-
-	public void setPlayerNmstr(String playerNmstr) {
-		this.playerNmstr = playerNmstr;
-	}
-
-
-
-
-
-
-
-
-
-
 
 
 }

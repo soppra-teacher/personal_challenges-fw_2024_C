@@ -50,10 +50,10 @@ public class SensekiListDeleteAction extends BaseAction {
 	 */
 	protected ActionForward doProcess(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
-System.out.println("------SensekiListDeleteAction 削除02");
+		
 		// フォームの値を取得
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
-System.out.println("formMap"+formMap);
+		
 		// 削除対象チェック
 		if (checkDeleteTarget((String[]) formMap.get(ITEM_CHECKBOX_DELETE), request)) {
 			return map.getInputForward();
@@ -63,6 +63,7 @@ System.out.println("formMap"+formMap);
 		sensekiService.listDelete(formMap, loginDto);
 
 		// 削除完了メッセージをセッションに保持
+		request.getSession().setAttribute(SESSION_LIST_MESSAGE_SENSEKI, MSG_SUCCESS_DELETE);
 
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(ACTION_FOWARD_SUCCESS);

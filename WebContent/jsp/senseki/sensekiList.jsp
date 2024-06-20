@@ -11,7 +11,7 @@
 	<meta content="ja" http-equiv="Content-Language" />
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>
-		スポーツデータ	個人戦績
+		スポーツデータ　個人戦績
 	</title>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
 	<script type="text/javascript" charset="shift_jis" src="js/common.js" ></script>
@@ -57,9 +57,7 @@
 								
 							</span>
 						</td>
-						<td class="w-50">
-							&nbsp;
-						</td>											
+										
 						<td class="w-25">
 							<html:button property="delete" onclick="callAction(this.form, 'delete');"
 								styleClass="btn btn-l">
@@ -74,14 +72,14 @@
 
 						<td class="text-center l-senseki-match-date">試合日</td>
 						<td class="text-center l-senseki-e-team">対戦相手</td>
-						<td class="text-center l-senseki-inning">イニング</td>						
-						<td class="text-center l-senseki-tamakazu">球数</td>
-						<td class="text-center l-senseki-hianda">被安打</td>
-						<td class="text-center l-senseki-yoshikyu">与四死球</td>
-						<td class="text-center l-senseki-datsusanshin">奪三振</td>
-						<td class="text-center l-senseki-sitten">失点</td>
-						<td class="text-center l-senseki-jisekiten">自責点</td>
-						<td class="text-center l-senseki-del">削除</td>
+						<td class="text-center ">イニング</td>						
+						<td class="text-center ">球数</td>
+						<td class="text-center ">被安打</td>
+						<td class="text-center ">与四死球</td>
+						<td class="text-center ">奪三振</td>
+						<td class="text-center ">失点</td>
+						<td class="text-center ">自責点</td>
+						<td class="text-center ">削除</td>
 						
 					</tr>
 				</table>
@@ -90,45 +88,39 @@
 					<table class="l-kojin table" >
 						<logic:notEmpty name="viewBean" property="list">
 							<logic:iterate id="list" name="viewBean" property="list">
-								<tr>
-																
+								<tr>	
+								
 									<td class="l-senseki-match-date ">
 										<bean:write name="list" property="matchDate" />
 									</td>								
 									<td class="l-senseki-e-team">
 										<bean:write name="list" property="eTeam" />
 									</td>									
-
-									<td class="l-senseki-inning">
+									<td class="text-center">
 										<span class="p-10">
 											<bean:write name="list" property="inning" />
 										</span>
-									<td class="l-senseki-tamakazu">
+									<td class="text-center">
 										<span class="p-10">
 											<bean:write name="list" property="tamakazu" />
 										</span>
 									</td>
-									<td class="l-senseki-hianda">
+									<td class="text-center">
 										<bean:write name="list" property="hianda" />
 									</td>
-									<td class="l-senseki-yoshikyu">
+									<td class="text-center">
 										<bean:write name="list" property="yoshikyu" />
 									</td>
-									
-									
-									<td class="l-senseki-datsusanshin">
+									<td class="text-center">
 										<bean:write name="list" property="datsusanshin" />
 									</td>
-									
-									
-									<td class="l-senseki-sitten">
+									<td class="text-center">
 										<bean:write name="list" property="sittenNm" />
 									</td>
-									<td class="l-senseki-jisekiten">
+									<td class="text-center">
 										<bean:write name="list" property="jisekitenNm" />
 									</td>
-
-									<td class="text-center l-senseki-del">
+									<td class="text-center">
 										<input type="checkbox" name="checkDel" value="<bean:write name="list" property="matchId" />" />
 									</td>
 																											

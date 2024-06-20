@@ -59,28 +59,11 @@
 			<form-property name="zokugaraKey"    type="java.lang.String" />
 			<form-property name="setaiNusiFlg"   type="java.lang.String" />
 			<form-property name="revision"        type="java.lang.String" />
-			
-			
 			<form-property name="senshuId"        type="java.lang.Integer"  />
 		</form-bean>
 		
-		
-		
-		
-		
-		
-
 		  <!-- 個人戦績-->
 		<form-bean name="sensekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="sensekiId"        type="java.lang.String"  />
-			<form-property name="setaiId"        type="java.lang.String"  />
-			<form-property name="sensekiNm"        type="java.lang.String"  />
-			<form-property name="sensekiNmkana"    type="java.lang.String"  />
-			<form-property name="seibetsuKbnKey" type="java.lang.String"  />
-			<form-property name="zokugaraKey"    type="java.lang.String"  />
-			<form-property name="setaiNusiFlg"   type="java.lang.String"  />
-			<form-property name="checkDel"       type="java.lang.String[]"/>
-			
 			<form-property name="matchId"   type="java.lang.String"  />
 			<form-property name="playerId"   type="java.lang.String"  />
 			<form-property name="sittenNm"   type="java.lang.String"  />
@@ -92,18 +75,9 @@
 			<form-property name="inning"   type="java.lang.String"  />
 			<form-property name="tamakazu"   type="java.lang.String"  />
 			<form-property name="playerNm"   type="java.lang.String"  />
-			
 			<form-property name="datsusanshin"   type="java.lang.String"  />
-			<form-property name="senshuId"   type="java.lang.String"  />
-			
+			<form-property name="checkDel"       type="java.lang.String[]"/>
 		</form-bean>
-
-		
-		
-		
-		
-		
-		
 
 		<!-- 個人マスタメンテ画面 -->
 		<form-bean name="kojinListForm"          type="org.apache.struts.validator.DynaValidatorForm">
@@ -115,7 +89,6 @@
 			<form-property name="zokugaraKey"    type="java.lang.String"  />
 			<form-property name="setaiNusiFlg"   type="java.lang.String"  />
 			<form-property name="checkDel"       type="java.lang.String[]"/>
-			
 			<form-property name="senshuId"        type="java.lang.Integer"  />
 		</form-bean>
 		
@@ -408,13 +381,6 @@
 			<forward name="error" path="/jsp/kojin/kojinRegist.jsp" />
 		</action>
 		
-		
-		
-		
-		
-		
-		
-		
 		<!--
 		****************************
 		* 個人戦績画面     *
@@ -426,7 +392,6 @@
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="seisekiListForm"
 			scope="request">
-<!--			<forward name="success" path="/jsp/senseki/sensekiList.jsp"/>-->
 			<forward name="success" path="/SensekiListSearch.do" redirect="true"  />
 		</action>
 		<!--  ディスパッチ -->
@@ -460,12 +425,6 @@
 			scope="request">
 			<forward name="success" path="/SensekiListSearch.do" redirect="true" />
 		</action>
-		
-		
-		
-		
-		
-		
 		
 		
 
