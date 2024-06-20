@@ -70,9 +70,6 @@ public class UserRegistInitAction extends Action {
 		//// ログイン情報取得
 		request.getSession().setAttribute("USER_REGIST_DTO", new UserRegistDto());
 		
-		//=========================試し==============================================================================================
-		
-		
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 

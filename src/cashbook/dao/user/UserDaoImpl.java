@@ -17,7 +17,6 @@ import cashbook.util.UserConst;
  */
 public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
-	
 	/**
 	 * ユーザーマスタを検索する
 	 * @return ユーザーマスタ
@@ -37,8 +36,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 	 * ユーザーマスタを登録する ここを変更する
 	 * @throws Exception
 	 */
-	
-	
+
 	public void registUser(Map<String, Object> formMap) {
 
 		StringBuffer sql = new StringBuffer();
@@ -50,12 +48,9 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		sql.append("   , '").append(formMap.get(UserConst.KEY_PASS)).append("' ");
 		sql.append(" ) ");
 		super.update(sql.toString());
-		
-		System.out.println(sql);  
-	}
-	
 
-	
+	}
+
 	/**
 	 * 重複チェック
 	 * @return true：正常、false：重複エラー
@@ -68,9 +63,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		sql.append("  FROM MST_USER M1 ");
 		sql.append(" WHERE M1.USER_ID = '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");
 		sql.append("   AND ROWNUM = 1 ");
-		
-		//　Q：AND ROWNUM = 1 が何をしているのか聞く
-		System.out.println("UserDaoImplのcheckOverlapUser" + sql);
+
 		return super.find(sql.toString()).size() == 0;
 	}
 
@@ -105,12 +98,12 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		StringBuffer sql = new StringBuffer();
 		sql.append("SELECT USER_ID ");
 		sql.append("  FROM MST_USER  ");
-		sql.append(" WHERE USER_ID != '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");	
+		sql.append(" WHERE USER_ID != '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");
 		return super.find(sql.toString()).size() != 0;
 	}
-	
+
 	//以下の3つの @Overrideがないとエラーになる
-	
+
 	@Override
 	public List<Map<String, String>> searchUser(Map<String, Object> formMap) {
 		// TODO 自動生成されたメソッド・スタブ
@@ -120,15 +113,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 	@Override
 	public void deleteUser(String kojinId, LoginDto loginDto) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
-
-	@Override
-	public void updateUser(Map<String, Object> formMap, LoginDto loginDto) {
-		// TODO 自動生成されたメソッド・スタブ
-		
-	}
-
-
 
 }

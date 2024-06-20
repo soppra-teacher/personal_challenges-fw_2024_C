@@ -108,8 +108,6 @@
 
 
 		</form-bean>
-		<!--================================================================================================================ -->
-
 		<!-- 個人マスタメンテ画面 -->
 
 		<form-bean name="kojinListForm"
@@ -127,7 +125,7 @@
 				type="java.lang.String" />
 			<form-property name="checkDel"
 				type="java.lang.String[]" />
-</form-bean>
+         </form-bean>
 		
 		<!-- 成績マスタメンテ画面 -->
 		<form-bean name="seisekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
@@ -217,21 +215,6 @@
 
 
 
-		<!-- **************************** * 新規ユーザー登録画面 * **************************** -->
-		<!-- 初期表示 -->
-
-
-<!--		 <action -->
-<!--		 path="/UserRegistInit" -->
-<!--		 type="org.springframework.web.struts.DelegatingActionProxy" -->
-<!--		 name="userRegistForm" -->
-<!--		 validate="false" -->
-<!--		 scope="request"> -->
-<!--		 <forward name="success" path="/jsp/user/userRegist.jsp"/> -->
-<!--		 </action> -->
-
-
-		<!-- 新規ユーザー登録画面-->
 		<!-- **************************** * 新規ユーザー登録画面 * **************************** -->
 		<!-- 初期表示 -->
 		<action path="/UserRegistInit"

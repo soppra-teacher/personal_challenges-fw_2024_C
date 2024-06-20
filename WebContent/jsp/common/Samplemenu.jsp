@@ -36,7 +36,7 @@
              
 				<tr>
 					<td colspan="3">
-						<span class="company-logo">SOPPRA</span>
+						<span class="company-logo">スポーツDATA</span>
 					</td>
 				</tr>
 

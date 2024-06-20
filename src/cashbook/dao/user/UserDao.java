@@ -33,24 +33,10 @@ public interface UserDao {
 	public Map<String, String> findUser(Map<String, Object> formMap);
 
 	/**
-	 * 世帯主フラグ確認 ＊いらない
-	 * @param formMap
-	 * @return
-	 */
-	public boolean checkSetainushiFlg(Map<String, Object> formMap);
-
-	/**
 	 * ユーザーマスタを登録する
 	 * @param formMap
 	 */
 	public void registUser(Map<String, Object> formMap);
-
-	/**
-	 * ユーザーマスタを更新する いらない
-	 * @param formMap
-	 * @param loginDto
-	 */
-	public void updateUser(Map<String, Object> formMap, LoginDto loginDto);
 
 	/**
 	 * 重複チェック

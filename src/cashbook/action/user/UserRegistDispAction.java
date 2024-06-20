@@ -22,8 +22,6 @@ public class UserRegistDispAction extends DispatchAction {
 			ActionForm form,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
-		System.out.println("UserRegistDispActionのinsertメソッド");
 		return mapping.findForward(ACTION_FOWARD_INSERT);
 	}
 
@@ -34,29 +32,9 @@ public class UserRegistDispAction extends DispatchAction {
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		
 		return mapping.findForward(ACTION_FOWARD_UPDATE);
 	}
 
-	/** 戻る（メニュー） */
-	public ActionForward backMenu(
-			ActionMapping mapping,
-			ActionForm form,
-			HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		
-		return mapping.findForward(ACTION_FOWARD_BACK_MENU);
-	}
-
-	/** 戻る（一覧） */
-	public ActionForward backList(
-			ActionMapping mapping,
-			ActionForm form,
-			HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		
-		return mapping.findForward(ACTION_FOWARD_BACK_LIST);
-	}
 	/**
 	 * 戻る（一覧(ユーザー)）
 	 * 自分で追加した
@@ -66,8 +44,8 @@ public class UserRegistDispAction extends DispatchAction {
 			ActionForm form,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
+
 		return mapping.findForward(ACTION_FOWARD_BACK_LIST_USER);
 	}
-	
+
 }

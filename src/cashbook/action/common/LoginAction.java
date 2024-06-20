@@ -55,16 +55,13 @@ public class LoginAction extends BaseAction {
 
 		// フォームの値を取得
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
-		System.out.println(formMap);
 		// フォームの値をもとに、ログイン処理
 		LoginDto loginDto = loginService.execute(formMap);
-		System.out.println(loginDto);
 		// ログイン情報DTO.個人IDが設定されている場合
 		if (loginDto.getUserId() != null) {
 
 			// ログイン成功
 			request.getSession().setAttribute(Const.SESSION_LOGIN_DTO, loginDto);
-			System.out.println(loginDto);
 			// 処理成功時の遷移先を指定する。
 			return map.findForward(Const.ACTION_FOWARD_SUCCESS);
 

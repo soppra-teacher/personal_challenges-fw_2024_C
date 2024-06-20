@@ -41,16 +41,9 @@ public interface UserService {
 	 * @return
 	 */
 	public UserRegistDto registInit(Map<String, Object> formMap);
-	
-	//public UserRegistDto registInit(formMap);
-	
-	
-	
 
-	
-	
-	
-	
+	//public UserRegistDto registInit(formMap);
+
 	/**
 	 *
 	 * @param formMap

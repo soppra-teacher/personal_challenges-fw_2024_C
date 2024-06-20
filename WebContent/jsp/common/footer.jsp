@@ -12,11 +12,6 @@
 				&nbsp;
 			</td>
 			<td class="w-25">
-				<html:link action="/MenuInit" >
-					メニューへ戻る
-				</html:link>
-			</td>
-			<td class="w-25">
 				<html:link action="/Logout" >
 					ログアウト
 				</html:link>
