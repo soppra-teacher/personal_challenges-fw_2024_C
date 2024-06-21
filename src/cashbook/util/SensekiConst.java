@@ -15,10 +15,14 @@ public class SensekiConst {
 	public static final String KEY_MATCH_ID = "matchId";
 	/** キー値：選手名 */
 	public static final String KEY_SENSHU_NM = "senshuNm";
+	/** キー値：選手名キー */
+	public static final String KEY_SENSHU_NM_KEY = "senshuNmKey";
 	/** キー値：イニング */
 	public static final String KEY_ININGU= "ining";
 	/** キー値：イニング詳細 */
-	public static final String KEY_ININGU_MINI= "iningMin";
+	public static final String KEY_ININGU_MINI= "iningMini";
+	/** キー値：イニング詳細 キー*/
+	public static final String KEY_ININGU_MINI_KEY= "iningMiniKey";
 	/** キー値：球数 */
 	public static final String KEY_TAMAKAZU= "tamakazu";
 	/** キー値：被安打 */
@@ -35,9 +39,6 @@ public class SensekiConst {
 	public static final String KEY_TAISENNM= "taisenNm";
 	/** キー値：自責点 */
 	public static final String KEY_SHIAIBI= "shiaibi";
-	
-	//tes
-	public static final String KEY_ZOKUGARA= "zokugaraKey";
 	
 
 	/** キー値：戦績名 */

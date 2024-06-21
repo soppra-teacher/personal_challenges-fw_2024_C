@@ -81,23 +81,10 @@ public class SensekiRegistInitAction extends BaseAction {
 			request.getSession().setAttribute(SESSION_REGIST_BACK_SENSEKI, backAction);
 		}
 
-		/*---------------------------------------------------*
-		 * ２．セッションから再検索用の戦績コードを取得する。*
-		 *---------------------------------------------------*/
-		// 再検索用の戦績コードをセッションから取得する。
-		Map<String, Object> sessionMap = CommonUtil.getSessionMap(request, SESSION_REGIST_RE_SEARCH_SENSEKI);
-
-		// セッションから取得できた場合
-		if (sessionMap != null) {
-
-			// 画面に戦績コードを設定する。
-			formMap.put(SensekiConst.KEY_SENSEKI_CD, sessionMap.get(SensekiConst.KEY_SENSEKI_CD));
-			// セッションに保持している戦績コードを削除する。
-			request.getSession().removeAttribute(SESSION_REGIST_RE_SEARCH_SENSEKI);
-		}
+	
 
 		/*---------------------------------------------------*
-		 * ３．セッションから表示するメッセージを取得する。  *
+		 * 2．セッションから表示するメッセージを取得する。  *
 		 *---------------------------------------------------*/
 		// メッセージをセッションから取得する。
 		String messageKey = CommonUtil.getStr(request.getSession().getAttribute(SESSION_REGIST_MESSAGE_SENSEKI));
@@ -112,7 +99,6 @@ public class SensekiRegistInitAction extends BaseAction {
 		}
 
 		// 初期表示取得
-		System.out.println("--------------初期表示取得-----------------");
 		SensekiRegistDto dto = sensekiService.registInit(formMap);
 
 		// 取得した情報をリクエストに設定

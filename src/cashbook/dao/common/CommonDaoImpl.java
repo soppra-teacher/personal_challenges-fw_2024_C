@@ -95,7 +95,7 @@ public class CommonDaoImpl extends BaseDaoImpl implements CommonDao {
 
 		} else {
 			// 1つ目に空白をセット
-			result.put("", "");
+			result.put("0", "0");
 
 			// リストの内容分回し、形式を変えて呼び元へ返す
 			for (Map<String, String> map : mapList) {

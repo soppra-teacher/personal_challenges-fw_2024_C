@@ -19,9 +19,6 @@
 	<!-- フォーカスセット -->
 	<script type="text/javascript">
 		window.onload = function(){
-			var eleRevision = document.sensekiRegistForm.revision;
-			var eleSensekiCd = document.sensekiRegistForm.sensekiCd;
-			var eleSensekiNm = document.sensekiRegistForm.sensekiNm;
 
 			if (eleRevision.defaultValue == ""){
 				eleSensekiCd.focus();
@@ -72,8 +69,8 @@
 								</span>
 							</td>
 							<td class="w-75 text-left">
-							<html:select name="inputBean" property="sensekiKbnKey" styleClass="input-select-xl ">
-									<html:optionsCollection name="viewBean" property="sensekiKbn" value="key" label="value" />
+							<html:select name="inputBean" property="senshuNmKey" styleClass="input-select-xl ">
+									<html:optionsCollection name="viewBean" property="senshuNm" value="key" label="value" />
 								</html:select>
 							</td>
 						</tr>
@@ -87,8 +84,8 @@
 									<html:text name = "inputBean" property = "ining"  styleClass = "input-text-s" />
 									
 									
-<html:select name="inputBean" property="zokugaraKey" styleClass="input-select-xl ">
-									<html:optionsCollection name="viewBean" property="zokugara" value="key" label="value" />
+								<html:select name="inputBean" property="iningMiniKey" styleClass="input-select-xl ">
+									<html:optionsCollection name="viewBean" property="iningMini" value="key" label="value" />
 								</html:select>
 									
 							</td>

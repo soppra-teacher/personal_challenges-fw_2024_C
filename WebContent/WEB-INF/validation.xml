@@ -285,75 +285,115 @@
 		<!-- 投手戦績登録画面 sensekiRegistForm　　halfKanaOnly,maxlength　-->
 		<form name="sensekiRegistForm">
 		
-		    <field property="sensekiKbnKey" depends="required">
-				<arg0 key="sensekiRegistForm.param.sensekiKbnKey" resource="true" />
+		    <field property="senshuNmKey" depends="required">
+				<arg0 key="sensekiRegistForm.param.senshuNmKey" resource="true" />
 			</field>
 		
-			<field property="ining" depends="required,mask">
+			<field property="ining" depends="required,mask,maxlength">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.ining" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>3</var-value>
+				</var>
 				<var>
 					<var-name>mask</var-name>
 					<var-value>^[0-9]*$</var-value>
 				</var>
 			</field>
 
-			<field property="tamakazu" depends="required,mask">
+			<field property="tamakazu" depends="required,mask,maxlength">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.tamakazu" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>3</var-value>
+				</var>
 				<var>
 					<var-name>mask</var-name>
 					<var-value>^[0-9]*$</var-value>
 				</var>
 			</field>
 			
-			<field property="hianda" depends="required,mask">
+			<field property="hianda" depends="required,mask,maxlength">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.hianda" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>3</var-value>
+				</var>
 				<var>
 					<var-name>mask</var-name>
 					<var-value>^[0-9]*$</var-value>
 				</var>
 			</field>
 			
-			<field property="yoshishikyu" depends="required,mask">
+			<field property="yoshishikyu" depends="required,mask,maxlength">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.yoshishikyu" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>3</var-value>
+				</var>
 				<var>
 					<var-name>mask</var-name>
 					<var-value>^[0-9]*$</var-value>
 				</var>
 			</field>
 			
-			<field property="datsusanshin" depends="required,mask">
+			<field property="datsusanshin" depends="required,mask,maxlength">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.datsusanshin" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>3</var-value>
+				</var>
 				<var>
 					<var-name>mask</var-name>
 					<var-value>^[0-9]*$</var-value>
 				</var>
 			</field>
 			
-			<field property="sitten" depends="required,mask">
+			<field property="sitten" depends="required,mask,maxlength">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.sitten" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>3</var-value>
+				</var>
 				<var>
 					<var-name>mask</var-name>
 					<var-value>^[0-9]*$</var-value>
 				</var>
 			</field>
 			
-			<field property="jisekiten" depends="required,mask">
+			<field property="jisekiten" depends="required,mask,maxlength">
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="sensekiRegistForm.param.jisekiten" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>3</var-value>
+				</var>
 				<var>
 					<var-name>mask</var-name>
 					<var-value>^[0-9]*$</var-value>
 				</var>
 			</field>
 			
-			 <field property="taisenNm" depends="required">
+			 <field property="taisenNm" depends="required,maxlength">
 				<arg0 key="sensekiRegistForm.param.taisenNm" resource="true" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var>
 			</field>
 			
 				<field property="shiaibi" depends="required,date">

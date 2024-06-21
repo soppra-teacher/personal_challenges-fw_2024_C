@@ -140,21 +140,7 @@ public class Const {
 	/** 収支一覧(個別)画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_SHUSHI_SETAI = "SHUSHI_LIST_SETAI_MESSAGE";
 
-	/** 投手戦績登録画面 戻り先 */
-	public static final String SESSION_REGIST_BACK_TOUSHU = "TOUSHU_REGIST_BACK";
-	/** 投手戦績メンテ画面 DTO */
-	public static final String SESSION_LIST_DTO_TOUSHU = "TOUSHU_LIST_DTO";
-	/** 投手戦績メンテ画面 再検索値 */
-	public static final String SESSION_LIST_RE_SEARCH_TOUSHU = "TOUSHU_LIST_RE_SEARCH";
-	/** 投手戦績メンテ画面 メッセージ */
-	public static final String SESSION_LIST_MESSAGE_TOUSHU = "TOUSHU_LIST_MESSAGE";
-
-	/** 投手戦績登録画面 DTO */
-	public static final String SESSION_REGIST_DTO_TOUSHU = "TOUSHU_REGIST_DTO";
-	/** 投手戦績登録画面 再検索値 */
-	public static final String SESSION_REGIST_RE_SEARCH_TOUSHU = "TOUSHU_REGIST_RE_SEARCH";
-	/** 投手戦績登録画面 メッセージ  */
-	public static final String SESSION_REGIST_MESSAGE_TOUSHU = "TOUSHU_REGIST_MESSAGE";
+	
 
 	/************* 画面ID *************/
     /** SM001:個人マスタメンテ */

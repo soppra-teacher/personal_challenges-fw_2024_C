@@ -53,23 +53,12 @@ public class SensekiRegistInsUpdAction extends BaseAction {
 
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
-System.out.println("-------------setSensekiService-----------------");
 		// 登録・更新処理
 		sensekiService.registInsUpd(formMap, loginDto);
 
-		// フォーム．リビジョンが未設定の場合
-		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(ITEM_REVISION)))) {
 			// 登録成功メッセージをセッションに設定
 			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_SENSEKI, MSG_SUCCESS_INSERT);
 
-		} else {
-			// 更新成功メッセージをセッションに設定
-			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_SENSEKI, MSG_SUCCESS_UPDATE);
-
-		}
-
-		// 検索条件をセッションに保持（再検索用）
-		request.getSession().setAttribute(SESSION_REGIST_RE_SEARCH_SENSEKI, formMap);
 
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(ACTION_FOWARD_SUCCESS);
