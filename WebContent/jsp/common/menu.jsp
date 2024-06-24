@@ -107,7 +107,7 @@
 				<tr>
 					<td>
 						<p>
-							<html:link action="/ShushiRegistInit">ŽûŽx“o˜^</html:link>
+							<html:link action="/SensekiRegistInit">“ŠŽèíÑ“o˜^</html:link>
 						</p>
 					</td>
 					<td>
