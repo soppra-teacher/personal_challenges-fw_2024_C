@@ -86,7 +86,7 @@
 		
 				<!-- 成績マスタメンテ画面 -->
 		<form name="seisekiListForm">
-			<field property="newSenshuNm" depends="zenCharOnly,maxlength">
+			<field property="newSenshuNm" depends="required,zenCharOnly,maxlength">
 				<msg name="mask" key="errors.zenkakuOnly" />
 				<arg0 key="seisekiListForm.param.newSenshuNm" resource="true" />
 				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
