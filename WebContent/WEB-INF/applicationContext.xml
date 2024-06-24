@@ -63,6 +63,13 @@
     </property>
   </bean>
   
+   <!-- ユーザーマスタ -->
+   <bean id="UserDaoId" class="cashbook.dao.user.UserDaoImpl">
+    <property name="dataSource">
+      <ref local="dataSource" />
+    </property>
+  </bean>
+  
     <!-- 成績マスタ -->
    <bean id="SeisekiDaoId" class="cashbook.dao.seiseki.SeisekiDaoImpl">
     <property name="dataSource">
@@ -122,6 +129,16 @@
       <ref local="KojinDaoId" />
     </property>
   </bean>
+  
+        <!-- 新規ユーザー登録 -->
+  <bean id="UserServiceId" class="cashbook.service.user.UserServiceImpl">
+  <property name="commonDao">
+      <ref local="CommonDaoId" />
+    </property>
+    <property name="userDao">
+      <ref local="UserDaoId" />
+      </property>
+ </bean>
   
       <!-- 成績マスタ -->
   <bean id="SeisekiServiceId" class="cashbook.service.seiseki.SeisekiServiceImpl">
@@ -222,6 +239,19 @@
   <bean name="/KojinRegistInsUpd" class="cashbook.action.kojin.KojinRegistInsUpdAction">
     <property name="kojinService">
       <ref local="KojinServiceId" />
+    </property>
+  </bean>
+  
+  <!--  新規作成  -->
+<!--    ユーザー登録 -->
+  <bean name="/UserRegistInit" class="cashbook.action.user.UserRegistInitAction">
+    <property name="userService">
+      <ref local="UserServiceId" />
+    </property>
+  </bean>
+    <bean name="/UserRegistInsUpd" class="cashbook.action.user.UserRegistInsUpdAction">
+    <property name="userService">
+      <ref local="UserServiceId" />
     </property>
   </bean>
   

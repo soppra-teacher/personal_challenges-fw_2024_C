@@ -14,7 +14,57 @@ public class LoginDto {
 	private String kojinNm;
 	/** 世帯主フラグ */
 	private String setainushiFlg;
-
+	
+	
+	/** ユーザーID 取得 */
+	private String userId;
+	/** ユーザーID 取得 */
+	private String pass;
+	
+	
+	/**
+	 * ユーザーＩＤを取得します。
+	 * @return 個人ＩＤ
+	 */
+	public String getUserId() {
+	    return userId;
+	}
+	
+	/**
+	 * 個人名を設定します。
+	 * @param kojinNm 個人名
+	 */
+	public void setUserId(String userId) {
+	    this.userId = userId;
+	}
+	
+	/**
+	 * パスワードを取得します。
+	 * @return 個人ＩＤ
+	 */
+	public String Pass() {
+	    return pass;
+	}
+	
+	/**
+	 * パスワードを設定します。
+	 * @param kojinNm 個人名
+	 */
+	public void setPass(String pass) {
+	    this.pass = pass;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 個人ＩＤを取得します。
 	 * @return 個人ＩＤ

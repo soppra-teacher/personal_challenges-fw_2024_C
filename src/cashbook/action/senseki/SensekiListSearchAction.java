@@ -74,7 +74,7 @@ public class SensekiListSearchAction extends BaseAction {
 		}
       
 		// 個人戦績画面 検索処理
-		SensekiListDto dto = sensekiService.listSearch(formMap);
+		SensekiListDto dto = sensekiService.listSearch(formMap,loginDto);
 
 		// 取得した情報をリクエストに登録
 		request.setAttribute(SensekiConst.FORM_SENSEKI_LIST, dto);
