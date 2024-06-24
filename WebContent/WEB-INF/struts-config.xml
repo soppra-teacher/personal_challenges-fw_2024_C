@@ -78,6 +78,26 @@
 			<form-property name="datsusanshin"   type="java.lang.String"  />
 			<form-property name="checkDel"       type="java.lang.String[]"/>
 		</form-bean>
+		
+		
+		<!-- 戦績マスタ登録画面 -->
+		<form-bean name="sensekiRegistForm"     type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="matchId"     type="java.lang.String" />
+			<form-property name="senshuNm"     type="java.lang.String" />
+			<form-property name="senshuNmKey"     type="java.lang.String" />
+			<form-property name="ining"     type="java.lang.String" />
+			<form-property name="iningMini" type="java.lang.String" />
+			<form-property name="iningMiniKey" type="java.lang.String" />
+			<form-property name="tamakazu"     type="java.lang.String" />
+			<form-property name="hianda"     type="java.lang.String" />
+			<form-property name="yoshishikyu"     type="java.lang.String" />
+			<form-property name="datsusanshin"     type="java.lang.String" />
+			<form-property name="sitten"     type="java.lang.String" />
+			<form-property name="jisekiten"     type="java.lang.String" />
+			<form-property name="taisenNm"     type="java.lang.String" />
+			<form-property name="shiaibi"     type="java.lang.String" />
+			
+		</form-bean>
 
 		<!-- 個人マスタメンテ画面 -->
 		<form-bean name="kojinListForm"          type="org.apache.struts.validator.DynaValidatorForm">
@@ -380,6 +400,50 @@
 			<forward name="success" path="/KojinRegistInit.do" redirect="true" />
 			<forward name="error" path="/jsp/kojin/kojinRegist.jsp" />
 		</action>
+		
+		
+		
+		<!--
+		****************************
+		* 戦績マスタ登録画面       *
+		****************************
+		-->
+		<!-- 初期表示 -->
+		<action
+			path="/SensekiRegistInit"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="sensekiRegistForm"
+			validate="false"
+			scope="request">
+			<forward name="success" path="/jsp/senseki/sensekiRegist.jsp"/>
+		</action>
+		<!-- ディスパッチ -->
+		<action
+			path="/SensekiRegistDisp"
+			type="cashbook.action.senseki.SensekiRegistDispAction"
+			name="sensekiRegistForm"
+			validate="false"
+			parameter="operation"
+			scope="request">
+			<forward name="insert" path="/SensekiRegistInsUpd.do"/>
+			<forward name="update" path="/SensekiRegistInsUpd.do"/>
+			<forward name="backMenu" path="/MenuInit.do"/>
+			<forward name="backList" path="/SensekiListSearch.do"/>
+		</action>
+		<!-- 登録・更新 -->
+		<action
+			path="/SensekiRegistInsUpd"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="sensekiRegistForm"
+			validate="true"
+			input="/jsp/senseki/sensekiRegist.jsp"
+			scope="request">
+			<forward name="success" path="/SensekiRegistInit.do" redirect="true" />
+		</action>
+		
+		
+		
+		
 		
 		<!--
 		****************************
