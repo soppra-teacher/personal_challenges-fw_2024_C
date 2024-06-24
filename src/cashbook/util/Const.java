@@ -226,4 +226,7 @@ public class Const {
 	public static final String CD_BUNRUI_004 = "004";
 	/** 世帯主：コード値 1 */
 	public static final String CD_004_1 = "1";
+	/** イニング詳細 */
+	public static final String CD_BUNRUI_006 = "006";
+
 }
