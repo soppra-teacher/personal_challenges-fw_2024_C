@@ -26,7 +26,7 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 		sql.append("       ,TRUNC((SUM(S1.INNING)/3),0)||'.'||MOD(SUM(S1.INNING),3)  AS 総イニング");
 		sql.append("       ,SUM(S1.SITTEN) AS 総失点 ");
 		sql.append("       ,SUM(S1.JISEKITEN) AS 総自責点 ");
-		sql.append("       ,TO_CHAR((SUM(S1.JISEKITEN))*9/(SUM(S1.INNING)/3),'0.00') AS 防御率 ");
+		sql.append("       ,CASE WHEN SUM(S1.INNING) = 0 AND SUM(S1.JISEKITEN) > 0 THEN '99.99' WHEN SUM(S1.INNING) = 0 AND SUM(S1.JISEKITEN) = 0 THEN '0.00' ELSE TO_CHAR(TRUNC((SUM(S1.JISEKITEN))*9/(SUM(S1.INNING)/3),2),'0.00') END AS 防御率");
 		sql.append("  FROM SENSEKI_TBL S1 ");
 		sql.append("  LEFT JOIN MST_PLAYER M1 ");
 		sql.append("  ON S1.PLAYER_ID=M1.PLAYER_ID ");

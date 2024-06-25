@@ -181,8 +181,6 @@
 						</html:button>
 					</logic:empty>
 				</div>
-
-
 				<jsp:include page="/jsp/common/footer.jsp" />
 			</div>
 		</html:form>

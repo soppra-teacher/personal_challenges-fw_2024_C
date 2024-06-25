@@ -91,26 +91,6 @@ public class SensekiServiceImpl implements SensekiService {
 		this.sensekiDao = sensekiDao;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/** 共通Dao */
 	private CommonDao commonDao;
 
@@ -170,15 +150,8 @@ public class SensekiServiceImpl implements SensekiService {
 	 * @throws CommonValidateException
 	 */
 	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws CommonValidateException {
-
-	
 			// 登録処理
 			sensekiDao.registSenseki(formMap, loginDto);
-
-
-
 		}
-
-
 
 }
