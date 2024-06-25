@@ -119,15 +119,6 @@ public class Const {
 	/** 新規ユーザー用エラーメッセージ2 */
 	public static final String MSG_USER_CONSIS_2 = "errors.user.seigosei2";
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/** 個人マスタ登録画面 DTO */
 	public static final String SESSION_REGIST_DTO_KOJIN = "KOJIN_REGIST_DTO";
 	/** 個人マスタ登録画面 戻り先 */
@@ -142,13 +133,7 @@ public class Const {
 	public static final String SESSION_LIST_RE_SEARCH_KOJIN = "KOJIN_LIST_RE_SEARCH";
 	/** 個人マスタメンテ画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_KOJIN = "KOJIN_LIST_MESSAGE";
-	
-	
-	
-	
-	
-	
-	
+
 	/** 個人戦績登録画面 DTO */
 	public static final String SESSION_REGIST_DTO_SENSEKI = "SENSEKI_REGIST_DTO";
 	/** 個人戦績登録画面 戻り先 */
@@ -163,17 +148,13 @@ public class Const {
 	public static final String SESSION_LIST_RE_SEARCH_SENSEKI = "SENSEKI_LIST_RE_SEARCH";
 	/** 個人戦績メンテ画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_SENSEKI = "SENSEKI_LIST_MESSAGE";
-	
-	
-	
+
 	/** 成績マスタメンテ画面 DTO */
 	public static final String SESSION_LIST_DTO_SEISEKI = "SEISEKI_LIST_DTO";
 	/** 成績マスタメンテ画面 再検索値 */
 	public static final String SESSION_LIST_RE_SEARCH_SEISEKI = "SEISEKI_LIST_RE_SEARCH";
 	/** 成績マスタメンテ画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_SEISEKI = "SEISEKI_LIST_MESSAGE";
-	
-	
 
 	/** 収支登録画面 戻り先 */
 	public static final String SESSION_REGIST_BACK_SHUSHI = "SHUSHI_REGIST_BACK";
@@ -188,7 +169,6 @@ public class Const {
 	public static final String SESSION_REGIST_RE_SEARCH_SHUSHI_KOBETSU = "SHUSHI_LIST_KOBETSU_RE_SEARCH";
 	/** 収支一覧(個別)画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_SHUSHI_SETAI = "SHUSHI_LIST_SETAI_MESSAGE";
-
 
 	/************* 画面ID *************/
     /** SM001:個人マスタメンテ */

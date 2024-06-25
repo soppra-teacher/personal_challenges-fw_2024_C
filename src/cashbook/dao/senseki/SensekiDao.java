@@ -17,14 +17,12 @@ public interface SensekiDao {
 	 * @return 個人マスタ一覧
 	 */
 	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap,LoginDto loginDto);
-
 	
 	/**
 	 * 個人戦績一覧を検索する
 	 * @return 選手名
 	 */
 	public String getPlayerName(Map<String, Object> formMap);
-
 
 	/**
 	 * 個人戦績を削除する
@@ -33,16 +31,6 @@ public interface SensekiDao {
 	 */
 	public void deleteSenseki(String checkDel, LoginDto loginDto);
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
 	 * <p><b>
 	 * 戦績登録画面
@@ -58,6 +46,5 @@ public interface SensekiDao {
 	 * @return 選手名
 	 */
 	public Map<String, String> searchSelectboxSenshuNm(LoginDto loginDto);
-	
 	
 }
