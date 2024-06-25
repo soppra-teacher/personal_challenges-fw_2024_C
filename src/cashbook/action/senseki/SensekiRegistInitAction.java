@@ -99,7 +99,7 @@ public class SensekiRegistInitAction extends BaseAction {
 		}
 
 		// 初期表示取得
-		SensekiRegistDto dto = sensekiService.registInit(formMap);
+		SensekiRegistDto dto = sensekiService.registInit(formMap,loginDto);
 
 		// 取得した情報をリクエストに設定
 		request.setAttribute(SensekiConst.FORM_SENSEKI_REGIST, dto);

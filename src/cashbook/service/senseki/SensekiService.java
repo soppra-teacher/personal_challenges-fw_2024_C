@@ -23,7 +23,7 @@ public interface SensekiService {
 	 * @param formMap
 	 * @return
 	 */
-	public SensekiListDto listSearch(Map<String, Object> formMap);
+	public SensekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto);
 
 	/**
 	 *
@@ -49,7 +49,7 @@ public interface SensekiService {
 	 * </b></p>
 	 * @return SensekiListDto 戦績メンテDTO
 	 */
-	public SensekiRegistDto listInit();
+	public SensekiRegistDto listInit(LoginDto loginDto);
 
 	/**
 	 * <p><b>
@@ -58,7 +58,7 @@ public interface SensekiService {
 	 * @param  formMap       画面項目
 	 * @return SensekiListDto 戦績メンテDTO
 	 */
-	public SensekiRegistDto registInit(Map<String, Object> formMap);
+	public SensekiRegistDto registInit(Map<String, Object> formMap,LoginDto loginDto);
 
 	/**
 	 * <p><b>

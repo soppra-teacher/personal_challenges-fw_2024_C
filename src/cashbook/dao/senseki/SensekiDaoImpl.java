@@ -19,7 +19,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	 * 個人戦績一覧を検索する
 	 * @return 個人戦績一覧
 	 */
-	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap) {
+	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap,LoginDto loginDto) {
 
 		List<Map<String, String>> result;
 		StringBuffer sql = new StringBuffer();
@@ -38,6 +38,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append("       ,M1.INS_USER");
 		sql.append("  FROM SENSEKI_TBL M1");
 		sql.append(" WHERE M1.PLAYER_ID = '").append(formMap.get(SeisekiConst.KEY_SENSHU_ID)).append("' ");
+		sql.append("  AND INS_USER= '").append(loginDto.getUserId()).append("' "); // 登録ユーザーとログインユーザーの合致で絞り込み
 		sql.append("  ORDER BY MATCH_DATE DESC ");
 
 		result = super.search(sql.toString());
@@ -86,8 +87,6 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	 */
 	public void registSenseki(Map<String, Object> formMap, LoginDto loginDto) {
 
-		System.out.println("formMap" + formMap);
-
 		// 登録用のSQLを組み立てる。
 		StringBuffer sql = new StringBuffer();
 		sql.append("INSERT INTO SENSEKI_TBL( ");
@@ -117,7 +116,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append(",'").append(formMap.get(SensekiConst.KEY_JISEKITEN)).append("'");//JISEKITEN
 		sql.append(",'").append(formMap.get(SensekiConst.KEY_TAISENNM)).append("'");//E_TEAM
 		sql.append(",'").append(formMap.get(SensekiConst.KEY_SHIAIBI)).append("'");//E_TEAM//MATCH_DATE
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");//INS_USER
+		sql.append("   , '").append(loginDto.getUserId()).append("' ");//INS_USER
 		sql.append(", SYSDATE ");//INS_DATE
 		sql.append(" ) ");
 		// 組み立てたSQLで登録処理を行う。
@@ -129,7 +128,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	 * セレクトボックス用選手名取得
 	 * @return 選手名
 	 */
-	public Map<String, String> searchSelectboxSenshuNm() {
+	public Map<String, String> searchSelectboxSenshuNm(LoginDto loginDto) {
 
 		List<Map<String, String>> result;
 		Map<String, String> ret = new LinkedHashMap<String, String>();
@@ -137,6 +136,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append("	SELECT PLAYER_ID AS ID						");
 		sql.append("	,PLAYER_ID || ':' || PLAYER_NAME AS NAME    ");
 		sql.append("	FROM MST_PLAYER                             ");
+		sql.append("  WHERE INS_USER= '").append(loginDto.getUserId()).append("' "); // 登録ユーザーとログインユーザーの合致で絞り込み
 		sql.append("	ORDER BY  PLAYER_ID                         ");
 		result = super.search(sql.toString());
 		for (Map<String, String> map : result) {

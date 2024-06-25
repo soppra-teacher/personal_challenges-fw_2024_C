@@ -35,7 +35,7 @@ public class SensekiServiceImpl implements SensekiService {
 	/**
 	 * 一覧画面検索メソッド
 	 */
-	public SensekiListDto listSearch(Map<String, Object> formMap) {
+	public SensekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto) {
 		
 		SensekiListDto result = new SensekiListDto();
 
@@ -46,7 +46,7 @@ public class SensekiServiceImpl implements SensekiService {
 		//------------------------------------------
 		List<SensekiListDto> SensekiList = new ArrayList<SensekiListDto>();
 		// 検索処理
-		List<Map<String, String>> list = sensekiDao.searchSenseki(formMap);
+		List<Map<String, String>> list = sensekiDao.searchSenseki(formMap,loginDto);
 		Iterator<Map<String, String>> it = list.iterator();
 		
 		while (it.hasNext()) {
@@ -131,10 +131,10 @@ public class SensekiServiceImpl implements SensekiService {
 	 * </b></p>
 	 * @return SensekiListDto 戦績DTO
 	 */
-	public SensekiRegistDto listInit() {
+	public SensekiRegistDto listInit(LoginDto loginDto) {
 		SensekiRegistDto result = new SensekiRegistDto();
 		// 選手名コンボボックスの設定
-		result.setSenshuNm(sensekiDao.searchSelectboxSenshuNm());
+		result.setSenshuNm(sensekiDao.searchSelectboxSenshuNm(loginDto));
 		//イニング詳細コンボボックス
 		result.setIningMini(commonDao.getCode(CD_BUNRUI_006));
 		return result;
@@ -148,12 +148,12 @@ public class SensekiServiceImpl implements SensekiService {
 	 * @param  formMap       画面項目
 	 * @return SensekiListDto 戦績DTO
 	 */
-	public SensekiRegistDto registInit(Map<String, Object> formMap) {
+	public SensekiRegistDto registInit(Map<String, Object> formMap,LoginDto loginDto) {
 
 		SensekiRegistDto result = new SensekiRegistDto();
 
 		// 選手名コンボボックスの設定
-		result.setSenshuNm(sensekiDao.searchSelectboxSenshuNm());
+		result.setSenshuNm(sensekiDao.searchSelectboxSenshuNm(loginDto));
 		//イニング詳細コンボボックス
 		result.setIningMini(commonDao.getCode(CD_BUNRUI_006));
 

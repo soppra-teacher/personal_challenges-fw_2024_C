@@ -73,7 +73,7 @@ td.login_field {
 
 /* 共通ヘッダ */
 div.header {
-	background-color: darkSlateGrey;
+	background-color: lightskyblue;
 	width: 95%;
 	height: 50px;
 	margin: 5px auto;
@@ -190,7 +190,7 @@ div.header {
 
 /* フォントカラー */
 .text-white {
-	color: #ffffff;
+	color: yellow;
 }
 
 

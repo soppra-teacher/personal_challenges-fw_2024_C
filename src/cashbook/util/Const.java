@@ -31,7 +31,11 @@ public class Const {
 	public static final String ACTION_FOWARD_BACK_LIST_SETAI = "backListSetai";
 	/** 遷移先 戻る(個別一覧) */
 	public static final String ACTION_FOWARD_BACK_LIST_KOBETSU = "backListKobetsu";
-
+	/** 遷移先 新規ユーザー登録画面(新規) */
+	public static final String ACTION_FOWARD_BACK_LIST_USER = "backListUser";
+	
+	
+	
 	/** ログイン失敗メッセージ */
 	public static final String MSG_ERRORS_LOGIN_ERROR = "loginForm.error.login";
 	/** 検索結果0件メッセージ */
@@ -101,6 +105,29 @@ public class Const {
 	/** 世帯マスタ登録画面 メッセージ  */
 	public static final String SESSION_REGIST_MESSAGE_SETAI = "SETAI_REGIST_MESSAGE";
 
+	//新規ユーザー登録の定義・変更箇所//
+	/** 新規ユーザー登録画面 DTO */
+	public static final String SESSION_REGIST_DTO_USER = "USER_REGIST_DTO";
+	/** 新規ユーザー登録画面 戻り先 */
+	public static final String SESSION_REGIST_BACK_USER = "USER_REGIST_BACK";
+	/** 新規ユーザー登録画面 再検索値 */
+	public static final String SESSION_REGIST_RE_SEARCH_USER = "USER_REGIST_RE_SEARCH";
+	/** 新規ユーザー登録画面 メッセージ */
+	public static final String SESSION_REGIST_MESSAGE_USER = "USER_REGIST_MESSAGE";
+	/** 新規ユーザー用エラーメッセージ1 */
+	public static final String MSG_USER_CONSIS_1 = "errors.user.seigosei1";
+	/** 新規ユーザー用エラーメッセージ2 */
+	public static final String MSG_USER_CONSIS_2 = "errors.user.seigosei2";
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/** 個人マスタ登録画面 DTO */
 	public static final String SESSION_REGIST_DTO_KOJIN = "KOJIN_REGIST_DTO";
 	/** 個人マスタ登録画面 戻り先 */
