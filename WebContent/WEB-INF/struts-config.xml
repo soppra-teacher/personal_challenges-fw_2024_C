@@ -101,8 +101,6 @@
 			<form-property name="shiaibi"     type="java.lang.String" />
 			
 		</form-bean>
-		
-		<!--追加した部分 -->
 
 		<!-- ユーザーマスタ登録画面 -->
 		<form-bean name="userRegistForm"
@@ -124,10 +122,6 @@
 			<form-property name="setaiNusiFlg"
 				type="java.lang.String" />
 			<form-property name="revision" type="java.lang.String" />
-
-
-
-
 		</form-bean>
 
 		<!-- 個人マスタメンテ画面 -->
@@ -197,7 +191,11 @@
 
 	<action-mappings>
 	
-	<!-- **************************** * ログイン画面 * **************************** -->
+		<!-- 
+		**************************** 
+		* ログイン画面 * 
+		**************************** 
+		-->
 		<action path="/Login"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="loginForm" validate="false" input="/jsp/common/LoginSample.jsp"
@@ -209,17 +207,22 @@
 			<forward name="success" path="/jsp/common/LoginSample.jsp" />
 		</action>
 
-		<!-- **************************** * メニュー画面 * **************************** -->
+		<!-- 
+		**************************** 
+		* メニュー画面 * 
+		**************************** 
+		-->
 		<action path="/MenuInit"
 			type="cashbook.action.common.MenuInitAction" scope="request">
 			<forward name="success" path="/jsp/common/Samplemenu.jsp" />
-			<!--<forward name="success" path="/jsp/common/menu.jsp"/> -->
+
 		</action>
 
-
-
-
-		<!-- **************************** * 新規ユーザー登録画面 * **************************** -->
+		<!-- 
+		**************************** 
+		* 新規ユーザー登録画面 * 
+		**************************** 
+		-->
 		<!-- 初期表示 -->
 		<action path="/UserRegistInit"
 			type="org.springframework.web.struts.DelegatingActionProxy" 
@@ -238,8 +241,7 @@
 			<forward name="backMenu" path="/MenuInit.do" />
 			<forward name="backList" path="/UserListSearch.do" />
 			<forward name="backListUser" path="/UserRegistInsUpd.do" />
-<!--			<forward name="success" path="/UserRegistInsUpd.do"-->
-<!--				redirect="true" />-->
+
 		</action>
 		<!-- 登録・更新 -->
 		<action path="/UserRegistInsUpd"
@@ -251,76 +253,6 @@
 		
 		</action>
 		
-		<!--
-		****************************
-		* ログイン画面             *
-		****************************
-		-->
-<!--		<action-->
-<!--			path="/Login"-->
-<!--			type="org.springframework.web.struts.DelegatingActionProxy"-->
-<!--			name="loginForm"-->
-<!--			validate="true"-->
-<!--			input="/jsp/common/login.jsp"-->
-<!--			scope="request">-->
-<!--			<forward name="success" path="/MenuInit.do?getKey=aaa"/>-->
-<!--		</action>-->
-<!--		<action-->
-<!--			path="/Logout"-->
-<!--			type="cashbook.action.common.LogoutAction"-->
-<!--			scope="request">-->
-<!--			<forward name="success" path="/jsp/common/login.jsp"/>-->
-<!--		</action>-->
-
-		<!--
-		****************************
-		* メニュー画面             *
-		****************************
-		-->
-<!--		<action-->
-<!--			path="/MenuInit"-->
-<!--			type="cashbook.action.common.MenuInitAction"-->
-<!--			scope="request">-->
-<!--			<forward name="success" path="/jsp/common/menu.jsp"/>-->
-<!--		</action>-->
-
-		<!--
-		****************************
-		* 費目マスタ登録画面       *
-		****************************
-		-->
-		<!-- 初期表示 -->
-<!--		<action-->
-<!--			path="/HimokuRegistInit"-->
-<!--			type="org.springframework.web.struts.DelegatingActionProxy"-->
-<!--			name="himokuRegistForm"-->
-<!--			validate="false"-->
-<!--			scope="request">-->
-<!--			<forward name="success" path="/jsp/himoku/himokuRegist.jsp"/>-->
-<!--		</action>-->
-		<!-- ディスパッチ -->
-<!--		<action-->
-<!--			path="/HimokuRegistDisp"-->
-<!--			type="cashbook.action.himoku.HimokuRegistDispAction"-->
-<!--			name="himokuRegistForm"-->
-<!--			validate="false"-->
-<!--			parameter="operation"-->
-<!--			scope="request">-->
-<!--			<forward name="insert" path="/HimokuRegistInsUpd.do"/>-->
-<!--			<forward name="update" path="/HimokuRegistInsUpd.do"/>-->
-<!--			<forward name="backMenu" path="/MenuInit.do"/>-->
-<!--			<forward name="backList" path="/HimokuListSearch.do"/>-->
-<!--		</action>-->
-		<!-- 登録・更新 -->
-<!--		<action-->
-<!--			path="/HimokuRegistInsUpd"-->
-<!--			type="org.springframework.web.struts.DelegatingActionProxy"-->
-<!--			name="himokuRegistForm"-->
-<!--			validate="true"-->
-<!--			input="/jsp/himoku/himokuRegist.jsp"-->
-<!--			scope="request">-->
-<!--			<forward name="success" path="/HimokuRegistInit.do" redirect="true" />-->
-<!--		</action>-->
 
 		<!--
 		****************************

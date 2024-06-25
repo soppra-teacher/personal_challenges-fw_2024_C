@@ -23,7 +23,6 @@
 
 		<html:form action="/Login?getKey=aaa" focus="userId">
 
-			<!-- <img class="top-img" src="img/login.png" />  -->
 			<img class="top-img" src="img/login.png" border=”0″ />
 			<div class="contents block-center">
 				<html:messages id="msg" message="false">
@@ -51,7 +50,7 @@
 		<p></p>
 	</div>
 	<p>
-		<html:link action="/UserRegistInit">選手登録画面</html:link>
+		<html:link action="/UserRegistInit">新規ユーザー登録</html:link>
 		
 	</p>
 	</div>

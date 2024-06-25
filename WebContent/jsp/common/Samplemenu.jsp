@@ -12,7 +12,7 @@
 	<meta content="ja" http-equiv="Content-Language" />
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>
-		スポーツDATA　メニュー画面だよん
+		スポーツDATA　メニュー画面
 	</title>
 
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
@@ -43,14 +43,6 @@
 				<tr>
 					<td class="plr-20">
 						<p>
-							<html:link action="/SensekiRegistInit">ーーーーーー</html:link>
-						</p>
-					</td>
-				</tr>
-
-				<tr>
-					<td>
-						<p>
 							<html:link action="/SensekiRegistInit">試合結果登録画面</html:link>
 						</p>
 					</td>
@@ -64,15 +56,9 @@
 					</td>
 				</tr>
 				
-				<tr>
-					<td>
-						<p>
-							<html:link action="/KojinRegistInit">ーーーーーー</html:link>
-						</p>
-					</td>
-				</tr>
+
 			</table>
-			<jsp:include page="/jsp/common/footer.jsp" />
+			<jsp:include page="/jsp/common/newUser_footer.jsp" />
 		</div>
 
 	</div>

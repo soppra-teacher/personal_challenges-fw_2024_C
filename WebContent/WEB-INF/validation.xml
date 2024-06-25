@@ -35,7 +35,6 @@
 				<msg name="mask" key="errors.numHalfChar" />
 				<arg0 key="userRegistForm.param.pass" resource="true" />
 				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-             <!--試し-->
                 <arg2 name="mask" key="${var:mask}" resource="false"/>
 				<var>
 					<var-name>maxlength</var-name>
@@ -67,16 +66,6 @@
 	
 	
 	
-	
-		<!-- ログイン画面 -->
-<!--		<form name="loginForm">-->
-<!--			<field property="kojinId" depends="required">-->
-<!--				<arg0 key="loginForm.param.kojinId" resource="true" />-->
-<!--			</field>-->
-<!--			<field property="pass" depends="required">-->
-<!--				<arg0 key="loginForm.param.pass" resource="true" />-->
-<!--			</field>-->
-<!--		</form>-->
 
 		<!-- 個人マスタ登録画面 -->
 		<form name="kojinRegistForm">
