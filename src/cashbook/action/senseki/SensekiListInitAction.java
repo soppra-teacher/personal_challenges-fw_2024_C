@@ -25,7 +25,6 @@ public class SensekiListInitAction extends BaseAction {
 	 * @param sensekiService 個人マスタサービス
 	 */
 	public void setSensekiService(SensekiService sensekiService) {
-		//this.sensekiService = sensekiService;
 	}
 
 	/**

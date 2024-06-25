@@ -31,16 +31,6 @@ public interface SensekiService {
 	 * @param loginDto
 	 */
 	public void listDelete(Map<String, Object> formMap, LoginDto loginDto);
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 * <p><b>
