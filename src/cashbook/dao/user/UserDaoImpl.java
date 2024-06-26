@@ -2,7 +2,6 @@ package cashbook.dao.user;
 
 import static cashbook.util.Const.*;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.dao.CannotAcquireLockException;
@@ -104,11 +103,11 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
 	//以下の3つの @Overrideがないとエラーになる
 
-	@Override
-	public List<Map<String, String>> searchUser(Map<String, Object> formMap) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
+//	@Override
+//	public List<Map<String, String>> searchUser(Map<String, Object> formMap) {
+//		// TODO 自動生成されたメソッド・スタブ
+//		return null;
+//	}
 
 	@Override
 	public void deleteUser(String kojinId, LoginDto loginDto) {

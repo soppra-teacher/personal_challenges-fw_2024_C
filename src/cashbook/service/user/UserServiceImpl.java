@@ -2,8 +2,6 @@ package cashbook.service.user;
 
 import static cashbook.util.Const.*;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -65,26 +63,26 @@ public class UserServiceImpl implements UserService {
 		//------------------------------------------
 		// 一覧
 		//------------------------------------------
-		List<UserRegistDto> UserList = new ArrayList<UserRegistDto>();
-		// 検索処理
-		List<Map<String, String>> list = userDao.searchUser(formMap);
-		Iterator<Map<String, String>> it = list.iterator();
-		while (it.hasNext()) {
-			Map<String, String> map = it.next();
-			UserRegistDto dto = new UserRegistDto();
-			dto.setUserId(map.get("USER_ID"));
-			dto.setSetaiId(map.get("SETAI_ID"));
-			dto.setUserNm(map.get("USER_NM"));
-			dto.setUserNmkana(map.get("USER_NM_KANA"));
-			dto.setSeibetsuNm(commonDao.getCode(CD_BUNRUI_002).get(map.get("SEIBETSU_KBN")));
-			dto.setZokugaraNm(commonDao.getCode(CD_BUNRUI_003).get(map.get("ZOKUGARA")));
-			dto.setSetaiNusiFlg(map.get("SETAINUSHI_FLG"));
-			if (SETAINUSHI_ON.equals(map.get("SETAINUSHI_FLG"))) {
-				dto.setSetaiNusiNm(commonDao.getCodeName(CD_BUNRUI_004, CD_004_1));
-			}
-			UserList.add(dto);
-		}
-		result.setList(UserList);
+//		List<UserRegistDto> UserList = new ArrayList<UserRegistDto>();
+//		// 検索処理
+//		List<Map<String, String>> list = userDao.searchUser(formMap);
+//		Iterator<Map<String, String>> it = list.iterator();
+//		while (it.hasNext()) {
+//			Map<String, String> map = it.next();
+//			UserRegistDto dto = new UserRegistDto();
+//			dto.setUserId(map.get("USER_ID"));
+//			dto.setSetaiId(map.get("SETAI_ID"));
+//			dto.setUserNm(map.get("USER_NM"));
+//			dto.setUserNmkana(map.get("USER_NM_KANA"));
+//			dto.setSeibetsuNm(commonDao.getCode(CD_BUNRUI_002).get(map.get("SEIBETSU_KBN")));
+//			dto.setZokugaraNm(commonDao.getCode(CD_BUNRUI_003).get(map.get("ZOKUGARA")));
+//			dto.setSetaiNusiFlg(map.get("SETAINUSHI_FLG"));
+//			if (SETAINUSHI_ON.equals(map.get("SETAINUSHI_FLG"))) {
+//				dto.setSetaiNusiNm(commonDao.getCodeName(CD_BUNRUI_004, CD_004_1));
+//			}
+//			UserList.add(dto);
+//		}
+//    result.setList(UserList);
 		return result;
 	}
 
