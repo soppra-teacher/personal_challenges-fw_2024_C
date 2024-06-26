@@ -14,22 +14,22 @@ import cashbook.dto.common.LoginDto;
 import cashbook.service.senseki.SensekiService;
 
 /**
- * 個人マスタメンテ画面 初期表示アクションクラス
+ * 個人戦績メンテ画面 初期表示アクションクラス
  * @author soppra
  */
 public class SensekiListInitAction extends BaseAction {
 
 
 	/**
-	 * 個人マスタサービスを設定します。
-	 * @param sensekiService 個人マスタサービス
+	 * 個人戦績サービスを設定します。
+	 * @param sensekiService 個人戦績サービス
 	 */
 	public void setSensekiService(SensekiService sensekiService) {
 	}
 
 	/**
 	 * <p><b>
-	 * 個人マスタメンテ画面
+	 * 個人戦績メンテ画面
 	 * <br>初期表示処理
 	 * </b></p>
 	 

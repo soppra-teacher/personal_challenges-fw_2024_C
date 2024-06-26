@@ -1,6 +1,5 @@
 package cashbook.dao.user;
 
-import java.util.List;
 import java.util.Map;
 
 import cashbook.dto.common.LoginDto;
@@ -16,7 +15,7 @@ public interface UserDao {
 	 * @param formMap フォーム項目
 	 * @return ユーザーマスタ一覧
 	 */
-	public List<Map<String, String>> searchUser(Map<String, Object> formMap);
+	//public List<Map<String, String>> searchUser(Map<String, Object> formMap);
 
 	/**
 	 * ユーザーマスタを削除する いらない
