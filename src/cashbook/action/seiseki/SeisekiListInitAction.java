@@ -13,7 +13,6 @@ import cashbook.action.common.BaseAction;
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.seiseki.SeisekiListDto;
 import cashbook.service.seiseki.SeisekiService;
-import cashbook.util.SeisekiConst;
 
 /**
  * 成績マスタメンテ画面 初期表示アクションクラス
@@ -55,8 +54,6 @@ public class SeisekiListInitAction extends BaseAction {
 		// 成績マスタメンテ初期表示情報を取得
 		SeisekiListDto dto = seisekiService.listInit();
 
-		// 取得した情報をリクエストに設定
-		request.setAttribute(SeisekiConst.FORM_SEISEKI_LIST, dto);
 		// 取得した情報をセッションに設定
 		request.getSession().setAttribute(SESSION_LIST_DTO_SEISEKI, dto);
 

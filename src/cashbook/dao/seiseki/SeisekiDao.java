@@ -16,7 +16,7 @@ public interface SeisekiDao {
 	 * @param formMap フォーム項目
 	 * @return 成績マスタ一覧
 	 */
-	public List<Map<String, String>> searchSeiseki(Map<String, Object> formMap, LoginDto loginDto);
+	public List<Map<String, String>> searchSeiseki(LoginDto loginDto);
 
 
 	/**

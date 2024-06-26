@@ -2,8 +2,6 @@ package cashbook.action.seiseki;
 
 import static cashbook.util.Const.*;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +10,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
-import org.apache.struts.action.DynaActionForm;
 
 import cashbook.action.common.BaseAction;
 import cashbook.dto.common.LoginDto;
@@ -20,7 +17,6 @@ import cashbook.dto.seiseki.SeisekiListDto;
 import cashbook.exception.CommonValidateException;
 import cashbook.service.seiseki.SeisekiService;
 import cashbook.util.CommonUtil;
-import cashbook.util.SeisekiConst;
 
 /**
  * 成績マスタメンテ画面検索アクションクラス
@@ -56,9 +52,6 @@ public class SeisekiListSearchAction extends BaseAction {
 	protected ActionForward doProcess(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
 		
-		// フォームの値を取得
-		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
-
 		// セッションからメッセージを取得する。
 		String messageKey = CommonUtil.getStr(request.getSession().getAttribute(SESSION_LIST_MESSAGE_SEISEKI));
 
@@ -74,10 +67,8 @@ public class SeisekiListSearchAction extends BaseAction {
 		}
 
 		// 成績マスタメンテ画面 検索処理
-		SeisekiListDto dto = seisekiService.listSearch(formMap,loginDto);
-
-		// 取得した情報をリクエストに登録
-		request.setAttribute(SeisekiConst.FORM_SEISEKI_LIST, dto);
+		SeisekiListDto dto = seisekiService.listSearch(loginDto);
+		
 		// 取得した情報をセッションに登録
 		request.getSession().setAttribute(SESSION_LIST_DTO_SEISEKI, dto);
 		
