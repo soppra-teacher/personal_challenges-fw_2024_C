@@ -23,17 +23,17 @@ import cashbook.util.CommonUtil;
 import cashbook.util.SensekiConst;
 
 /**
- * 個人マスタメンテ画面検索アクションクラス
+ * 個人戦績画面検索アクションクラス
  * @author soppra
  */
 public class SensekiListSearchAction extends BaseAction {
 
-	/** 個人マスタサービス */
+	/** 個人戦績サービス */
 	private SensekiService sensekiService;
 
 	/**
-	 * 個人マスタサービスを設定します。
-	 * @param sensekiService 個人マスタサービス
+	 * 個人戦績サービスを設定します。
+	 * @param sensekiService 個人戦績サービス
 	 */
 	public void setSensekiService(SensekiService sensekiService) {
 		this.sensekiService = sensekiService;
@@ -41,7 +41,7 @@ public class SensekiListSearchAction extends BaseAction {
 
 	/**
 	 * <p><b>
-	 * 個人マスタメンテ画面
+	 * 個人戦績画面
 	 * <br>検索処理
 	 * </b></p>
 	 *

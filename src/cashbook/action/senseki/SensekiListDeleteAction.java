@@ -23,11 +23,11 @@ import cashbook.util.CommonUtil;
  */
 public class SensekiListDeleteAction extends BaseAction {
 
-	/** 個人マスタサービス */
+	/** 個人戦績サービス */
 	private SensekiService sensekiService;
 
 	/**
-	 * 個人マスタサービスを設定します。
+	 * 個人戦績サービスを設定します。
 	 * @param sensekiService 個人マスタサービス
 	 */
 	public void setSensekiService(SensekiService sensekiService) {
@@ -36,7 +36,7 @@ public class SensekiListDeleteAction extends BaseAction {
 
 	/**
 	 * <p><b>
-	 * 個人マスタメンテ画面
+	 * 個人戦績画面
 	 * <br>削除処理
 	 * </b></p>
 	 *

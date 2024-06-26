@@ -32,10 +32,7 @@ public interface SensekiDao {
 	public void deleteSenseki(String checkDel, LoginDto loginDto);
 
 	/**
-	 * <p><b>
-	 * 戦績登録画面
-	 * <br>登録処理
-	 * </b></p>
+	 * 戦績を登録する
 	 * @param フォーム項目
 	 * @param ログイン情報DTO
 	 */
