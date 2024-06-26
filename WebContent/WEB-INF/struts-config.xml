@@ -473,6 +473,7 @@
 			path="/SensekiListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			name="seisekiListForm"
+			validate="false"
 			scope="request">
 			<forward name="success" path="/SensekiListSearch.do" redirect="true"  />
 		</action>
