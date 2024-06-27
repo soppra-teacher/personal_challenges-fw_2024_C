@@ -32,7 +32,7 @@
 			</field>
 			
 			<field property="pass" depends="required,mask,maxlength">
-				<msg name="mask" key="errors.numHalfChar" />
+				<msg name="mask" key="errors.strHalfChar" />
 				<arg0 key="userRegistForm.param.pass" resource="true" />
 				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
                 <arg2 name="mask" key="${var:mask}" resource="false"/>
@@ -48,7 +48,7 @@
 			
 		
 				<field property="pass2" depends="required,mask,maxlength">
-				<msg name="mask" key="errors.numHalfChar" />
+				<msg name="mask" key="errors.strHalfChar" />
 				<arg0 key="userRegistForm.param.pass2" resource="true" />
 				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
 				<arg2 name="mask" key="${var:mask}" resource="false"/>

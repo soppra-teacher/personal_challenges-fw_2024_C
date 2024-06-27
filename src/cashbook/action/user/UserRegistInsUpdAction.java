@@ -27,10 +27,10 @@ import cashbook.util.Const;
  * @author soppra
  */
 public class UserRegistInsUpdAction extends Action {
-	
+
 	/** ユーザーマスタサービス */
 	private UserService userService;
-	
+
 	/**
 	 * ユーザーマスタサービスを設定します。
 	 * @param userService ユーザーマスタサービス
@@ -39,38 +39,38 @@ public class UserRegistInsUpdAction extends Action {
 		this.userService = userService;
 	}
 
-	
-	
 	@Override
 	public ActionForward execute(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+
+		// 個人マスタメンテ初期表示情報を取得
+		UserRegistDto dto = new UserRegistDto();
+
 		// ログイン成功
-		request.setAttribute("userRegistForm", new UserRegistDto());
+		request.setAttribute("FORM_USER_REGIST", dto);
 		// ログイン情報取得
-		request.getSession().setAttribute("USER_REGIST_DTO", new UserRegistDto());
+		request.getSession().setAttribute("USER_REGIST_DTO", dto);
 
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
-		
+
 		try {
 
 			// 登録・更新
 			userService.registInsUpd(formMap);
 			// 登録成功メッセージをセッションに設定
 			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_USER, MSG_SUCCESS_INSERT);
-			
+
 		} catch (CommonValidateException e) {
-		
+
 			ActionErrors errors = new ActionErrors();
 			errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage(e.getMessageKey()));
 			saveErrors(request, errors);
 			return map.getInputForward();
 		}
-		
+
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(Const.ACTION_FOWARD_SUCCESS);
-	    
-		
+
 	}
 }
