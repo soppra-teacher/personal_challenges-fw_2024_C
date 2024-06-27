@@ -37,10 +37,10 @@ public class ShushiRegistInsUpdAction extends BaseAction {
 		formMap.put("ym", CommonUtil.getStr(formMap.get("ymd")).substring(0, 4)
 				+ CommonUtil.getStr(formMap.get("ymd")).substring(5, 7));
 		// ログインDTO.個人IDを設定
-		formMap.put("loginKojinId", loginDto.getKojinId());
+//		formMap.put("loginKojinId", loginDto.getKojinId());
 
 		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get("kojinId")))) {
-			formMap.put("kojinId", loginDto.getKojinId());
+//			formMap.put("kojinId", loginDto.getKojinId());
 		}
 
 		// 登録・更新

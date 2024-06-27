@@ -8,8 +8,6 @@ import org.springframework.dao.CannotAcquireLockException;
 
 import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
-import cashbook.util.CommonUtil;
-import cashbook.util.Const;
 
 /**
  * 収支DAOクラス
@@ -21,44 +19,44 @@ public class ShushiDaoImpl extends BaseDaoImpl implements ShushiDao {
 	 * 収支一覧を検索する
 	 * @return 収支一覧
 	 */
-	public List<Map<String, String>> listSearch(Map<String, Object> formMap, LoginDto loginDto) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT T1.SHUSHI_ID || ',' || T1.SHUSHI_DTL_ID AS SHUSHI_KEY ");
-		sql.append("     , M2.KOJIN_NM AS KOJIN_NM ");
-		sql.append("     , T1.HIMOKU_CD || M1.HIMOKU_NM AS HIMOKU_NM ");
-		sql.append("     , M1.HIMOKU_KBN ");
-		sql.append("     , T1.KINGAKU ");
-		sql.append("     , TO_CHAR(T1.YMD,'YYYY/MM/DD') AS YMD ");
-		sql.append("  FROM TRN_SHUSHI_DTL T1 ");
-		sql.append(" INNER JOIN TRN_SHUSHI T2 ");
-		sql.append("    ON T1.SHUSHI_ID = T2.SHUSHI_ID ");
-		sql.append(" INNER JOIN MST_HIMOKU M1 ");
-		sql.append("    ON T1.HIMOKU_CD = M1.HIMOKU_CD ");
-		sql.append(" INNER JOIN MST_KOJIN M2 ");
-		sql.append("    ON T2.KOJIN_ID = M2.KOJIN_ID ");
-		sql.append(" WHERE T2.YM = '").append(formMap.get("yearKey")).append(formMap.get("monthKey")).append("' ");
-
-		// 費目CD
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get("himokuCd")))) {
-			sql.append("  AND M1.HIMOKU_CD = '").append(formMap.get("himokuCd")).append("' ");
-		}
-		// 個人名
-		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get("kojinNmKey")))) {
-			sql.append("  AND T2.KOJIN_ID = '").append(formMap.get("kojinNmKey")).append("' ");
-		}
+//	public List<Map<String, String>> listSearch(Map<String, Object> formMap, LoginDto loginDto) {
+//
+//		StringBuffer sql = new StringBuffer();
+//		sql.append("SELECT T1.SHUSHI_ID || ',' || T1.SHUSHI_DTL_ID AS SHUSHI_KEY ");
+//		sql.append("     , M2.KOJIN_NM AS KOJIN_NM ");
+//		sql.append("     , T1.HIMOKU_CD || M1.HIMOKU_NM AS HIMOKU_NM ");
+//		sql.append("     , M1.HIMOKU_KBN ");
+//		sql.append("     , T1.KINGAKU ");
+//		sql.append("     , TO_CHAR(T1.YMD,'YYYY/MM/DD') AS YMD ");
+//		sql.append("  FROM TRN_SHUSHI_DTL T1 ");
+//		sql.append(" INNER JOIN TRN_SHUSHI T2 ");
+//		sql.append("    ON T1.SHUSHI_ID = T2.SHUSHI_ID ");
+//		sql.append(" INNER JOIN MST_HIMOKU M1 ");
+//		sql.append("    ON T1.HIMOKU_CD = M1.HIMOKU_CD ");
+//		sql.append(" INNER JOIN MST_KOJIN M2 ");
+//		sql.append("    ON T2.KOJIN_ID = M2.KOJIN_ID ");
+//		sql.append(" WHERE T2.YM = '").append(formMap.get("yearKey")).append(formMap.get("monthKey")).append("' ");
+//
+//		// 費目CD
+//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get("himokuCd")))) {
+//			sql.append("  AND M1.HIMOKU_CD = '").append(formMap.get("himokuCd")).append("' ");
+//		}
+//		// 個人名
+//		if (!CommonUtil.isNull(CommonUtil.getStr(formMap.get("kojinNmKey")))) {
+//			sql.append("  AND T2.KOJIN_ID = '").append(formMap.get("kojinNmKey")).append("' ");
+//		}
 		// 世帯主の場合
-		if (loginDto.getSetainushiFlg().equals(Const.SETAINUSHI_ON)) {
+		//if (loginDto.getSetainushiFlg().equals(Const.SETAINUSHI_ON)) {
 			// 世帯ID
-			sql.append("  AND M2.SETAI_ID = '").append(loginDto.getSetaiId()).append("' ");
-		} else {
+			//sql.append("  AND M2.SETAI_ID = '").append(loginDto.getSetaiId()).append("' ");
+		//} else {
 			// 個人ID
-			sql.append("  AND T2.KOJIN_ID = '").append(loginDto.getKojinId()).append("' ");
-		}
-		sql.append(" ORDER BY T1.YMD ");
+			//sql.append("  AND T2.KOJIN_ID = '").append(loginDto.getKojinId()).append("' ");
+		//}
+		//sql.append(" ORDER BY T1.YMD ");
 
-		return super.search(sql.toString());
-	}
+		//return super.search(sql.toString());
+//	}
 
 	/**
 	 * 収支明細件数取得
@@ -269,7 +267,7 @@ public class ShushiDaoImpl extends BaseDaoImpl implements ShushiDao {
 		sql.append("      , M.KOJIN_NM AS KOJIN_NM ");
 		sql.append("   FROM MST_KOJIN M ");
 		sql.append("  WHERE M.DEL_FLG = '0' ");
-		sql.append("    AND M.SETAI_ID = '").append(loginDto.getSetaiId()).append("' ");
+		//sql.append("    AND M.SETAI_ID = '").append(loginDto.getSetaiId()).append("' ");
 		sql.append("  ORDER BY M.KOJIN_ID ");
 
 		result = super.search(sql.toString());
@@ -313,5 +311,11 @@ public class ShushiDaoImpl extends BaseDaoImpl implements ShushiDao {
 		result = super.find(sql.toString());
 
 		return result.get("SHUSHIID");
+	}
+
+	@Override
+	public List<Map<String, String>> listSearch(Map<String, Object> formMap, LoginDto loginDto) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 }

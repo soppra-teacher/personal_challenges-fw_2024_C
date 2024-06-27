@@ -68,9 +68,7 @@ public class KojinDaoImpl extends BaseDaoImpl implements KojinDao {
 			}
 		}
 		sql.append(" ORDER BY M1.KOJIN_ID ");
-		
-		
-		
+
 		result = super.search(sql.toString());
 
 		return result;
@@ -80,12 +78,11 @@ public class KojinDaoImpl extends BaseDaoImpl implements KojinDao {
 	 * 個人マスタを削除する
 	 */
 	public void deleteKojin(String kojinId, LoginDto loginDto) {
-		System.out.println("kojinId:"+kojinId);
+		System.out.println("kojinId:" + kojinId);
 
 		StringBuffer sql = new StringBuffer();
 		sql.append("UPDATE MST_KOJIN M1 ");
 		sql.append("   SET M1.DEL_FLG = '1' ");
-		sql.append("     , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
 		sql.append("     , M1.UPD_DATE = SYSDATE ");
 		sql.append("     , M1.REVISION = M1.REVISION + 1 ");
 		sql.append(" WHERE M1.KOJIN_ID = '").append(kojinId).append("' ");
@@ -148,9 +145,7 @@ public class KojinDaoImpl extends BaseDaoImpl implements KojinDao {
 		sql.append("   , '").append(formMap.get(KojinConst.KEY_ZOKUGARA)).append("' ");
 		sql.append("   , '").append(formMap.get(KojinConst.KEY_SETAINUSI_FLG_VALUE)).append("' ");
 		sql.append("   , '0' ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		sql.append("   , SYSDATE ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		sql.append("   , SYSDATE ");
 		sql.append("   , 0 ");
 		sql.append(" ) ");
@@ -172,7 +167,6 @@ public class KojinDaoImpl extends BaseDaoImpl implements KojinDao {
 		sql.append("     , M1.SEIBETSU_KBN = '").append(formMap.get(KojinConst.KEY_SEIBETSU_KBN)).append("' ");
 		sql.append("     , M1.ZOKUGARA = '").append(formMap.get(KojinConst.KEY_ZOKUGARA)).append("' ");
 		sql.append("     , M1.SETAINUSHI_FLG = '").append(formMap.get(KojinConst.KEY_SETAINUSI_FLG_VALUE)).append("' ");
-		sql.append("     , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
 		sql.append("     , M1.UPD_DATE = SYSDATE ");
 		sql.append("     , M1.REVISION = M1.REVISION + 1 ");
 		sql.append(" WHERE M1.KOJIN_ID = '").append(formMap.get(KojinConst.KEY_KOJIN_ID)).append("' ");
