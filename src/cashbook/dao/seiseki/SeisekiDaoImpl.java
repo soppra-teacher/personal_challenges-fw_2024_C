@@ -30,9 +30,7 @@ public class SeisekiDaoImpl extends BaseDaoImpl implements SeisekiDao {
 		sql.append("             WHEN SUM(S1.INNING) = 0 AND SUM(S1.JISEKITEN) = 0 THEN '0.00' ");
 		sql.append("             WHEN TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2)<10 THEN TO_CHAR(TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2),'0.00') ");
 		sql.append("             WHEN TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2) BETWEEN 10 AND 99 THEN TO_CHAR(TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2),'00.00') ");
-		sql.append("             WHEN TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2) BETWEEN 100 AND 999 THEN TO_CHAR(TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2),'000.00') ");
-		sql.append("             WHEN TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2) BETWEEN 1000 AND 9999 THEN TO_CHAR(TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2),'0000.00') ");
-		sql.append("             WHEN TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2) BETWEEN 10000 AND 99999 THEN TO_CHAR(TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2),'00000.00') ");
+		sql.append("             WHEN TRUNC(((SUM(S1.JISEKITEN))*9)/(SUM(S1.INNING)/3),2) > 99.99 THEN '99.99' ");
 		sql.append("        END AS 防御率 ");
 		sql.append("  FROM SENSEKI_TBL S1 ");
 		sql.append("  LEFT JOIN MST_PLAYER M1 ");
