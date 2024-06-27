@@ -23,6 +23,8 @@ public class SensekiServiceImpl implements SensekiService {
 
 	/** 個人マスタDao */
 	private SensekiDao sensekiDao;
+	/** 共通Dao */
+	private CommonDao commonDao;
 
 	/**
 	 * 一覧画面初期表示メソッド
@@ -82,28 +84,7 @@ public class SensekiServiceImpl implements SensekiService {
 			sensekiDao.deleteSenseki(checkDel, loginDto);
 		}
 	}
-
-	/**
-	 * DAOのsetter
-	 * @param sensekiDao
-	 */
-	public void setSensekiDao(SensekiDao sensekiDao) {
-		this.sensekiDao = sensekiDao;
-	}
 	
-	/** 共通Dao */
-	private CommonDao commonDao;
-
-
-
-	/**
-	 * DAOのsetter
-	 * @param commonDao
-	 */
-	public void setCommonDao(CommonDao commonDao) {
-		this.commonDao = commonDao;
-	}
-
 	/**
 	 * <p><b>
 	 * 戦績画面
@@ -135,7 +116,7 @@ public class SensekiServiceImpl implements SensekiService {
 		// 選手名コンボボックスの設定
 		result.setSenshuNm(sensekiDao.searchSelectboxSenshuNm(loginDto));
 		//イニング詳細コンボボックス
-		result.setIningMini(commonDao.getCode(CD_BUNRUI_006));
+		result.setIningMini(commonDao.getCode(CD_BUNRUI_001));
 
 		return result;
 	}
@@ -152,6 +133,23 @@ public class SensekiServiceImpl implements SensekiService {
 	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws CommonValidateException {
 			// 登録処理
 			sensekiDao.registSenseki(formMap, loginDto);
-		}
+	}
+	
+	/**
+	 * DAOのsetter
+	 * @param sensekiDao
+	 */
+	public void setSensekiDao(SensekiDao sensekiDao) {
+		this.sensekiDao = sensekiDao;
+	}
+
+	/**
+	 * DAOのsetter
+	 * @param commonDao
+	 */
+	public void setCommonDao(CommonDao commonDao) {
+		this.commonDao = commonDao;
+	}
+	
 
 }

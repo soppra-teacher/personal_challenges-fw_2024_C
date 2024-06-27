@@ -20,7 +20,7 @@ public class SeisekiServiceImpl implements SeisekiService {
 	private SeisekiDao seisekiDao;
 
 	/**
-	 * 一覧画面初期表示メソッド
+	 * 一覧画面初期化メソッド
 	 */
 	public SeisekiListDto listInit() {
 		SeisekiListDto result = new SeisekiListDto();
@@ -30,7 +30,7 @@ public class SeisekiServiceImpl implements SeisekiService {
 	/**
 	 * 一覧画面検索メソッド
 	 */
-	public SeisekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto) {
+	public SeisekiListDto listSearch(LoginDto loginDto) {
 		//------------------------------------------
 		// ヘッダ
 		//------------------------------------------
@@ -41,7 +41,7 @@ public class SeisekiServiceImpl implements SeisekiService {
 		//------------------------------------------
 		List<SeisekiListDto> SeisekiList = new ArrayList<SeisekiListDto>();
 		// 検索処理
-		List<Map<String, String>> list = seisekiDao.searchSeiseki(formMap,loginDto);
+		List<Map<String, String>> list = seisekiDao.searchSeiseki(loginDto);
 		Iterator<Map<String, String>> it = list.iterator();
 		while (it.hasNext()) {
 			Map<String, String> map = it.next();

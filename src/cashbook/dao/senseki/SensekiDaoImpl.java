@@ -10,7 +10,7 @@ import cashbook.util.SeisekiConst;
 import cashbook.util.SensekiConst;
 
 /**
- * 個人DAOクラス
+ * 個人戦績DAOクラス
  * @author soppra
  */
 public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
@@ -18,6 +18,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	/**
 	 * 個人戦績一覧を検索する
 	 * @return 個人戦績一覧
+	 * @param loginDto
 	 */
 	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap,LoginDto loginDto) {
 
@@ -118,7 +119,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append("   , '").append(loginDto.getUserId()).append("' ");										//INS_USER
 		sql.append(", SYSDATE ");																			//INS_DATE
 		sql.append(" ) ");
-		// 組み立てたSQLで登録処理を行う。
+		
 		super.update(sql.toString());
 
 	}

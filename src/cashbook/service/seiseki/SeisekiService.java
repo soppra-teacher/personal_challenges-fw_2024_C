@@ -6,7 +6,7 @@ import cashbook.dto.common.LoginDto;
 import cashbook.dto.seiseki.SeisekiListDto;
 
 /**
- * 成績サービスインターフェース
+ * 成績マスタサービスインターフェース
  * @author soppra
  *
  */
@@ -20,10 +20,10 @@ public interface SeisekiService {
 
 	/**
 	 *
-	 * @param formMap
+	 * @param loginDto
 	 * @return
 	 */
-	public SeisekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto);
+	public SeisekiListDto listSearch(LoginDto loginDto);
 
 	/**
 	 * @param formMap

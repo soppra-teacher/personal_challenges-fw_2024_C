@@ -23,7 +23,7 @@
 
 	<div class="base-width text-center">
 
-		<html:form action="/SeisekiListDisp" focus="seisekiNm">
+		<html:form action="/SeisekiListDisp" focus="seisekiNm" onsubmit="return false;">
 
 			<jsp:include page="/jsp/common/header.jsp">
 				<jsp:param name="screenTitle" value="‘¬Ñˆê——"/>
@@ -47,7 +47,7 @@
 
 				<table class="layout-table">
 					<tr>
-						<td colspan="2" class="w-50 text-left">
+						<td class="w-50 text-left">
 							<span class="label-title">
 								V‹K‘IŽè“o˜^
 							</span>
