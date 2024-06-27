@@ -33,9 +33,9 @@ public class Const {
 	public static final String ACTION_FOWARD_BACK_LIST_KOBETSU = "backListKobetsu";
 	/** 遷移先 新規ユーザー登録画面(新規) */
 	public static final String ACTION_FOWARD_BACK_LIST_USER = "backListUser";
-	
-	
-	
+
+	/** パスワード失敗メッセージ */
+	public static final String MSG_ERRORS_PASS_ERROR = "PassForm.error.login";
 	/** ログイン失敗メッセージ */
 	public static final String MSG_ERRORS_LOGIN_ERROR = "loginForm.error.login";
 	/** 検索結果0件メッセージ */
@@ -118,7 +118,7 @@ public class Const {
 	public static final String MSG_USER_CONSIS_1 = "errors.user.seigosei1";
 	/** 新規ユーザー用エラーメッセージ2 */
 	public static final String MSG_USER_CONSIS_2 = "errors.user.seigosei2";
-	
+
 	/** 個人マスタ登録画面 DTO */
 	public static final String SESSION_REGIST_DTO_KOJIN = "KOJIN_REGIST_DTO";
 	/** 個人マスタ登録画面 戻り先 */
@@ -171,29 +171,29 @@ public class Const {
 	public static final String SESSION_LIST_MESSAGE_SHUSHI_SETAI = "SHUSHI_LIST_SETAI_MESSAGE";
 
 	/************* 画面ID *************/
-    /** SM001:個人マスタメンテ */
+	/** SM001:個人マスタメンテ */
 	public static final String DISP_SM001 = "SM001";
-    /** SM002:個人マスタ登録 */
+	/** SM002:個人マスタ登録 */
 	public static final String DISP_SM002 = "SM002";
-    /** SM011:世帯マスタメンテ */
+	/** SM011:世帯マスタメンテ */
 	public static final String DISP_SM011 = "SM011";
-    /** SM012:世帯マスタ登録 */
+	/** SM012:世帯マスタ登録 */
 	public static final String DISP_SM012 = "SM012";
-    /** SM021:費目マスタメンテ */
+	/** SM021:費目マスタメンテ */
 	public static final String DISP_SM021 = "SM021";
-    /** SM022:費目マスタ登録 */
+	/** SM022:費目マスタ登録 */
 	public static final String DISP_SM022 = "SM022";
 	/** ST001:収支一覧(個人) */
 	public static final String DISP_ST001 = "ST001";
-    /** ST002:収支一覧(世帯) */
+	/** ST002:収支一覧(世帯) */
 	public static final String DISP_ST002 = "ST002";
 	/** ST011:収支登録 */
 	public static final String DISP_ST011 = "ST011";
 
 	/************* 区分値 *************/
-    /** SETAINUSHI_ON:世帯主 */
+	/** SETAINUSHI_ON:世帯主 */
 	public static final String SETAINUSHI_ON = "1";
-    /** SETAINUSHI_OFF:非世帯主 */
+	/** SETAINUSHI_OFF:非世帯主 */
 	public static final String SETAINUSHI_OFF = "0";
 	/** SETAINUSHI_FLG_ON:世帯主 (ON/OFF) */
 	public static final String SETAINUSHI_FLG_ON = "on";

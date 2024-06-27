@@ -75,7 +75,7 @@ public class SetaiDaoImpl extends BaseDaoImpl implements SetaiDao {
 		StringBuffer sql = new StringBuffer();
 		sql.append(" UPDATE MST_SETAI M1 ");
 		sql.append("    SET M1.DEL_FLG  = '1' ");
-		sql.append("      , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
+//		sql.append("      , M1.UPD_USER = '").append(loginDto.getKojinId()).append("' ");
 		sql.append("      , M1.UPD_DATE = SYSDATE ");
 		sql.append("      , M1.REVISION = M1.REVISION + 1 ");
 		sql.append("  WHERE M1.SETAI_ID = '").append(setaiId).append("' ");
@@ -132,9 +132,9 @@ public class SetaiDaoImpl extends BaseDaoImpl implements SetaiDao {
 		sql.append("   , '").append(formMap.get(SetaiConst.KEY_ADDRESS)).append("' ");
 		sql.append("   , '").append(formMap.get(SetaiConst.KEY_TEL_NO)).append("' ");
 		sql.append("   , '0' ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
+//		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		sql.append("   , SYSDATE ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
+//		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		sql.append("   , SYSDATE ");
 		sql.append("   , 0 ");
 		sql.append(" ) ");
@@ -154,7 +154,7 @@ public class SetaiDaoImpl extends BaseDaoImpl implements SetaiDao {
 		sql.append("      , M1.POST_NO       = '").append(formMap.get(SetaiConst.KEY_POST_NO)).append("' ");
 		sql.append("      , M1.ADDRESS       = '").append(formMap.get(SetaiConst.KEY_ADDRESS)).append("' ");
 		sql.append("      , M1.TEL_NO        = '").append(formMap.get(SetaiConst.KEY_TEL_NO)).append("' ");
-		sql.append("      , M1.UPD_USER      = '").append(loginDto.getKojinId()).append("' ");
+//		sql.append("      , M1.UPD_USER      = '").append(loginDto.getKojinId()).append("' ");
 		sql.append("      , M1.UPD_DATE      = SYSDATE ");
 		sql.append("      , M1.REVISION      = M1.REVISION + 1 ");
 		sql.append("  WHERE M1.SETAI_ID      = '").append(formMap.get(SetaiConst.KEY_SETAI_ID)).append("' ");
