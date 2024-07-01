@@ -214,7 +214,7 @@
 		-->
 		<action path="/MenuInit"
 			type="cashbook.action.common.MenuInitAction" scope="request">
-			<forward name="success" path="/jsp/common/Samplemenu.jsp" />
+			<forward name="success" path="/jsp/common/menu.jsp" />
 
 		</action>
 
