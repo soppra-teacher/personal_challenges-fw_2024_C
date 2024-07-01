@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:tx="http://www.springframework.org/schema/tx"
-  xmlns:aop="http://www.springframework.org/schema/aop"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-2.5.xsd
@@ -50,11 +50,18 @@
 
 
     <!-- 個人戦績-->
-   <bean id="SensekiDaoId" class="cashbook.dao.senseki.SensekiDaoImpl">
+  <bean id="SensekiDaoId" class="cashbook.dao.senseki.SensekiDaoImpl">
     <property name="dataSource">
       <ref local="dataSource" />
     </property>
   </bean>
+  <!-- 戦績登録 山内-->
+  <bean id="SensekiRegDaoId" class="cashbook.dao.sensekireg.SensekiRegDaoImpl">
+    <property name="dataSource">
+      <ref local="dataSource" />
+    </property>
+  </bean>
+  
 
   <!-- 個人マスタ -->
    <bean id="KojinDaoId" class="cashbook.dao.kojin.KojinDaoImpl">
@@ -115,6 +122,17 @@
     <property name="sensekiDao">
       <ref local="SensekiDaoId" />
     </property>
+  </bean>
+  
+    <!-- 戦績登録　山内-->
+  <bean id="SensekiRegServiceId" class="cashbook.service.sensekireg.SensekiRegServiceImpl">
+    <property name="commonDao">
+      <ref local="CommonDaoId" />
+    </property>
+    <property name="sensekiRegDao">
+      <ref local="SensekiRegDaoId" />
+    </property>
+
   </bean>
 
     <!-- 個人マスタ -->
@@ -183,15 +201,15 @@
     </property>
   </bean>
   
-    <!-- 戦績マスタ登録 -->
-  <bean name="/SensekiRegistInit" class="cashbook.action.senseki.SensekiRegistInitAction">
-    <property name="sensekiService">
-      <ref local="SensekiServiceId" />
+<!--     戦績登録 山内-->
+  <bean name="/SensekiRegistInit" class="cashbook.action.sensekireg.SensekiRegistInitAction">
+    <property name="sensekiRegService">
+      <ref local="SensekiRegServiceId" />
     </property>
   </bean>
-  <bean name="/SensekiRegistInsUpd" class="cashbook.action.senseki.SensekiRegistInsUpdAction">
-    <property name="sensekiService">
-      <ref local="SensekiServiceId" />
+  <bean name="/SensekiRegistInsUpd" class="cashbook.action.sensekireg.SensekiRegistInsUpdAction">
+    <property name="sensekiRegService">
+      <ref local="SensekiRegServiceId" />
     </property>
   </bean>
   
@@ -212,6 +230,8 @@
       <ref local="SensekiServiceId" />
     </property>
   </bean>
+  
+
 
   <!-- 個人マスタメンテ -->
   <bean name="/KojinListInit" class="cashbook.action.kojin.KojinListInitAction">

@@ -1,4 +1,4 @@
-package cashbook.action.senseki;
+package cashbook.action.sensekireg;
 
 import static cashbook.util.Const.*;
 
@@ -14,7 +14,7 @@ import org.apache.struts.action.DynaActionForm;
 
 import cashbook.action.common.BaseAction;
 import cashbook.dto.common.LoginDto;
-import cashbook.service.senseki.SensekiService;
+import cashbook.service.sensekireg.SensekiRegService;
 import cashbook.util.CommonUtil;
 
 /**
@@ -24,14 +24,14 @@ import cashbook.util.CommonUtil;
 public class SensekiRegistInsUpdAction extends BaseAction {
 
 	/** 戦績サービス */
-	private SensekiService sensekiService;
+	private SensekiRegService sensekiRegService;
 
 	/**
 	 * 戦績サービスを設定します。
-	 * @param sensekiService 戦績サービス
+	 * @param sensekiRegService 戦績サービス
 	 */
-	public void setSensekiService(SensekiService sensekiService) {
-		this.sensekiService = sensekiService;
+	public void setSensekiRegService(SensekiRegService sensekiRegService) {
+		this.sensekiRegService = sensekiRegService;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class SensekiRegistInsUpdAction extends BaseAction {
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 		// 登録・更新処理
-		sensekiService.registInsUpd(formMap, loginDto);
+		sensekiRegService.registInsUpd(formMap, loginDto);
 
 			// 登録成功メッセージをセッションに設定
 			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_SENSEKI, MSG_SUCCESS_INSERT);

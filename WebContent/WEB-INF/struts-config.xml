@@ -109,18 +109,13 @@
 			<form-property name="kojinId" type="java.lang.String" />
 			<form-property name="pass" type="java.lang.String" />
 			<form-property name="pass2" type="java.lang.String" />
-			<form-property name="setaiNmKey"
-				type="java.lang.String" />
+			<form-property name="setaiNmKey" type="java.lang.String" />
 			<form-property name="ja" type="java.lang.String" />
 			<form-property name="kojinNm" type="java.lang.String" />
-			<form-property name="kojinNmkana"
-				type="java.lang.String" />
-			<form-property name="seibetsuKbn"
-				type="java.lang.String" />
-			<form-property name="zokugaraKey"
-				type="java.lang.String" />
-			<form-property name="setaiNusiFlg"
-				type="java.lang.String" />
+			<form-property name="kojinNmkana" type="java.lang.String" />
+			<form-property name="seibetsuKbn"	type="java.lang.String" />
+			<form-property name="zokugaraKey"	type="java.lang.String" />
+			<form-property name="setaiNusiFlg"	type="java.lang.String" />
 			<form-property name="revision" type="java.lang.String" />
 		</form-bean>
 
@@ -423,7 +418,7 @@
 		
 		<!--
 		****************************
-		* 戦績マスタ登録画面       *
+		* 戦績登録画面     山内  *
 		****************************
 		-->
 		<!-- 初期表示 -->
@@ -435,10 +430,10 @@
 			scope="request">
 			<forward name="success" path="/jsp/senseki/sensekiRegist.jsp"/>
 		</action>
-		<!-- ディスパッチ -->
+		<!--ディスパッチ -->
 		<action
 			path="/SensekiRegistDisp"
-			type="cashbook.action.senseki.SensekiRegistDispAction"
+			type="cashbook.action.sensekireg.SensekiRegistDispAction"
 			name="sensekiRegistForm"
 			validate="false"
 			parameter="operation"
@@ -448,7 +443,7 @@
 			<forward name="backMenu" path="/MenuInit.do"/>
 			<forward name="backList" path="/SensekiListSearch.do"/>
 		</action>
-		<!-- 登録・更新 -->
+		<!--登録・更新 -->
 		<action
 			path="/SensekiRegistInsUpd"
 			type="org.springframework.web.struts.DelegatingActionProxy"
