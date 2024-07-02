@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
 	<script type="text/javascript" charset="shift_jis" src="js/common.js"></script>
 	<!-- フォーカスセット -->
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		window.onload = function(){
 
 			if (eleRevision.defaultValue == ""){
@@ -26,7 +26,7 @@
 				eleSensekiNm.focus();
 			}
 		}
-	</script>
+	</script>-->
 </head>
 
 <body>
@@ -37,7 +37,7 @@
 
 	<div class="base-width text-center">
 
-		<html:form action="/SensekiRegistDisp" focus="sensekiCd">
+		<html:form action="/SensekiRegistDisp" focus="senshuNmKey">
 
 			<jsp:include page="/jsp/common/header.jsp">
 				<jsp:param name="screenTitle" value="投手 戦績登録画面"/>

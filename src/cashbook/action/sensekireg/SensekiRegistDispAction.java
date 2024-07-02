@@ -1,4 +1,4 @@
-package cashbook.action.senseki;
+package cashbook.action.sensekireg;
 
 import static cashbook.util.Const.*;
 
