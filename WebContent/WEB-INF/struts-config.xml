@@ -193,13 +193,13 @@
 		-->
 		<action path="/Login"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="loginForm" validate="false" input="/jsp/common/LoginSample.jsp"
+			name="loginForm" validate="false" input="/jsp/common/login.jsp"
 			scope="request">
 			<forward name="success" path="/MenuInit.do?getKey=aaa" />
 		</action>
 		<action path="/Logout"
 			type="cashbook.action.common.LogoutAction" scope="request">
-			<forward name="success" path="/jsp/common/LoginSample.jsp" />
+			<forward name="success" path="/jsp/common/login.jsp" />
 		</action>
 
 		<!-- 
@@ -209,7 +209,7 @@
 		-->
 		<action path="/MenuInit"
 			type="cashbook.action.common.MenuInitAction" scope="request">
-			<forward name="success" path="/jsp/common/Samplemenu.jsp" />
+			<forward name="success" path="/jsp/common/menu.jsp" />
 
 		</action>
 

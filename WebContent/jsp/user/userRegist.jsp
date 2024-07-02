@@ -11,34 +11,19 @@
 
 <meta content="ja" http-equiv="Content-Language" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>ソプブーのマネーノート 新規ユーザー登録画面</title>
+<title>スポーツDATA 新規ユーザー登録画面</title>
 <link rel="stylesheet" type="text/css"
-	href="<%= request.getContextPath() %>/css/common.css" />
+	href="<%=request.getContextPath()%>/css/common.css" />
 <script language="JavaScript" type="text/javascript" charset="shift_jis"
 	src="js/common.js"></script>
 <script type="text/javascript">
 	
-</script>
-<!-- フォーカスセット -->
-<script type="text/javascript">
-	window.onload = function() {
-		var eleRevision = document.userRegistForm.revision;
-		var eleUserId = document.userRegistForm.userId;
-		var elePassword = document.userRegistForm.pass;
-
-		if (eleRevision.defaultValue == "") {
-			eleUserId.focus();
-		} else {
-			elePassword.focus();
-		}
-	}
 </script>
 </head>
 
 <body>
 
 	<bean:define id="inputBean" name="userRegistForm" />
-	<!--   <bean:define id="viewBean" name="USER_REGIST_DTO"/> -->
 
 	<div class="base-width text-center">
 
@@ -70,7 +55,7 @@
 
 						<tr>
 							<td class="w-25 text-right"><span class="label-title">
-									個人ＩＤ </span></td>
+									ユーザーＩＤ </span></td>
 							<td class="w-75 text-left"><html:text name="inputBean"
 									property="userId" styleClass="input-text-s" /></td>
 						</tr>
@@ -94,8 +79,7 @@
 				<div class="block-center">
 
 					<html:button property="insert" styleClass="btn btn-l"
-						onclick="callAction(this.form, 'insert');">
-              登録
+						onclick="callAction(this.form, 'insert');">登録
             </html:button>
 				</div>
 				<jsp:include page="/jsp/common/newUser_footer.jsp" />

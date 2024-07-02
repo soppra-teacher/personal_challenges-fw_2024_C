@@ -73,7 +73,7 @@ public class HimokuDaoImpl extends BaseDaoImpl implements HimokuDao {
 		StringBuffer sql = new StringBuffer();
 		sql.append("UPDATE MST_HIMOKU M1 ");
 		sql.append("   SET M1.DEL_FLG   = '1' ");
-		sql.append("     , M1.UPD_USER  = '").append(loginDto.getKojinId()).append("' ");
+		//sql.append("     , M1.UPD_USER  = '").append(loginDto.getKojinId()).append("' ");
 		sql.append("     , M1.UPD_DATE  = SYSDATE ");
 		sql.append("     , M1.REVISION  = M1.REVISION + 1 ");
 		sql.append(" WHERE M1.HIMOKU_CD = '").append(himokuCd).append("' ");
@@ -135,9 +135,9 @@ public class HimokuDaoImpl extends BaseDaoImpl implements HimokuDao {
 		sql.append("   , '").append(formMap.get(HimokuConst.KEY_HIMOKU_NM)).append("' ");
 		sql.append("   , '").append(formMap.get(HimokuConst.KEY_HIMOKU_KBN_KEY)).append("' ");
 		sql.append("   , '0' ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
+		//sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		sql.append("   , SYSDATE ");
-		sql.append("   , '").append(loginDto.getKojinId()).append("' ");
+		//sql.append("   , '").append(loginDto.getKojinId()).append("' ");
 		sql.append("   , SYSDATE ");
 		sql.append("   , 0 ");
 		sql.append(" ) ");
@@ -161,7 +161,7 @@ public class HimokuDaoImpl extends BaseDaoImpl implements HimokuDao {
 		sql.append("UPDATE MST_HIMOKU M1 ");
 		sql.append("   SET M1.HIMOKU_NM  = '").append(formMap.get(HimokuConst.KEY_HIMOKU_NM)).append("' ");
 		sql.append("     , M1.HIMOKU_KBN = '").append(formMap.get(HimokuConst.KEY_HIMOKU_KBN_KEY)).append("' ");
-		sql.append("     , M1.UPD_USER   = '").append(loginDto.getKojinId()).append("' ");
+		//sql.append("     , M1.UPD_USER   = '").append(loginDto.getKojinId()).append("' ");
 		sql.append("     , M1.UPD_DATE   = SYSDATE ");
 		sql.append("     , M1.REVISION   = M1.REVISION + 1 ");
 		sql.append(" WHERE M1.HIMOKU_CD  = '").append(formMap.get(HimokuConst.KEY_HIMOKU_CD)).append("' ");

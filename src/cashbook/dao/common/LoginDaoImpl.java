@@ -2,6 +2,8 @@ package cashbook.dao.common;
 
 import java.util.Map;
 
+import cashbook.util.UserConst;
+
 /**
  * ログインDAOクラス
  * @author soppra
@@ -13,15 +15,15 @@ public class LoginDaoImpl extends BaseDaoImpl implements LoginDao {
 	 * @param formMap フォーム項目
 	 * @return ログイン情報
 	 */
-	public Map<String, String> find(Map<String, Object> formMap) {
+	public Map<String, String> findLogin(Map<String, Object> formMap) {
 
 		// フォーム項目の入力値でSQLを組み立てる。
 		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT * ");
-		sql.append("  FROM MST_USER ");
-		sql.append(" WHERE USER_ID = '").append(formMap.get("userId")).append("' ");
-		sql.append("   AND PASS = '").append(formMap.get("pass")).append("' ");
-		
+		sql.append("SELECT  USER_ID, PASS");
+		sql.append("  FROM MST_USER  ");
+		sql.append(" WHERE USER_ID = '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");
+		sql.append("   AND PASS = '").append(formMap.get(UserConst.KEY_PASS)).append("' ");
+
 		// 組み立てたSQLで検索処理を行う。
 		Map<String, String> result = super.find(sql.toString());
 

@@ -59,6 +59,7 @@
 			<ref local="dataSource" />
 		</property>
 	</bean>
+
 	<!-- 戦績登録 山内 -->
 	<bean id="SensekiRegDaoId"
 		class="cashbook.dao.sensekireg.SensekiRegDaoImpl">
@@ -161,9 +162,6 @@
 	<!-- 新規ユーザー登録 -->
 	<bean id="UserServiceId"
 		class="cashbook.service.user.UserServiceImpl">
-		<property name="commonDao">
-			<ref local="CommonDaoId" />
-		</property>
 		<property name="userDao">
 			<ref local="UserDaoId" />
 		</property>
@@ -250,8 +248,6 @@
 			<ref local="SensekiServiceId" />
 		</property>
 	</bean>
-
-
 
 	<!-- 個人マスタメンテ -->
 	<bean name="/KojinListInit"
