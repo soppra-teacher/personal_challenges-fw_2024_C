@@ -1,4 +1,4 @@
-package cashbook.action.senseki;
+package cashbook.action.sensekireg;
 
 import static cashbook.util.Const.*;
 
@@ -17,7 +17,7 @@ import org.apache.struts.action.DynaActionForm;
 import cashbook.action.common.BaseAction;
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.senseki.SensekiRegistDto;
-import cashbook.service.senseki.SensekiService;
+import cashbook.service.sensekireg.SensekiRegService;
 import cashbook.util.CommonUtil;
 import cashbook.util.SensekiConst;
 
@@ -28,14 +28,14 @@ import cashbook.util.SensekiConst;
 public class SensekiRegistInitAction extends BaseAction {
 
 	/** 戦績サービス */
-	private SensekiService sensekiService;
+	private SensekiRegService sensekiRegService;
 
 	/**
 	 * 戦績サービスを設定します。
-	 * @param sensekiService 戦績サービス
+	 * @param sensekiRegService 戦績サービス
 	 */
-	public void setSensekiService(SensekiService sensekiService) {
-		this.sensekiService = sensekiService;
+	public void setSensekiRegService(SensekiRegService sensekiRegService) {
+		this.sensekiRegService = sensekiRegService;
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class SensekiRegistInitAction extends BaseAction {
 		}
 
 		// 初期表示取得
-		SensekiRegistDto dto = sensekiService.registInit(formMap,loginDto);
+		SensekiRegistDto dto = sensekiRegService.registInit(formMap,loginDto);
 
 		// 取得した情報をリクエストに設定
 		request.setAttribute(SensekiConst.FORM_SENSEKI_REGIST, dto);
