@@ -14,15 +14,15 @@ public class LoginDto {
 	
 	/**
 	 * ユーザーＩＤを取得します。
-	 * @return 個人ＩＤ
+	 * @return ユーザーＩＤ
 	 */
 	public String getUserId() {
 	    return userId;
 	}
 	
 	/**
-	 * 個人名を設定します。
-	 * @param kojinNm 個人名
+	 * ユーザーＩＤを設定します。
+	 * @param userId ユーザーＩＤ
 	 */
 	public void setUserId(String userId) {
 	    this.userId = userId;
@@ -30,7 +30,7 @@ public class LoginDto {
 	
 	/**
 	 * パスワードを取得します。
-	 * @return 個人ＩＤ
+	 * @return パスワード
 	 */
 	public String Pass() {
 	    return pass;
@@ -38,7 +38,7 @@ public class LoginDto {
 	
 	/**
 	 * パスワードを設定します。
-	 * @param kojinNm 個人名
+	 * @param pass パスワード
 	 */
 	public void setPass(String pass) {
 	    this.pass = pass;

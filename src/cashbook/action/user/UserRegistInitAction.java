@@ -16,7 +16,6 @@ import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.DynaActionForm;
 
 import cashbook.dto.user.UserRegistDto;
-import cashbook.service.user.UserService;
 import cashbook.util.CommonUtil;
 import cashbook.util.Const;
 
@@ -24,21 +23,20 @@ import cashbook.util.Const;
  * ユーザーマスタ登録画面 初期表示アクションクラス 
  * ログイン後：BaseActionクラスを継承する
  * ログイン前：Actionクラスを継承する
- * Q: 
  * @author soppra
  */
 public class UserRegistInitAction extends Action {
 
 	/** ユーザー登録画面マスタサービス */
-	private UserService userService;
+//	private UserService userService;
 
 	/**
 	 * ユーザー登録サービスを設定します。
 	 * @param himokuService 費目マスタサービス
 	 */
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+//	public void setUserService(UserService userService) {
+//		this.userService = userService;
+//	}
 
 	/**
 	 * <p><b>

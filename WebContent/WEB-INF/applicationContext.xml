@@ -266,9 +266,9 @@
 	<!-- ユーザー登録 -->
 	<bean name="/UserRegistInit"
 		class="cashbook.action.user.UserRegistInitAction">
-		<property name="userService">
+		<!-- <property name="userService"> 
 			<ref local="UserServiceId" />
-		</property>
+		</property>-->
 	</bean>
 	<bean name="/UserRegistInsUpd"
 		class="cashbook.action.user.UserRegistInsUpdAction">
