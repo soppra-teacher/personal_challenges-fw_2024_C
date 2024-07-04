@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import cashbook.dao.common.CommonDao;
 import cashbook.dao.senseki.SensekiDao;
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.senseki.SensekiListDto;
@@ -19,24 +18,23 @@ public class SensekiServiceImpl implements SensekiService {
 
 	/** 個人マスタDao */
 	private SensekiDao sensekiDao;
-	/** 共通Dao */
-	private CommonDao commonDao;
-
+	
+	/**
+	 * DAOのsetter
+	 * @param sensekiDao
+	 */
+	public void setSensekiDao(SensekiDao sensekiDao) {
+		this.sensekiDao = sensekiDao;
+	}
+	
+	
 	/**
 	 * 一覧画面初期表示メソッド
-	 */
-	public SensekiListDto listInit(Map<String, Object> formMap) {
-		SensekiListDto result = new SensekiListDto();
-		return result;
-	}
-
-	/**
-	 * 一覧画面検索メソッド
 	 * @param formMap
 	 * @param loginDto
 	 * @return SensekiListDto
 	 */
-	public SensekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto) {
+	public SensekiListDto listInit(Map<String, Object> formMap,LoginDto loginDto) {
 		
 		SensekiListDto result = new SensekiListDto();
 
@@ -90,21 +88,6 @@ public class SensekiServiceImpl implements SensekiService {
 		}
 	}
 	
-	/**
-	 * DAOのsetter
-	 * @param sensekiDao
-	 */
-	public void setSensekiDao(SensekiDao sensekiDao) {
-		this.sensekiDao = sensekiDao;
-	}
 
-	/**
-	 * DAOのsetter
-	 * @param commonDao
-	 */
-	public void setCommonDao(CommonDao commonDao) {
-		this.commonDao = commonDao;
-	}
-	
 
 }

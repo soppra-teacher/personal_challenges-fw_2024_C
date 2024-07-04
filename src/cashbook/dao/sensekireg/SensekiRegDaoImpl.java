@@ -7,7 +7,7 @@ import java.util.Map;
 import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
 import cashbook.util.SeisekiConst;
-import cashbook.util.SensekiConst;
+import cashbook.util.SensekiRegConst;
 
 /**
  * 個人戦績DAOクラス
@@ -88,7 +88,7 @@ public class SensekiRegDaoImpl extends BaseDaoImpl implements SensekiRegDao {
 	 */
 	public void registSenseki(Map<String, Object> formMap, LoginDto loginDto) {
 	
-		System.out.println(formMap.get(SensekiConst.KEY_ININGU));
+		System.out.println(formMap.get(SensekiRegConst.KEY_ININGU));
 
 		// 登録用のSQLを組み立てる。
 		StringBuffer sql = new StringBuffer();
@@ -108,16 +108,16 @@ public class SensekiRegDaoImpl extends BaseDaoImpl implements SensekiRegDao {
 		sql.append(",INS_DATE");
 		sql.append(")VALUES(");
 		sql.append("(SELECT MAX(MATCH_ID)+1 FROM SENSEKI_TBL)");											//MATCH_ID
-		sql.append(",'").append(formMap.get(SensekiConst.KEY_SENSHU_NM_KEY)).append("'");					//PLAYER_ID 
-		sql.append(",TO_CHAR('").append(formMap.get(SensekiConst.KEY_ININGU)).append("')*3").append("+").append("TO_CHAR('").append(formMap.get(SensekiConst.KEY_ININGU_MINI_KEY)).append("')");//INING_MINI
-		sql.append(",'").append(formMap.get(SensekiConst.KEY_TAMAKAZU)).append("'");						//TAMAKAZU
-		sql.append(",'").append(formMap.get(SensekiConst.KEY_HIANDA)).append("'");							//HIANDA
-		sql.append(",'").append(formMap.get(SensekiConst.KEY_YOSHISHIKYU)).append("'");					//YOSHIKYU
-		sql.append(",'").append(formMap.get(SensekiConst.KEY_DATSUSANSHIN)).append("'");					//DATSUSANSHIN
-		sql.append(",'").append(formMap.get(SensekiConst.KEY_SHITTEN)).append("'");							//SITTEN
-		sql.append(",'").append(formMap.get(SensekiConst.KEY_JISEKITEN)).append("'");						//JISEKITEN
-		sql.append(",'").append(formMap.get(SensekiConst.KEY_TAISENNM)).append("'");						//E_TEAM
-		sql.append(",'").append(formMap.get(SensekiConst.KEY_SHIAIBI)).append("'");							//E_TEAM//MATCH_DATE
+		sql.append(",'").append(formMap.get(SensekiRegConst.KEY_SENSHU_NM_KEY)).append("'");					//PLAYER_ID 
+		sql.append(",TO_CHAR('").append(formMap.get(SensekiRegConst.KEY_ININGU)).append("')*3").append("+").append("TO_CHAR('").append(formMap.get(SensekiRegConst.KEY_ININGU_MINI_KEY)).append("')");//INING_MINI
+		sql.append(",'").append(formMap.get(SensekiRegConst.KEY_TAMAKAZU)).append("'");						//TAMAKAZU
+		sql.append(",'").append(formMap.get(SensekiRegConst.KEY_HIANDA)).append("'");							//HIANDA
+		sql.append(",'").append(formMap.get(SensekiRegConst.KEY_YOSHISHIKYU)).append("'");					//YOSHIKYU
+		sql.append(",'").append(formMap.get(SensekiRegConst.KEY_DATSUSANSHIN)).append("'");					//DATSUSANSHIN
+		sql.append(",'").append(formMap.get(SensekiRegConst.KEY_SHITTEN)).append("'");							//SITTEN
+		sql.append(",'").append(formMap.get(SensekiRegConst.KEY_JISEKITEN)).append("'");						//JISEKITEN
+		sql.append(",'").append(formMap.get(SensekiRegConst.KEY_TAISENNM)).append("'");						//E_TEAM
+		sql.append(",'").append(formMap.get(SensekiRegConst.KEY_SHIAIBI)).append("'");							//E_TEAM//MATCH_DATE
 		sql.append("   , '").append(loginDto.getUserId()).append("' ");										//INS_USER
 		sql.append(", SYSDATE ");																			//INS_DATE
 		sql.append(" ) ");

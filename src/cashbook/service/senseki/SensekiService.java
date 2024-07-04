@@ -11,22 +11,17 @@ import cashbook.dto.senseki.SensekiListDto;
  */
 public interface SensekiService {
 
-	/**
-	 *
-	 * @return
-	 */
-	public SensekiListDto listInit(Map<String, Object> formMap);
 
 	/**
-	 *
+	 * 一覧画面初期表示メソッド
 	 * @param formMap
 	 * @param loginDto
-	 * @return
+	 * @ret
 	 */
-	public SensekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto);
+	public SensekiListDto listInit(Map<String, Object> formMap,LoginDto loginDto);
 
 	/**
-	 *
+	 * 一覧画面削除メソッド
 	 * @param formMap
 	 * @param loginDto
 	 */

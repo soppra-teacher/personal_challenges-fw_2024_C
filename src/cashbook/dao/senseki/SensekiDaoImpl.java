@@ -61,7 +61,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	}
 
 	/**
-	 * 個人戦績一覧を検索する
+	 * 選手名を検索する
 	 * @param loginDto
 	 * @return 選手名
 	 */
