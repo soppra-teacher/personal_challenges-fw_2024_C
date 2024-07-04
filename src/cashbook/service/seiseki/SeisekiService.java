@@ -6,29 +6,23 @@ import cashbook.dto.common.LoginDto;
 import cashbook.dto.seiseki.SeisekiListDto;
 
 /**
- * 成績マスタサービスインターフェース
+ * 成績サービスインターフェース
  * @author soppra
  *
  */
 public interface SeisekiService {
 
-	/**
-	 *
-	 * @return
-	 */
-	public SeisekiListDto listInit();
 
 	/**
-	 *
+	 * 成績画面初期表示メソッド
 	 * @param loginDto
-	 * @return
 	 */
-	public SeisekiListDto listSearch(LoginDto loginDto);
+	public SeisekiListDto listInit(LoginDto loginDto);
 
 	/**
+	 * 新規選手登録メソッド
 	 * @param formMap
 	 * @param loginDto
-	 * @throws Exception
 	 */
 	public void registNewSenshu(Map<String, Object> formMap, LoginDto loginDto) throws Exception;
 }
