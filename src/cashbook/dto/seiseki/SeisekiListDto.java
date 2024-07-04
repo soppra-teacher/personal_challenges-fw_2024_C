@@ -6,7 +6,7 @@ import cashbook.dto.common.BaseDto;
 
 public class SeisekiListDto extends BaseDto {
 
-	/** 成績マスタ一覧 */
+	/** 成績一覧 */
 	private List<SeisekiListDto> list;	
 	
 	/** 新規選手登録 */

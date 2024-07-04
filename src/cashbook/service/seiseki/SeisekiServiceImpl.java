@@ -8,29 +8,29 @@ import java.util.Map;
 import cashbook.dao.seiseki.SeisekiDao;
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.seiseki.SeisekiListDto;
-import cashbook.exception.CommonValidateException;
 
 /**
- * 成績マスタサービス
+ * 成績サービス
  * @author soppra
  */
 public class SeisekiServiceImpl implements SeisekiService {
 
-	/** 成績マスタDao */
+	/** 成績Dao */
 	private SeisekiDao seisekiDao;
-
+	
 	/**
-	 * 一覧画面初期化メソッド
+	 * 成績DAOのsetter
+	 * @param seisekiDao
 	 */
-	public SeisekiListDto listInit() {
-		SeisekiListDto result = new SeisekiListDto();
-		return result;
+	public void setSeisekiDao(SeisekiDao seisekiDao) {
+		this.seisekiDao = seisekiDao;
 	}
 
 	/**
-	 * 一覧画面検索メソッド
+	 * 成績画面初期表示メソッド
+	 * @param loginDto
 	 */
-	public SeisekiListDto listSearch(LoginDto loginDto) {
+	public SeisekiListDto listInit(LoginDto loginDto) {
 		//------------------------------------------
 		// ヘッダ
 		//------------------------------------------
@@ -46,12 +46,12 @@ public class SeisekiServiceImpl implements SeisekiService {
 		while (it.hasNext()) {
 			Map<String, String> map = it.next();
 			SeisekiListDto dto = new SeisekiListDto();
-			dto.setSenshuId(map.get("選手ID"));
-			dto.setSenshuNm(map.get("選手名"));
-			dto.setSouInning(map.get("総イニング"));
-			dto.setSouShitten(map.get("総失点"));
-			dto.setSouJisekiten(map.get("総自責点"));
-			dto.setBougyoRitsu(map.get("防御率"));
+			dto.setSenshuId(map.get("PLAYER_ID"));
+			dto.setSenshuNm(map.get("PLAYER_NAME"));
+			dto.setSouInning(map.get("SOU_INNING"));
+			dto.setSouShitten(map.get("SOU_SHITTEN"));
+			dto.setSouJisekiten(map.get("SOU_JISEKITEN"));
+			dto.setBougyoRitsu(map.get("BOUGYO_RITSU"));
 
 			SeisekiList.add(dto);
 		}
@@ -61,21 +61,13 @@ public class SeisekiServiceImpl implements SeisekiService {
 
 	/**
 	 * 新規選手登録メソッド
-	 * @throws CommonValidateException
+	 * @param formMap
+	 * @param loginDto
 	 */
 	public void registNewSenshu(Map<String, Object> formMap, LoginDto loginDto) throws Exception {
 
 		// 登録処理
 		seisekiDao.registSenshu(formMap, loginDto);
-	}
-	
-	
-	/**
-	 * DAOのsetter
-	 * @param seisekiDao
-	 */
-	public void setSeisekiDao(SeisekiDao seisekiDao) {
-		this.seisekiDao = seisekiDao;
 	}
 
 }

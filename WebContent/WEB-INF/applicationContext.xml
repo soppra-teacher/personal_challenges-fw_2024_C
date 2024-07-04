@@ -75,7 +75,7 @@
 		</property>
 	</bean>
 
-	<!-- 成績マスタ -->
+	<!-- 成績 -->
 	<bean id="SeisekiDaoId"
 		class="cashbook.dao.seiseki.SeisekiDaoImpl">
 		<property name="dataSource">
@@ -123,7 +123,7 @@
 		</property>
 	</bean>
 
-	<!-- 成績マスタ -->
+	<!-- 成績 -->
 	<bean id="SeisekiServiceId"
 		class="cashbook.service.seiseki.SeisekiServiceImpl">
 		<property name="seisekiDao">
@@ -191,15 +191,9 @@
 		</property>
 	</bean>
 
-	<!-- 成績マスタメンテ -->
+	<!-- 成績 -->
 	<bean name="/SeisekiListInit"
 		class="cashbook.action.seiseki.SeisekiListInitAction">
-		<property name="seisekiService">
-			<ref local="SeisekiServiceId" />
-		</property>
-	</bean>
-	<bean name="/SeisekiListSearch"
-		class="cashbook.action.seiseki.SeisekiListSearchAction">
 		<property name="seisekiService">
 			<ref local="SeisekiServiceId" />
 		</property>

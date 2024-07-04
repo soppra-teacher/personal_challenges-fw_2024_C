@@ -18,17 +18,17 @@ import cashbook.service.seiseki.SeisekiService;
 import cashbook.util.CommonUtil;
 
 /**
- * 成績マスタメンテ画面登録アクションクラス
+ * 成績画面登録アクションクラス
  * @author soppra
  */
 public class SeisekiListSenshuRegistAction extends BaseAction {
 
-	/** 成績マスタサービス */
+	/** 成績サービス */
 	private SeisekiService seisekiService;
 
 	/**
-	 * 成績マスタサービスを設定します。
-	 * @param seisekiService 成績マスタサービス
+	 * 成績サービスを設定します。
+	 * @param seisekiService 成績サービス
 	 */
 	public void setSeisekiService(SeisekiService seisekiService) {
 		this.seisekiService = seisekiService;
@@ -36,7 +36,7 @@ public class SeisekiListSenshuRegistAction extends BaseAction {
 
 	/**
 	 * <p><b>
-	 * 成績マスタメンテ画面
+	 * 成績画面
 	 * <br>登録処理
 	 * </b></p>
 	 *
