@@ -10,42 +10,36 @@ public class LoginDto {
 	private String userId;
 	/** パスワード 取得 */
 	private String pass;
-	
-	
+
 	/**
 	 * ユーザーＩＤを取得します。
-	 * @return 個人ＩＤ
+	 * @return ユーザーＩＤ
 	 */
 	public String getUserId() {
-	    return userId;
+		return userId;
 	}
-	
+
 	/**
-	 * 個人名を設定します。
-	 * @param kojinNm 個人名
+	 * ユーザーＩＤを設定します。
+	 * @param userId ユーザーＩＤ
 	 */
 	public void setUserId(String userId) {
-	    this.userId = userId;
+		this.userId = userId;
 	}
-	
+
 	/**
 	 * パスワードを取得します。
-	 * @return 個人ＩＤ
+	 * @return パスワード
 	 */
 	public String Pass() {
-	    return pass;
+		return pass;
 	}
-	
+
 	/**
 	 * パスワードを設定します。
-	 * @param kojinNm 個人名
+	 * @param pass パスワード
 	 */
 	public void setPass(String pass) {
-	    this.pass = pass;
+		this.pass = pass;
 	}
 }
-	
-
-
-
-

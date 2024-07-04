@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
 	/** ユーザーマスタDao */
 	private UserDao userDao;
-	
+
 	/**
 	 * DAOのsetter
 	 * @param userDao
@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
 		String user_pass = CommonUtil.getStr(formMap.get(UserConst.KEY_PASS));
 		String user_pass2 = CommonUtil.getStr(formMap.get(UserConst.KEY_PASS2));
 
-
 		//パスワードのチェックをおこなう
 		if (!user_pass.equals(user_pass2)) {
 			throw new CommonValidateException(MSG_ERRORS_PASS_ERROR);
@@ -47,7 +46,5 @@ public class UserServiceImpl implements UserService {
 		}
 		userDao.registUser(formMap);
 	}
-
-
 
 }

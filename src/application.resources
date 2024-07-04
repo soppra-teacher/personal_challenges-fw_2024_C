@@ -14,8 +14,8 @@ errors.overLap=対象データは既に登録されています
 errors.lock=対象データが更新または削除されています
 
 #ログイン画面
-loginForm.error.login=個人IDまたはパスワードが間違っています
-loginForm.param.kojinId=個人ID
+loginForm.error.login=ユーザーIDまたはパスワードが間違っています
+loginForm.param.kojinId=ユーザーID
 loginForm.param.pass=パスワード
 
 #世帯マスタ登録画面

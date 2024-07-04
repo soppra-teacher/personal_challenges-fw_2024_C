@@ -32,6 +32,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
 	/**
 	 * 重複チェック
+	 * @param formMap
 	 * @return true：正常、false：重複エラー
 	 * ※ユーザーIDが重複していないか確認するSQL文を記載する。
 	 */
@@ -41,7 +42,6 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		sql.append("SELECT COUNT(M1.USER_ID)");
 		sql.append("  FROM MST_USER M1 ");
 		sql.append(" WHERE M1.USER_ID = '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");
-		//sql.append("   AND ROWNUM = 1 ");
 
 		return super.find(sql.toString()).toString().equals("{COUNT(M1.USER_ID)=0}");
 	}
