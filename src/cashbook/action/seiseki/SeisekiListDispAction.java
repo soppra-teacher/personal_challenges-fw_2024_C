@@ -11,20 +11,10 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
 /**
- * 成績マスタメンテ画面ディスパッチアクションクラス
+ * 成績画面ディスパッチアクションクラス
  * @author soppra
  */
 public class SeisekiListDispAction extends DispatchAction {
-
-	/** 検索  */
-	public ActionForward search(
-			ActionMapping mapping,
-			ActionForm form,
-			HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-
-		return mapping.findForward(ACTION_FOWARD_SEARCH);
-	}
 
 	/** 登録 */
 	public ActionForward insert(

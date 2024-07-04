@@ -69,15 +69,10 @@
 			<form-property name="revision" type="java.lang.String" />
 		</form-bean>
 		
-		<!-- 成績マスタメンテ画面 -->
+		<!-- 成績画面 -->
 		<form-bean name="seisekiListForm"         type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="newSenshuNm"     type="java.lang.String"  />
 			<form-property name="senshuId"        type="java.lang.Integer"  />
-			<form-property name="senshuNm"        type="java.lang.String"  />
-			<form-property name="souInning"       type="java.lang.String"  />
-			<form-property name="souShitten"      type="java.lang.String"  />
-			<form-property name="souJisekiten"    type="java.lang.String"  />
-			<form-property name="bougyoRitsu"     type="java.lang.String"  />
 		</form-bean>
 
 	</form-beans>
@@ -241,15 +236,18 @@
 		
 		<!--
 		****************************
-		* 成績マスタメンテ画面     *
+		* 成績画面                 *
 		****************************
 		-->
 		<!-- 初期表示 -->
 		<action
 			path="/SeisekiListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
+			name="seisekiListForm"
+			validate="false"
+			input="/jsp/seiseki/seisekiList.jsp"
 			scope="request">
-			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
+			<forward name="success" path="/jsp/seiseki/seisekiList.jsp" />
 		</action>
 		<!-- ディスパッチ -->
 		<action
@@ -259,18 +257,7 @@
 			validate="false"
 			parameter="operation"
 			scope="request">
-			<forward name="search" path="/SeisekiListSearch.do"/>
 			<forward name="insert" path="/SeisekiListSenshuRegist.do"/>
-		</action>
-		<!-- 検索 -->
-		<action
-			path="/SeisekiListSearch"
-			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="seisekiListForm"
-			validate="false"
-			input="/jsp/seiseki/seisekiList.jsp"
-			scope="request">
-			<forward name="success" path="/jsp/seiseki/seisekiList.jsp"/>
 		</action>
 		<!-- 選手登録 -->
 		<action
@@ -280,7 +267,7 @@
 			validate="true"
 			input="/jsp/seiseki/seisekiList.jsp"
 			scope="request">
-			<forward name="success" path="/SeisekiListSearch.do" redirect="true" />
+			<forward name="success" path="/SeisekiListInit.do" redirect="true" />
 		</action>
 
 
