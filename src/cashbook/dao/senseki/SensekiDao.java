@@ -31,17 +31,4 @@ public interface SensekiDao {
 	 */
 	public void deleteSenseki(String checkDel, LoginDto loginDto);
 
-	/**
-	 * 戦績を登録する
-	 * @param フォーム項目
-	 * @param ログイン情報DTO
-	 */
-	public void registSenseki(Map<String, Object> formMap, LoginDto loginDto);
-	
-	/**
-	 * セレクトボックス用選手名取得
-	 * @return 選手名
-	 */
-	public Map<String, String> searchSelectboxSenshuNm(LoginDto loginDto);
-	
 }

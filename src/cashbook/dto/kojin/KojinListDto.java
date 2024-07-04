@@ -3,9 +3,7 @@ package cashbook.dto.kojin;
 import java.util.List;
 import java.util.Map;
 
-import cashbook.dto.common.BaseDto;
-
-public class KojinListDto extends BaseDto {
+public class KojinListDto{
 
 	/** 個人ID */
 	private String kojinId;
