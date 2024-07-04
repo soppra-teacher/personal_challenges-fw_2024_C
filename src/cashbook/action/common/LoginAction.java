@@ -58,7 +58,7 @@ public class LoginAction extends Action {
 
 		// フォームの値をもとに、ログイン処理
 		LoginDto loginDto = loginService.execute(formMap);
-System.out.println(loginDto.getUserId());
+
 		// ログイン情報DTO.個人IDが設定されている場合
 		if (loginDto.getUserId().equals("1")) {
 			

@@ -31,7 +31,8 @@ public class LoginServiceImpl implements LoginService {
 		Map<String, String> map = loginDao.findLogin(formMap);
 
 		//ログインするためにユーザーマスタからユーザーIDを取得する COUNT(*)
-		result.setUserId(map.get("USER_ID"));
+		result.setUserId(map.get("USERID"));
+		
 		//ログインするためにユーザーマスタからパスワードを取得する
 		result.setPass(map.get("PASS"));
 		return result;
