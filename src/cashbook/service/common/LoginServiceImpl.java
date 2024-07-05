@@ -24,14 +24,16 @@ public class LoginServiceImpl implements LoginService {
 	 * ログイン実行メソッド
 	 * @param formMap
 	 * @return result
-	 * ログインするためにユーザーマスタから
-	 * ユーザーIDとパスワードを取得する
 	 */
 
 	public LoginDto execute(Map<String, Object> formMap) {
 		LoginDto result = new LoginDto();
 		Map<String, String> map = loginDao.findLogin(formMap);
-		result.setUserId(map.get("USER_ID"));
+
+		//ログインするためにユーザーマスタからユーザーIDを取得する COUNT(*)
+		result.setUserId(map.get("USERID"));
+		
+		//ログインするためにユーザーマスタからパスワードを取得する
 		result.setPass(map.get("PASS"));
 		return result;
 	}

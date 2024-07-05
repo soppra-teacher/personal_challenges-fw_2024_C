@@ -2,8 +2,6 @@ package cashbook.action.user;
 
 import static cashbook.util.Const.*;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,10 +11,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
-import org.apache.struts.action.DynaActionForm;
 
 import cashbook.dto.user.UserRegistDto;
-import cashbook.service.user.UserService;
 import cashbook.util.CommonUtil;
 import cashbook.util.Const;
 
@@ -24,21 +20,9 @@ import cashbook.util.Const;
  * ユーザーマスタ登録画面 初期表示アクションクラス 
  * ログイン後：BaseActionクラスを継承する
  * ログイン前：Actionクラスを継承する
- * Q: 
  * @author soppra
  */
 public class UserRegistInitAction extends Action {
-
-	/** ユーザー登録画面マスタサービス */
-	private UserService userService;
-
-	/**
-	 * ユーザー登録サービスを設定します。
-	 * @param himokuService 費目マスタサービス
-	 */
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
 
 	/**
 	 * <p><b>
@@ -58,22 +42,16 @@ public class UserRegistInitAction extends Action {
 	public ActionForward execute(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+		// ユーザーマスタメンテ初期表示情報を取得
+		UserRegistDto dto = new UserRegistDto();
+
 		// ログイン成功
-		request.setAttribute("userRegistForm", new UserRegistDto());
-		//// ログイン情報取得
-		request.getSession().setAttribute("USER_REGIST_DTO", new UserRegistDto());
-
-		// フォームの値を取得する。
-		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
-
-		/*-------------------------------------------------*
-		 * １．セッションから戻り先のアクションを取得する。*
-		 *-------------------------------------------------*/
-		// 戻り先をセッションから取得する。
-		String backAction = CommonUtil.getStr(request.getSession().getAttribute(SESSION_REGIST_BACK_USER));
+		request.setAttribute("FORM_USER_REGIST", dto);
+		// ログイン情報取得
+		request.getSession().setAttribute("USER_REGIST_DTO", dto);
 
 		/*---------------------------------------------------*
-		 * 2．セッションから表示するメッセージを取得する。  *
+		 * 1．セッションから表示するメッセージを取得する。  *
 		 *---------------------------------------------------*/
 		// メッセージをセッションから取得する。
 		String messageKey = CommonUtil.getStr(request.getSession().getAttribute(SESSION_REGIST_MESSAGE_USER));
