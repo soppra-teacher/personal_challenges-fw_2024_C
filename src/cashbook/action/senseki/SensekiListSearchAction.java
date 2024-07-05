@@ -20,7 +20,7 @@ import cashbook.dto.senseki.SensekiListDto;
 import cashbook.exception.CommonValidateException;
 import cashbook.service.senseki.SensekiService;
 import cashbook.util.CommonUtil;
-import cashbook.util.SensekiConst;
+import cashbook.util.SensekiRegConst;
 
 /**
  * 個人戦績画面検索アクションクラス
@@ -77,7 +77,7 @@ public class SensekiListSearchAction extends BaseAction {
 		SensekiListDto dto = sensekiService.listSearch(formMap,loginDto);
 
 		// 取得した情報をリクエストに登録
-		request.setAttribute(SensekiConst.FORM_SENSEKI_LIST, dto);
+		request.setAttribute(SensekiRegConst.FORM_SENSEKI_LIST, dto);
 		// 取得した情報をセッションに登録
 		request.getSession().setAttribute(SESSION_LIST_DTO_SENSEKI, dto);
 
