@@ -30,6 +30,8 @@
 			<form-property name="playerNm"   type="java.lang.String"  />
 			<form-property name="datsusanshin"   type="java.lang.String"  />
 			<form-property name="checkDel"       type="java.lang.String[]"/>
+			
+			<form-property name="senshuId"        type="java.lang.Integer"  />
 		</form-bean>
 		
 		
@@ -72,7 +74,6 @@
 		<!-- 成績画面 -->
 		<form-bean name="seisekiListForm"         type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="newSenshuNm"     type="java.lang.String"  />
-			<form-property name="senshuId"        type="java.lang.Integer"  />
 		</form-bean>
 
 	</form-beans>
@@ -193,7 +194,7 @@
 		<action
 			path="/SensekiListInit"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="seisekiListForm"
+			name="sensekiListForm"
 			validate="false"
 			scope="request">
 			<forward name="success" path="/SensekiListSearch.do" redirect="true"  />
