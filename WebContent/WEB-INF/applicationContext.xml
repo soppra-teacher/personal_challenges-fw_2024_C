@@ -95,9 +95,6 @@
 	<!-- 個人戦績 -->
 	<bean id="SensekiServiceId"
 		class="cashbook.service.senseki.SensekiServiceImpl">
-		<property name="commonDao">
-			<ref local="CommonDaoId" />
-		</property>
 		<property name="sensekiDao">
 			<ref local="SensekiDaoId" />
 		</property>
@@ -158,12 +155,6 @@
 	<!-- 個人戦績 -->
 	<bean name="/SensekiListInit"
 		class="cashbook.action.senseki.SensekiListInitAction">
-		<property name="sensekiService">
-			<ref local="SensekiServiceId" />
-		</property>
-	</bean>
-	<bean name="/SensekiListSearch"
-		class="cashbook.action.senseki.SensekiListSearchAction">
 		<property name="sensekiService">
 			<ref local="SensekiServiceId" />
 		</property>

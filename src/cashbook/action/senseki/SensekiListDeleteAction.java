@@ -18,7 +18,7 @@ import cashbook.service.senseki.SensekiService;
 import cashbook.util.CommonUtil;
 
 /**
- * 個人マスタメンテ画面削除アクションクラス
+ * 個人戦績画面削除アクションクラス
  * @author soppra
  */
 public class SensekiListDeleteAction extends BaseAction {
@@ -28,7 +28,7 @@ public class SensekiListDeleteAction extends BaseAction {
 
 	/**
 	 * 個人戦績サービスを設定します。
-	 * @param sensekiService 個人マスタサービス
+	 * @param sensekiService 個人戦績サービス
 	 */
 	public void setSensekiService(SensekiService sensekiService) {
 		this.sensekiService = sensekiService;

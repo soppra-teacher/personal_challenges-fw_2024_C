@@ -18,7 +18,6 @@
 
 <body onload="setDeleteButton();">
 
-	<bean:define id="inputBean" name="sensekiListForm" />
 	<bean:define id="viewBean" name="SENSEKI_LIST_DTO" />
 
 	<div class="base-width text-center">

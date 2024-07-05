@@ -19,7 +19,7 @@ import cashbook.dto.common.LoginDto;
 import cashbook.dto.senseki.SensekiRegistDto;
 import cashbook.service.sensekireg.SensekiRegService;
 import cashbook.util.CommonUtil;
-import cashbook.util.SensekiConst;
+import cashbook.util.SensekiRegConst;
 
 /**
  * 戦績登録画面 初期表示アクションクラス
@@ -68,7 +68,7 @@ public class SensekiRegistInitAction extends BaseAction {
 		if (EMPTY.equals(backAction)) {
 
 			// 戦績コードがフォームに設定されていない場合
-			if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_CD)))) {
+			if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiRegConst.KEY_SENSEKI_CD)))) {
 				// メニューからの遷移と判定
 				backAction = ACTION_FOWARD_BACK_MENU;
 
@@ -102,7 +102,7 @@ public class SensekiRegistInitAction extends BaseAction {
 		SensekiRegistDto dto = sensekiRegService.registInit(formMap,loginDto);
 
 		// 取得した情報をリクエストに設定
-		request.setAttribute(SensekiConst.FORM_SENSEKI_REGIST, dto);
+		request.setAttribute(SensekiRegConst.FORM_SENSEKI_REGIST, dto);
 		// 取得した情報をセッションに設定
 		request.getSession().setAttribute(SESSION_REGIST_DTO_SENSEKI, dto);
 
