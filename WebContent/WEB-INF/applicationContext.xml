@@ -60,7 +60,7 @@
 		</property>
 	</bean>
 
-	<!-- 戦績登録 山内 -->
+	<!-- 戦績登録  -->
 	<bean id="SensekiRegDaoId"
 		class="cashbook.dao.sensekireg.SensekiRegDaoImpl">
 		<property name="dataSource">
@@ -100,7 +100,7 @@
 		</property>
 	</bean>
 
-	<!-- 戦績登録　山内 -->
+	<!-- 戦績登録　 -->
 	<bean id="SensekiRegServiceId"
 		class="cashbook.service.sensekireg.SensekiRegServiceImpl">
 		<property name="commonDao">
@@ -137,7 +137,7 @@
 		</property>
 	</bean>
 
-	<!-- 戦績登録 山内 -->
+	<!-- 戦績登録  -->
 	<bean name="/SensekiRegistInit"
 		class="cashbook.action.sensekireg.SensekiRegistInitAction">
 		<property name="sensekiRegService">
