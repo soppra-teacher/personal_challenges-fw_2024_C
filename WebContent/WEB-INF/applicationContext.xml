@@ -128,7 +128,6 @@
 		</property>
 	</bean>
 
-
 	<!-- Action -->
 	<!-- ログイン画面 -->
 	<bean name="/Login" class="cashbook.action.common.LoginAction">
@@ -151,7 +150,6 @@
 		</property>
 	</bean>
 
-
 	<!-- 個人戦績 -->
 	<bean name="/SensekiListInit"
 		class="cashbook.action.senseki.SensekiListInitAction">
@@ -166,12 +164,9 @@
 		</property>
 	</bean>
 
-
-	<!-- 新規作成 -->
 	<!-- ユーザー登録 -->
 	<bean name="/UserRegistInit"
 		class="cashbook.action.user.UserRegistInitAction">
-		<!-- <property name="userService"> <ref local="UserServiceId" /> </property> -->
 	</bean>
 	<bean name="/UserRegistInsUpd"
 		class="cashbook.action.user.UserRegistInsUpdAction">
