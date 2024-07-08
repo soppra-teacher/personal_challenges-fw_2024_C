@@ -19,6 +19,7 @@ import cashbook.dto.common.LoginDto;
 import cashbook.dto.senseki.SensekiListDto;
 import cashbook.service.senseki.SensekiService;
 import cashbook.util.CommonUtil;
+import cashbook.util.SensekiConst;
 
 /**
  * 個人戦績メンテ画面 初期表示アクションクラス
@@ -36,7 +37,7 @@ public class SensekiListInitAction extends BaseAction {
 	public void setSensekiService(SensekiService sensekiService) {
 		this.sensekiService = sensekiService;
 	}
-	
+
 	/**
 	 * <p><b>
 	 * 個人戦績メンテ画面
@@ -53,10 +54,23 @@ public class SensekiListInitAction extends BaseAction {
 	 */
 	protected ActionForward doProcess(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response, LoginDto loginDto) throws Exception {
-		
-		// フォームの値を取得
+
+		// フォームを取得
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
-		
+
+		// formMap内のsenshuIdの有無を確認
+		if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSHU_ID)))) {
+			
+			// セッションからフォームの値を取得
+			formMap = CommonUtil.getFormMap((DynaActionForm) request.getSession().getAttribute(SESSION_LIST_RE_SEARCH_SENSEKI));
+
+		} else {
+			
+			// セッションにフォームを登録
+			request.getSession().setAttribute(SESSION_LIST_RE_SEARCH_SENSEKI, form);
+
+		}
+
 		// セッションからメッセージを取得する。
 		String messageKey = CommonUtil.getStr(request.getSession().getAttribute(SESSION_LIST_MESSAGE_SENSEKI));
 
@@ -72,12 +86,10 @@ public class SensekiListInitAction extends BaseAction {
 		}
 
 		// 個人戦績画面 検索処理
-		SensekiListDto dto = sensekiService.listInit(formMap,loginDto);
+		SensekiListDto dto = sensekiService.listInit(formMap, loginDto);
 
 		// 取得した情報をセッションに登録
 		request.getSession().setAttribute(SESSION_LIST_DTO_SENSEKI, dto);
-
-		
 
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(ACTION_FOWARD_SUCCESS);

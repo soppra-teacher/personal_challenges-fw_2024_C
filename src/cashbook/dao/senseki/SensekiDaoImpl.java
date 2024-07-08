@@ -71,7 +71,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 		sql.append(" SELECT P1.PLAYER_NAME AS PNAME");
 		sql.append(" FROM MST_PLAYER P1 ");
-		sql.append(" WHERE P1.PLAYER_ID ='").append(formMap.get(SensekiConst.KEY_SENSHU_ID)).append("'");
+		sql.append(" WHERE P1.PLAYER_ID = '").append(formMap.get(SensekiConst.KEY_SENSHU_ID)).append("' ");
 
 		result = super.find(sql.toString());
 		return result.get("PNAME");

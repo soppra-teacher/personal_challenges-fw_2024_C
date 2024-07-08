@@ -61,7 +61,6 @@ public class LoginAction extends Action {
 
 		// ログイン情報DTO.個人IDが設定されている場合
 		if (loginDto.getUserId() != null) {
-			//			System.out.println(loginDto.getUserId());
 			// ログイン成功
 			request.getSession().setAttribute(Const.SESSION_LOGIN_DTO, loginDto);
 
