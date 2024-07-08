@@ -60,8 +60,8 @@ public class LoginAction extends Action {
 		LoginDto loginDto = loginService.execute(formMap);
 
 		// ログイン情報DTO.個人IDが設定されている場合
-		if (loginDto.getUserId().equals("1")) {
-			
+		if (loginDto.getUserId() != null) {
+			//			System.out.println(loginDto.getUserId());
 			// ログイン成功
 			request.getSession().setAttribute(Const.SESSION_LOGIN_DTO, loginDto);
 
