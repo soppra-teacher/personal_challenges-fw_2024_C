@@ -43,13 +43,8 @@ public class UserRegistInsUpdAction extends Action {
 	public ActionForward execute(ActionMapping map, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		// 個人マスタメンテ初期表示情報を取得
+		// ユーザーマスタメンテ初期表示情報を取得
 		UserRegistDto dto = new UserRegistDto();
-
-		// ログイン成功
-		request.setAttribute("FORM_USER_REGIST", dto);
-		// ログイン情報取得
-		request.getSession().setAttribute("USER_REGIST_DTO", dto);
 
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
@@ -68,6 +63,11 @@ public class UserRegistInsUpdAction extends Action {
 			saveErrors(request, errors);
 			return map.getInputForward();
 		}
+
+		// 新規ユーザー登録成功
+		request.setAttribute("FORM_USER_REGIST", dto);
+		// ユーザー情報取得
+		request.getSession().setAttribute("USER_REGIST_DTO", dto);
 
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(Const.ACTION_FOWARD_SUCCESS);

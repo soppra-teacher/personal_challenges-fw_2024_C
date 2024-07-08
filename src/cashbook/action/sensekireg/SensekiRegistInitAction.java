@@ -19,7 +19,7 @@ import cashbook.dto.common.LoginDto;
 import cashbook.dto.senseki.SensekiRegistDto;
 import cashbook.service.sensekireg.SensekiRegService;
 import cashbook.util.CommonUtil;
-import cashbook.util.SensekiConst;
+import cashbook.util.SensekiRegConst;
 
 /**
  * 戦績登録画面 初期表示アクションクラス
@@ -77,7 +77,7 @@ public class SensekiRegistInitAction extends BaseAction {
 		SensekiRegistDto dto = sensekiRegService.registInit(formMap,loginDto);
 
 		// 取得した情報をリクエストに設定
-		request.setAttribute(SensekiConst.FORM_SENSEKI_REGIST, dto);
+		request.setAttribute(SensekiRegConst.FORM_SENSEKI_REGIST, dto);
 		// 取得した情報をセッションに設定
 		request.getSession().setAttribute(SESSION_REGIST_DTO_SENSEKI, dto);
 

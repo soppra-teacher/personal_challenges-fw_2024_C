@@ -1,18 +1,13 @@
 package cashbook.service.senseki;
 
-import static cashbook.util.Const.*;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import cashbook.dao.common.CommonDao;
 import cashbook.dao.senseki.SensekiDao;
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.senseki.SensekiListDto;
-import cashbook.dto.senseki.SensekiRegistDto;
-import cashbook.exception.CommonValidateException;
 import cashbook.util.CommonUtil;
 
 /**
@@ -23,21 +18,23 @@ public class SensekiServiceImpl implements SensekiService {
 
 	/** 個人マスタDao */
 	private SensekiDao sensekiDao;
-	/** 共通Dao */
-	private CommonDao commonDao;
-
+	
+	/**
+	 * DAOのsetter
+	 * @param sensekiDao
+	 */
+	public void setSensekiDao(SensekiDao sensekiDao) {
+		this.sensekiDao = sensekiDao;
+	}
+	
+	
 	/**
 	 * 一覧画面初期表示メソッド
+	 * @param formMap
+	 * @param loginDto
+	 * @return SensekiListDto
 	 */
-	public SensekiListDto listInit(Map<String, Object> formMap) {
-		SensekiListDto result = new SensekiListDto();
-		return result;
-	}
-
-	/**
-	 * 一覧画面検索メソッド
-	 */
-	public SensekiListDto listSearch(Map<String, Object> formMap,LoginDto loginDto) {
+	public SensekiListDto listInit(Map<String, Object> formMap,LoginDto loginDto) {
 		
 		SensekiListDto result = new SensekiListDto();
 
@@ -77,79 +74,20 @@ public class SensekiServiceImpl implements SensekiService {
 
 	/**
 	 * 一覧画面削除メソッド
+	 * @param formMap
+	 * @param loginDto
 	 */
 	public void listDelete(Map<String, Object> formMap, LoginDto loginDto) {
+		
+		// formMapから削除するデータをListに格納
 		List<String> list = CommonUtil.convFormMapToList(formMap);
+		
+		// 取得した削除するデータを削除
 		for (String checkDel : list) {
 			sensekiDao.deleteSenseki(checkDel, loginDto);
 		}
 	}
 	
-	/**
-	 * <p><b>
-	 * 戦績画面
-	 * <br>初期表示処理
-	 * </b></p>
-	 * @return SensekiListDto 戦績DTO
-	 */
-	public SensekiRegistDto listInit(LoginDto loginDto) {
-		SensekiRegistDto result = new SensekiRegistDto();
-		// 選手名コンボボックスの設定
-		result.setSenshuNm(sensekiDao.searchSelectboxSenshuNm(loginDto));
-		//イニング詳細コンボボックス
-		result.setIningMini(commonDao.getCode(CD_BUNRUI_006));
-		return result;
-	}
 
-	/**
-	 * <p><b>
-	 * 戦績登録画面
-	 * <br>検索処理
-	 * </b></p>
-	 * @param  formMap       画面項目
-	 * @return SensekiListDto 戦績DTO
-	 */
-	public SensekiRegistDto registInit(Map<String, Object> formMap,LoginDto loginDto) {
-
-		SensekiRegistDto result = new SensekiRegistDto();
-
-		// 選手名コンボボックスの設定
-		result.setSenshuNm(sensekiDao.searchSelectboxSenshuNm(loginDto));
-		//イニング詳細コンボボックス
-		result.setIningMini(commonDao.getCode(CD_BUNRUI_001));
-
-		return result;
-	}
-
-	/**
-	 * <p><b>
-	 * 戦績登録画面
-	 * <br>登録・更新処理
-	 * </b></p>
-	 * @param formMap  画面項目
-	 * @param loginDto ログイン情報DTO
-	 * @throws CommonValidateException
-	 */
-	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws CommonValidateException {
-			// 登録処理
-			sensekiDao.registSenseki(formMap, loginDto);
-	}
-	
-	/**
-	 * DAOのsetter
-	 * @param sensekiDao
-	 */
-	public void setSensekiDao(SensekiDao sensekiDao) {
-		this.sensekiDao = sensekiDao;
-	}
-
-	/**
-	 * DAOのsetter
-	 * @param commonDao
-	 */
-	public void setCommonDao(CommonDao commonDao) {
-		this.commonDao = commonDao;
-	}
-	
 
 }
