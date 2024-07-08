@@ -29,8 +29,8 @@
 			<form-property name="tamakazu"   type="java.lang.String"  />
 			<form-property name="playerNm"   type="java.lang.String"  />
 			<form-property name="datsusanshin"   type="java.lang.String"  />
-			<form-property name="checkDel"       type="java.lang.String[]"/>
 			<form-property name="senshuId"        type="java.lang.Integer"  />
+			<form-property name="checkDel"       type="java.lang.String[]"/>
 		</form-bean>
 		
 		
@@ -217,7 +217,7 @@
 			validate="false"
 			input="/jsp/senseki/sensekiList.jsp"
 			scope="request">
-			<forward name="success" path="/SensekiListSearch.do" redirect="true" />
+			<forward name="success" path="/SensekiListInit.do" redirect="true" />
 		</action>
 		
 		

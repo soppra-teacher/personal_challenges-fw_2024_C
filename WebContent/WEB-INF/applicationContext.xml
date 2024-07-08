@@ -60,7 +60,7 @@
 		</property>
 	</bean>
 
-	<!-- 戦績登録 山内 -->
+	<!-- 戦績登録  -->
 	<bean id="SensekiRegDaoId"
 		class="cashbook.dao.sensekireg.SensekiRegDaoImpl">
 		<property name="dataSource">
@@ -100,7 +100,7 @@
 		</property>
 	</bean>
 
-	<!-- 戦績登録　山内 -->
+	<!-- 戦績登録　 -->
 	<bean id="SensekiRegServiceId"
 		class="cashbook.service.sensekireg.SensekiRegServiceImpl">
 		<property name="commonDao">
@@ -128,7 +128,6 @@
 		</property>
 	</bean>
 
-
 	<!-- Action -->
 	<!-- ログイン画面 -->
 	<bean name="/Login" class="cashbook.action.common.LoginAction">
@@ -137,7 +136,7 @@
 		</property>
 	</bean>
 
-	<!-- 戦績登録 山内 -->
+	<!-- 戦績登録  -->
 	<bean name="/SensekiRegistInit"
 		class="cashbook.action.sensekireg.SensekiRegistInitAction">
 		<property name="sensekiRegService">
@@ -150,7 +149,6 @@
 			<ref local="SensekiRegServiceId" />
 		</property>
 	</bean>
-
 
 	<!-- 個人戦績 -->
 	<bean name="/SensekiListInit"
@@ -166,12 +164,9 @@
 		</property>
 	</bean>
 
-
-	<!-- 新規作成 -->
 	<!-- ユーザー登録 -->
 	<bean name="/UserRegistInit"
 		class="cashbook.action.user.UserRegistInitAction">
-		<!-- <property name="userService"> <ref local="UserServiceId" /> </property> -->
 	</bean>
 	<bean name="/UserRegistInsUpd"
 		class="cashbook.action.user.UserRegistInsUpdAction">

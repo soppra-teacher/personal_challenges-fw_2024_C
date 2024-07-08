@@ -13,7 +13,7 @@
 <title>スポーツデータ 個人戦績</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/common.css" />
-<script type="text/javascript" charset="shift_jis" src="js/common.js"></script>
+<script type="text/javascript" charset="shift_jis" src="<%=request.getContextPath()%>/js/common.js"></script>
 </head>
 
 <body onload="setDeleteButton();">
@@ -59,9 +59,8 @@
 					<td class="w-25"><html:button property="delete"
 							onclick="callAction(this.form, 'delete');" styleClass="btn btn-l">
 							削除
-						</html:button>
-					</td>
-					
+						</html:button></td>
+
 					</tr>
 				</table>
 
