@@ -5,7 +5,7 @@ import java.util.Map;
 
 import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
-import cashbook.util.SeisekiConst;
+import cashbook.util.SensekiConst;
 
 /**
  * 個人戦績DAOクラス
@@ -36,7 +36,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 		sql.append("       ,TO_CHAR(M1.MATCH_DATE,'yyyy/mm/dd') AS MATCH_DATE  ");
 		sql.append("       ,M1.INS_USER");
 		sql.append("  FROM SENSEKI_TBL M1");
-		sql.append(" WHERE M1.PLAYER_ID = '").append(formMap.get(SeisekiConst.KEY_SENSHU_ID)).append("' ");
+		sql.append(" WHERE M1.PLAYER_ID = '").append(formMap.get(SensekiConst.KEY_SENSHU_ID)).append("' ");
 		sql.append("  AND INS_USER= '").append(loginDto.getUserId()).append("' "); // 登録ユーザーとログインユーザーの合致で絞り込み
 		sql.append("  ORDER BY MATCH_DATE DESC ");
 
@@ -71,7 +71,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 		sql.append(" SELECT P1.PLAYER_NAME AS PNAME");
 		sql.append(" FROM MST_PLAYER P1 ");
-		sql.append(" WHERE P1.PLAYER_ID ='").append(formMap.get(SeisekiConst.KEY_SENSHU_ID)).append("'");
+		sql.append(" WHERE P1.PLAYER_ID ='").append(formMap.get(SensekiConst.KEY_SENSHU_ID)).append("'");
 
 		result = super.find(sql.toString());
 		return result.get("PNAME");
