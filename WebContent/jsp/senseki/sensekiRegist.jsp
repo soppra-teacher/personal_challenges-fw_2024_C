@@ -16,24 +16,12 @@
 	</title>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/common.css" />
 	<script type="text/javascript" charset="shift_jis" src="js/common.js"></script>
-	<!-- フォーカスセット -->
-	<!-- <script type="text/javascript">
-		window.onload = function(){
-
-			if (eleRevision.defaultValue == ""){
-				eleSensekiCd.focus();
-			} else {
-				eleSensekiNm.focus();
-			}
-		}
-	</script>-->
 </head>
 
 <body>
 
 	<bean:define id="inputBean" name="sensekiRegistForm" />
 	<bean:define id="viewBean" name="SENSEKI_REGIST_DTO" />
-	<bean:define id="backAction" name="SENSEKI_REGIST_BACK" type="java.lang.String" />
 
 	<div class="base-width text-center">
 
@@ -44,7 +32,6 @@
 			</jsp:include>
 
 			<html:hidden property="operation" value="" />
-			<html:hidden name="viewBean" property="revision" />
 
 			<div id="contents">
 
@@ -175,11 +162,9 @@
 				</div>
 
 				<div class="block-center">
-					<logic:empty name="viewBean" property="revision">
 						<html:button property="insert" styleClass="btn btn-l" onclick="callAction(this.form, 'insert');">
 							登録
 						</html:button>
-					</logic:empty>
 				</div>
 				<jsp:include page="/jsp/common/footer.jsp" />
 			</div>
