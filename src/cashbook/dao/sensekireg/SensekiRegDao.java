@@ -1,6 +1,5 @@
 package cashbook.dao.sensekireg;
 
-import java.util.List;
 import java.util.Map;
 
 import cashbook.dto.common.LoginDto;
@@ -10,29 +9,11 @@ import cashbook.dto.common.LoginDto;
  * @author soppra
  */
 public interface SensekiRegDao {
-
 	/**
-	 * 個人マスタ一覧を検索する
-	 * @param formMap フォーム項目
-	 * @return 個人マスタ一覧
-	 */
-	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap,LoginDto loginDto);
-	
-	/**
-	 * 個人戦績一覧を検索する
-	 * @return 選手名
-	 */
-	public String getPlayerName(Map<String, Object> formMap);
-
-	/**
-	 * 個人戦績を削除する
-	 * @param checkDel
-	 * @param loginDto
-	 */
-	public void deleteSenseki(String checkDel, LoginDto loginDto);
-
-	/**
-	 * 戦績を登録する
+	 * <p><b>
+	 * 戦績登録画面
+	 * <br>登録処理
+	 * </b></p>
 	 * @param フォーム項目
 	 * @param ログイン情報DTO
 	 */
@@ -43,5 +24,6 @@ public interface SensekiRegDao {
 	 * @return 選手名
 	 */
 	public Map<String, String> searchSelectboxSenshuNm(LoginDto loginDto);
+	
 	
 }

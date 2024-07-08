@@ -83,7 +83,7 @@
 		</form-bean>
 		
 		
-		<!-- 戦績マスタ登録画面 -->
+		<!-- 戦績登録画面 -->
 		<form-bean name="sensekiRegistForm"     type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="matchId"     type="java.lang.String" />
 			<form-property name="senshuNm"     type="java.lang.String" />
@@ -418,7 +418,7 @@
 		
 		<!--
 		****************************
-		* 戦績登録画面     山内  *
+		* 戦績登録画面 *
 		****************************
 		-->
 		<!-- 初期表示 -->

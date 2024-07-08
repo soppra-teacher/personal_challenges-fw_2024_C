@@ -34,45 +34,4 @@ public class SensekiRegistDispAction extends DispatchAction {
 
 		return mapping.findForward(ACTION_FOWARD_INSERT);
 	}
-
-
-	/**
-	 * 戻る（メニュー）
-	 *
-	 * @param map      アクションマッピング
-	 * @param form     フォーム
-	 * @param request  リクエスト
-	 * @param response レスポンス
-	 * @param loginDto ログイン情報DTO
-	 * @return アクションフォワード
-	 * @throws Exception すべての例外
-	 */
-	public ActionForward backMenu(
-			ActionMapping mapping,
-			ActionForm form,
-			HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-
-		return mapping.findForward(ACTION_FOWARD_BACK_MENU);
-	}
-
-	/**
-	 * 戻る（一覧）
-	 *
-	 * @param map      アクションマッピング
-	 * @param form     フォーム
-	 * @param request  リクエスト
-	 * @param response レスポンス
-	 * @param loginDto ログイン情報DTO
-	 * @return アクションフォワード
-	 * @throws Exception すべての例外
-	 */
-	public ActionForward backList(
-			ActionMapping mapping,
-			ActionForm form,
-			HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-
-		return mapping.findForward(ACTION_FOWARD_BACK_LIST);
-	}
 }

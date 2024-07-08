@@ -32,7 +32,7 @@ public class SensekiRegistInitAction extends BaseAction {
 
 	/**
 	 * 戦績サービスを設定します。
-	 * @param sensekiRegService 戦績サービス
+	 * @param sensekiService 戦績サービス
 	 */
 	public void setSensekiRegService(SensekiRegService sensekiRegService) {
 		this.sensekiRegService = sensekiRegService;
@@ -58,33 +58,8 @@ public class SensekiRegistInitAction extends BaseAction {
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
 
-		/*-------------------------------------------------*
-		 * １．セッションから戻り先のアクションを取得する。*
-		 *-------------------------------------------------*/
-		// 戻り先をセッションから取得する。
-		String backAction = CommonUtil.getStr(request.getSession().getAttribute(SESSION_REGIST_BACK_SENSEKI));
-		// セッションから取得できない場合
-		//if (backAction == null) {
-		if (EMPTY.equals(backAction)) {
-
-			// 戦績コードがフォームに設定されていない場合
-			if (CommonUtil.isNull(CommonUtil.getStr(formMap.get(SensekiConst.KEY_SENSEKI_CD)))) {
-				// メニューからの遷移と判定
-				backAction = ACTION_FOWARD_BACK_MENU;
-
-			} else {
-				// 戦績からの遷移の場合
-				backAction = ACTION_FOWARD_BACK_LIST;
-
-			}
-			// セッションに戻り先を保持する。
-			request.getSession().setAttribute(SESSION_REGIST_BACK_SENSEKI, backAction);
-		}
-
-	
-
 		/*---------------------------------------------------*
-		 * 2．セッションから表示するメッセージを取得する。  *
+		 * 1．セッションから表示するメッセージを取得する。  *
 		 *---------------------------------------------------*/
 		// メッセージをセッションから取得する。
 		String messageKey = CommonUtil.getStr(request.getSession().getAttribute(SESSION_REGIST_MESSAGE_SENSEKI));

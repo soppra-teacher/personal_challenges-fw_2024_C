@@ -56,9 +56,8 @@ public class SensekiRegistInsUpdAction extends BaseAction {
 		// 登録・更新処理
 		sensekiRegService.registInsUpd(formMap, loginDto);
 
-			// 登録成功メッセージをセッションに設定
-			request.getSession().setAttribute(SESSION_REGIST_MESSAGE_SENSEKI, MSG_SUCCESS_INSERT);
-
+		// 登録成功メッセージをセッションに設定
+		request.getSession().setAttribute(SESSION_REGIST_MESSAGE_SENSEKI, MSG_SUCCESS_INSERT);
 
 		// 処理成功時の遷移先を指定する。
 		return map.findForward(ACTION_FOWARD_SUCCESS);
