@@ -7,7 +7,6 @@ import java.util.Map;
 import cashbook.dao.common.BaseDaoImpl;
 import cashbook.dto.common.LoginDto;
 import cashbook.util.CommonUtil;
-
 import cashbook.util.SensekiRegConst;
 
 /**
@@ -78,6 +77,7 @@ public class SensekiRegDaoImpl extends BaseDaoImpl implements SensekiRegDao {
 		sql.append("SELECT PLAYER_ID AS ID");
 		sql.append(",PLAYER_ID || ':' || PLAYER_NAME AS NAME    ");
 		sql.append("FROM MST_PLAYER                             ");
+		sql.append("  WHERE INS_USER= '").append(loginDto.getUserId()).append("' "); 
 		sql.append("ORDER BY  PLAYER_ID                         ");
 		result = super.search(sql.toString());
 		for (Map<String, String> map : result) {
