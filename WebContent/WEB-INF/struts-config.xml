@@ -17,18 +17,6 @@
 		
 		  <!-- 個人戦績-->
 		<form-bean name="sensekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="matchId"   type="java.lang.String"  />
-			<form-property name="playerId"   type="java.lang.String"  />
-			<form-property name="sittenNm"   type="java.lang.String"  />
-			<form-property name="jisekitenNm"   type="java.lang.String"  />
-			<form-property name="eTeam"   type="java.lang.String"  />
-			<form-property name="matchDate"   type="java.lang.String"  />
-			<form-property name="hianda"   type="java.lang.String"  />
-			<form-property name="yoshikyu"   type="java.lang.String"  />
-			<form-property name="inning"   type="java.lang.String"  />
-			<form-property name="tamakazu"   type="java.lang.String"  />
-			<form-property name="playerNm"   type="java.lang.String"  />
-			<form-property name="datsusanshin"   type="java.lang.String"  />
 			<form-property name="senshuId"        type="java.lang.Integer"  />
 			<form-property name="checkDel"       type="java.lang.String[]"/>
 		</form-bean>

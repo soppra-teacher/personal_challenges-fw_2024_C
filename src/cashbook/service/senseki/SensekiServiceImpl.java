@@ -11,12 +11,12 @@ import cashbook.dto.senseki.SensekiListDto;
 import cashbook.util.CommonUtil;
 
 /**
- * 個人マスタサービス
+ * 個人戦績サービス
  * @author soppra
  */
 public class SensekiServiceImpl implements SensekiService {
 
-	/** 個人マスタDao */
+	/** 個人戦績Dao */
 	private SensekiDao sensekiDao;
 	
 	/**

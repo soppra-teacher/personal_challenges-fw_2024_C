@@ -2,9 +2,7 @@ package cashbook.dto.sensekireg;
 
 import java.util.List;
 
-import cashbook.dto.common.BaseDto;
-
-public class SensekiRegListDto extends BaseDto {
+public class SensekiRegListDto {
 	
 	/** 個人戦績マスタ一覧 */
 	private List<SensekiRegListDto> list;
