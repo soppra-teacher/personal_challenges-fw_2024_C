@@ -171,7 +171,7 @@
 			name="sensekiListForm"
 			validate="false"
 			scope="request">
-			<forward name="success" path="/jsp/senseki/sensekiList.jsp" redirect="true"  />
+			<forward name="success" path="/jsp/senseki/sensekiList.jsp"   />
 		</action>
 		<!--  ディスパッチ -->
 		<action
