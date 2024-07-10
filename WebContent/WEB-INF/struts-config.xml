@@ -22,13 +22,10 @@
 		</form-bean>
 		
 		
-		<!-- 戦績登録画面 -->
+		<!-- 個人戦績登録画面 -->
 		<form-bean name="sensekiRegistForm"     type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="matchId"     type="java.lang.String" />
-			<form-property name="senshuNm"     type="java.lang.String" />
 			<form-property name="senshuNmKey"     type="java.lang.String" />
-			<form-property name="ining"     type="java.lang.String" />
-			<form-property name="iningMini" type="java.lang.String" />
+			<form-property name="ining" type="java.lang.String" />
 			<form-property name="iningMiniKey" type="java.lang.String" />
 			<form-property name="tamakazu"     type="java.lang.String" />
 			<form-property name="hianda"     type="java.lang.String" />

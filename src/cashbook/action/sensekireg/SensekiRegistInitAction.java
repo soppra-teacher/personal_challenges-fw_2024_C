@@ -16,7 +16,7 @@ import org.apache.struts.action.DynaActionForm;
 
 import cashbook.action.common.BaseAction;
 import cashbook.dto.common.LoginDto;
-import cashbook.dto.senseki.SensekiRegistDto;
+import cashbook.dto.sensekireg.SensekiRegistDto;
 import cashbook.service.sensekireg.SensekiRegService;
 import cashbook.util.CommonUtil;
 import cashbook.util.SensekiRegConst;

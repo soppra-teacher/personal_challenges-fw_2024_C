@@ -3,10 +3,10 @@ package cashbook.dto.sensekireg;
 import java.util.Map;
 
 /**
- * 戦績マスタ登録画面用DTO
+ * 戦績登録画面用DTO
  * @author soppra
  */
-public class SensekiRegistDto {
+public class SensekiRegistDto  {
 	
 	/**試合ID */
 	private String matchId;

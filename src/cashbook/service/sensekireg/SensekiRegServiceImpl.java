@@ -7,11 +7,10 @@ import java.util.Map;
 import cashbook.dao.common.CommonDao;
 import cashbook.dao.sensekireg.SensekiRegDao;
 import cashbook.dto.common.LoginDto;
-import cashbook.dto.senseki.SensekiRegistDto;
-import cashbook.exception.CommonValidateException;
+import cashbook.dto.sensekireg.SensekiRegistDto;
 
 /**
- * 戦績登録
+ * 個人戦績登録
  * @author soppra
  */
 public class SensekiRegServiceImpl implements SensekiRegService {
@@ -43,7 +42,7 @@ public class SensekiRegServiceImpl implements SensekiRegService {
 	 * <br>初期表示処理
 	 * </b></p>
 	 * @param loginDto ログイン情報DTO
-	 * @return SensekiRegistDto 戦績登録DTO
+	 * @return SensekiRegistDto 個人戦績登録DTO
 	 */
 	public SensekiRegistDto listInit(LoginDto loginDto) {
 
@@ -62,7 +61,7 @@ public class SensekiRegServiceImpl implements SensekiRegService {
 	 * </b></p>
 	 * @param formMap  画面項目
 	 * @param loginDto ログイン情報DTO
-	 * @return SensekiRegistDto 
+	 * @return SensekiRegistDto 個人戦績登録DTO
 	 */
 	public SensekiRegistDto registInit(Map<String, Object> formMap,LoginDto loginDto) {
 
@@ -83,9 +82,9 @@ public class SensekiRegServiceImpl implements SensekiRegService {
 	 * </b></p>
 	 * @param formMap  画面項目
 	 * @param loginDto ログイン情報DTO
-	 * @throws CommonValidateException
+	 * @throws Exception
 	 */
-	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws CommonValidateException {	
+	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception {	
 		// 登録処理
 		sensekiRegDao.registSenseki(formMap, loginDto);
 
