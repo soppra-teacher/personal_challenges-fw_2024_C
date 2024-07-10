@@ -10,37 +10,20 @@
 			type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="userId" type="java.lang.String" />
 			<form-property name="pass" type="java.lang.String" />
-			<form-property name="pass2" type="java.lang.String" />
 			<form-property name="getKey" type="java.lang.String" />
-			<form-property name="" type="java.lang.String" />
 		</form-bean>
 		
 		  <!-- 個人戦績-->
 		<form-bean name="sensekiListForm"          type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="matchId"   type="java.lang.String"  />
-			<form-property name="playerId"   type="java.lang.String"  />
-			<form-property name="sittenNm"   type="java.lang.String"  />
-			<form-property name="jisekitenNm"   type="java.lang.String"  />
-			<form-property name="eTeam"   type="java.lang.String"  />
-			<form-property name="matchDate"   type="java.lang.String"  />
-			<form-property name="hianda"   type="java.lang.String"  />
-			<form-property name="yoshikyu"   type="java.lang.String"  />
-			<form-property name="inning"   type="java.lang.String"  />
-			<form-property name="tamakazu"   type="java.lang.String"  />
-			<form-property name="playerNm"   type="java.lang.String"  />
-			<form-property name="datsusanshin"   type="java.lang.String"  />
 			<form-property name="senshuId"        type="java.lang.Integer"  />
 			<form-property name="checkDel"       type="java.lang.String[]"/>
 		</form-bean>
 		
 		
-		<!-- 戦績登録画面 -->
+		<!-- 個人戦績登録画面 -->
 		<form-bean name="sensekiRegistForm"     type="org.apache.struts.validator.DynaValidatorForm">
-			<form-property name="matchId"     type="java.lang.String" />
-			<form-property name="senshuNm"     type="java.lang.String" />
 			<form-property name="senshuNmKey"     type="java.lang.String" />
-			<form-property name="ining"     type="java.lang.String" />
-			<form-property name="iningMini" type="java.lang.String" />
+			<form-property name="ining" type="java.lang.String" />
 			<form-property name="iningMiniKey" type="java.lang.String" />
 			<form-property name="tamakazu"     type="java.lang.String" />
 			<form-property name="hianda"     type="java.lang.String" />
@@ -58,17 +41,8 @@
 		<form-bean name="userRegistForm"
 			type="org.apache.struts.validator.DynaValidatorForm">
 			<form-property name="userId" type="java.lang.String" />
-			<form-property name="kojinId" type="java.lang.String" />
 			<form-property name="pass" type="java.lang.String" />
 			<form-property name="pass2" type="java.lang.String" />
-			<form-property name="setaiNmKey" type="java.lang.String" />
-			<form-property name="ja" type="java.lang.String" />
-			<form-property name="kojinNm" type="java.lang.String" />
-			<form-property name="kojinNmkana" type="java.lang.String" />
-			<form-property name="seibetsuKbn"	type="java.lang.String" />
-			<form-property name="zokugaraKey"	type="java.lang.String" />
-			<form-property name="setaiNusiFlg"	type="java.lang.String" />
-			<form-property name="revision" type="java.lang.String" />
 		</form-bean>
 		
 		<!-- 成績画面 -->

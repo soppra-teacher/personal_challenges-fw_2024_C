@@ -17,7 +17,7 @@ public interface UserDao {
 	/**
 	 * 重複チェック
 	 * @param formMap
-	 * @return
+	 * @return　boolean
 	 */
 	public boolean checkOverlapUser(Map<String, Object> formMap);
 

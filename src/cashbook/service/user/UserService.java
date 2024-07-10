@@ -10,7 +10,7 @@ import java.util.Map;
 public interface UserService {
 
 	/**
-	 *
+	 * 登録画面登録・更新メソッド
 	 * @param formMap
 	 * @throws Exception
 	 */
