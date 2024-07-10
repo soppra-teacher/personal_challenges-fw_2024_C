@@ -10,7 +10,7 @@ import cashbook.util.CommonUtil;
 import cashbook.util.SensekiRegConst;
 
 /**
- * 個人戦績DAOクラス
+ * 個人戦績登録DAOクラス
  * @author soppra
  */
 public class SensekiRegDaoImpl extends BaseDaoImpl implements SensekiRegDao {
