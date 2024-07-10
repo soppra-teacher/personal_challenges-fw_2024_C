@@ -45,17 +45,4 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
 		return super.find(sql.toString()).toString().equals("{COUNT(M1.USER_ID)=0}");
 	}
-
-	/**
-	 * ユーザーID確認　＜＝　ユーザーID
-	 * @return false：正常、true：整合性エラー
-	 */
-	public boolean checkSetainushiFlg(Map<String, Object> formMap) {
-
-		StringBuffer sql = new StringBuffer();
-		sql.append("SELECT USER_ID ");
-		sql.append("  FROM MST_USER  ");
-		sql.append(" WHERE USER_ID != '").append(formMap.get(UserConst.KEY_USER_ID)).append("' ");
-		return super.find(sql.toString()).size() != 0;
-	}
 }

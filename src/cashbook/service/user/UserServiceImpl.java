@@ -28,9 +28,8 @@ public class UserServiceImpl implements UserService {
 
 	/**
 	 * 登録画面登録・更新メソッド
-	 * @return 
-	 * @throws CommonValidateException
-	 */ //ここの戻り値を変更 VOID => booleanへ
+	 * @param formMap
+	 */ 
 	public void registInsUpd(Map<String, Object> formMap) throws Exception {
 
 		String user_pass = CommonUtil.getStr(formMap.get(UserConst.KEY_PASS));

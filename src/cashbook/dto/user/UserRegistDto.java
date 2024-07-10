@@ -1,8 +1,6 @@
 package cashbook.dto.user;
 
-import cashbook.dto.common.BaseDto;
-
-public class UserRegistDto extends BaseDto {
+public class UserRegistDto {
 
 	/** ユーザーID */
 	private String userId;
