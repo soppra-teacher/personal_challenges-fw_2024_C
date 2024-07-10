@@ -2,9 +2,7 @@ package cashbook.dto.seiseki;
 
 import java.util.List;
 
-import cashbook.dto.common.BaseDto;
-
-public class SeisekiListDto extends BaseDto {
+public class SeisekiListDto {
 
 	/** 成績一覧 */
 	private List<SeisekiListDto> list;	

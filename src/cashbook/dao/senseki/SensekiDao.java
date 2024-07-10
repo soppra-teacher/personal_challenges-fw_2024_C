@@ -14,6 +14,7 @@ public interface SensekiDao {
 	/**
 	 * 個人戦績一覧を検索する
 	 * @param formMap フォーム項目
+	 * @param loginDto
 	 * @return 個人マスタ一覧
 	 */
 	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap,LoginDto loginDto);
@@ -27,6 +28,7 @@ public interface SensekiDao {
 	
 	/**
 	 * 選手名を検索する
+	 * @param formMap
 	 * @return 選手名
 	 */
 	public String getPlayerName(Map<String, Object> formMap);

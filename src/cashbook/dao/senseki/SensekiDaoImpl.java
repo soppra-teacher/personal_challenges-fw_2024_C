@@ -15,8 +15,9 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 	/**
 	 * 個人戦績一覧を検索する
-	 * @return 個人戦績一覧
+	 * @param formMap フォーム項目
 	 * @param loginDto
+	 * @return 個人マスタ一覧
 	 */
 	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap,LoginDto loginDto) {
 
@@ -47,7 +48,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 	/**
 	 * 個人戦績を削除する
-	 * @param matchId
+	 * @param checkDel
 	 * @param loginDto
 	 */
 	public void deleteSenseki(String matchId, LoginDto loginDto) {
@@ -62,7 +63,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 	/**
 	 * 選手名を検索する
-	 * @param loginDto
+	 * @param formMap
 	 * @return 選手名
 	 */
 	public String getPlayerName(Map<String, Object> formMap) {

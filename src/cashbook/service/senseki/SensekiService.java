@@ -16,7 +16,7 @@ public interface SensekiService {
 	 * 一覧画面初期表示メソッド
 	 * @param formMap
 	 * @param loginDto
-	 * @ret
+	 * @return SensekiListDto
 	 */
 	public SensekiListDto listInit(Map<String, Object> formMap,LoginDto loginDto);
 
