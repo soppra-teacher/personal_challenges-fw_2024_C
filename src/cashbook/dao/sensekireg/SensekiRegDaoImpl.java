@@ -16,7 +16,7 @@ import cashbook.util.SensekiRegConst;
 public class SensekiRegDaoImpl extends BaseDaoImpl implements SensekiRegDao {
 	/**
 	 * <p><b>
-	 * 戦績登録画面
+	 * 個人戦績登録画面
 	 * <br>登録処理
 	 * </b></p>
 	 * @param フォーム項目

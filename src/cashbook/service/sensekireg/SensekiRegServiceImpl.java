@@ -15,13 +15,13 @@ import cashbook.dto.sensekireg.SensekiRegistDto;
  */
 public class SensekiRegServiceImpl implements SensekiRegService {
 
-	/** 戦績登録Dao */
+	/** 個人戦績登録Dao */
 	private SensekiRegDao sensekiRegDao;
 	/** 共通Dao */
 	private CommonDao commonDao;
 
 	/**
-	 * 戦績Daoを設定します。
+	 * 個人戦績登録Daoを設定します。
 	 * @param sensekiRegDao
 	 */
 	public void setSensekiRegDao(SensekiRegDao sensekiRegDao) {
@@ -38,32 +38,14 @@ public class SensekiRegServiceImpl implements SensekiRegService {
 
 	/**
 	 * <p><b>
-	 * 戦績画面
-	 * <br>初期表示処理
-	 * </b></p>
-	 * @param loginDto ログイン情報DTO
-	 * @return SensekiRegistDto 個人戦績登録DTO
-	 */
-	public SensekiRegistDto listInit(LoginDto loginDto) {
-
-		SensekiRegistDto result = new SensekiRegistDto();
-		// 選手名コンボボックスの設定
-		result.setSenshuNm(sensekiRegDao.searchSelectboxSenshuNm(loginDto));
-		//イニング詳細コンボボックス
-		result.setIningMini(commonDao.getCode(CD_BUNRUI_001));
-		return result;
-	}
-
-	/**
-	 * <p><b>
-	 * 戦績登録画面
-	 * <br>検索処理
+	 * 個人戦績登録画面
+	 * <br>初期表示
 	 * </b></p>
 	 * @param formMap  画面項目
 	 * @param loginDto ログイン情報DTO
 	 * @return SensekiRegistDto 個人戦績登録DTO
 	 */
-	public SensekiRegistDto registInit(Map<String, Object> formMap,LoginDto loginDto) {
+	public SensekiRegistDto registInit(Map<String, Object> formMap, LoginDto loginDto) {
 
 		SensekiRegistDto result = new SensekiRegistDto();
 
@@ -77,16 +59,16 @@ public class SensekiRegServiceImpl implements SensekiRegService {
 
 	/**
 	 * <p><b>
-	 * 戦績登録画面
-	 * <br>登録・更新処理
+	 * 個人戦績登録画面
+	 * <br>登録処理
 	 * </b></p>
 	 * @param formMap  画面項目
 	 * @param loginDto ログイン情報DTO
 	 * @throws Exception
 	 */
-	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception {	
+	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception {
 		// 登録処理
 		sensekiRegDao.registSenseki(formMap, loginDto);
 
-		}
+	}
 }

@@ -11,7 +11,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
 /**
- * 戦績登録画面 ディスパッチアクションクラス
+ * 個人戦績登録画面 ディスパッチアクションクラス
  * @author soppra
  */
 public class SensekiRegistDispAction extends DispatchAction {
