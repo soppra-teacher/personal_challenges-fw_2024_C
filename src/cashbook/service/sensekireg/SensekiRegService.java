@@ -4,30 +4,24 @@ import java.util.Map;
 
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.sensekireg.SensekiRegistDto;
+
 /**
  * 個人戦績登録サービスインターフェース
  * @author soppra
  *
  */
 public interface SensekiRegService {
+
 	/**
 	 * <p><b>
-	 * 戦績メンテ画面
-	 * <br>初期表示処理
-	 * </b></p>
-	 * @param  loginDto       ログイン情報DTO
-	 * @return SensekiRegistDto 個人戦績登録DTO
-	 */
-	public SensekiRegistDto listInit(LoginDto loginDto);
-	/**
-	 * <p><b>
-	 * 戦績登録画面
+	 * 個人戦績登録画面
+	 * <br>初期表示
 	 * </b></p>
 	 * @param  formMap        画面項目
 	 * @param  loginDto       ログイン情報DTO
 	 * @return SensekiListDto 個人戦績登録DTO
 	 */
-	public SensekiRegistDto registInit(Map<String, Object> formMap,LoginDto loginDto);
+	public SensekiRegistDto registInit(Map<String, Object> formMap, LoginDto loginDto);
 
 	/**
 	 * <p><b>
@@ -39,8 +33,5 @@ public interface SensekiRegService {
 	 * @throws Exception
 	 */
 	public void registInsUpd(Map<String, Object> formMap, LoginDto loginDto) throws Exception;
-
-
-	
 
 }
