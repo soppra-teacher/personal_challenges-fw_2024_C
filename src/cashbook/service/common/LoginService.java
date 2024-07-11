@@ -9,6 +9,7 @@ public interface LoginService {
 	/**
 	 * ログイン実行メソッド
 	 * @param formMap
+	 * @return ログイン情報DTO
 	 */
 	public LoginDto execute(Map<String, Object> formMap);
 }
