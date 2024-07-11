@@ -18,17 +18,17 @@ import cashbook.service.sensekireg.SensekiRegService;
 import cashbook.util.CommonUtil;
 
 /**
- * 戦績登録画面 登録・更新アクションクラス
+ * 個人戦績登録画面 登録アクションクラス
  * @author soppra
  */
 public class SensekiRegistInsUpdAction extends BaseAction {
 
-	/** 戦績サービス */
+	/** 個人戦績サービス */
 	private SensekiRegService sensekiRegService;
 
 	/**
-	 * 戦績サービスを設定します。
-	 * @param sensekiRegService 戦績サービス
+	 * 個人戦績サービスを設定します。
+	 * @param sensekiRegService 個人戦績サービス
 	 */
 	public void setSensekiRegService(SensekiRegService sensekiRegService) {
 		this.sensekiRegService = sensekiRegService;
@@ -36,8 +36,8 @@ public class SensekiRegistInsUpdAction extends BaseAction {
 
 	/**
 	 * <p>
-	 * 戦績登録画面
-	 * <br>登録・更新処理
+	 * 個人戦績登録画面
+	 * <br>登録処理
 	 * </p>
 	 *
 	 * @param map      アクションマッピング
@@ -53,7 +53,7 @@ public class SensekiRegistInsUpdAction extends BaseAction {
 
 		// フォームの値を取得する。
 		Map<String, Object> formMap = CommonUtil.getFormMap((DynaActionForm) form);
-		// 登録・更新処理
+		// 登録処理
 		sensekiRegService.registInsUpd(formMap, loginDto);
 
 		// 登録成功メッセージをセッションに設定

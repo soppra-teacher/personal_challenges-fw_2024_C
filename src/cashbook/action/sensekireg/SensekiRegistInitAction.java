@@ -22,17 +22,17 @@ import cashbook.util.CommonUtil;
 import cashbook.util.SensekiRegConst;
 
 /**
- * 戦績登録画面 初期表示アクションクラス
+ * 個人個人戦績登録画面 初期表示アクションクラス
  * @author soppra
  */
 public class SensekiRegistInitAction extends BaseAction {
 
-	/** 戦績サービス */
+	/** 個人個人戦績サービス */
 	private SensekiRegService sensekiRegService;
 
 	/**
-	 * 戦績サービスを設定します。
-	 * @param sensekiService 戦績サービス
+	 * 個人個人戦績サービスを設定します。
+	 * @param sensekiService 個人戦績サービス
 	 */
 	public void setSensekiRegService(SensekiRegService sensekiRegService) {
 		this.sensekiRegService = sensekiRegService;
@@ -40,7 +40,7 @@ public class SensekiRegistInitAction extends BaseAction {
 
 	/**
 	 * <p><b>
-	 * 戦績登録画面
+	 * 個人戦績登録画面
 	 * <br>初期表示処理
 	 * </b></p>
 	 *

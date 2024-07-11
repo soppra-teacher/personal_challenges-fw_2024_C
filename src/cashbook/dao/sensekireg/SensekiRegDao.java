@@ -11,7 +11,7 @@ import cashbook.dto.common.LoginDto;
 public interface SensekiRegDao {
 	/**
 	 * <p><b>
-	 * 戦績登録画面
+	 * 個人戦績登録画面
 	 * <br>登録処理
 	 * </b></p>
 	 * @param formMap フォーム項目

@@ -5,7 +5,7 @@ import java.util.Map;
 import cashbook.dto.common.LoginDto;
 import cashbook.dto.senseki.SensekiListDto;
 /**
- * 個人サービスインターフェース
+ * 個人戦績インターフェース
  * @author soppra
  *
  */

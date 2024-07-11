@@ -23,7 +23,7 @@ public class LoginServiceImpl implements LoginService {
 	/**
 	 * ログイン実行メソッド
 	 * @param formMap
-	 * @return ユーザーID
+	 * @return ログイン情報DTO
 	 */
 
 	public LoginDto execute(Map<String, Object> formMap) {

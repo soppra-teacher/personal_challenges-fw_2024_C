@@ -17,7 +17,8 @@ public interface UserDao {
 	/**
 	 * 重複チェック
 	 * @param formMap
-	 * @return　boolean
+	 * @return true：正常、false：重複エラー
+	 * ※ユーザーIDが重複していないか確認するSQL文を記載する。
 	 */
 	public boolean checkOverlapUser(Map<String, Object> formMap);
 

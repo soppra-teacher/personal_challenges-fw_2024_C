@@ -12,7 +12,7 @@ import cashbook.util.UserConst;
 public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
 	/**
-	 * ユーザーマスタを登録する ここを変更する
+	 * ユーザーマスタを登録する
 	 * @param formMap
 	 */
 
