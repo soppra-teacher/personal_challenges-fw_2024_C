@@ -17,7 +17,8 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 	 * 個人戦績一覧を検索する
 	 * @param formMap フォーム項目
 	 * @param loginDto
-	 * @return 個人マスタ一覧
+	 * @param formMap
+	 * @return 個人戦績一覧
 	 */
 	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap,LoginDto loginDto) {
 

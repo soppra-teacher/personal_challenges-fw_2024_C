@@ -6,7 +6,7 @@ import java.util.Map;
 import cashbook.dto.common.LoginDto;
 
 /**
- * 個人マスタDAOインターフェース
+ * 個人戦績DAOインターフェース
  * @author soppra
  */
 public interface SensekiDao {
@@ -15,7 +15,7 @@ public interface SensekiDao {
 	 * 個人戦績一覧を検索する
 	 * @param formMap フォーム項目
 	 * @param loginDto
-	 * @return 個人マスタ一覧
+	 * @return 個人戦績一覧
 	 */
 	public List<Map<String, String>> searchSenseki(Map<String, Object> formMap,LoginDto loginDto);
 	
