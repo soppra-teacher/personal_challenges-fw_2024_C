@@ -49,7 +49,7 @@ public class SensekiDaoImpl extends BaseDaoImpl implements SensekiDao {
 
 	/**
 	 * 個人戦績を削除する
-	 * @param checkDel
+	 * @param matchId
 	 * @param loginDto
 	 */
 	public void deleteSenseki(String matchId, LoginDto loginDto) {

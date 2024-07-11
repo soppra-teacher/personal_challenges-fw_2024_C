@@ -21,10 +21,10 @@ public interface SensekiDao {
 	
 	/**
 	 * 個人戦績を削除する
-	 * @param checkDel
+	 * @param matchId
 	 * @param loginDto
 	 */
-	public void deleteSenseki(String checkDel, LoginDto loginDto);
+	public void deleteSenseki(String matchId, LoginDto loginDto);
 	
 	/**
 	 * 選手名を検索する
