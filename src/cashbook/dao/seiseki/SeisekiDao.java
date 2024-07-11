@@ -21,6 +21,7 @@ public interface SeisekiDao {
 
 	/**
 	 * 選手マスタに新規選手登録する
+	 * @param formMap
 	 * @param loginDto
 	 */
 	public void registSenshu(Map<String, Object> formMap, LoginDto loginDto);
