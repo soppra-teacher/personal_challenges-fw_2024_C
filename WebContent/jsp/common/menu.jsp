@@ -11,7 +11,7 @@
 
 <meta content="ja" http-equiv="Content-Language" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>スポーツDATA メニュー画面</title>
+<title>スポーツDATA　メニュー</title>
 
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/common.css" />
