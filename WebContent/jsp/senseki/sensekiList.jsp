@@ -10,7 +10,7 @@
 <head>
 <meta content="ja" http-equiv="Content-Language" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>スポーツデータ 個人戦績</title>
+<title>スポーツDATA 個人戦績</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/common.css" />
 <script type="text/javascript" charset="shift_jis" src="<%=request.getContextPath()%>/js/common.js"></script>
