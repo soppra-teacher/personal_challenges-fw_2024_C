@@ -100,20 +100,6 @@ public class Const {
 	/** 成績マスタメンテ画面 メッセージ */
 	public static final String SESSION_LIST_MESSAGE_SEISEKI = "SEISEKI_LIST_MESSAGE";
 
-	/** 収支登録画面 戻り先 */
-	public static final String SESSION_REGIST_BACK_SHUSHI = "SHUSHI_REGIST_BACK";
-
-	/** 収支一覧(個別)画面 DTO */
-	public static final String SESSION_LIST_DTO_SHUSHI_KOBETSU = "SHUSHI_LIST_KOBETSU_DTO";
-	/** 収支一覧(個別)画面 戻り先 */
-	public static final String SESSION_REGIST_BACK_SHUSHI_KOBETSU = "SHUSHI_LIST_KOBETSU_BACK";
-	/** 収支一覧(個別)画面 メッセージ  */
-	public static final String SESSION_LIST_MESSAGE_SHUSHI_KOBETSU = "SHUSHI_LIST_KOBETSU_MESSAGE";
-	/** 収支一覧(個別)画面 再検索値 */
-	public static final String SESSION_REGIST_RE_SEARCH_SHUSHI_KOBETSU = "SHUSHI_LIST_KOBETSU_RE_SEARCH";
-	/** 収支一覧(個別)画面 メッセージ */
-	public static final String SESSION_LIST_MESSAGE_SHUSHI_SETAI = "SHUSHI_LIST_SETAI_MESSAGE";
-
 	/************* コードマスタ *************/
 	/** イニング詳細 */
 	public static final String CD_BUNRUI_001 = "001";
