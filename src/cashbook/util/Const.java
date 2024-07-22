@@ -38,6 +38,10 @@ public class Const {
 	public static final String MSG_ERRORS_PASS_ERROR = "PassForm.error.login";
 	/** ログイン失敗メッセージ */
 	public static final String MSG_ERRORS_LOGIN_ERROR = "loginForm.error.login";
+	
+	/** ログイン失敗メッセージ */
+	public static final String MSG_ERRORS_LOGIN_ERROR2 = "loginForm.error.login2";
+	
 	/** 検索結果0件メッセージ */
 	public static final String MSG_ERRORS_NO_DATA = "errors.noData";
 	/** 削除対象なしメッセージ */
