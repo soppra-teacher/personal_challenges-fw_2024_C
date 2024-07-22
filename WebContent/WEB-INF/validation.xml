@@ -90,7 +90,7 @@
 			</field>
 		</form>
 
-		<!-- 投手戦績登録画面 sensekiRegistForm　　halfKanaOnly,maxlength　 -->
+		<!-- 投手戦績登録画面 -->
 		<form name="sensekiRegistForm">
 
 			<field property="senshuNmKey" depends="required">
