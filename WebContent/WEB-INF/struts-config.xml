@@ -65,7 +65,7 @@
 		-->
 		<action path="/Login"
 			type="org.springframework.web.struts.DelegatingActionProxy"
-			name="loginForm" validate="false" input="/jsp/common/login.jsp"
+			name="loginForm" validate="true" input="/jsp/common/login.jsp"
 			scope="request">
 			<forward name="success" path="/MenuInit.do?getKey=aaa" />
 		</action>

@@ -73,6 +73,7 @@ public class LoginAction extends Action {
 			ActionErrors errors = new ActionErrors();
 			// ログイン失敗メッセージを設定
 			errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage(Const.MSG_ERRORS_LOGIN_ERROR));
+		
 			// リクエストにエラーを設定する。
 			saveErrors(request, errors);
 
