@@ -51,7 +51,7 @@
 
 
 			</table>
-			<jsp:include page="/jsp/common/newUser_footer.jsp" />
+			<jsp:include page="/jsp/common/menufooter.jsp" />
 		</div>
 
 	</div>
