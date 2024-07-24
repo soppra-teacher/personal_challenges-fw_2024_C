@@ -13,7 +13,7 @@
 			</td>
 			<td class="w-25">
 				<html:link action="/Logout" >
-					ログアウト
+					ログイン画面へ戻る
 				</html:link>
 			</td>
 		</tr>
